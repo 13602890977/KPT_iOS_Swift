@@ -50,7 +50,9 @@ class MainAppViewController: UIViewController {
 
     //在主界面创建scrollView，创建三个VC的view，添加到主界面上
     private func addChildVCInScroller() {
-        self.KptHome = KPTHomePageViewController()
+        self.KptHome = NSBundle.mainBundle().loadNibNamed("KPTHomePageViewController", owner: nil, options: nil).first as? KPTHomePageViewController
+        
+//        self.KptHome = KPTHomePageViewController()
         KptHome?.view.frame = CGRect(x: _scrollV.frame.size.width * 0, y: 0, width: _scrollV.frame.size.width, height: _scrollV.frame.height)
         _scrollV.addSubview(KptHome!.view)
         
@@ -154,7 +156,6 @@ extension MainAppViewController : UIScrollViewDelegate{
     func changeView(offSet:CGFloat) {
         let setX = offSet * (MENU_BUTTON_WIDTH / view.frame.width)
         let sT: Int = Int(offSet / _scrollV.frame.width) + 1
-        print(offSet)
         if sT <= 0  {
             return
         }
