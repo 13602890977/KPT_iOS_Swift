@@ -7,13 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2509226F1CED5D7A00353F17 /* KPTDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250922651CED5D7A00353F17 /* KPTDiscoverViewController.swift */; };
+		250922701CED5D7A00353F17 /* KPTHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250922691CED5D7A00353F17 /* KPTHistoryViewController.swift */; };
+		250922711CED5D7A00353F17 /* KPTHomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2509226D1CED5D7A00353F17 /* KPTHomePageViewController.swift */; };
+		250922731CEDB8EF00353F17 /* KPTHomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 250922721CEDB8EF00353F17 /* KPTHomePageViewController.xib */; };
+		251F857A1CEC6AC300C6051F /* GlobalConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F85791CEC6AC300C6051F /* GlobalConstant.swift */; };
+		251F857C1CEC7BCA00C6051F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251F857B1CEC7BCA00C6051F /* SystemConfiguration.framework */; };
+		25681DA61CEC63AD004E78B2 /* UIColor+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25681DA51CEC63AD004E78B2 /* UIColor+Category.swift */; };
 		25B879221CEC05DD00F9865B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B879211CEC05DD00F9865B /* AppDelegate.swift */; };
-		25B879241CEC05DD00F9865B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B879231CEC05DD00F9865B /* ViewController.swift */; };
 		25B879271CEC05DD00F9865B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25B879251CEC05DD00F9865B /* Main.storyboard */; };
 		25B8792A1CEC05DD00F9865B /* KPT_iOS_Swift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 25B879281CEC05DD00F9865B /* KPT_iOS_Swift.xcdatamodeld */; };
 		25B8792C1CEC05DD00F9865B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25B8792B1CEC05DD00F9865B /* Assets.xcassets */; };
 		25B8792F1CEC05DD00F9865B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25B8792D1CEC05DD00F9865B /* LaunchScreen.storyboard */; };
 		25B8793A1CEC05DD00F9865B /* KPT_iOS_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B879391CEC05DD00F9865B /* KPT_iOS_SwiftTests.swift */; };
+		25B8794A1CEC11CD00F9865B /* MainAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B879481CEC11CD00F9865B /* MainAppViewController.swift */; };
+		981E2C1E527AED817D841664 /* Pods_KPT_iOS_SwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAEF8C5E3A6F1182175E8E8 /* Pods_KPT_iOS_SwiftTests.framework */; };
+		E7C44F9396E5460B7A45C9C9 /* Pods_KPT_iOS_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D77B9D5815ABCCD2C101553 /* Pods_KPT_iOS_Swift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,9 +36,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		250922651CED5D7A00353F17 /* KPTDiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KPTDiscoverViewController.swift; sourceTree = "<group>"; };
+		250922691CED5D7A00353F17 /* KPTHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KPTHistoryViewController.swift; sourceTree = "<group>"; };
+		2509226D1CED5D7A00353F17 /* KPTHomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KPTHomePageViewController.swift; sourceTree = "<group>"; };
+		250922721CEDB8EF00353F17 /* KPTHomePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KPTHomePageViewController.xib; sourceTree = "<group>"; };
+		251F85791CEC6AC300C6051F /* GlobalConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstant.swift; sourceTree = "<group>"; };
+		251F857B1CEC7BCA00C6051F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		25681DA51CEC63AD004E78B2 /* UIColor+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Category.swift"; sourceTree = "<group>"; };
 		25B8791E1CEC05DD00F9865B /* KPT_iOS_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KPT_iOS_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25B879211CEC05DD00F9865B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		25B879231CEC05DD00F9865B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		25B879261CEC05DD00F9865B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		25B879291CEC05DD00F9865B /* KPT_iOS_Swift.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KPT_iOS_Swift.xcdatamodel; sourceTree = "<group>"; };
 		25B8792B1CEC05DD00F9865B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +53,13 @@
 		25B879351CEC05DD00F9865B /* KPT_iOS_SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KPT_iOS_SwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		25B879391CEC05DD00F9865B /* KPT_iOS_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KPT_iOS_SwiftTests.swift; sourceTree = "<group>"; };
 		25B8793B1CEC05DD00F9865B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25B879481CEC11CD00F9865B /* MainAppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainAppViewController.swift; sourceTree = "<group>"; };
+		5641E40202D51F8EB72424B4 /* Pods-KPT_iOS_Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KPT_iOS_Swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-KPT_iOS_Swift/Pods-KPT_iOS_Swift.release.xcconfig"; sourceTree = "<group>"; };
+		7D77B9D5815ABCCD2C101553 /* Pods_KPT_iOS_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KPT_iOS_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D7B99C771E8A608C6A6DBF9 /* Pods-KPT_iOS_Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KPT_iOS_Swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KPT_iOS_Swift/Pods-KPT_iOS_Swift.debug.xcconfig"; sourceTree = "<group>"; };
+		905CC0591D8C90997684B7D4 /* Pods-KPT_iOS_SwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KPT_iOS_SwiftTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KPT_iOS_SwiftTests/Pods-KPT_iOS_SwiftTests.release.xcconfig"; sourceTree = "<group>"; };
+		91734326814587FDABE62228 /* Pods-KPT_iOS_SwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KPT_iOS_SwiftTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KPT_iOS_SwiftTests/Pods-KPT_iOS_SwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9AAEF8C5E3A6F1182175E8E8 /* Pods_KPT_iOS_SwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KPT_iOS_SwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +67,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				251F857C1CEC7BCA00C6051F /* SystemConfiguration.framework in Frameworks */,
+				E7C44F9396E5460B7A45C9C9 /* Pods_KPT_iOS_Swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,18 +76,94 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				981E2C1E527AED817D841664 /* Pods_KPT_iOS_SwiftTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		250922631CED5D7A00353F17 /* KptDiscover */ = {
+			isa = PBXGroup;
+			children = (
+				250922641CED5D7A00353F17 /* Controller */,
+				250922661CED5D7A00353F17 /* View */,
+			);
+			path = KptDiscover;
+			sourceTree = "<group>";
+		};
+		250922641CED5D7A00353F17 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				250922651CED5D7A00353F17 /* KPTDiscoverViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		250922661CED5D7A00353F17 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		250922671CED5D7A00353F17 /* KptHistory */ = {
+			isa = PBXGroup;
+			children = (
+				250922681CED5D7A00353F17 /* Controller */,
+				2509226A1CED5D7A00353F17 /* View */,
+			);
+			path = KptHistory;
+			sourceTree = "<group>";
+		};
+		250922681CED5D7A00353F17 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				250922691CED5D7A00353F17 /* KPTHistoryViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2509226A1CED5D7A00353F17 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2509226B1CED5D7A00353F17 /* KptHomePage */ = {
+			isa = PBXGroup;
+			children = (
+				2509226C1CED5D7A00353F17 /* Controller */,
+				2509226E1CED5D7A00353F17 /* View */,
+			);
+			path = KptHomePage;
+			sourceTree = "<group>";
+		};
+		2509226C1CED5D7A00353F17 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2509226D1CED5D7A00353F17 /* KPTHomePageViewController.swift */,
+				250922721CEDB8EF00353F17 /* KPTHomePageViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2509226E1CED5D7A00353F17 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		25B879151CEC05DD00F9865B = {
 			isa = PBXGroup;
 			children = (
 				25B879201CEC05DD00F9865B /* KPT_iOS_Swift */,
 				25B879381CEC05DD00F9865B /* KPT_iOS_SwiftTests */,
 				25B8791F1CEC05DD00F9865B /* Products */,
+				4C088B993719B6BDDBFA9BA7 /* Pods */,
+				54D49841B374A529CE8EBC55 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,7 +180,11 @@
 			isa = PBXGroup;
 			children = (
 				25B879211CEC05DD00F9865B /* AppDelegate.swift */,
-				25B879231CEC05DD00F9865B /* ViewController.swift */,
+				25B879461CEC11CD00F9865B /* Main */,
+				250922631CED5D7A00353F17 /* KptDiscover */,
+				250922671CED5D7A00353F17 /* KptHistory */,
+				2509226B1CED5D7A00353F17 /* KptHomePage */,
+				25B8794B1CEC122D00F9865B /* Tools */,
 				25B879251CEC05DD00F9865B /* Main.storyboard */,
 				25B8792B1CEC05DD00F9865B /* Assets.xcassets */,
 				25B8792D1CEC05DD00F9865B /* LaunchScreen.storyboard */,
@@ -99,6 +203,60 @@
 			path = KPT_iOS_SwiftTests;
 			sourceTree = "<group>";
 		};
+		25B879461CEC11CD00F9865B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				25B879471CEC11CD00F9865B /* Controller */,
+				25B879491CEC11CD00F9865B /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		25B879471CEC11CD00F9865B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				25B879481CEC11CD00F9865B /* MainAppViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		25B879491CEC11CD00F9865B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		25B8794B1CEC122D00F9865B /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				25681DA51CEC63AD004E78B2 /* UIColor+Category.swift */,
+				251F85791CEC6AC300C6051F /* GlobalConstant.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		4C088B993719B6BDDBFA9BA7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8D7B99C771E8A608C6A6DBF9 /* Pods-KPT_iOS_Swift.debug.xcconfig */,
+				5641E40202D51F8EB72424B4 /* Pods-KPT_iOS_Swift.release.xcconfig */,
+				91734326814587FDABE62228 /* Pods-KPT_iOS_SwiftTests.debug.xcconfig */,
+				905CC0591D8C90997684B7D4 /* Pods-KPT_iOS_SwiftTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		54D49841B374A529CE8EBC55 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				251F857B1CEC7BCA00C6051F /* SystemConfiguration.framework */,
+				7D77B9D5815ABCCD2C101553 /* Pods_KPT_iOS_Swift.framework */,
+				9AAEF8C5E3A6F1182175E8E8 /* Pods_KPT_iOS_SwiftTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +264,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 25B8793E1CEC05DD00F9865B /* Build configuration list for PBXNativeTarget "KPT_iOS_Swift" */;
 			buildPhases = (
+				D0098CC6D2849DFE736040E3 /* 📦 Check Pods Manifest.lock */,
 				25B8791A1CEC05DD00F9865B /* Sources */,
 				25B8791B1CEC05DD00F9865B /* Frameworks */,
 				25B8791C1CEC05DD00F9865B /* Resources */,
+				227565DA5518BC75E9212D7C /* 📦 Embed Pods Frameworks */,
+				76F4A23B72185597DF5505DE /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,9 +284,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 25B879411CEC05DD00F9865B /* Build configuration list for PBXNativeTarget "KPT_iOS_SwiftTests" */;
 			buildPhases = (
+				A5ECF58EF17C4293992BF4E6 /* 📦 Check Pods Manifest.lock */,
 				25B879311CEC05DD00F9865B /* Sources */,
 				25B879321CEC05DD00F9865B /* Frameworks */,
 				25B879331CEC05DD00F9865B /* Resources */,
+				765FE2BAC0E08760648D63A9 /* 📦 Embed Pods Frameworks */,
+				707FBA53468DE82D91DACBFB /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -182,6 +346,7 @@
 			files = (
 				25B8792F1CEC05DD00F9865B /* LaunchScreen.storyboard in Resources */,
 				25B8792C1CEC05DD00F9865B /* Assets.xcassets in Resources */,
+				250922731CEDB8EF00353F17 /* KPTHomePageViewController.xib in Resources */,
 				25B879271CEC05DD00F9865B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,14 +360,112 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		227565DA5518BC75E9212D7C /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KPT_iOS_Swift/Pods-KPT_iOS_Swift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		707FBA53468DE82D91DACBFB /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KPT_iOS_SwiftTests/Pods-KPT_iOS_SwiftTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		765FE2BAC0E08760648D63A9 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KPT_iOS_SwiftTests/Pods-KPT_iOS_SwiftTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		76F4A23B72185597DF5505DE /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KPT_iOS_Swift/Pods-KPT_iOS_Swift-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A5ECF58EF17C4293992BF4E6 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D0098CC6D2849DFE736040E3 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		25B8791A1CEC05DD00F9865B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25B879241CEC05DD00F9865B /* ViewController.swift in Sources */,
 				25B879221CEC05DD00F9865B /* AppDelegate.swift in Sources */,
+				251F857A1CEC6AC300C6051F /* GlobalConstant.swift in Sources */,
+				25B8794A1CEC11CD00F9865B /* MainAppViewController.swift in Sources */,
+				250922701CED5D7A00353F17 /* KPTHistoryViewController.swift in Sources */,
+				2509226F1CED5D7A00353F17 /* KPTDiscoverViewController.swift in Sources */,
 				25B8792A1CEC05DD00F9865B /* KPT_iOS_Swift.xcdatamodeld in Sources */,
+				250922711CED5D7A00353F17 /* KPTHomePageViewController.swift in Sources */,
+				25681DA61CEC63AD004E78B2 /* UIColor+Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +543,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -319,7 +582,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -329,9 +592,12 @@
 		};
 		25B8793F1CEC05DD00F9865B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D7B99C771E8A608C6A6DBF9 /* Pods-KPT_iOS_Swift.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = KPT_iOS_Swift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.KPT-iOS-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -340,9 +606,12 @@
 		};
 		25B879401CEC05DD00F9865B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5641E40202D51F8EB72424B4 /* Pods-KPT_iOS_Swift.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = KPT_iOS_Swift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.KPT-iOS-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -351,6 +620,7 @@
 		};
 		25B879421CEC05DD00F9865B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91734326814587FDABE62228 /* Pods-KPT_iOS_SwiftTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = KPT_iOS_SwiftTests/Info.plist;
@@ -363,6 +633,7 @@
 		};
 		25B879431CEC05DD00F9865B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 905CC0591D8C90997684B7D4 /* Pods-KPT_iOS_SwiftTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = KPT_iOS_SwiftTests/Info.plist;
@@ -392,6 +663,7 @@
 				25B879401CEC05DD00F9865B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		25B879411CEC05DD00F9865B /* Build configuration list for PBXNativeTarget "KPT_iOS_SwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -400,6 +672,7 @@
 				25B879431CEC05DD00F9865B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
