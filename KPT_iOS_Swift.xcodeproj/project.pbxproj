@@ -14,6 +14,7 @@
 		251F857A1CEC6AC300C6051F /* GlobalConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F85791CEC6AC300C6051F /* GlobalConstant.swift */; };
 		251F857C1CEC7BCA00C6051F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251F857B1CEC7BCA00C6051F /* SystemConfiguration.framework */; };
 		25681DA61CEC63AD004E78B2 /* UIColor+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25681DA51CEC63AD004E78B2 /* UIColor+Category.swift */; };
+		25A07F541CEEE74600BA4A71 /* KptRequestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A07F531CEEE74600BA4A71 /* KptRequestClient.swift */; };
 		25B879221CEC05DD00F9865B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B879211CEC05DD00F9865B /* AppDelegate.swift */; };
 		25B879271CEC05DD00F9865B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25B879251CEC05DD00F9865B /* Main.storyboard */; };
 		25B8792A1CEC05DD00F9865B /* KPT_iOS_Swift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 25B879281CEC05DD00F9865B /* KPT_iOS_Swift.xcdatamodeld */; };
@@ -43,6 +44,8 @@
 		251F85791CEC6AC300C6051F /* GlobalConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstant.swift; sourceTree = "<group>"; };
 		251F857B1CEC7BCA00C6051F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		25681DA51CEC63AD004E78B2 /* UIColor+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Category.swift"; sourceTree = "<group>"; };
+		25A07F4F1CEEE69E00BA4A71 /* KPT_iOS_Swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KPT_iOS_Swift-Bridging-Header.h"; sourceTree = "<group>"; };
+		25A07F531CEEE74600BA4A71 /* KptRequestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KptRequestClient.swift; sourceTree = "<group>"; };
 		25B8791E1CEC05DD00F9865B /* KPT_iOS_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KPT_iOS_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25B879211CEC05DD00F9865B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25B879261CEC05DD00F9865B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -190,6 +193,7 @@
 				25B8792D1CEC05DD00F9865B /* LaunchScreen.storyboard */,
 				25B879301CEC05DD00F9865B /* Info.plist */,
 				25B879281CEC05DD00F9865B /* KPT_iOS_Swift.xcdatamodeld */,
+				25A07F4F1CEEE69E00BA4A71 /* KPT_iOS_Swift-Bridging-Header.h */,
 			);
 			path = KPT_iOS_Swift;
 			sourceTree = "<group>";
@@ -232,6 +236,7 @@
 			children = (
 				25681DA51CEC63AD004E78B2 /* UIColor+Category.swift */,
 				251F85791CEC6AC300C6051F /* GlobalConstant.swift */,
+				25A07F531CEEE74600BA4A71 /* KptRequestClient.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -461,6 +466,7 @@
 				25B879221CEC05DD00F9865B /* AppDelegate.swift in Sources */,
 				251F857A1CEC6AC300C6051F /* GlobalConstant.swift in Sources */,
 				25B8794A1CEC11CD00F9865B /* MainAppViewController.swift in Sources */,
+				25A07F541CEEE74600BA4A71 /* KptRequestClient.swift in Sources */,
 				250922701CED5D7A00353F17 /* KPTHistoryViewController.swift in Sources */,
 				2509226F1CED5D7A00353F17 /* KPTDiscoverViewController.swift in Sources */,
 				25B8792A1CEC05DD00F9865B /* KPT_iOS_Swift.xcdatamodeld in Sources */,
@@ -594,6 +600,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8D7B99C771E8A608C6A6DBF9 /* Pods-KPT_iOS_Swift.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = KPT_iOS_Swift/Info.plist;
@@ -601,6 +608,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.KPT-iOS-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "KPT_iOS_Swift/KPT_iOS_Swift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -608,6 +617,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5641E40202D51F8EB72424B4 /* Pods-KPT_iOS_Swift.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = KPT_iOS_Swift/Info.plist;
@@ -615,6 +625,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.KPT-iOS-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "KPT_iOS_Swift/KPT_iOS_Swift-Bridging-Header.h";
 			};
 			name = Release;
 		};

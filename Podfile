@@ -6,8 +6,6 @@ pod 'MBProgressHUD'
 pod 'ReachabilitySwift'
 pod 'AFNetworking'
 pod 'MJExtension'
-pod 'AMap3DMap'
-pod 'AMapLocation'
 pod 'SDWebImage'
 end
 

@@ -13,8 +13,11 @@ class KPTHomePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.randomColor()
-        
-        
+//        KptRequestClient.sharedInstance.GET("/plugins/changhui/port/getBrand?requestCode=001004", parameters: nil, progress: nil, success: { (AFHTTPRequestOperation, JSON) -> Void in
+//            print(JSON)
+//            }) { (_, error) -> Void in
+//                print(error)
+//        }
     }
     
     override func didReceiveMemoryWarning() {

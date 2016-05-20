@@ -8,12 +8,39 @@
 
 import UIKit
 import CoreData
+import ReachabilitySwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    ///网络变化信息
+    var message : String? {
+        didSet {
+            let alert = UIAlertView(title: "温馨提示", message: message, delegate: self, cancelButtonTitle: "确定")
+            alert.show()
+        }
+    }
+    var reach : Reachability? {
+        didSet {
+            reach!.whenReachable = {reach in
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    if reach.isReachableViaWiFi() {
+                        print("使用WiFi")
+//                        self.message = "正在使用WiFi"
+                    } else {
+                        print("没有使用WiFi")
+                        self.message = "正在使用手机数据流量"
+                    }
+                })
+            }
+            reach!.whenUnreachable = { reach in
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.message = "无网络连接"
+                }
+            }
+        }
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -21,12 +48,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame:UIScreen.mainScreen().bounds)
         window?.rootViewController = MainAppViewController()
         window?.makeKeyAndVisible()
+        do {
+           reach = try Reachability.reachabilityForInternetConnection()
+        }catch {
+            print("Unable to creat Reachability")
+        }
+//        //注册网络监听
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityChanged:", name: ReachabilityChangedNotification, object: reach)
+//        do{
+//            //尝试开启网络监听
+//            try reach?.startNotifier()
+//        }catch{
+//            print("could not start reachability notifier(开启失败)")
+//        }
+       
+        
         return true
     }
 
+//    func reachabilityChanged(note: NSNotification) {
+//        
+//        let reachability = note.object as! Reachability
+//        
+//        if reachability.isReachable() {
+//            if reachability.isReachableViaWiFi() {
+//                print("正在使用WiFi")
+//            } else {
+//                print("正在使用手机流量")
+//            }
+//        } else {
+//            print("无网络连接")
+//        }
+//    }
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+        //关闭网络监听
+        reach?.stopNotifier()
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
@@ -40,6 +98,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        //开启网络监听
+        do {
+            try reach!.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
     }
 
     func applicationWillTerminate(application: UIApplication) {
