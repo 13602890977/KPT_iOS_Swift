@@ -8,7 +8,9 @@
 
 import UIKit
 
-let MENU_HEIGHT:CGFloat = 50
-let MENU_BUTTON_WIDTH:CGFloat = 60
-let MIN_MENU_FONT:CGFloat = 16.0
-let MAX_MENU_FONT:CGFloat = 20.0
+///屏幕宽
+let SCRW = UIScreen.mainScreen().bounds.size.width
+///屏幕高
+let SCRH = UIScreen.mainScreen().bounds.size.height
+///高德地图APIKey
+let APIKEY = "b7882ff4e542e01d5e6f718caf6706f0"

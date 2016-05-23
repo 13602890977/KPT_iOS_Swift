@@ -9,6 +9,11 @@
 import UIKit
 import MapKit
 
+let MENU_HEIGHT:CGFloat = 50
+let MENU_BUTTON_WIDTH:CGFloat = 60
+let MIN_MENU_FONT:CGFloat = 16.0
+let MAX_MENU_FONT:CGFloat = 20.0
+
 class MainAppViewController: UIViewController {
     ///地图定位管理者
     var locManager  :CLLocationManager?

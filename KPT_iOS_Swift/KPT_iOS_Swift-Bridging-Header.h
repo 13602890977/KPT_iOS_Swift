@@ -4,3 +4,5 @@
 
 #import <AFNetworking/AFNetworking.h>
 #import <CoreLocation/CoreLocation.h>
+#import <AMapSearchKit/AMapSearchAPI.h>
+#import <AMapNaviKit/AMapNaviKit.h>

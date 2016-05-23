@@ -38,6 +38,16 @@
                ReferencedContainer = "container:KPT_iOS_Swift.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "251458F01CF2F9A200B5CB34"
+               BuildableName = "KPT_iOS_SwiftUITests.xctest"
+               BlueprintName = "KPT_iOS_SwiftUITests"
+               ReferencedContainer = "container:KPT_iOS_Swift.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

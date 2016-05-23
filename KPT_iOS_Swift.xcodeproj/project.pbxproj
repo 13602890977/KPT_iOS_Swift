@@ -11,6 +11,23 @@
 		250922701CED5D7A00353F17 /* KPTHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250922691CED5D7A00353F17 /* KPTHistoryViewController.swift */; };
 		250922711CED5D7A00353F17 /* KPTHomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2509226D1CED5D7A00353F17 /* KPTHomePageViewController.swift */; };
 		250922731CEDB8EF00353F17 /* KPTHomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 250922721CEDB8EF00353F17 /* KPTHomePageViewController.xib */; };
+		251458931CF2EE9900B5CB34 /* AMapLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251458901CF2EE9900B5CB34 /* AMapLocationKit.framework */; };
+		251458941CF2EE9900B5CB34 /* AMapSearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251458911CF2EE9900B5CB34 /* AMapSearchKit.framework */; };
+		251458971CF2EF0900B5CB34 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251458961CF2EF0900B5CB34 /* CoreGraphics.framework */; };
+		251458991CF2EF1200B5CB34 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251458981CF2EF1200B5CB34 /* QuartzCore.framework */; };
+		2514589B1CF2EF1900B5CB34 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2514589A1CF2EF1900B5CB34 /* OpenGLES.framework */; };
+		2514589D1CF2EF2200B5CB34 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2514589C1CF2EF2200B5CB34 /* CoreLocation.framework */; };
+		2514589F1CF2EF2800B5CB34 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2514589E1CF2EF2800B5CB34 /* CoreTelephony.framework */; };
+		251458A11CF2EF4500B5CB34 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 251458A01CF2EF4500B5CB34 /* libz.tbd */; };
+		251458A31CF2EF5600B5CB34 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 251458A21CF2EF5600B5CB34 /* libc++.tbd */; };
+		251458A51CF2EF5D00B5CB34 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251458A41CF2EF5D00B5CB34 /* Security.framework */; };
+		251458AB1CF2F78A00B5CB34 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251458AA1CF2F78A00B5CB34 /* AdSupport.framework */; };
+		251458F41CF2F9A200B5CB34 /* KPT_iOS_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251458F31CF2F9A200B5CB34 /* KPT_iOS_SwiftUITests.swift */; };
+		251458FC1CF2FA7C00B5CB34 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 251458FB1CF2FA7C00B5CB34 /* libstdc++.6.0.9.tbd */; };
+		251458FE1CF2FBB800B5CB34 /* AMapNaviKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251458FD1CF2FBB800B5CB34 /* AMapNaviKit.framework */; };
+		251459001CF2FC0D00B5CB34 /* AMapNaviKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251458FF1CF2FC0D00B5CB34 /* AMapNaviKit.framework */; };
+		251459031CF2FCC400B5CB34 /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 251459011CF2FCC400B5CB34 /* AMap.bundle */; };
+		251459041CF2FCC400B5CB34 /* AMapNavi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 251459021CF2FCC400B5CB34 /* AMapNavi.bundle */; };
 		251F857A1CEC6AC300C6051F /* GlobalConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F85791CEC6AC300C6051F /* GlobalConstant.swift */; };
 		251F857C1CEC7BCA00C6051F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251F857B1CEC7BCA00C6051F /* SystemConfiguration.framework */; };
 		25681DA61CEC63AD004E78B2 /* UIColor+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25681DA51CEC63AD004E78B2 /* UIColor+Category.swift */; };
@@ -27,6 +44,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		251458F61CF2F9A300B5CB34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 25B879161CEC05DD00F9865B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 25B8791D1CEC05DD00F9865B;
+			remoteInfo = KPT_iOS_Swift;
+		};
 		25B879361CEC05DD00F9865B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 25B879161CEC05DD00F9865B /* Project object */;
@@ -41,6 +65,25 @@
 		250922691CED5D7A00353F17 /* KPTHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KPTHistoryViewController.swift; sourceTree = "<group>"; };
 		2509226D1CED5D7A00353F17 /* KPTHomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KPTHomePageViewController.swift; sourceTree = "<group>"; };
 		250922721CEDB8EF00353F17 /* KPTHomePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KPTHomePageViewController.xib; sourceTree = "<group>"; };
+		251458901CF2EE9900B5CB34 /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapLocationKit.framework; sourceTree = "<group>"; };
+		251458911CF2EE9900B5CB34 /* AMapSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapSearchKit.framework; sourceTree = "<group>"; };
+		251458961CF2EF0900B5CB34 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		251458981CF2EF1200B5CB34 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		2514589A1CF2EF1900B5CB34 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		2514589C1CF2EF2200B5CB34 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2514589E1CF2EF2800B5CB34 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		251458A01CF2EF4500B5CB34 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		251458A21CF2EF5600B5CB34 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		251458A41CF2EF5D00B5CB34 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		251458AA1CF2F78A00B5CB34 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		251458F11CF2F9A200B5CB34 /* KPT_iOS_SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KPT_iOS_SwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		251458F31CF2F9A200B5CB34 /* KPT_iOS_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KPT_iOS_SwiftUITests.swift; sourceTree = "<group>"; };
+		251458F51CF2F9A300B5CB34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		251458FB1CF2FA7C00B5CB34 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		251458FD1CF2FBB800B5CB34 /* AMapNaviKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMapNaviKit.framework; path = ../../Downloads/AMapNaviKit.framework; sourceTree = "<group>"; };
+		251458FF1CF2FC0D00B5CB34 /* AMapNaviKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapNaviKit.framework; sourceTree = "<group>"; };
+		251459011CF2FCC400B5CB34 /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AMap.bundle; sourceTree = "<group>"; };
+		251459021CF2FCC400B5CB34 /* AMapNavi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AMapNavi.bundle; sourceTree = "<group>"; };
 		251F85791CEC6AC300C6051F /* GlobalConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstant.swift; sourceTree = "<group>"; };
 		251F857B1CEC7BCA00C6051F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		25681DA51CEC63AD004E78B2 /* UIColor+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Category.swift"; sourceTree = "<group>"; };
@@ -66,11 +109,32 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		251458EE1CF2F9A200B5CB34 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		25B8791B1CEC05DD00F9865B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				251458FE1CF2FBB800B5CB34 /* AMapNaviKit.framework in Frameworks */,
+				251458FC1CF2FA7C00B5CB34 /* libstdc++.6.0.9.tbd in Frameworks */,
+				251458AB1CF2F78A00B5CB34 /* AdSupport.framework in Frameworks */,
+				251458A51CF2EF5D00B5CB34 /* Security.framework in Frameworks */,
+				251458A31CF2EF5600B5CB34 /* libc++.tbd in Frameworks */,
+				251458A11CF2EF4500B5CB34 /* libz.tbd in Frameworks */,
+				251459001CF2FC0D00B5CB34 /* AMapNaviKit.framework in Frameworks */,
 				251F857C1CEC7BCA00C6051F /* SystemConfiguration.framework in Frameworks */,
+				2514589F1CF2EF2800B5CB34 /* CoreTelephony.framework in Frameworks */,
+				2514589D1CF2EF2200B5CB34 /* CoreLocation.framework in Frameworks */,
+				2514589B1CF2EF1900B5CB34 /* OpenGLES.framework in Frameworks */,
+				251458991CF2EF1200B5CB34 /* QuartzCore.framework in Frameworks */,
+				251458971CF2EF0900B5CB34 /* CoreGraphics.framework in Frameworks */,
+				251458941CF2EE9900B5CB34 /* AMapSearchKit.framework in Frameworks */,
+				251458931CF2EE9900B5CB34 /* AMapLocationKit.framework in Frameworks */,
 				E7C44F9396E5460B7A45C9C9 /* Pods_KPT_iOS_Swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,11 +223,33 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		2514588F1CF2EE9900B5CB34 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				251459011CF2FCC400B5CB34 /* AMap.bundle */,
+				251459021CF2FCC400B5CB34 /* AMapNavi.bundle */,
+				251458FF1CF2FC0D00B5CB34 /* AMapNaviKit.framework */,
+				251458901CF2EE9900B5CB34 /* AMapLocationKit.framework */,
+				251458911CF2EE9900B5CB34 /* AMapSearchKit.framework */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		251458F21CF2F9A200B5CB34 /* KPT_iOS_SwiftUITests */ = {
+			isa = PBXGroup;
+			children = (
+				251458F31CF2F9A200B5CB34 /* KPT_iOS_SwiftUITests.swift */,
+				251458F51CF2F9A300B5CB34 /* Info.plist */,
+			);
+			path = KPT_iOS_SwiftUITests;
+			sourceTree = "<group>";
+		};
 		25B879151CEC05DD00F9865B = {
 			isa = PBXGroup;
 			children = (
 				25B879201CEC05DD00F9865B /* KPT_iOS_Swift */,
 				25B879381CEC05DD00F9865B /* KPT_iOS_SwiftTests */,
+				251458F21CF2F9A200B5CB34 /* KPT_iOS_SwiftUITests */,
 				25B8791F1CEC05DD00F9865B /* Products */,
 				4C088B993719B6BDDBFA9BA7 /* Pods */,
 				54D49841B374A529CE8EBC55 /* Frameworks */,
@@ -175,6 +261,7 @@
 			children = (
 				25B8791E1CEC05DD00F9865B /* KPT_iOS_Swift.app */,
 				25B879351CEC05DD00F9865B /* KPT_iOS_SwiftTests.xctest */,
+				251458F11CF2F9A200B5CB34 /* KPT_iOS_SwiftUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -184,6 +271,7 @@
 			children = (
 				25B879211CEC05DD00F9865B /* AppDelegate.swift */,
 				25B879461CEC11CD00F9865B /* Main */,
+				2514588F1CF2EE9900B5CB34 /* Map */,
 				250922631CED5D7A00353F17 /* KptDiscover */,
 				250922671CED5D7A00353F17 /* KptHistory */,
 				2509226B1CED5D7A00353F17 /* KptHomePage */,
@@ -255,6 +343,17 @@
 		54D49841B374A529CE8EBC55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				251458FD1CF2FBB800B5CB34 /* AMapNaviKit.framework */,
+				251458FB1CF2FA7C00B5CB34 /* libstdc++.6.0.9.tbd */,
+				251458AA1CF2F78A00B5CB34 /* AdSupport.framework */,
+				251458A41CF2EF5D00B5CB34 /* Security.framework */,
+				251458A21CF2EF5600B5CB34 /* libc++.tbd */,
+				251458A01CF2EF4500B5CB34 /* libz.tbd */,
+				2514589E1CF2EF2800B5CB34 /* CoreTelephony.framework */,
+				2514589C1CF2EF2200B5CB34 /* CoreLocation.framework */,
+				2514589A1CF2EF1900B5CB34 /* OpenGLES.framework */,
+				251458981CF2EF1200B5CB34 /* QuartzCore.framework */,
+				251458961CF2EF0900B5CB34 /* CoreGraphics.framework */,
 				251F857B1CEC7BCA00C6051F /* SystemConfiguration.framework */,
 				7D77B9D5815ABCCD2C101553 /* Pods_KPT_iOS_Swift.framework */,
 				9AAEF8C5E3A6F1182175E8E8 /* Pods_KPT_iOS_SwiftTests.framework */,
@@ -265,6 +364,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		251458F01CF2F9A200B5CB34 /* KPT_iOS_SwiftUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 251458F81CF2F9A300B5CB34 /* Build configuration list for PBXNativeTarget "KPT_iOS_SwiftUITests" */;
+			buildPhases = (
+				251458ED1CF2F9A200B5CB34 /* Sources */,
+				251458EE1CF2F9A200B5CB34 /* Frameworks */,
+				251458EF1CF2F9A200B5CB34 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				251458F71CF2F9A300B5CB34 /* PBXTargetDependency */,
+			);
+			name = KPT_iOS_SwiftUITests;
+			productName = KPT_iOS_SwiftUITests;
+			productReference = 251458F11CF2F9A200B5CB34 /* KPT_iOS_SwiftUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		25B8791D1CEC05DD00F9865B /* KPT_iOS_Swift */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 25B8793E1CEC05DD00F9865B /* Build configuration list for PBXNativeTarget "KPT_iOS_Swift" */;
@@ -316,6 +433,10 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = yunqiao;
 				TargetAttributes = {
+					251458F01CF2F9A200B5CB34 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 25B8791D1CEC05DD00F9865B;
+					};
 					25B8791D1CEC05DD00F9865B = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
@@ -340,18 +461,28 @@
 			targets = (
 				25B8791D1CEC05DD00F9865B /* KPT_iOS_Swift */,
 				25B879341CEC05DD00F9865B /* KPT_iOS_SwiftTests */,
+				251458F01CF2F9A200B5CB34 /* KPT_iOS_SwiftUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		251458EF1CF2F9A200B5CB34 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		25B8791C1CEC05DD00F9865B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				251459031CF2FCC400B5CB34 /* AMap.bundle in Resources */,
 				25B8792F1CEC05DD00F9865B /* LaunchScreen.storyboard in Resources */,
 				25B8792C1CEC05DD00F9865B /* Assets.xcassets in Resources */,
 				250922731CEDB8EF00353F17 /* KPTHomePageViewController.xib in Resources */,
+				251459041CF2FCC400B5CB34 /* AMapNavi.bundle in Resources */,
 				25B879271CEC05DD00F9865B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,6 +590,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		251458ED1CF2F9A200B5CB34 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				251458F41CF2F9A200B5CB34 /* KPT_iOS_SwiftUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		25B8791A1CEC05DD00F9865B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -486,6 +625,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		251458F71CF2F9A300B5CB34 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 25B8791D1CEC05DD00F9865B /* KPT_iOS_Swift */;
+			targetProxy = 251458F61CF2F9A300B5CB34 /* PBXContainerItemProxy */;
+		};
 		25B879371CEC05DD00F9865B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 25B8791D1CEC05DD00F9865B /* KPT_iOS_Swift */;
@@ -513,6 +657,32 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		251458F91CF2F9A300B5CB34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = KPT_iOS_SwiftUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.KPT-iOS-SwiftUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = KPT_iOS_Swift;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		251458FA1CF2F9A300B5CB34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = KPT_iOS_SwiftUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.KPT-iOS-SwiftUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = KPT_iOS_Swift;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
 		25B8793C1CEC05DD00F9865B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -603,6 +773,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KPT_iOS_Swift/Map",
+				);
 				INFOPLIST_FILE = KPT_iOS_Swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -620,6 +794,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KPT_iOS_Swift/Map",
+				);
 				INFOPLIST_FILE = KPT_iOS_Swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -658,6 +836,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		251458F81CF2F9A300B5CB34 /* Build configuration list for PBXNativeTarget "KPT_iOS_SwiftUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				251458F91CF2F9A300B5CB34 /* Debug */,
+				251458FA1CF2F9A300B5CB34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		25B879191CEC05DD00F9865B /* Build configuration list for PBXProject "KPT_iOS_Swift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
