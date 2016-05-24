@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "AMapSearchObj.h"
 #import "AMapCommonObj.h"
+#import "AMapSearchServices.h"
 
 @protocol AMapSearchDelegate;
 

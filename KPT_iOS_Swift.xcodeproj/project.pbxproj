@@ -12,7 +12,6 @@
 		250922711CED5D7A00353F17 /* KPTHomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2509226D1CED5D7A00353F17 /* KPTHomePageViewController.swift */; };
 		250922731CEDB8EF00353F17 /* KPTHomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 250922721CEDB8EF00353F17 /* KPTHomePageViewController.xib */; };
 		251458931CF2EE9900B5CB34 /* AMapLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251458901CF2EE9900B5CB34 /* AMapLocationKit.framework */; };
-		251458941CF2EE9900B5CB34 /* AMapSearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251458911CF2EE9900B5CB34 /* AMapSearchKit.framework */; };
 		251458971CF2EF0900B5CB34 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251458961CF2EF0900B5CB34 /* CoreGraphics.framework */; };
 		251458991CF2EF1200B5CB34 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251458981CF2EF1200B5CB34 /* QuartzCore.framework */; };
 		2514589B1CF2EF1900B5CB34 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2514589A1CF2EF1900B5CB34 /* OpenGLES.framework */; };
@@ -28,6 +27,8 @@
 		251459001CF2FC0D00B5CB34 /* AMapNaviKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251458FF1CF2FC0D00B5CB34 /* AMapNaviKit.framework */; };
 		251459031CF2FCC400B5CB34 /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 251459011CF2FCC400B5CB34 /* AMap.bundle */; };
 		251459041CF2FCC400B5CB34 /* AMapNavi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 251459021CF2FCC400B5CB34 /* AMapNavi.bundle */; };
+		251459081CF3032800B5CB34 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251459071CF3032800B5CB34 /* AVFoundation.framework */; };
+		2514590C1CF3084900B5CB34 /* AMapSearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2514590B1CF3084900B5CB34 /* AMapSearchKit.framework */; };
 		251F857A1CEC6AC300C6051F /* GlobalConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F85791CEC6AC300C6051F /* GlobalConstant.swift */; };
 		251F857C1CEC7BCA00C6051F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251F857B1CEC7BCA00C6051F /* SystemConfiguration.framework */; };
 		25681DA61CEC63AD004E78B2 /* UIColor+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25681DA51CEC63AD004E78B2 /* UIColor+Category.swift */; };
@@ -66,7 +67,6 @@
 		2509226D1CED5D7A00353F17 /* KPTHomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KPTHomePageViewController.swift; sourceTree = "<group>"; };
 		250922721CEDB8EF00353F17 /* KPTHomePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KPTHomePageViewController.xib; sourceTree = "<group>"; };
 		251458901CF2EE9900B5CB34 /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapLocationKit.framework; sourceTree = "<group>"; };
-		251458911CF2EE9900B5CB34 /* AMapSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapSearchKit.framework; sourceTree = "<group>"; };
 		251458961CF2EF0900B5CB34 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		251458981CF2EF1200B5CB34 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2514589A1CF2EF1900B5CB34 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -84,6 +84,8 @@
 		251458FF1CF2FC0D00B5CB34 /* AMapNaviKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapNaviKit.framework; sourceTree = "<group>"; };
 		251459011CF2FCC400B5CB34 /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AMap.bundle; sourceTree = "<group>"; };
 		251459021CF2FCC400B5CB34 /* AMapNavi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AMapNavi.bundle; sourceTree = "<group>"; };
+		251459071CF3032800B5CB34 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		2514590B1CF3084900B5CB34 /* AMapSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapSearchKit.framework; sourceTree = "<group>"; };
 		251F85791CEC6AC300C6051F /* GlobalConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstant.swift; sourceTree = "<group>"; };
 		251F857B1CEC7BCA00C6051F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		25681DA51CEC63AD004E78B2 /* UIColor+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Category.swift"; sourceTree = "<group>"; };
@@ -120,10 +122,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				251459081CF3032800B5CB34 /* AVFoundation.framework in Frameworks */,
 				251458FE1CF2FBB800B5CB34 /* AMapNaviKit.framework in Frameworks */,
 				251458FC1CF2FA7C00B5CB34 /* libstdc++.6.0.9.tbd in Frameworks */,
 				251458AB1CF2F78A00B5CB34 /* AdSupport.framework in Frameworks */,
 				251458A51CF2EF5D00B5CB34 /* Security.framework in Frameworks */,
+				2514590C1CF3084900B5CB34 /* AMapSearchKit.framework in Frameworks */,
 				251458A31CF2EF5600B5CB34 /* libc++.tbd in Frameworks */,
 				251458A11CF2EF4500B5CB34 /* libz.tbd in Frameworks */,
 				251459001CF2FC0D00B5CB34 /* AMapNaviKit.framework in Frameworks */,
@@ -133,7 +137,6 @@
 				2514589B1CF2EF1900B5CB34 /* OpenGLES.framework in Frameworks */,
 				251458991CF2EF1200B5CB34 /* QuartzCore.framework in Frameworks */,
 				251458971CF2EF0900B5CB34 /* CoreGraphics.framework in Frameworks */,
-				251458941CF2EE9900B5CB34 /* AMapSearchKit.framework in Frameworks */,
 				251458931CF2EE9900B5CB34 /* AMapLocationKit.framework in Frameworks */,
 				E7C44F9396E5460B7A45C9C9 /* Pods_KPT_iOS_Swift.framework in Frameworks */,
 			);
@@ -226,11 +229,11 @@
 		2514588F1CF2EE9900B5CB34 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				2514590B1CF3084900B5CB34 /* AMapSearchKit.framework */,
 				251459011CF2FCC400B5CB34 /* AMap.bundle */,
 				251459021CF2FCC400B5CB34 /* AMapNavi.bundle */,
 				251458FF1CF2FC0D00B5CB34 /* AMapNaviKit.framework */,
 				251458901CF2EE9900B5CB34 /* AMapLocationKit.framework */,
-				251458911CF2EE9900B5CB34 /* AMapSearchKit.framework */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 		54D49841B374A529CE8EBC55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				251459071CF3032800B5CB34 /* AVFoundation.framework */,
 				251458FD1CF2FBB800B5CB34 /* AMapNaviKit.framework */,
 				251458FB1CF2FA7C00B5CB34 /* libstdc++.6.0.9.tbd */,
 				251458AA1CF2F78A00B5CB34 /* AdSupport.framework */,
@@ -780,6 +784,20 @@
 				INFOPLIST_FILE = KPT_iOS_Swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-framework",
+					"\"MJExtension\"",
+					"-framework",
+					"\"ReachabilitySwift\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.KPT-iOS-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "KPT_iOS_Swift/KPT_iOS_Swift-Bridging-Header.h";
@@ -801,6 +819,20 @@
 				INFOPLIST_FILE = KPT_iOS_Swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-framework",
+					"\"MJExtension\"",
+					"-framework",
+					"\"ReachabilitySwift\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.KPT-iOS-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "KPT_iOS_Swift/KPT_iOS_Swift-Bridging-Header.h";

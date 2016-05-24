@@ -11,7 +11,7 @@ import CoreData
 import ReachabilitySwift
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate {
 
     var window: UIWindow?
     ///网络变化信息
@@ -61,8 +61,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }catch{
 //            print("could not start reachability notifier(开启失败)")
 //        }
-       
-        
         return true
     }
 
