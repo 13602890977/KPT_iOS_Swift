@@ -7,6 +7,7 @@ pod 'ReachabilitySwift'
 pod 'AFNetworking'
 pod 'MJExtension'
 pod 'SDWebImage'
+pod 'MLTransition'
 end
 
 target "KPT_iOS_SwiftTests" do

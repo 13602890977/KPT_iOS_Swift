@@ -4,19 +4,11 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         BreakpointExtensionID = "Xcode.Breakpoint.SwiftErrorBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "KPT_iOS_Swift/KptHomePage/Controller/KPTHomePageViewController.swift"
-            timestampString = "485771977.770661"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "234"
-            endingLineNumber = "234"
-            landmarkName = "searchReGeocodeWithCoordinate(_:)"
-            landmarkType = "5">
+            continueAfterRunningActions = "No">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -25,29 +17,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KPT_iOS_Swift/KptHomePage/Controller/KPTHomePageViewController.swift"
-            timestampString = "485771977.770661"
+            filePath = "KPT_iOS_Swift/Tools/GlobalConstant.swift"
+            timestampString = "485941197.35765"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "254"
-            endingLineNumber = "254"
-            landmarkName = "onReGeocodeSearchDone(_:response:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "KPT_iOS_Swift/KptHomePage/Controller/KPTHomePageViewController.swift"
-            timestampString = "485771977.770661"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
-            landmarkName = "mapView(_:didUpdateUserLocation:updatingLocation:)"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "isPhotoNumber()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

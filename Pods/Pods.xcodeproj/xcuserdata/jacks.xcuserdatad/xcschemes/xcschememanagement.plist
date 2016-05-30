@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MLTransition.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-KPT_iOS_Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,17 +47,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0116E42DC1AFED1B9DF11899081DEC87</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>1C3436CEA5C3D39764C5F54374794ECB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>688049E73766DDA5803CDEE76B3D91DF</key>
+		<key>44A801D20E4C212A1EB02FF388FC8E53</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,7 +62,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ACBCE3FB4BD699778940CCE823BD04A6</key>
+		<key>994995A02D326B6DAB07AEAA586BC617</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A3C78063375CE56CB288AF0CDBBED560</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DF3295CB3129C0FA8B6D1E6848B4ED0E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

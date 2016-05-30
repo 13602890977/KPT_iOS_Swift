@@ -29,7 +29,12 @@ class MainAppViewController: UIViewController {
     let arrT = ["首页","发现","历史"]
     
     override func viewWillAppear(animated: Bool) {
+        
         self.setNeedsStatusBarAppearanceUpdate()
+       
+    }
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,11 +77,19 @@ class MainAppViewController: UIViewController {
         _scrollV.contentSize = CGSize(width: _scrollV.frame.width * 3, height: _scrollV.frame.height)
         
     }
+    func personBtnClick(sender:AnyObject?) {
+        
+        let nav = UINavigationController(rootViewController: Kpt_LoginViewController())
+        self.presentViewController(nav, animated: true, completion: nil)
+        
+    }
+    
     private func creatTopNaviVBtn() {
         let btnW :CGFloat = 40
         let btnRight = UIButton(type: UIButtonType.Custom)
         btnRight.frame = CGRect(x: self._topNaviV.frame.width - btnW, y: 32, width: 30, height: 30)
         btnRight.setImage(UIImage(named: "Kpt_person"), forState: UIControlState.Normal)
+        btnRight.addTarget(self, action: "personBtnClick:", forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(btnRight)
         
         for var i = 0;i < arrT.count; i++ {
@@ -116,7 +129,7 @@ class MainAppViewController: UIViewController {
         
     }
     private func setStatusBar() {
-        let viewV = UIView(frame: CGRect(x: 0, y: -20, width: 0, height: 0))
+        let viewV = UIView(frame: CGRect(x: 0, y: -20, width: self.view.frame.size.width, height: 44))
         viewV.backgroundColor = UIColor.RGBA(49, g: 51, b: 67)
         view.addSubview(viewV)
     }

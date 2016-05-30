@@ -192,7 +192,14 @@ class KPTHomePageViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+//        mapView.showsUserLocation = true
+    }
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+//        mapView.showsUserLocation = false
+    }
 }
 
 extension KPTHomePageViewController : AMapSearchDelegate,MAMapViewDelegate{

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		250413B11CF44FCF00611E62 /* Kpt_LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250413AF1CF44FCF00611E62 /* Kpt_LoginViewController.swift */; };
+		250413B21CF44FCF00611E62 /* Kpt_LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 250413B01CF44FCF00611E62 /* Kpt_LoginViewController.xib */; };
 		2509226F1CED5D7A00353F17 /* KPTDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250922651CED5D7A00353F17 /* KPTDiscoverViewController.swift */; };
 		250922701CED5D7A00353F17 /* KPTHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250922691CED5D7A00353F17 /* KPTHistoryViewController.swift */; };
 		250922711CED5D7A00353F17 /* KPTHomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2509226D1CED5D7A00353F17 /* KPTHomePageViewController.swift */; };
@@ -29,10 +31,15 @@
 		251459041CF2FCC400B5CB34 /* AMapNavi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 251459021CF2FCC400B5CB34 /* AMapNavi.bundle */; };
 		251459081CF3032800B5CB34 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251459071CF3032800B5CB34 /* AVFoundation.framework */; };
 		2514590C1CF3084900B5CB34 /* AMapSearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2514590B1CF3084900B5CB34 /* AMapSearchKit.framework */; };
+		2516BA491CF6ECB100E2932E /* Kpt_PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2516BA481CF6ECB100E2932E /* Kpt_PickerView.swift */; };
 		251F857A1CEC6AC300C6051F /* GlobalConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F85791CEC6AC300C6051F /* GlobalConstant.swift */; };
 		251F857C1CEC7BCA00C6051F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251F857B1CEC7BCA00C6051F /* SystemConfiguration.framework */; };
+		2524F6851CF7EB9700101081 /* DrivingLicenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2524F6831CF7EB9700101081 /* DrivingLicenceViewController.swift */; };
+		2524F6861CF7EB9700101081 /* DrivingLicenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2524F6841CF7EB9700101081 /* DrivingLicenceViewController.xib */; };
+		2524F6881CF81DC000101081 /* Kpt_OCRImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2524F6871CF81DC000101081 /* Kpt_OCRImageView.swift */; };
 		25681DA61CEC63AD004E78B2 /* UIColor+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25681DA51CEC63AD004E78B2 /* UIColor+Category.swift */; };
 		25A07F541CEEE74600BA4A71 /* KptRequestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A07F531CEEE74600BA4A71 /* KptRequestClient.swift */; };
+		25A7B1731CF83C8A00177C3F /* Kpt_NextBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A7B1721CF83C8A00177C3F /* Kpt_NextBtnView.swift */; };
 		25B879221CEC05DD00F9865B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B879211CEC05DD00F9865B /* AppDelegate.swift */; };
 		25B879271CEC05DD00F9865B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25B879251CEC05DD00F9865B /* Main.storyboard */; };
 		25B8792A1CEC05DD00F9865B /* KPT_iOS_Swift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 25B879281CEC05DD00F9865B /* KPT_iOS_Swift.xcdatamodeld */; };
@@ -40,6 +47,10 @@
 		25B8792F1CEC05DD00F9865B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25B8792D1CEC05DD00F9865B /* LaunchScreen.storyboard */; };
 		25B8793A1CEC05DD00F9865B /* KPT_iOS_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B879391CEC05DD00F9865B /* KPT_iOS_SwiftTests.swift */; };
 		25B8794A1CEC11CD00F9865B /* MainAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B879481CEC11CD00F9865B /* MainAppViewController.swift */; };
+		25F6700C1CF6A0440001B112 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F6700A1CF6A0440001B112 /* UserInfoViewController.swift */; };
+		25F6700D1CF6A0440001B112 /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25F6700B1CF6A0440001B112 /* UserInfoViewController.xib */; };
+		25FE41461CF54D44006A1CF9 /* Kpt_RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FE41441CF54D44006A1CF9 /* Kpt_RegisterViewController.swift */; };
+		25FE41471CF54D44006A1CF9 /* Kpt_RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25FE41451CF54D44006A1CF9 /* Kpt_RegisterViewController.xib */; };
 		981E2C1E527AED817D841664 /* Pods_KPT_iOS_SwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAEF8C5E3A6F1182175E8E8 /* Pods_KPT_iOS_SwiftTests.framework */; };
 		E7C44F9396E5460B7A45C9C9 /* Pods_KPT_iOS_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D77B9D5815ABCCD2C101553 /* Pods_KPT_iOS_Swift.framework */; };
 /* End PBXBuildFile section */
@@ -62,6 +73,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		250413AF1CF44FCF00611E62 /* Kpt_LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kpt_LoginViewController.swift; sourceTree = "<group>"; };
+		250413B01CF44FCF00611E62 /* Kpt_LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Kpt_LoginViewController.xib; sourceTree = "<group>"; };
 		250922651CED5D7A00353F17 /* KPTDiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KPTDiscoverViewController.swift; sourceTree = "<group>"; };
 		250922691CED5D7A00353F17 /* KPTHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KPTHistoryViewController.swift; sourceTree = "<group>"; };
 		2509226D1CED5D7A00353F17 /* KPTHomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KPTHomePageViewController.swift; sourceTree = "<group>"; };
@@ -86,11 +99,17 @@
 		251459021CF2FCC400B5CB34 /* AMapNavi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AMapNavi.bundle; sourceTree = "<group>"; };
 		251459071CF3032800B5CB34 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2514590B1CF3084900B5CB34 /* AMapSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapSearchKit.framework; sourceTree = "<group>"; };
+		2516BA481CF6ECB100E2932E /* Kpt_PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kpt_PickerView.swift; sourceTree = "<group>"; };
 		251F85791CEC6AC300C6051F /* GlobalConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstant.swift; sourceTree = "<group>"; };
 		251F857B1CEC7BCA00C6051F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		25246FC01CFBD7CC0007695E /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = "Pods/../build/Debug-iphoneos/SnapKit/SnapKit.framework"; sourceTree = "<group>"; };
+		2524F6831CF7EB9700101081 /* DrivingLicenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrivingLicenceViewController.swift; sourceTree = "<group>"; };
+		2524F6841CF7EB9700101081 /* DrivingLicenceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrivingLicenceViewController.xib; sourceTree = "<group>"; };
+		2524F6871CF81DC000101081 /* Kpt_OCRImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kpt_OCRImageView.swift; sourceTree = "<group>"; };
 		25681DA51CEC63AD004E78B2 /* UIColor+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Category.swift"; sourceTree = "<group>"; };
 		25A07F4F1CEEE69E00BA4A71 /* KPT_iOS_Swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KPT_iOS_Swift-Bridging-Header.h"; sourceTree = "<group>"; };
 		25A07F531CEEE74600BA4A71 /* KptRequestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KptRequestClient.swift; sourceTree = "<group>"; };
+		25A7B1721CF83C8A00177C3F /* Kpt_NextBtnView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kpt_NextBtnView.swift; sourceTree = "<group>"; };
 		25B8791E1CEC05DD00F9865B /* KPT_iOS_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KPT_iOS_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25B879211CEC05DD00F9865B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25B879261CEC05DD00F9865B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -102,6 +121,10 @@
 		25B879391CEC05DD00F9865B /* KPT_iOS_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KPT_iOS_SwiftTests.swift; sourceTree = "<group>"; };
 		25B8793B1CEC05DD00F9865B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25B879481CEC11CD00F9865B /* MainAppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainAppViewController.swift; sourceTree = "<group>"; };
+		25F6700A1CF6A0440001B112 /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		25F6700B1CF6A0440001B112 /* UserInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
+		25FE41441CF54D44006A1CF9 /* Kpt_RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kpt_RegisterViewController.swift; sourceTree = "<group>"; };
+		25FE41451CF54D44006A1CF9 /* Kpt_RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Kpt_RegisterViewController.xib; sourceTree = "<group>"; };
 		5641E40202D51F8EB72424B4 /* Pods-KPT_iOS_Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KPT_iOS_Swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-KPT_iOS_Swift/Pods-KPT_iOS_Swift.release.xcconfig"; sourceTree = "<group>"; };
 		7D77B9D5815ABCCD2C101553 /* Pods_KPT_iOS_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KPT_iOS_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D7B99C771E8A608C6A6DBF9 /* Pods-KPT_iOS_Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KPT_iOS_Swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KPT_iOS_Swift/Pods-KPT_iOS_Swift.debug.xcconfig"; sourceTree = "<group>"; };
@@ -153,6 +176,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		250413AB1CF44F7400611E62 /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				250413AC1CF44FA600611E62 /* Controller */,
+				250413AD1CF44FA600611E62 /* Model */,
+				250413AE1CF44FA600611E62 /* View */,
+			);
+			path = UserInfo;
+			sourceTree = "<group>";
+		};
+		250413AC1CF44FA600611E62 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				250413AF1CF44FCF00611E62 /* Kpt_LoginViewController.swift */,
+				250413B01CF44FCF00611E62 /* Kpt_LoginViewController.xib */,
+				25FE41441CF54D44006A1CF9 /* Kpt_RegisterViewController.swift */,
+				25FE41451CF54D44006A1CF9 /* Kpt_RegisterViewController.xib */,
+				25F6700A1CF6A0440001B112 /* UserInfoViewController.swift */,
+				25F6700B1CF6A0440001B112 /* UserInfoViewController.xib */,
+				2524F6831CF7EB9700101081 /* DrivingLicenceViewController.swift */,
+				2524F6841CF7EB9700101081 /* DrivingLicenceViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		250413AD1CF44FA600611E62 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		250413AE1CF44FA600611E62 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2516BA481CF6ECB100E2932E /* Kpt_PickerView.swift */,
+				2524F6871CF81DC000101081 /* Kpt_OCRImageView.swift */,
+				25A7B1721CF83C8A00177C3F /* Kpt_NextBtnView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		250922631CED5D7A00353F17 /* KptDiscover */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,11 +338,12 @@
 			isa = PBXGroup;
 			children = (
 				25B879211CEC05DD00F9865B /* AppDelegate.swift */,
-				25B879461CEC11CD00F9865B /* Main */,
 				2514588F1CF2EE9900B5CB34 /* Map */,
+				25B879461CEC11CD00F9865B /* Main */,
 				250922631CED5D7A00353F17 /* KptDiscover */,
 				250922671CED5D7A00353F17 /* KptHistory */,
 				2509226B1CED5D7A00353F17 /* KptHomePage */,
+				250413AB1CF44F7400611E62 /* UserInfo */,
 				25B8794B1CEC122D00F9865B /* Tools */,
 				25B879251CEC05DD00F9865B /* Main.storyboard */,
 				25B8792B1CEC05DD00F9865B /* Assets.xcassets */,
@@ -346,6 +412,7 @@
 		54D49841B374A529CE8EBC55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				25246FC01CFBD7CC0007695E /* SnapKit.framework */,
 				251459071CF3032800B5CB34 /* AVFoundation.framework */,
 				251458FD1CF2FBB800B5CB34 /* AMapNaviKit.framework */,
 				251458FB1CF2FA7C00B5CB34 /* libstdc++.6.0.9.tbd */,
@@ -483,8 +550,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				251459031CF2FCC400B5CB34 /* AMap.bundle in Resources */,
+				25FE41471CF54D44006A1CF9 /* Kpt_RegisterViewController.xib in Resources */,
+				250413B21CF44FCF00611E62 /* Kpt_LoginViewController.xib in Resources */,
+				25F6700D1CF6A0440001B112 /* UserInfoViewController.xib in Resources */,
 				25B8792F1CEC05DD00F9865B /* LaunchScreen.storyboard in Resources */,
 				25B8792C1CEC05DD00F9865B /* Assets.xcassets in Resources */,
+				2524F6861CF7EB9700101081 /* DrivingLicenceViewController.xib in Resources */,
 				250922731CEDB8EF00353F17 /* KPTHomePageViewController.xib in Resources */,
 				251459041CF2FCC400B5CB34 /* AMapNavi.bundle in Resources */,
 				25B879271CEC05DD00F9865B /* Main.storyboard in Resources */,
@@ -607,13 +678,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				25B879221CEC05DD00F9865B /* AppDelegate.swift in Sources */,
+				25F6700C1CF6A0440001B112 /* UserInfoViewController.swift in Sources */,
 				251F857A1CEC6AC300C6051F /* GlobalConstant.swift in Sources */,
 				25B8794A1CEC11CD00F9865B /* MainAppViewController.swift in Sources */,
+				2524F6881CF81DC000101081 /* Kpt_OCRImageView.swift in Sources */,
 				25A07F541CEEE74600BA4A71 /* KptRequestClient.swift in Sources */,
 				250922701CED5D7A00353F17 /* KPTHistoryViewController.swift in Sources */,
+				2516BA491CF6ECB100E2932E /* Kpt_PickerView.swift in Sources */,
 				2509226F1CED5D7A00353F17 /* KPTDiscoverViewController.swift in Sources */,
 				25B8792A1CEC05DD00F9865B /* KPT_iOS_Swift.xcdatamodeld in Sources */,
 				250922711CED5D7A00353F17 /* KPTHomePageViewController.swift in Sources */,
+				2524F6851CF7EB9700101081 /* DrivingLicenceViewController.swift in Sources */,
+				25A7B1731CF83C8A00177C3F /* Kpt_NextBtnView.swift in Sources */,
+				25FE41461CF54D44006A1CF9 /* Kpt_RegisterViewController.swift in Sources */,
+				250413B11CF44FCF00611E62 /* Kpt_LoginViewController.swift in Sources */,
 				25681DA61CEC63AD004E78B2 /* UIColor+Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -780,6 +858,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/KPT_iOS_Swift/Map",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/SnapKit",
 				);
 				INFOPLIST_FILE = KPT_iOS_Swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
@@ -798,6 +877,7 @@
 					"\"SDWebImage\"",
 					"-ObjC",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DSNAPKIT_DEPLOYMENT_LEGACY";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.KPT-iOS-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "KPT_iOS_Swift/KPT_iOS_Swift-Bridging-Header.h";
@@ -815,6 +895,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/KPT_iOS_Swift/Map",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/SnapKit",
 				);
 				INFOPLIST_FILE = KPT_iOS_Swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
@@ -833,6 +914,7 @@
 					"\"SDWebImage\"",
 					"-ObjC",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DSNAPKIT_DEPLOYMENT_LEGACY";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.KPT-iOS-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "KPT_iOS_Swift/KPT_iOS_Swift-Bridging-Header.h";
@@ -875,6 +957,7 @@
 				251458FA1CF2F9A300B5CB34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		25B879191CEC05DD00F9865B /* Build configuration list for PBXProject "KPT_iOS_Swift" */ = {
 			isa = XCConfigurationList;
