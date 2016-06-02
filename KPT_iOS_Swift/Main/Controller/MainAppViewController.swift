@@ -79,7 +79,10 @@ class MainAppViewController: UIViewController {
     }
     func personBtnClick(sender:AnyObject?) {
         
-        let nav = UINavigationController(rootViewController: Kpt_LoginViewController())
+        let nav = UINavigationController(rootViewController: Kpt_LoginViewController(nibName: "Kpt_LoginViewController", bundle: nil))
+        //信息界面出现的动画方式
+       nav.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
+        
         self.presentViewController(nav, animated: true, completion: nil)
         
     }

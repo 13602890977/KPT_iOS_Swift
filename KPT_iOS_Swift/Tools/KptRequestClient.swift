@@ -20,10 +20,12 @@ class KptRequestClient: AFHTTPSessionManager {
             //string填写相应的baseUrl即可
             let url:NSURL = NSURL(string: "http://59.41.39.55:9090")!
             Static.instance = KptRequestClient(baseURL: url)
+            Static.instance?.requestSerializer = AFJSONRequestSerializer()
+            Static.instance?.responseSerializer = AFJSONResponseSerializer()
+            Static.instance?.requestSerializer.setValue("application/json", forHTTPHeaderField: "Content-Type")
         })
         //返回本类的一个实例
         return Static.instance!
-        
     }
     
 }

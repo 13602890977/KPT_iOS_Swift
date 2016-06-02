@@ -8,14 +8,15 @@
 
 import UIKit
 
-protocol Kpt_NextBtnViewDelegate :AnyObject {
+protocol Kpt_NextBtnViewDelegate :NSObjectProtocol {
     func nextBtnClick(nextBtn:Kpt_NextBtnView)
 }
 class Kpt_NextBtnView: UIView {
-    var delegate : Kpt_NextBtnViewDelegate?
+    weak var delegate : Kpt_NextBtnViewDelegate? = nil
     
     class func creatNextBtnView(frame:CGRect) ->Kpt_NextBtnView {
         let view = Kpt_NextBtnView(frame: frame)
+        view.userInteractionEnabled = true
         return view
     }
     override init(frame: CGRect) {
@@ -34,10 +35,9 @@ class Kpt_NextBtnView: UIView {
     }
     private func creatNexBtn() {
         let button = UIButton(type: UIButtonType.System)
-        button.frame = CGRect(x: 0 , y: 0 , width: SCRW - 100, height: 30)
-        button.center = self.center
-        button.backgroundColor = UIColor.orangeColor()
-        button.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
+        button.frame = CGRect(x: 100 / 2 , y: (self.frame.size.height - 30)/2 , width: SCRW - 100, height: 30)
+        button.backgroundColor = UIColor.RGBA(187, g: 165, b: 67)
+        button.setTitleColor(UIColor.RGBA(146, g: 108, b: 52), forState: UIControlState.Normal)
         button.layer.cornerRadius = 15
         
         button.setTitle("下一步", forState: UIControlState.Normal)

@@ -11,7 +11,7 @@
                 <outlet property="photoTextField" destination="6AR-4M-Kd3" id="Wab-hU-Wk5"/>
                 <outlet property="reCaptchaButton" destination="XVr-OQ-PAa" id="jKP-n9-3EP"/>
                 <outlet property="reCaptchaTextField" destination="JlL-pX-te1" id="Vas-vR-dKg"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="8s5-0N-1Xn"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

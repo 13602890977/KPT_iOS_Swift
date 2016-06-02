@@ -34,9 +34,13 @@
 		2516BA491CF6ECB100E2932E /* Kpt_PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2516BA481CF6ECB100E2932E /* Kpt_PickerView.swift */; };
 		251F857A1CEC6AC300C6051F /* GlobalConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F85791CEC6AC300C6051F /* GlobalConstant.swift */; };
 		251F857C1CEC7BCA00C6051F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251F857B1CEC7BCA00C6051F /* SystemConfiguration.framework */; };
+		25246FC31CFBEFAB0007695E /* CarInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25246FC21CFBEFAB0007695E /* CarInfoViewController.swift */; };
 		2524F6851CF7EB9700101081 /* DrivingLicenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2524F6831CF7EB9700101081 /* DrivingLicenceViewController.swift */; };
 		2524F6861CF7EB9700101081 /* DrivingLicenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2524F6841CF7EB9700101081 /* DrivingLicenceViewController.xib */; };
 		2524F6881CF81DC000101081 /* Kpt_OCRImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2524F6871CF81DC000101081 /* Kpt_OCRImageView.swift */; };
+		2532EA021CFD732D007B9B64 /* CarBrandListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2532EA011CFD732D007B9B64 /* CarBrandListTableViewController.swift */; };
+		2532EA041CFD800D007B9B64 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2532EA031CFD800D007B9B64 /* MobileCoreServices.framework */; };
+		2532EA451CFD9858007B9B64 /* CarBrandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2532EA441CFD9858007B9B64 /* CarBrandModel.swift */; };
 		25681DA61CEC63AD004E78B2 /* UIColor+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25681DA51CEC63AD004E78B2 /* UIColor+Category.swift */; };
 		25A07F541CEEE74600BA4A71 /* KptRequestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A07F531CEEE74600BA4A71 /* KptRequestClient.swift */; };
 		25A7B1731CF83C8A00177C3F /* Kpt_NextBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A7B1721CF83C8A00177C3F /* Kpt_NextBtnView.swift */; };
@@ -47,8 +51,11 @@
 		25B8792F1CEC05DD00F9865B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25B8792D1CEC05DD00F9865B /* LaunchScreen.storyboard */; };
 		25B8793A1CEC05DD00F9865B /* KPT_iOS_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B879391CEC05DD00F9865B /* KPT_iOS_SwiftTests.swift */; };
 		25B8794A1CEC11CD00F9865B /* MainAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B879481CEC11CD00F9865B /* MainAppViewController.swift */; };
+		25E8DEC71CFE8D4A005DA035 /* NSObject+OCTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E8DEC61CFE8D4A005DA035 /* NSObject+OCTool.m */; };
+		25E8DEC91CFE90EE005DA035 /* CarBrandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E8DEC81CFE90EE005DA035 /* CarBrandTableViewCell.swift */; };
+		25E8DECB1CFE9150005DA035 /* CarBrandTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E8DECA1CFE9150005DA035 /* CarBrandTableViewCell.xib */; };
+		25E8DECF1CFEBCCE005DA035 /* CarSeriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E8DECE1CFEBCCE005DA035 /* CarSeriesTableViewController.swift */; };
 		25F6700C1CF6A0440001B112 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F6700A1CF6A0440001B112 /* UserInfoViewController.swift */; };
-		25F6700D1CF6A0440001B112 /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25F6700B1CF6A0440001B112 /* UserInfoViewController.xib */; };
 		25FE41461CF54D44006A1CF9 /* Kpt_RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FE41441CF54D44006A1CF9 /* Kpt_RegisterViewController.swift */; };
 		25FE41471CF54D44006A1CF9 /* Kpt_RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25FE41451CF54D44006A1CF9 /* Kpt_RegisterViewController.xib */; };
 		981E2C1E527AED817D841664 /* Pods_KPT_iOS_SwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAEF8C5E3A6F1182175E8E8 /* Pods_KPT_iOS_SwiftTests.framework */; };
@@ -103,9 +110,13 @@
 		251F85791CEC6AC300C6051F /* GlobalConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstant.swift; sourceTree = "<group>"; };
 		251F857B1CEC7BCA00C6051F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		25246FC01CFBD7CC0007695E /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = "Pods/../build/Debug-iphoneos/SnapKit/SnapKit.framework"; sourceTree = "<group>"; };
+		25246FC21CFBEFAB0007695E /* CarInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarInfoViewController.swift; sourceTree = "<group>"; };
 		2524F6831CF7EB9700101081 /* DrivingLicenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrivingLicenceViewController.swift; sourceTree = "<group>"; };
 		2524F6841CF7EB9700101081 /* DrivingLicenceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrivingLicenceViewController.xib; sourceTree = "<group>"; };
 		2524F6871CF81DC000101081 /* Kpt_OCRImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kpt_OCRImageView.swift; sourceTree = "<group>"; };
+		2532EA011CFD732D007B9B64 /* CarBrandListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarBrandListTableViewController.swift; sourceTree = "<group>"; };
+		2532EA031CFD800D007B9B64 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		2532EA441CFD9858007B9B64 /* CarBrandModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarBrandModel.swift; sourceTree = "<group>"; };
 		25681DA51CEC63AD004E78B2 /* UIColor+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Category.swift"; sourceTree = "<group>"; };
 		25A07F4F1CEEE69E00BA4A71 /* KPT_iOS_Swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KPT_iOS_Swift-Bridging-Header.h"; sourceTree = "<group>"; };
 		25A07F531CEEE74600BA4A71 /* KptRequestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KptRequestClient.swift; sourceTree = "<group>"; };
@@ -121,8 +132,12 @@
 		25B879391CEC05DD00F9865B /* KPT_iOS_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KPT_iOS_SwiftTests.swift; sourceTree = "<group>"; };
 		25B8793B1CEC05DD00F9865B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25B879481CEC11CD00F9865B /* MainAppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainAppViewController.swift; sourceTree = "<group>"; };
+		25E8DEC51CFE8D4A005DA035 /* NSObject+OCTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+OCTool.h"; sourceTree = "<group>"; };
+		25E8DEC61CFE8D4A005DA035 /* NSObject+OCTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+OCTool.m"; sourceTree = "<group>"; };
+		25E8DEC81CFE90EE005DA035 /* CarBrandTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarBrandTableViewCell.swift; sourceTree = "<group>"; };
+		25E8DECA1CFE9150005DA035 /* CarBrandTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarBrandTableViewCell.xib; sourceTree = "<group>"; };
+		25E8DECE1CFEBCCE005DA035 /* CarSeriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarSeriesTableViewController.swift; sourceTree = "<group>"; };
 		25F6700A1CF6A0440001B112 /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
-		25F6700B1CF6A0440001B112 /* UserInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
 		25FE41441CF54D44006A1CF9 /* Kpt_RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kpt_RegisterViewController.swift; sourceTree = "<group>"; };
 		25FE41451CF54D44006A1CF9 /* Kpt_RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Kpt_RegisterViewController.xib; sourceTree = "<group>"; };
 		5641E40202D51F8EB72424B4 /* Pods-KPT_iOS_Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KPT_iOS_Swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-KPT_iOS_Swift/Pods-KPT_iOS_Swift.release.xcconfig"; sourceTree = "<group>"; };
@@ -145,11 +160,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				251458A51CF2EF5D00B5CB34 /* Security.framework in Frameworks */,
+				2532EA041CFD800D007B9B64 /* MobileCoreServices.framework in Frameworks */,
 				251459081CF3032800B5CB34 /* AVFoundation.framework in Frameworks */,
 				251458FE1CF2FBB800B5CB34 /* AMapNaviKit.framework in Frameworks */,
 				251458FC1CF2FA7C00B5CB34 /* libstdc++.6.0.9.tbd in Frameworks */,
 				251458AB1CF2F78A00B5CB34 /* AdSupport.framework in Frameworks */,
-				251458A51CF2EF5D00B5CB34 /* Security.framework in Frameworks */,
 				2514590C1CF3084900B5CB34 /* AMapSearchKit.framework in Frameworks */,
 				251458A31CF2EF5600B5CB34 /* libc++.tbd in Frameworks */,
 				251458A11CF2EF4500B5CB34 /* libz.tbd in Frameworks */,
@@ -194,9 +210,10 @@
 				25FE41441CF54D44006A1CF9 /* Kpt_RegisterViewController.swift */,
 				25FE41451CF54D44006A1CF9 /* Kpt_RegisterViewController.xib */,
 				25F6700A1CF6A0440001B112 /* UserInfoViewController.swift */,
-				25F6700B1CF6A0440001B112 /* UserInfoViewController.xib */,
 				2524F6831CF7EB9700101081 /* DrivingLicenceViewController.swift */,
 				2524F6841CF7EB9700101081 /* DrivingLicenceViewController.xib */,
+				25246FC21CFBEFAB0007695E /* CarInfoViewController.swift */,
+				2532EA001CFD72ED007B9B64 /* CarTypeSelection */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -204,6 +221,7 @@
 		250413AD1CF44FA600611E62 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2532EA441CFD9858007B9B64 /* CarBrandModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -214,6 +232,8 @@
 				2516BA481CF6ECB100E2932E /* Kpt_PickerView.swift */,
 				2524F6871CF81DC000101081 /* Kpt_OCRImageView.swift */,
 				25A7B1721CF83C8A00177C3F /* Kpt_NextBtnView.swift */,
+				25E8DEC81CFE90EE005DA035 /* CarBrandTableViewCell.swift */,
+				25E8DECA1CFE9150005DA035 /* CarBrandTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -312,6 +332,15 @@
 			path = KPT_iOS_SwiftUITests;
 			sourceTree = "<group>";
 		};
+		2532EA001CFD72ED007B9B64 /* CarTypeSelection */ = {
+			isa = PBXGroup;
+			children = (
+				2532EA011CFD732D007B9B64 /* CarBrandListTableViewController.swift */,
+				25E8DECE1CFEBCCE005DA035 /* CarSeriesTableViewController.swift */,
+			);
+			path = CarTypeSelection;
+			sourceTree = "<group>";
+		};
 		25B879151CEC05DD00F9865B = {
 			isa = PBXGroup;
 			children = (
@@ -394,6 +423,8 @@
 				25681DA51CEC63AD004E78B2 /* UIColor+Category.swift */,
 				251F85791CEC6AC300C6051F /* GlobalConstant.swift */,
 				25A07F531CEEE74600BA4A71 /* KptRequestClient.swift */,
+				25E8DEC51CFE8D4A005DA035 /* NSObject+OCTool.h */,
+				25E8DEC61CFE8D4A005DA035 /* NSObject+OCTool.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -412,6 +443,7 @@
 		54D49841B374A529CE8EBC55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2532EA031CFD800D007B9B64 /* MobileCoreServices.framework */,
 				25246FC01CFBD7CC0007695E /* SnapKit.framework */,
 				251459071CF3032800B5CB34 /* AVFoundation.framework */,
 				251458FD1CF2FBB800B5CB34 /* AMapNaviKit.framework */,
@@ -549,10 +581,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25E8DECB1CFE9150005DA035 /* CarBrandTableViewCell.xib in Resources */,
 				251459031CF2FCC400B5CB34 /* AMap.bundle in Resources */,
 				25FE41471CF54D44006A1CF9 /* Kpt_RegisterViewController.xib in Resources */,
 				250413B21CF44FCF00611E62 /* Kpt_LoginViewController.xib in Resources */,
-				25F6700D1CF6A0440001B112 /* UserInfoViewController.xib in Resources */,
 				25B8792F1CEC05DD00F9865B /* LaunchScreen.storyboard in Resources */,
 				25B8792C1CEC05DD00F9865B /* Assets.xcassets in Resources */,
 				2524F6861CF7EB9700101081 /* DrivingLicenceViewController.xib in Resources */,
@@ -677,18 +709,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25246FC31CFBEFAB0007695E /* CarInfoViewController.swift in Sources */,
 				25B879221CEC05DD00F9865B /* AppDelegate.swift in Sources */,
 				25F6700C1CF6A0440001B112 /* UserInfoViewController.swift in Sources */,
+				25E8DECF1CFEBCCE005DA035 /* CarSeriesTableViewController.swift in Sources */,
 				251F857A1CEC6AC300C6051F /* GlobalConstant.swift in Sources */,
+				2532EA021CFD732D007B9B64 /* CarBrandListTableViewController.swift in Sources */,
 				25B8794A1CEC11CD00F9865B /* MainAppViewController.swift in Sources */,
 				2524F6881CF81DC000101081 /* Kpt_OCRImageView.swift in Sources */,
 				25A07F541CEEE74600BA4A71 /* KptRequestClient.swift in Sources */,
 				250922701CED5D7A00353F17 /* KPTHistoryViewController.swift in Sources */,
 				2516BA491CF6ECB100E2932E /* Kpt_PickerView.swift in Sources */,
 				2509226F1CED5D7A00353F17 /* KPTDiscoverViewController.swift in Sources */,
+				2532EA451CFD9858007B9B64 /* CarBrandModel.swift in Sources */,
+				25E8DEC91CFE90EE005DA035 /* CarBrandTableViewCell.swift in Sources */,
 				25B8792A1CEC05DD00F9865B /* KPT_iOS_Swift.xcdatamodeld in Sources */,
 				250922711CED5D7A00353F17 /* KPTHomePageViewController.swift in Sources */,
 				2524F6851CF7EB9700101081 /* DrivingLicenceViewController.swift in Sources */,
+				25E8DEC71CFE8D4A005DA035 /* NSObject+OCTool.m in Sources */,
 				25A7B1731CF83C8A00177C3F /* Kpt_NextBtnView.swift in Sources */,
 				25FE41461CF54D44006A1CF9 /* Kpt_RegisterViewController.swift in Sources */,
 				250413B11CF44FCF00611E62 /* Kpt_LoginViewController.swift in Sources */,

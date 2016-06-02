@@ -18,7 +18,6 @@ class Kpt_LoginViewController: UIViewController {
         // white.png图片自己下载个纯白色的色块，或者自己ps做一个
         navigationBar.setBackgroundImage(UIImage(named: "whiteNav"), forBarPosition: UIBarPosition.Any, barMetrics: UIBarMetrics.Default)
         navigationBar.shadowImage = UIImage()
-        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,13 +35,32 @@ class Kpt_LoginViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     @IBAction func loginBtnClick(sender: AnyObject) {
+        let parameters : NSMutableDictionary = NSMutableDictionary()
+        parameters.setValue("001002", forKey: "requestcode")
+        parameters.setValue(self.loginTextField.text, forKey: "mobile")
+        parameters.setValue(self.passwordTextField.text, forKey: "password")
+        KptRequestClient.sharedInstance.POST("/plugins/changhui/port/login", parameters: parameters, progress: nil, success: { (_, JSON) -> Void in
+                let message = JSON?.objectForKey("errormessage")
+            print(JSON!)
+                if (message != nil) {
+                    let alertV = UIAlertController(title: "温馨提醒", message: message as? String, preferredStyle: UIAlertControllerStyle.Alert)
+                    let action = UIAlertAction(title: "确定", style: UIAlertActionStyle.Cancel, handler: nil)
+                    alertV.addAction(action)
+                    self.presentViewController(alertV, animated: true, completion: nil)
+                
+                }else {
+                    print("登陆成功")
+                }
+            }) { (_, error) -> Void in
+                print(error)
+        }
     }
     
     @IBAction func forgetPasswordBtnClick(sender: AnyObject) {
     }
     
     @IBAction func registerBtnClick(sender: AnyObject) {
-        self.navigationController?.pushViewController(Kpt_RegisterViewController(), animated: true)
+        self.navigationController?.pushViewController(Kpt_RegisterViewController(nibName: "Kpt_RegisterViewController", bundle: nil), animated: true)
     }
 
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -61,14 +79,5 @@ class Kpt_LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

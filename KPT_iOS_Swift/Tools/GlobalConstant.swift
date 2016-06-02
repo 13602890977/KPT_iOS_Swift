@@ -22,6 +22,7 @@ let APIKEY = "b7882ff4e542e01d5e6f718caf6706f0"
 ///App主色调
 let MainColor = UIColor(red: 242/255.0, green: 170/255.0, blue: 3/255.0, alpha: 1)
 
+
 extension String {
      func isPhotoNumber() -> Bool {
         var regex:NSRegularExpression
@@ -57,5 +58,17 @@ extension NSObject {
     }
     func IS_IPHONE_6P() ->Bool {
         return IS_IPHONE() && SCREEN_MAX_LENGTH == 736.0
+    }
+    
+    //代码创建model类
+    class func createModelWithDictionary(dict:NSDictionary ,modelName:String)
+    {
+        print("\nclass \(modelName as NSString).UTF8String :NSObject{\n");
+        for key in dict.allKeys {
+        let type = dict.objectForKey(key as! String)!.isKindOfClass(NSNumber) ? "NSNumber" : "String"
+            print("var\(key): \(type)!;\n");
+    }
+        print("}\n");
+    
     }
 }

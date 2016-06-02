@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AFNetworking
 
 class Kpt_RegisterViewController: UIViewController {
 
@@ -28,7 +29,21 @@ class Kpt_RegisterViewController: UIViewController {
         let bl = photoTextField.text?.isPhotoNumber()
         print("\(bl!) 正规电话号码")
         //调用后台验证码接口，获取验证码，比对用户输入的验证码
-        
+        let paramet: [String:AnyObject] = ["requestcode":"001003","mobile":self.photoTextField.text!]
+        KptRequestClient.sharedInstance.POST("/plugins/changhui/port/getVcode", parameters: paramet, progress: nil, success: { (task:NSURLSessionDataTask!, JSON) -> Void in
+            let message = JSON?.objectForKey("errorMessage")
+            if (message != nil) {
+                let alertV = UIAlertController(title: "温馨提醒", message: message as? String, preferredStyle: UIAlertControllerStyle.Alert)
+                let action = UIAlertAction(title: "确定", style: UIAlertActionStyle.Cancel, handler: nil)
+                alertV.addAction(action)
+                self.presentViewController(alertV, animated: true, completion: nil)
+                
+            }else {
+                print("请求验证码成功")
+            }
+            }) { (_, error) -> Void in
+                print(error)
+        }
         //开始倒计时
         //1.设定计时时长
         var timeout:Int = 60//结束时间
@@ -44,7 +59,7 @@ class Kpt_RegisterViewController: UIViewController {
             if timeout == 0 {
                 dispatch_source_cancel(timer)
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    weakSelf?.reCaptchaButton.setTitle("获取验证码", forState: UIControlState.Normal)
+                    weakSelf?.reCaptchaButton.setTitle("重新获取", forState: UIControlState.Normal)
                     weakSelf?.reCaptchaButton.userInteractionEnabled = true
                 })
             }else {

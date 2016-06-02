@@ -74,7 +74,7 @@
                         <action selector="loginBtnClick:" destination="-1" eventType="touchUpInside" id="2cP-xY-ASc"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Kpt_login_back" id="nKd-Jf-6r4">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Kpt_login_back" id="nKd-Jf-6r4" customClass="lo">
                     <rect key="frame" x="0.0" y="408" width="320" height="160"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                 </imageView>

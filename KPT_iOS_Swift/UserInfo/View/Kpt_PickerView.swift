@@ -56,7 +56,7 @@ class Kpt_PickerView: UIView ,UIPickerViewDelegate,UIPickerViewDataSource{
 
     override init(frame: CGRect) {
        super.init(frame: frame)
-        self.backgroundColor = UIColor.lightGrayColor()
+        self.backgroundColor = UIColor.RGBA(218, g: 218, b: 218)
         self.addSubview(self.toolbar)
     }
 
