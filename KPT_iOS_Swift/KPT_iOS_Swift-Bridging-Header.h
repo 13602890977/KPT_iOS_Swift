@@ -9,3 +9,4 @@
 #import <AMapNaviKit/MAMapKit.h>
 #import <MLTransition/MLTransition.h>
 #import "NSObject+OCTool.h"
+#import <CommonCrypto/CommonDigest.h>

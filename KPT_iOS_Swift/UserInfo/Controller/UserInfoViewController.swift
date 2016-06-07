@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserInfoViewController: UIViewController,Kpt_NextBtnViewDelegate {
+class UserInfoViewController: UIViewController,Kpt_NextBtnViewDelegate,Kpt_OCRImageViewDelegate {
     
     private var imageView:Kpt_OCRImageView?
     var pickerView:Kpt_PickerView?
@@ -23,6 +23,10 @@ class UserInfoViewController: UIViewController,Kpt_NextBtnViewDelegate {
     }
     func nextBtnClick(nextBtn: Kpt_NextBtnView) {
         self.navigationController?.pushViewController(DrivingLicenceViewController(), animated: true)
+    }
+    
+    func returnOCRDataAndImage(data: AnyObject) {
+        print("ocr影像识别返回的数据\(data)")
     }
     private lazy var tableView:UITableView = UITableView(frame: self.view.bounds, style: UITableViewStyle.Grouped)
     
@@ -46,6 +50,7 @@ extension UserInfoViewController : UITableViewDelegate,UITableViewDataSource {
         var cell = tableView.dequeueReusableCellWithIdentifier(idCellIndentifier)
         if cell == nil {
             cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: idCellIndentifier)
+            cell?.selectionStyle = UITableViewCellSelectionStyle.None
         }
         if indexPath.row < 3 {
             cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
@@ -72,6 +77,12 @@ extension UserInfoViewController : UITableViewDelegate,UITableViewDataSource {
             })
             return
         }
+        let changeVC = ChangeInfoController()
+        changeVC.cell = cell
+        changeVC.returnChangeBeforeText { (text) -> Void in
+            cell?.detailTextLabel?.text = text
+        }
+        self.navigationController?.pushViewController(changeVC, animated: true)
     }
     
     func creatPicker(type:pickerType) {
@@ -93,6 +104,7 @@ extension UserInfoViewController : UITableViewDelegate,UITableViewDataSource {
         view.backgroundColor = UIColor.RGBA(218, g: 218, b: 218)
         view.frame = CGRect(x: 0, y:0, width: SCRW, height: 200)
         imageView = Kpt_OCRImageView.creatTouchImage(CGRect(x: 0, y: 0, width: SCRW, height: 180),documentType:"身份证",controller:self)
+        imageView?.ocrDelegate = self
         imageView?.backgroundColor = UIColor.whiteColor()
         view.addSubview(imageView!)
         let label = UILabel(frame: CGRect(x: 15, y: view.frame.size.height - 15, width: 100, height: 20))
@@ -105,6 +117,7 @@ extension UserInfoViewController : UITableViewDelegate,UITableViewDataSource {
         let backView = UIView(frame: CGRect(x: 0, y: 0, width: SCRW, height: 100))
         backView.backgroundColor = UIColor.RGBA(218, g: 218, b: 218)
         let view = Kpt_NextBtnView(frame: CGRect(x: 0, y: 20, width: SCRW, height: 80))
+        view.btnText = "下一步"
         view.delegate = self
         view.backgroundColor = UIColor.whiteColor()
         backView.addSubview(view)

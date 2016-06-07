@@ -8,6 +8,8 @@ pod 'AFNetworking'
 pod 'MJExtension'
 pod 'SDWebImage'
 pod 'MLTransition'
+pod 'XMLDictionary'
+pod 'Qiniu'
 end
 
 target "KPT_iOS_SwiftTests" do

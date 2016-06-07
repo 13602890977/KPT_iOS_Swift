@@ -16,12 +16,16 @@ class Kpt_RegisterViewController: UIViewController {
     @IBOutlet weak var reCaptchaTextField: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     
+    @IBOutlet weak var perfectView: UIView!
+    private var backView:UIView!
+    @IBOutlet weak var perfectBtn: UIButton!
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         reCaptchaButton.layer.cornerRadius = 5
+        perfectBtn.backgroundColor = MainColor
     }
 
     @IBAction func reCaptchaBtnClick(sender: AnyObject) {
@@ -31,19 +35,19 @@ class Kpt_RegisterViewController: UIViewController {
         //调用后台验证码接口，获取验证码，比对用户输入的验证码
         let paramet: [String:AnyObject] = ["requestcode":"001003","mobile":self.photoTextField.text!]
         KptRequestClient.sharedInstance.POST("/plugins/changhui/port/getVcode", parameters: paramet, progress: nil, success: { (task:NSURLSessionDataTask!, JSON) -> Void in
-            let message = JSON?.objectForKey("errorMessage")
-            if (message != nil) {
-                let alertV = UIAlertController(title: "温馨提醒", message: message as? String, preferredStyle: UIAlertControllerStyle.Alert)
+            let responsecode = JSON?.objectForKey("responseCode") as? String
+            if (responsecode! == "1") {
+                
+            }else {
+                let alertV = UIAlertController(title: "温馨提醒", message: JSON!.objectForKey("errorMessage") as? String, preferredStyle: UIAlertControllerStyle.Alert)
                 let action = UIAlertAction(title: "确定", style: UIAlertActionStyle.Cancel, handler: nil)
                 alertV.addAction(action)
                 self.presentViewController(alertV, animated: true, completion: nil)
-                
-            }else {
-                print("请求验证码成功")
             }
             }) { (_, error) -> Void in
                 print(error)
         }
+
         //开始倒计时
         //1.设定计时时长
         var timeout:Int = 60//结束时间
@@ -77,13 +81,36 @@ class Kpt_RegisterViewController: UIViewController {
     }
     @IBAction func registerButtonClick(sender: AnyObject) {
         //判断所填写的信息无误
-        
-        //弹出提示框，是否完善个人信息
-        
-        //跳转到指定界面
-        navigationController?.pushViewController(UserInfoViewController(), animated: true)
+        backView = UIView(frame: UIScreen.mainScreen().bounds)
+        backView.backgroundColor = UIColor(red: 218/255.0, green: 218/255.0, blue: 218/255.0, alpha: 0.8)
+        backView.addSubview(self.perfectView)
+        self.perfectView.hidden = false
+        self.perfectView.center = CGPoint(x: SCRW * 0.5, y: SCRH * 1.5)
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            UIApplication.sharedApplication().keyWindow!.addSubview(self.backView)
+            self.perfectView.center = CGPoint(x: SCRW * 0.5, y: SCRH * 0.5)
+        })
+
+        let paramet: [String:AnyObject] = ["requestcode":"001001","mobile":self.photoTextField.text!,"vcode":self.reCaptchaTextField.text!,"password":self.passwordText.text!]
+            
+            KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/register", paramet: paramet, viewController: self) { (data) -> Void in
+                print(data)
+                //弹出提示框，是否完善个人信息
+                //跳转到指定界面
+        }
+
     }
     
+    @IBAction func falsePerfectBtnClick(sender: AnyObject) {
+        self.backView.removeFromSuperview()
+        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+    }
+ 
+    //完善个人信息
+    @IBAction func perfectBtnClick(sender: AnyObject) {
+        self.backView.removeFromSuperview()
+        navigationController?.pushViewController(UserInfoViewController(), animated: true)
+    }
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         FoldUpTheKeyboard()
     }
@@ -97,6 +124,7 @@ class Kpt_RegisterViewController: UIViewController {
         super.viewWillDisappear(animated)
         FoldUpTheKeyboard()
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

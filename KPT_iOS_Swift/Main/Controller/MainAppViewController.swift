@@ -30,11 +30,8 @@ class MainAppViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         
-        self.setNeedsStatusBarAppearanceUpdate()
+       UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
        
-    }
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,10 +76,15 @@ class MainAppViewController: UIViewController {
     }
     func personBtnClick(sender:AnyObject?) {
         
-        let nav = UINavigationController(rootViewController: Kpt_LoginViewController(nibName: "Kpt_LoginViewController", bundle: nil))
+        let nav:UINavigationController!
+        if NSUserDefaults.standardUserDefaults().objectForKey("userInfoLoginData") == nil {
+            nav = UINavigationController(rootViewController: Kpt_LoginViewController(nibName: "Kpt_LoginViewController", bundle: nil))
+        }else {
+            nav = UINavigationController(rootViewController: PersonalCenterViewController())
+        }
         //信息界面出现的动画方式
        nav.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
-        
+//        UIApplication.sharedApplication().keyWindow?.rootViewController = nav
         self.presentViewController(nav, animated: true, completion: nil)
         
     }

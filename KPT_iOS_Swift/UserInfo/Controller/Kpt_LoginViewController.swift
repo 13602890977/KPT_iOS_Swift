@@ -18,6 +18,7 @@ class Kpt_LoginViewController: UIViewController {
         // white.png图片自己下载个纯白色的色块，或者自己ps做一个
         navigationBar.setBackgroundImage(UIImage(named: "whiteNav"), forBarPosition: UIBarPosition.Any, barMetrics: UIBarMetrics.Default)
         navigationBar.shadowImage = UIImage()
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,31 +33,32 @@ class Kpt_LoginViewController: UIViewController {
     }
 
     func cancelBtnClick(sender:AnyObject?) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        
+        if self.presentingViewController?.presentingViewController != nil {
+            self.presentingViewController?.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+        }else {
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
     }
     @IBAction func loginBtnClick(sender: AnyObject) {
         let parameters : NSMutableDictionary = NSMutableDictionary()
         parameters.setValue("001002", forKey: "requestcode")
         parameters.setValue(self.loginTextField.text, forKey: "mobile")
         parameters.setValue(self.passwordTextField.text, forKey: "password")
-        KptRequestClient.sharedInstance.POST("/plugins/changhui/port/login", parameters: parameters, progress: nil, success: { (_, JSON) -> Void in
-                let message = JSON?.objectForKey("errormessage")
-            print(JSON!)
-                if (message != nil) {
-                    let alertV = UIAlertController(title: "温馨提醒", message: message as? String, preferredStyle: UIAlertControllerStyle.Alert)
-                    let action = UIAlertAction(title: "确定", style: UIAlertActionStyle.Cancel, handler: nil)
-                    alertV.addAction(action)
-                    self.presentViewController(alertV, animated: true, completion: nil)
-                
-                }else {
-                    print("登陆成功")
-                }
-            }) { (_, error) -> Void in
-                print(error)
+        KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/login", paramet: parameters, viewController: self) { (data) -> Void in
+            print(data)
+            let userDefault:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+            userDefault.setObject(data, forKey: "userInfoLoginData")
+            userDefault.synchronize()
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
     
     @IBAction func forgetPasswordBtnClick(sender: AnyObject) {
+        
+        self.navigationController?.pushViewController(Kpt_ForgetPasswordViewController(nibName: "Kpt_ForgetPasswordViewController", bundle: nil), animated: true)
+        
     }
     
     @IBAction func registerBtnClick(sender: AnyObject) {

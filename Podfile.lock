@@ -21,6 +21,7 @@ PODS:
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
+  - XMLDictionary (1.4)
 
 DEPENDENCIES:
   - AFNetworking
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - MLTransition
   - ReachabilitySwift
   - SDWebImage
+  - XMLDictionary
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -37,7 +39,8 @@ SPEC CHECKSUMS:
   MLTransition: 48ce7b91ef0c6acfcb9d03b22d2fa75d5826018f
   ReachabilitySwift: e0f6b6f280effb47731acfaaa2d5ffe223703793
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  XMLDictionary: f9f51601ba76678b594ab485f2b00ec1fed23724
 
-PODFILE CHECKSUM: 42092bb74cdb8322d4e962f7c9f800429d9fc4b4
+PODFILE CHECKSUM: 748701d4db93b2eefd42312c4f8ed805511bdcf1
 
 COCOAPODS: 1.0.0

@@ -16,7 +16,7 @@ class KPTHomePageViewController: UIViewController {
     var mapSearch : AMapSearchAPI?
     ///逆地理编码返回
     var rego : AMapReGeocodeSearchRequest?
-    
+    var annotation:MAPointAnnotation!
     ///系统定位管理类
     var locationManager : CLLocationManager?
     
@@ -269,16 +269,25 @@ extension KPTHomePageViewController : AMapSearchDelegate,MAMapViewDelegate{
                 return
             }
             //设置大头针
-            let annotation = MAPointAnnotation()
-            annotation.coordinate = coordinate
-            annotation.title = response.regeocode.formattedAddress
-            annotation.subtitle = response.regeocode.addressComponent.province
-            mapView!.addAnnotation(annotation)
+            if annotation == nil {
+                annotation = MAPointAnnotation()
+                
+                annotation.coordinate = coordinate
+                annotation.title = response.regeocode.addressComponent.province + response.regeocode.addressComponent.city
+                annotation.subtitle = response.regeocode.formattedAddress
+                mapView!.addAnnotation(annotation)
+            }
+            
             
             let overlay = MACircle(centerCoordinate: coordinate, radius: 100.0)
             mapView!.addOverlay(overlay)
             
-            addressLabel.text = annotation.title
+            var str = annotation.subtitle as NSString
+            let range = str.rangeOfString("市")
+            if range.length > 0 {
+               str = str.substringFromIndex(range.location + 1)
+            }
+            addressLabel.text = str as String
         }
     }
 }
