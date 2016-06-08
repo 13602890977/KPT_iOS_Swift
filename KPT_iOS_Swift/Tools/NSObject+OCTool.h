@@ -11,4 +11,6 @@
 @interface NSObject (OCTool)
 ///返回26个大写英文字母（OC的方法）
 - (NSMutableArray *)creatTwenty_sixArr;
+
++(NSString *)marshal;
 @end

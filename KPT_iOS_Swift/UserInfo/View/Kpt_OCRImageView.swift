@@ -136,15 +136,17 @@ extension Kpt_OCRImageView :UINavigationControllerDelegate,UIImagePickerControll
         let fileName = "\(dateStr).png"
         
         weak var weakSelf = self
-//        postPatternRecognitionWithType(imageData!,imageName:fileName,suc: { (ocrData) -> Void in
-
-//        })
-//        
-        if self.ocrDelegate != nil {
-            self.ocrDelegate?.returnOCRDataAndImage("str")
+        postPatternRecognitionWithType(imageData!,imageName:fileName,suc: { (ocrData) -> Void in
+            
+        })
+        
+        if weakSelf!.ocrDelegate != nil {
+            weakSelf!.ocrDelegate?.returnOCRDataAndImage("123456")
         }
-        self.imagePickerController.dismissViewControllerAnimated(true, completion: nil)
+        weakSelf!.imagePickerController.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    
     ///翔云图像识别
     func postPatternRecognitionWithType(imageData:NSData,imageName:String,suc:success) {
     
@@ -155,30 +157,30 @@ extension Kpt_OCRImageView :UINavigationControllerDelegate,UIImagePickerControll
             "format":"json"
         ]
         
-        self.hud.labelText = "信息识别中，请稍等..."
-        self.hud.show(true)
-        let manager = AFHTTPSessionManager()
-        manager.POST("http://netocr.com/api/recog.do", parameters: parms, constructingBodyWithBlock: { (formData) -> Void in
-            formData.appendPartWithFileData(imageData, name: "file", fileName:imageName, mimeType: "image/jpeg")
-            
-            }, progress: nil, success: { (_, JSON) -> Void in
-                print(JSON)
-                
-                let dictMessage = (JSON as? NSDictionary)?.objectForKey("message")!
-                if dictMessage?.objectForKey("status") as! Int > 0 {
-                    let dictCardsinfo = (JSON as? NSDictionary)?.objectForKey("cardsinfo")!
-                    suc(ocrData: dictCardsinfo?.firstObject!?.objectForKey("items"))
-                }else {
-                    let alertV = UIAlertController(title: "温馨提醒", message: dictMessage!.objectForKey("value") as? String, preferredStyle: UIAlertControllerStyle.Alert)
-                    let action = UIAlertAction(title: "确定", style: UIAlertActionStyle.Cancel, handler: nil)
-                    alertV.addAction(action)
-                    self.superController.presentViewController(alertV, animated: true, completion: nil)
-                }
-                 self.hud.hide(true)
-            }) { (_, error) -> Void in
-                print(error)
-                 self.hud.hide(true)
-        }
+//        self.hud.labelText = "信息识别中，请稍等..."
+//        self.hud.show(true)
+//        let manager = AFHTTPSessionManager()
+//        manager.POST("http://netocr.com/api/recog.do", parameters: parms, constructingBodyWithBlock: { (formData) -> Void in
+//            formData.appendPartWithFileData(imageData, name: "file", fileName:imageName, mimeType: "image/jpeg")
+//            
+//            }, progress: nil, success: { (_, JSON) -> Void in
+//                print(JSON)
+//                
+//                let dictMessage = (JSON as? NSDictionary)?.objectForKey("message")!
+//                if dictMessage?.objectForKey("status") as! Int > 0 {
+//                    let dictCardsinfo = (JSON as? NSDictionary)?.objectForKey("cardsinfo")!
+//                    suc(ocrData: dictCardsinfo?.firstObject!?.objectForKey("items"))
+//                }else {
+//                    let alertV = UIAlertController(title: "温馨提醒", message: dictMessage!.objectForKey("value") as? String, preferredStyle: UIAlertControllerStyle.Alert)
+//                    let action = UIAlertAction(title: "确定", style: UIAlertActionStyle.Cancel, handler: nil)
+//                    alertV.addAction(action)
+//                    self.superController.presentViewController(alertV, animated: true, completion: nil)
+//                }
+//                 self.hud.hide(true)
+//            }) { (_, error) -> Void in
+//                print(error)
+//                 self.hud.hide(true)
+//        }
         
     }
 

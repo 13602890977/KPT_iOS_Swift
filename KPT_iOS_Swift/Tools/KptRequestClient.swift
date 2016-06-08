@@ -30,20 +30,27 @@ class KptRequestClient: AFHTTPSessionManager{
     }
     ///请求接口再封装，把请求失败的操作封装起来
     func Kpt_post(urlStr:String,paramet:AnyObject?,viewController:UIViewController,success: ( AnyObject? -> Void)?) {
-        KptRequestClient.sharedInstance.POST(urlStr, parameters: paramet, progress: nil, success: { (task:NSURLSessionDataTask!, JSON) -> Void in
-            let responsecode = JSON?.objectForKey("responsecode") as? String
+        KptRequestClient.sharedInstance.POST(urlStr, parameters: paramet,  success: { (task:NSURLSessionDataTask!, JSON) -> Void in
+            let responsecode = JSON.objectForKey("responsecode") as? String
             if (responsecode! == "1") {
-                success!(JSON?.objectForKey("data"))
+                success!(JSON.objectForKey("data"))
             }else {
-                let alertV = UIAlertController(title: "温馨提醒", message: JSON!.objectForKey("errormessage") as? String, preferredStyle: UIAlertControllerStyle.Alert)
-                let action = UIAlertAction(title: "确定", style: UIAlertActionStyle.Cancel, handler: nil)
-                alertV.addAction(action)
+                let alertV = UIAlertController.creatAlertWithTitle(title: "温馨提醒", message:  JSON.objectForKey("errormessage") as? String, cancelActionTitle: "确定")
                 viewController.presentViewController(alertV, animated: true, completion: nil)
             }
             }) { (_, error) -> Void in
                 print(error)
+                let alertV = UIAlertController.creatAlertWithTitle(title: "温馨提醒", message:"链接不到服务器，请退出重试", cancelActionTitle: "确定")
+                viewController.presentViewController(alertV, animated: true, completion: nil)
         }
     }
         
-    
+    ///七牛token获取
+    func makeQiNiuToken(accessKey accessKey:String,secretKey:String) {
+        let secretKeyStr = (secretKey as NSString).UTF8String
+        let policy = NSObject.marshal()
+        
+        let policyData = policy.dataUsingEncoding(NSUTF8StringEncoding)
+        
+    }
 }

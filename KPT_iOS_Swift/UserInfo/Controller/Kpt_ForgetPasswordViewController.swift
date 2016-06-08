@@ -44,12 +44,12 @@ class Kpt_ForgetPasswordViewController: UIViewController {
         print("\(bl!) 正规电话号码")
         //调用后台验证码接口，获取验证码，比对用户输入的验证码
         let paramet: [String:AnyObject] = ["requestcode":"001003","mobile":self.photoTextField.text!]
-        KptRequestClient.sharedInstance.POST("/plugins/changhui/port/getVcode", parameters: paramet, progress: nil, success: { (task:NSURLSessionDataTask!, JSON) -> Void in
-            let responsecode = JSON?.objectForKey("responseCode") as? String
+        KptRequestClient.sharedInstance.POST("/plugins/changhui/port/getVcode", parameters: paramet, success: { (task:NSURLSessionDataTask!, JSON) -> Void in
+            let responsecode = JSON.objectForKey("responseCode") as? String
             if (responsecode! == "1") {
                 
             }else {
-                let alertV = UIAlertController(title: "温馨提醒", message: JSON!.objectForKey("errorMessage") as? String, preferredStyle: UIAlertControllerStyle.Alert)
+                let alertV = UIAlertController(title: "温馨提醒", message: JSON.objectForKey("errorMessage") as? String, preferredStyle: UIAlertControllerStyle.Alert)
                 let action = UIAlertAction(title: "确定", style: UIAlertActionStyle.Cancel, handler: nil)
                 alertV.addAction(action)
                 self.presentViewController(alertV, animated: true, completion: nil)
@@ -94,6 +94,27 @@ class Kpt_ForgetPasswordViewController: UIViewController {
     }
 
     @IBAction func ensureBtnclick(sender: AnyObject) {
+        //判断所填写的信息无误
+        let paramet: [String:AnyObject] = ["requestcode":"001005","mobile":self.photoTextField.text!,"vcode":self.reCaptchaTextField.text!,"password":self.passwordTextField.text!]
+        
+        KptRequestClient.sharedInstance.Kpt_post("port/plugins/changhui/port/retrievePassword", paramet: paramet, viewController: self) { (data) -> Void in
+            print(data)
+            //perfectView上的按钮跳转到指定界面
+            
+            let parameters : NSMutableDictionary = NSMutableDictionary()
+            parameters.setValue("001002", forKey: "requestcode")
+            parameters.setValue(self.photoTextField.text, forKey: "mobile")
+            parameters.setValue(self.passwordTextField.text, forKey: "password")
+            KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/login", paramet: parameters, viewController: self) { (data) -> Void in
+                print(data)
+                let userDefault:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+                userDefault.setObject(data, forKey: "userInfoLoginData")
+                userDefault.synchronize()
+                
+                self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+            }
+
+        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

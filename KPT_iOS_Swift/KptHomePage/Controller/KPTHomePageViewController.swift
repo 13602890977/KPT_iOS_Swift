@@ -20,6 +20,8 @@ class KPTHomePageViewController: UIViewController {
     ///系统定位管理类
     var locationManager : CLLocationManager?
     
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var addressBtn: UIButton!
     @IBOutlet weak var addressView: UIView!
     @IBOutlet weak var btnView: UIView!
     @IBOutlet weak var showView: UIView!
@@ -47,7 +49,7 @@ class KPTHomePageViewController: UIViewController {
         AMapNaviServices.sharedServices().apiKey = APIKEY//代替下面的方法
 //        AMapSearchServices.sharedServices().apiKey = APIKey
         
-        mapView = MAMapView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height))
+        mapView = MAMapView(frame:self.view.bounds)
         
         mapView.delegate = self
         mapView.showsUserLocation = true //开启定位
@@ -167,7 +169,17 @@ class KPTHomePageViewController: UIViewController {
         return btn
     }()
     func actionBtnClick(btn:UIButton) {
-        print("弹出框")
+        let nav:UINavigationController!
+        if NSUserDefaults.standardUserDefaults().objectForKey("userInfoLoginData") == nil {
+            nav = UINavigationController(rootViewController: Kpt_LoginViewController(nibName: "Kpt_LoginViewController", bundle: nil))
+        }else {
+            nav = UINavigationController(rootViewController: PersonalCenterViewController())
+        }
+        //信息界面出现的动画方式
+        nav.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        let vc = UIApplication.sharedApplication().keyWindow?.rootViewController
+        
+        vc!.presentViewController(nav, animated: true, completion: nil)
     }
     private lazy var buttomView:UIView = {
        let imageView = UIImageView()
@@ -273,7 +285,7 @@ extension KPTHomePageViewController : AMapSearchDelegate,MAMapViewDelegate{
                 annotation = MAPointAnnotation()
                 
                 annotation.coordinate = coordinate
-                annotation.title = response.regeocode.addressComponent.province + response.regeocode.addressComponent.city
+//                annotation.title = response.regeocode.addressComponent.province + response.regeocode.addressComponent.city
                 annotation.subtitle = response.regeocode.formattedAddress
                 mapView!.addAnnotation(annotation)
             }
@@ -287,6 +299,8 @@ extension KPTHomePageViewController : AMapSearchDelegate,MAMapViewDelegate{
             if range.length > 0 {
                str = str.substringFromIndex(range.location + 1)
             }
+            cityLabel.text = response.regeocode.addressComponent.city
+            
             addressLabel.text = str as String
         }
     }

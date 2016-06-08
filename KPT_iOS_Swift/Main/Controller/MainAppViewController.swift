@@ -84,7 +84,7 @@ class MainAppViewController: UIViewController {
         }
         //信息界面出现的动画方式
        nav.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
-//        UIApplication.sharedApplication().keyWindow?.rootViewController = nav
+        
         self.presentViewController(nav, animated: true, completion: nil)
         
     }

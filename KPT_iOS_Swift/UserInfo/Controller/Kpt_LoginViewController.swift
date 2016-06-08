@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class Kpt_LoginViewController: UIViewController {
     @IBOutlet weak var loginTextField: UITextField!
@@ -35,7 +36,7 @@ class Kpt_LoginViewController: UIViewController {
     func cancelBtnClick(sender:AnyObject?) {
         
         if self.presentingViewController?.presentingViewController != nil {
-            self.presentingViewController?.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+            self.presentingViewController?.presentingViewController?.dismissViewControllerAnimated(false, completion: nil)
         }else {
             self.dismissViewControllerAnimated(true, completion: nil)
         }

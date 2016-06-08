@@ -10,6 +10,8 @@ pod 'SDWebImage'
 pod 'MLTransition'
 pod 'XMLDictionary'
 pod 'Qiniu'
+pod 'GTMBase64'
+pod 'JSONKit'
 end
 
 target "KPT_iOS_SwiftTests" do

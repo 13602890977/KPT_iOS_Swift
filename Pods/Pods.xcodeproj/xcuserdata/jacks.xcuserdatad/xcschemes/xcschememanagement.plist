@@ -9,6 +9,21 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>GTMBase64.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>HappyDNS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>JSONKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -34,6 +49,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Qiniu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ReachabilitySwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,7 +72,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1C3436CEA5C3D39764C5F54374794ECB</key>
+		<key>00AA9CB949436ED34DB288A556ADEE74</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4878C70B21CA37D7CB8A476BF986741B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>551387786A3ACFEC2CE4B3A906E60528</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,7 +92,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>919F49E54050E37674C6A5A15BAD0E32</key>
+		<key>80EA70303A9B4282961E541FB248F6C0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>95D3B784E67FC3029AD41D62B88FA3A4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,17 +107,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AAC84F94E7D12E4C4C163711FB07BC70</key>
+		<key>B4BFA4933B790309C46A47A2016BD516</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CF5F324B7D1AB17E2A2E1362B90F0231</key>
+		<key>C37EF188BE397973508CA30E9B1DC556</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E1D2BC1B5A3B9AC23F80918595C41273</key>
+		<key>D473F4327E1EB20E65F171C7A818A663</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D9ECB2DA2B6C4C111CBA3BC828CCFC9A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

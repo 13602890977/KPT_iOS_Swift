@@ -36,9 +36,9 @@ class CarBrandListTableViewController: UITableViewController ,CarModelDelegate{
     }
     private func reloadCarBrandData() {
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        KptRequestClient.sharedInstance.GET("plugins/changhui/port/getBrand?requestCode=001004", parameters: nil, progress: nil, success: { (_, JSON) -> Void in
-            if (JSON?.objectForKey("responseCode"))! as! NSObject == 1 {
-                let responseObject = JSON!.objectForKey("responseData") as? NSArray
+        KptRequestClient.sharedInstance.GET("plugins/changhui/port/getBrand?requestCode=001004", parameters: nil, success: { (_, JSON) -> Void in
+            if (JSON.objectForKey("responseCode"))! as! NSObject == 1 {
+                let responseObject = JSON.objectForKey("responseData") as? NSArray
                 self.carBrandList = CarBrandModel.mj_objectArrayWithKeyValuesArray(responseObject)
                 self.tableView.reloadData()
 

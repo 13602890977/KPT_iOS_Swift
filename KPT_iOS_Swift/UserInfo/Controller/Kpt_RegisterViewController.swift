@@ -8,6 +8,7 @@
 
 import UIKit
 import AFNetworking
+import MBProgressHUD
 
 class Kpt_RegisterViewController: UIViewController {
 
@@ -19,6 +20,7 @@ class Kpt_RegisterViewController: UIViewController {
     @IBOutlet weak var perfectView: UIView!
     private var backView:UIView!
     @IBOutlet weak var perfectBtn: UIButton!
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -31,21 +33,27 @@ class Kpt_RegisterViewController: UIViewController {
     @IBAction func reCaptchaBtnClick(sender: AnyObject) {
         //先判读电话号码无误
         let bl = photoTextField.text?.isPhotoNumber()
-        print("\(bl!) 正规电话号码")
+        if bl == false {
+            let alertV = UIAlertController.creatAlertWithTitle(title: nil, message: "请填写正确的手机号码", cancelActionTitle: "确定")
+            self.presentViewController(alertV, animated: true, completion: nil)
+            return
+        }
         //调用后台验证码接口，获取验证码，比对用户输入的验证码
         let paramet: [String:AnyObject] = ["requestcode":"001003","mobile":self.photoTextField.text!]
-        KptRequestClient.sharedInstance.POST("/plugins/changhui/port/getVcode", parameters: paramet, progress: nil, success: { (task:NSURLSessionDataTask!, JSON) -> Void in
-            let responsecode = JSON?.objectForKey("responseCode") as? String
+        self.hud.labelText = "获取验证码..."
+        self.hud.show(true)
+        KptRequestClient.sharedInstance.POST("/plugins/changhui/port/getVcode", parameters: paramet, success: { (task:NSURLSessionDataTask!, JSON) -> Void in
+            let responsecode = JSON.objectForKey("responseCode") as? String
+            self.hud.hide(true)
             if (responsecode! == "1") {
                 
             }else {
-                let alertV = UIAlertController(title: "温馨提醒", message: JSON!.objectForKey("errorMessage") as? String, preferredStyle: UIAlertControllerStyle.Alert)
-                let action = UIAlertAction(title: "确定", style: UIAlertActionStyle.Cancel, handler: nil)
-                alertV.addAction(action)
+                let alertV = UIAlertController.creatAlertWithTitle(title: "温馨提醒", message: JSON.objectForKey("errorMessage") as? String, cancelActionTitle: "确定")
                 self.presentViewController(alertV, animated: true, completion: nil)
             }
             }) { (_, error) -> Void in
                 print(error)
+                self.hud.hide(true)
         }
 
         //开始倒计时
@@ -80,30 +88,44 @@ class Kpt_RegisterViewController: UIViewController {
         
     }
     @IBAction func registerButtonClick(sender: AnyObject) {
+        FoldUpTheKeyboard()
         //判断所填写的信息无误
-        backView = UIView(frame: UIScreen.mainScreen().bounds)
-        backView.backgroundColor = UIColor(red: 218/255.0, green: 218/255.0, blue: 218/255.0, alpha: 0.8)
-        backView.addSubview(self.perfectView)
-        self.perfectView.hidden = false
-        self.perfectView.center = CGPoint(x: SCRW * 0.5, y: SCRH * 1.5)
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
-            UIApplication.sharedApplication().keyWindow!.addSubview(self.backView)
-            self.perfectView.center = CGPoint(x: SCRW * 0.5, y: SCRH * 0.5)
-        })
-
+        weak var wSelf = self
         let paramet: [String:AnyObject] = ["requestcode":"001001","mobile":self.photoTextField.text!,"vcode":self.reCaptchaTextField.text!,"password":self.passwordText.text!]
-            
+        
             KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/register", paramet: paramet, viewController: self) { (data) -> Void in
                 print(data)
                 //弹出提示框，是否完善个人信息
-                //跳转到指定界面
+                wSelf!.backView = UIView(frame: UIScreen.mainScreen().bounds)
+                wSelf!.backView.backgroundColor = UIColor(red: 218/255.0, green: 218/255.0, blue: 218/255.0, alpha: 0.8)
+                wSelf!.backView.addSubview(self.perfectView)
+                wSelf!.perfectView.hidden = false
+                wSelf!.perfectView.center = CGPoint(x: SCRW * 0.5, y: SCRH * 1.5)
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    UIApplication.sharedApplication().keyWindow!.addSubview(self.backView)
+                    wSelf!.perfectView.center = CGPoint(x: SCRW * 0.5, y: SCRH * 0.5)
+                    //perfectView上的按钮跳转到指定界面
+                })
         }
 
     }
     
     @IBAction func falsePerfectBtnClick(sender: AnyObject) {
         self.backView.removeFromSuperview()
-        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+        
+        let parameters : NSMutableDictionary = NSMutableDictionary()
+        parameters.setValue("001002", forKey: "requestcode")
+        parameters.setValue(self.photoTextField.text, forKey: "mobile")
+        parameters.setValue(self.passwordText.text, forKey: "password")
+        KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/login", paramet: parameters, viewController: self) { (data) -> Void in
+            print(data)
+            let userDefault:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+            userDefault.setObject(data, forKey: "userInfoLoginData")
+            userDefault.synchronize()
+            
+           self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+        }
+        
     }
  
     //完善个人信息
@@ -124,6 +146,8 @@ class Kpt_RegisterViewController: UIViewController {
         super.viewWillDisappear(animated)
         FoldUpTheKeyboard()
     }
+    ///加载时的提示语
+    private lazy var hud : MBProgressHUD = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

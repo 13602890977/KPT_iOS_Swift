@@ -10,6 +10,9 @@ import UIKit
 
 class PersonalCenterViewController: UIViewController {
 
+    
+    private var loginData: UserInfoData!
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         let navigationBar = self.navigationController!.navigationBar
@@ -36,10 +39,10 @@ class PersonalCenterViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     private func reloadUserData() {
-        let loginData:NSDictionary = NSUserDefaults.standardUserDefaults().objectForKey("userInfoLoginData") as! NSDictionary
-        let data = UserInfoData.mj_objectWithKeyValues(loginData)
+        let loginDataName:NSDictionary = NSUserDefaults.standardUserDefaults().objectForKey("userInfoLoginData") as! NSDictionary
+        loginData = UserInfoData.mj_objectWithKeyValues(loginDataName)
         
-        let paramet = ["requestcode":"001007","accessid":data.accessid,"accesskey":data.accesskey,"userid":data.userid]
+        let paramet = ["requestcode":"001007","accessid":loginData.accessid,"accesskey":loginData.accesskey,"userid":loginData.userid]
         KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/user/getUserInfo", paramet: paramet, viewController: self) { (data) -> Void in
             print(data)
         }
@@ -49,7 +52,7 @@ class PersonalCenterViewController: UIViewController {
         
         return table
     }()
-    private let msgArr = ["用户信息","车辆信息"]
+    private let msgArr = ["驾驶证信息","车辆信息"]
     private let setArr = ["软件设置","修改密码","意见反馈","关于我们"]
     private let msgImageArr = ["用户信息","车辆"]
     private let setImageArr = ["设置","改密码","意见","关于我们"]
@@ -69,9 +72,9 @@ extension PersonalCenterViewController :UITableViewDataSource,UITableViewDelegat
     }
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 60
+            return (IS_IPHONE_6P() ? 60 : IS_IPHONE_6() ? 50 : 40) + 20
         }
-        return 44
+        return IS_IPHONE_6P() ? 60 : IS_IPHONE_6() ? 50 : 40
     }
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 4
@@ -95,9 +98,11 @@ extension PersonalCenterViewController :UITableViewDataSource,UITableViewDelegat
             }
             
         }
+        
         cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         cell?.contentMode = UIViewContentMode.ScaleToFill
         if indexPath.section == 0 {
+            (cell as! PersonTableViewCell).personPhoto.text = loginData.mobile
             
             
         }else if indexPath.section == 1{
@@ -111,7 +116,7 @@ extension PersonalCenterViewController :UITableViewDataSource,UITableViewDelegat
             
         }else {
             let btn = UIButton(type: UIButtonType.System)
-            btn.frame = CGRect(x: 0, y: 0, width: SCRW, height: (cell?.frame.height)!)
+            btn.frame = CGRect(x: 0, y: ((IS_IPHONE_6P() ? 60 : IS_IPHONE_6() ? 50 : 40) - 20 ) * 0.5, width: SCRW, height: 20)
             btn.setTitle("退出登录", forState: UIControlState.Normal)
             btn.titleLabel?.font = UIFont.systemFontOfSize(18)
             btn.titleLabel?.textAlignment = NSTextAlignment.Center

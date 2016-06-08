@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		250413B11CF44FCF00611E62 /* Kpt_LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250413AF1CF44FCF00611E62 /* Kpt_LoginViewController.swift */; };
 		250413B21CF44FCF00611E62 /* Kpt_LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 250413B01CF44FCF00611E62 /* Kpt_LoginViewController.xib */; };
+		2507AF2D1D07C061008F8E1D /* UIAlert+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2507AF2C1D07C061008F8E1D /* UIAlert+Category.swift */; };
+		2507AF301D0814B3008F8E1D /* AccidentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2507AF2E1D0814B3008F8E1D /* AccidentViewController.swift */; };
+		2507AF311D0814B3008F8E1D /* AccidentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2507AF2F1D0814B3008F8E1D /* AccidentViewController.xib */; };
 		2509226F1CED5D7A00353F17 /* KPTDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250922651CED5D7A00353F17 /* KPTDiscoverViewController.swift */; };
 		250922701CED5D7A00353F17 /* KPTHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250922691CED5D7A00353F17 /* KPTHistoryViewController.swift */; };
 		250922711CED5D7A00353F17 /* KPTHomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2509226D1CED5D7A00353F17 /* KPTHomePageViewController.swift */; };
@@ -88,6 +91,9 @@
 /* Begin PBXFileReference section */
 		250413AF1CF44FCF00611E62 /* Kpt_LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kpt_LoginViewController.swift; sourceTree = "<group>"; };
 		250413B01CF44FCF00611E62 /* Kpt_LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Kpt_LoginViewController.xib; sourceTree = "<group>"; };
+		2507AF2C1D07C061008F8E1D /* UIAlert+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlert+Category.swift"; sourceTree = "<group>"; };
+		2507AF2E1D0814B3008F8E1D /* AccidentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccidentViewController.swift; sourceTree = "<group>"; };
+		2507AF2F1D0814B3008F8E1D /* AccidentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccidentViewController.xib; sourceTree = "<group>"; };
 		250922651CED5D7A00353F17 /* KPTDiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KPTDiscoverViewController.swift; sourceTree = "<group>"; };
 		250922691CED5D7A00353F17 /* KPTHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KPTHistoryViewController.swift; sourceTree = "<group>"; };
 		2509226D1CED5D7A00353F17 /* KPTHomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KPTHomePageViewController.swift; sourceTree = "<group>"; };
@@ -432,6 +438,8 @@
 			isa = PBXGroup;
 			children = (
 				25B879481CEC11CD00F9865B /* MainAppViewController.swift */,
+				2507AF2E1D0814B3008F8E1D /* AccidentViewController.swift */,
+				2507AF2F1D0814B3008F8E1D /* AccidentViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -448,6 +456,7 @@
 			children = (
 				25681DA51CEC63AD004E78B2 /* UIColor+Category.swift */,
 				251F85791CEC6AC300C6051F /* GlobalConstant.swift */,
+				2507AF2C1D07C061008F8E1D /* UIAlert+Category.swift */,
 				25A07F531CEEE74600BA4A71 /* KptRequestClient.swift */,
 				25E8DEC51CFE8D4A005DA035 /* NSObject+OCTool.h */,
 				25E8DEC61CFE8D4A005DA035 /* NSObject+OCTool.m */,
@@ -612,6 +621,7 @@
 				25FE41471CF54D44006A1CF9 /* Kpt_RegisterViewController.xib in Resources */,
 				250413B21CF44FCF00611E62 /* Kpt_LoginViewController.xib in Resources */,
 				25B8792F1CEC05DD00F9865B /* LaunchScreen.storyboard in Resources */,
+				2507AF311D0814B3008F8E1D /* AccidentViewController.xib in Resources */,
 				25DE9BBF1D05618000058FDF /* Kpt_ForgetPasswordViewController.xib in Resources */,
 				25B8792C1CEC05DD00F9865B /* Assets.xcassets in Resources */,
 				250922731CEDB8EF00353F17 /* KPTHomePageViewController.xib in Resources */,
@@ -736,10 +746,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2507AF2D1D07C061008F8E1D /* UIAlert+Category.swift in Sources */,
 				259FFB431D016FA100848C1F /* UserInfoData.swift in Sources */,
 				25246FC31CFBEFAB0007695E /* CarInfoViewController.swift in Sources */,
 				25B879221CEC05DD00F9865B /* AppDelegate.swift in Sources */,
 				25F6700C1CF6A0440001B112 /* UserInfoViewController.swift in Sources */,
+				2507AF301D0814B3008F8E1D /* AccidentViewController.swift in Sources */,
 				25E8DECF1CFEBCCE005DA035 /* CarSeriesTableViewController.swift in Sources */,
 				251F857A1CEC6AC300C6051F /* GlobalConstant.swift in Sources */,
 				2532EA021CFD732D007B9B64 /* CarBrandListTableViewController.swift in Sources */,

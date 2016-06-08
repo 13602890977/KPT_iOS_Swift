@@ -49,9 +49,9 @@ class CarSeriesTableViewController: UIViewController {
     }
 
     private func reloadCarData() {
-        KptRequestClient.sharedInstance.GET("/plugins/changhui/port/getSeries?requestCode=001004&brandid=\(brandId)", parameters: nil, progress: nil, success: { (_, responseObject) -> Void in
-            if responseObject!.objectForKey("responseCode")?.integerValue == 1 {
-                let dataArr = responseObject!.objectForKey("responseData") as? NSArray
+        KptRequestClient.sharedInstance.GET("/plugins/changhui/port/getSeries?requestCode=001004&brandid=\(brandId)", parameters: nil, success: { (_, responseObject) -> Void in
+            if responseObject.objectForKey("responseCode")?.integerValue == 1 {
+                let dataArr = responseObject.objectForKey("responseData") as? NSArray
                 self.seriesList = CarSeriesModel.mj_objectArrayWithKeyValuesArray(dataArr)
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.tableView.reloadData()
@@ -120,9 +120,10 @@ extension CarSeriesTableViewController: UITableViewDelegate,UITableViewDataSourc
     
     private func reloadCarModelDataWithSeriesid(seriesid:String) {
         carListType = carType.CarModel
-        KptRequestClient.sharedInstance.GET("/plugins/changhui/port/getModel?requestCode=001004&seriesid=\(seriesid)", parameters: nil, progress: nil, success: { (_, JSON) -> Void in
-            if JSON!.objectForKey("responseCode")?.integerValue == 1 {
-                let dataArr = JSON!.objectForKey("responseData") as? NSArray
+        
+        KptRequestClient.sharedInstance.GET("/plugins/changhui/port/getModel?requestCode=001004&seriesid=\(seriesid)", parameters: nil, success: { (_, JSON) -> Void in
+            if JSON.objectForKey("responseCode")?.integerValue == 1 {
+                let dataArr = JSON.objectForKey("responseData") as? NSArray
                 self.seriesList = CarModelModel.mj_objectArrayWithKeyValuesArray(dataArr)
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.tableView.reloadData()

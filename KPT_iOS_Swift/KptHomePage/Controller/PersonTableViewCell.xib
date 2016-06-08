@@ -14,36 +14,52 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_user_car" translatesAutoresizingMaskIntoConstraints="NO" id="dC8-Cj-UE0">
-                        <rect key="frame" x="8" y="4" width="50" height="52"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_user_car" translatesAutoresizingMaskIntoConstraints="NO" id="dC8-Cj-UE0">
+                        <rect key="frame" x="8" y="7" width="44" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="44" id="cgM-bt-MGQ"/>
+                            <constraint firstAttribute="height" constant="45" id="kKE-PM-pFg"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="杨广强" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="42k-d4-Uip">
-                        <rect key="frame" x="74" y="8" width="96" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="杨广强" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="42k-d4-Uip">
+                        <rect key="frame" x="60" y="8" width="96" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="96" id="S2o-r8-KuP"/>
+                            <constraint firstAttribute="height" constant="21" id="iFZ-Z1-DGE"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="二维码" translatesAutoresizingMaskIntoConstraints="NO" id="R2u-Gp-uOT">
-                        <rect key="frame" x="283" y="15" width="29" height="30"/>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="13764349845" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cE5-SA-iVa">
-                        <rect key="frame" x="74" y="30" width="113" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13764349845" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cE5-SA-iVa">
+                        <rect key="frame" x="60" y="30" width="113" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="113" id="g6e-e5-T2m"/>
+                            <constraint firstAttribute="height" constant="21" id="jU4-RT-u5k"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="42k-d4-Uip" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-11" id="EKT-im-r8m"/>
+                    <constraint firstItem="42k-d4-Uip" firstAttribute="leading" secondItem="dC8-Cj-UE0" secondAttribute="trailing" constant="8" id="GHz-dj-7Hh"/>
+                    <constraint firstItem="cE5-SA-iVa" firstAttribute="top" secondItem="42k-d4-Uip" secondAttribute="top" constant="22" id="MBJ-AL-Lb9"/>
+                    <constraint firstItem="cE5-SA-iVa" firstAttribute="leading" secondItem="dC8-Cj-UE0" secondAttribute="trailing" constant="8" id="j7B-iZ-4kN"/>
+                    <constraint firstItem="dC8-Cj-UE0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="n2s-iI-IFx"/>
+                    <constraint firstItem="dC8-Cj-UE0" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="o9x-St-oL2"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="QRcodeIcon" destination="R2u-Gp-uOT" id="uwJ-lA-qTG"/>
                 <outlet property="personIcon" destination="dC8-Cj-UE0" id="i63-IY-ocm"/>
                 <outlet property="personName" destination="42k-d4-Uip" id="Qz9-Bb-hHW"/>
                 <outlet property="personPhoto" destination="cE5-SA-iVa" id="BtD-DN-4nv"/>
             </connections>
+            <point key="canvasLocation" x="247" y="249"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="icon_user_car" width="44" height="23"/>
-        <image name="二维码" width="22" height="22"/>
     </resources>
 </document>
