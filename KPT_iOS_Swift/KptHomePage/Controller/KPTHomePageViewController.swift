@@ -173,7 +173,7 @@ class KPTHomePageViewController: UIViewController {
         if NSUserDefaults.standardUserDefaults().objectForKey("userInfoLoginData") == nil {
             nav = UINavigationController(rootViewController: Kpt_LoginViewController(nibName: "Kpt_LoginViewController", bundle: nil))
         }else {
-            nav = UINavigationController(rootViewController: PersonalCenterViewController())
+            nav = UINavigationController(rootViewController: AccidentViewController())
         }
         //信息界面出现的动画方式
         nav.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
@@ -300,7 +300,8 @@ extension KPTHomePageViewController : AMapSearchDelegate,MAMapViewDelegate{
                str = str.substringFromIndex(range.location + 1)
             }
             cityLabel.text = response.regeocode.addressComponent.city
-            
+            addressLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
+            addressLabel.numberOfLines = 0
             addressLabel.text = str as String
         }
     }

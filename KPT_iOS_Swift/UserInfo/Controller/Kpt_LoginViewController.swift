@@ -52,7 +52,7 @@ class Kpt_LoginViewController: UIViewController {
             userDefault.setObject(data, forKey: "userInfoLoginData")
             userDefault.synchronize()
             
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.cancelBtnClick(nil)
         }
     }
     
