@@ -14,30 +14,53 @@ class UserInfoViewController: UIViewController,Kpt_NextBtnViewDelegate,Kpt_OCRIm
     var pickerView:Kpt_PickerView?
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "添加对方车辆"
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.whiteColor()
-        tableView.scrollEnabled = false
         view.addSubview(tableView)
         // Do any additional setup after loading the view.
     }
     func nextBtnClick(nextBtn: Kpt_NextBtnView) {
-        self.navigationController?.pushViewController(DrivingLicenceViewController(), animated: true)
+        //判断必填的信息是否已填
+        for var i = 0; i < cellArr.count - 1;i++ {
+            if self.changeDict.objectForKey(cellArr[i]) == nil {
+                let alertC = UIAlertController.creatAlertWithTitle(title: nil, message: cellDetailArr[i], cancelActionTitle: "确定")
+                self.presentViewController(alertC, animated: true, completion: nil)
+                return
+            }
+            
+        }
+        NSNotificationCenter.defaultCenter().postNotificationName("ReturnCarNo", object: nil, userInfo: ["otherCar":self.changeDict.objectForKey("车牌号码")!])
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
-    func returnOCRDataAndImage(data: AnyObject) {
-        print("ocr影像识别返回的数据\(data)")
+    func returnOCRDataAndImage(image: UIImage?, QNImageUrl: String, data: AnyObject) {
+        
     }
     private lazy var tableView:UITableView = UITableView(frame: self.view.bounds, style: UITableViewStyle.Grouped)
     
-    private lazy var cellArr = ["姓名","身份证号","住址","性别","出生日期"]
+    private lazy var cellArr = ["当事人","车牌号码","车型","驾驶证号","电话号码","保险公司"]
+    private lazy var cellDetailArr = ["请输入当事人","请输入车牌号码","请选择车型","请输入驾驶证号","请输入电话号码","请选择保险公司"]
+    
+    lazy var changeDict:NSMutableDictionary = {
+        let dict = NSMutableDictionary()
+        for str in self.cellArr {
+            dict.setValue(nil, forKey: str)
+        }
+        dict.setValue(nil, forKey:"registration")
+        return dict
+    }()
+    private lazy var carBrandVC: CarBrandListTableViewController = CarBrandListTableViewController()
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 }
 
-extension UserInfoViewController : UITableViewDelegate,UITableViewDataSource {
+extension UserInfoViewController : UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate {
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return IS_IPHONE_6P() ? 60 : IS_IPHONE_6() ? 50 : 44
@@ -51,74 +74,120 @@ extension UserInfoViewController : UITableViewDelegate,UITableViewDataSource {
         if cell == nil {
             cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: idCellIndentifier)
             cell?.selectionStyle = UITableViewCellSelectionStyle.None
-        }
-        if indexPath.row < 3 {
             cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         }
-        cell?.detailTextLabel?.text = "请输入\(cellArr[indexPath.row])"
-        cell?.textLabel?.text = cellArr[indexPath.row]
+        
+         cell?.textLabel?.text = cellArr[indexPath.row]
+        if let str = self.changeDict.objectForKey((cell?.textLabel?.text)!) {
+            if (str as? String)!.characters.count == 0 {
+                cell?.detailTextLabel?.text = cellDetailArr[indexPath.row]
+            }else {
+                cell?.detailTextLabel?.text = str as? String
+            }
+        }else {
+            cell?.detailTextLabel?.text = cellDetailArr[indexPath.row]
+        }
+       
         return cell!
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
-        if cell?.textLabel?.text == "出生日期" {
-            print("点击这里了")
-            creatPicker(pickerType.DatePick)
-            pickerView?.ensureButtonReturnDate({ (str) -> Void in
-                cell?.detailTextLabel?.text = str
-                
-            })
+        
+        if cell?.textLabel?.text == "保险公司" {
+            let carTypeArr = ["中国人保深圳分公司","中国平安深圳分公司","中国人保广州分公司","中国人保佛山分公司"]
+            creatPicker(pickerType.OtherType,arr: carTypeArr,myCell: cell,cellIndexPath: indexPath)
             return
-        }else if cell?.textLabel?.text == "性别" {
-            creatPicker(pickerType.OtherType)
-            pickerView?.ensureButtonReturnDate({ (str) -> Void in
-                cell?.detailTextLabel?.text = str
+        }else if cell?.textLabel?.text == "车型" {
+            carBrandVC.returnMoldeNameText({ (model) -> Void in
+                cell?.detailTextLabel?.text = model.modelname
+                cell?.detailTextLabel?.font = UIFont.systemFontOfSize(15)
+                cell?.detailTextLabel?.numberOfLines = 0
+                cell?.detailTextLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
+                self.changeDict.setValue(model.modelname, forKey: (cell?.textLabel?.text)!)
+                self.changeDict.setObject(model.modelid, forKey: "vehiclemodelsid")
             })
+            self.navigationController?.pushViewController(carBrandVC, animated: true)
             return
         }
-        let changeVC = ChangeInfoController()
-        changeVC.cell = cell
-        changeVC.returnChangeBeforeText { (text) -> Void in
-            cell?.detailTextLabel?.text = text
-        }
-        self.navigationController?.pushViewController(changeVC, animated: true)
+        showInputField(cell?.detailTextLabel?.text,detailStr: cellDetailArr[indexPath.row])
     }
     
-    func creatPicker(type:pickerType) {
-        pickerView = Kpt_PickerView.creatPickerWithFrame(CGRect(x: 0, y: SCRH - 220, width: SCRW, height: 220), type: type)
-        if type == pickerType.OtherType {
-            pickerView?.pickArr = ["男","女"]
+    //弹出输入框
+    private func showInputField(str:String?,detailStr:String) {
+        let alertV = UIAlertView(title: detailStr, message:"", delegate: self, cancelButtonTitle: "取消", otherButtonTitles: "确定")
+        alertV.alertViewStyle = UIAlertViewStyle.PlainTextInput
+        let textField = alertV.textFieldAtIndex(0)
+        if str! == detailStr {
+            textField?.placeholder = str!
+        }else {
+            textField?.placeholder = detailStr
+            textField?.text  = str!
         }
+        alertV.show()
+    }
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        let buttonTitle = alertView.buttonTitleAtIndex(buttonIndex)
+        
+        if buttonTitle == "确定" {
+            let textField = alertView.textFieldAtIndex(0)
+            let range = textField?.placeholder?.rangeOfString("请输入")
+            let cellText = textField?.placeholder?.substringFromIndex((range?.endIndex)!)
+            
+            self.changeDict.setValue(textField?.text, forKey: cellText!)
+            self.tableView.reloadData()
+        }
+    }
+
+    //创建选择器
+    private func creatPicker(type:pickerType,arr:[String]?,myCell:UITableViewCell?,cellIndexPath:NSIndexPath) {
+        
+        let cellHeight:CGFloat = IS_IPHONE_6P() ? 60 : IS_IPHONE_6() ? 50 : 44
+        
+        pickerView = Kpt_PickerView.creatPickerWithFrame(CGRect(x: 0, y: SCRH - 220, width: SCRW, height: 220), type: type)
+        pickerView?.pickArr = arr
         let window = UIApplication.sharedApplication().keyWindow
         window?.addSubview(self.pickerView!)
+        
+        //将tableview移动到指定位置
+        self.tableView.scrollRectToVisible(CGRect(x: 0, y: (cellHeight + 15) * CGFloat(cellIndexPath.row + cellIndexPath.section), width: SCRW, height: SCRH), animated: true)
+        
+        pickerView?.ensureButtonReturnDate({ (str) -> Void in
+            myCell?.detailTextLabel?.text = str
+            self.changeDict.setValue(str, forKey: (myCell?.textLabel?.text)!)
+        })
     }
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 100
+        return (IS_IPHONE_6P() ? 60 : IS_IPHONE_6() ? 50 : 40) + 60
     }
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 210
+        return (SCRW - 120) / 400 * 250 + 90
     }
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
         view.backgroundColor = UIColor.RGBA(218, g: 218, b: 218)
-        view.frame = CGRect(x: 0, y:0, width: SCRW, height: 200)
-        imageView = Kpt_OCRImageView.creatTouchImage(CGRect(x: 0, y: 0, width: SCRW, height: 180),documentType:"身份证",controller:self)
-        imageView?.ocrDelegate = self
+       
+        view.frame = CGRect(x: 0, y:0, width: SCRW, height: (SCRW - 120) / 400 * 250 + 90)
+        imageView = Kpt_OCRImageView.creatTouchImage(CGRect(x: 0, y: 0, width: SCRW, height: (SCRW - 120) / 400 * 250 + 70),documentType:"驾驶证",controller:self)
         imageView?.backgroundColor = UIColor.whiteColor()
+        imageView?.ocrDelegate = self
+            if self.changeDict.objectForKey("displayImageView") != nil {
+                imageView?.displayImageView.image = self.changeDict.objectForKey("displayImageView") as? UIImage
+                imageView?.displayImageView.contentMode = UIViewContentMode.ScaleAspectFit
+            }else if self.changeDict.objectForKey("registration") != nil && (self.changeDict.objectForKey("registration") as! String).characters.count > 0 {
+                imageView?.displayImageView.sd_setImageWithURL(NSURL(string: (self.changeDict.objectForKey("registration") as! String)))
+        }
         view.addSubview(imageView!)
-        let label = UILabel(frame: CGRect(x: 15, y: view.frame.size.height - 15, width: 100, height: 20))
-        label.text = "身份证信息"
-        view.addSubview(label)
         
         return view
     }
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let backView = UIView(frame: CGRect(x: 0, y: 0, width: SCRW, height: 100))
+        let cellMainHeight:CGFloat = IS_IPHONE_6P() ? 60 : IS_IPHONE_6() ? 50 : 40
+        let backView = UIView(frame: CGRect(x: 0, y: 0, width: SCRW, height: cellMainHeight + 60))
         backView.backgroundColor = UIColor.RGBA(218, g: 218, b: 218)
-        let view = Kpt_NextBtnView(frame: CGRect(x: 0, y: 20, width: SCRW, height: 80))
-        view.btnText = "下一步"
+        let view = Kpt_NextBtnView(frame: CGRect(x: 0, y: 20, width: SCRW, height: cellMainHeight + 40))
         view.delegate = self
+        view.btnText = "确定"
         view.backgroundColor = UIColor.whiteColor()
         backView.addSubview(view)
         return backView

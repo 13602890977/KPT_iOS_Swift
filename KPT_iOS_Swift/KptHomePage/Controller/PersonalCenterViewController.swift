@@ -25,7 +25,7 @@ class PersonalCenterViewController: UIViewController {
 
         reloadUserData()
         self.title = "个人中心"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor(),NSFontAttributeName:UIFont(name: "Heiti SC", size: 20.0)!]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:MainColor,NSFontAttributeName:UIFont(name: "Heiti SC", size: 20.0)!]
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "nav_back"), style: UIBarButtonItemStyle.Plain, target: self, action: "cancelBtnClick:")
         
         UINavigationBar.appearance().tintColor = MainColor
@@ -127,7 +127,13 @@ extension PersonalCenterViewController :UITableViewDataSource,UITableViewDelegat
         
         return cell!
     }
-    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        if cell?.textLabel?.text == "车辆信息" {
+            self.navigationController?.pushViewController(VehicleManagementController(), animated: true)
+            return
+        }
+    }
     func ExitLogin() {
         NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "userInfoLoginData")
         NSUserDefaults.standardUserDefaults().synchronize()

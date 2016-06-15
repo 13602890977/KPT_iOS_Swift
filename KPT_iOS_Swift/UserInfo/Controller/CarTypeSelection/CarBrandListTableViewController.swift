@@ -10,7 +10,7 @@ import UIKit
 import MJExtension
 import MBProgressHUD
 
-typealias cellTextBlock = (modelName:String) -> Void
+typealias cellTextBlock = (model:CarModelModel) -> Void
 
 class CarBrandListTableViewController: UITableViewController ,CarModelDelegate{
 
@@ -51,14 +51,14 @@ class CarBrandListTableViewController: UITableViewController ,CarModelDelegate{
         }
     }
     
-    func popFromVCtoCarModelName(name: String) {
+    func popFromVCtoCarModelName(model: CarModelModel) {
         
         removeChildController()
         if self.carBrandText != nil {
-            self.carBrandText!(modelName: name)
+            self.carBrandText!(model: model)
         }
         self.navigationController?.popViewControllerAnimated(true)
-        print("车系年限返回的数据 -- \(name)")
+        print("车系年限返回的数据 -- \(model)")
     }
     //闭包返回方法
     func returnMoldeNameText(myBlock:cellTextBlock?) {

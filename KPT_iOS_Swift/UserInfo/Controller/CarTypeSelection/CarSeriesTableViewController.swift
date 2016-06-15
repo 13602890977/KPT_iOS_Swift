@@ -17,7 +17,7 @@ enum carType: Int {
     case CarModel = 1
 }
 protocol CarModelDelegate :AnyObject {
-    func popFromVCtoCarModelName(name:String)
+    func popFromVCtoCarModelName(model:CarModelModel)
 }
 class CarSeriesTableViewController: UIViewController {
 
@@ -108,7 +108,7 @@ extension CarSeriesTableViewController: UITableViewDelegate,UITableViewDataSourc
         if carListType == carType.CarModel {
             let model = self.seriesList[indexPath.row] as! CarModelModel
             if (self.delegate != nil) {
-                self.delegate?.popFromVCtoCarModelName(model.modelname)
+                self.delegate?.popFromVCtoCarModelName(model)
             }
             print("点击了车款列表 -- \(model.modelname)")
             return

@@ -11,6 +11,7 @@ import UIKit
 protocol Kpt_NextBtnViewDelegate :NSObjectProtocol {
     func nextBtnClick(nextBtn:Kpt_NextBtnView)
 }
+
 class Kpt_NextBtnView: UIView {
     weak var delegate : Kpt_NextBtnViewDelegate? = nil
     var btnText:String? {
@@ -38,13 +39,18 @@ class Kpt_NextBtnView: UIView {
         }
     }
     private func creatNexBtn() {
-        let button = UIButton(type: UIButtonType.System)
-        button.frame = CGRect(x: 100 / 2 , y: (self.frame.size.height - 30)/2 , width: SCRW - 100, height: 30)
-        button.backgroundColor = UIColor.RGBA(187, g: 165, b: 67)
+        ///tableview的cell的主要高度
+        let cellMainHeight:CGFloat = IS_IPHONE_6P() ? 60 : IS_IPHONE_6() ? 50 : 40
+        let button = UIButton(type: UIButtonType.Custom)
+        
+        button.frame = CGRect(x: 50 , y: (self.frame.size.height - cellMainHeight)/2 , width: SCRW - 100, height: cellMainHeight)
+        button.backgroundColor = MainColor
         button.setTitleColor(UIColor.RGBA(146, g: 108, b: 52), forState: UIControlState.Normal)
-        button.layer.cornerRadius = 15
+        button.layer.cornerRadius = cellMainHeight * 0.5
         
         button.setTitle(btnText, forState: UIControlState.Normal)
+        button.titleLabel?.font = UIFont.systemFontOfSize(22)
+            
         button.addTarget(self, action: "btnClick", forControlEvents: UIControlEvents.TouchUpInside)
         self.addSubview(button)
         

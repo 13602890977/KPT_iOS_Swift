@@ -112,7 +112,18 @@ class Kpt_RegisterViewController: UIViewController {
     
     @IBAction func falsePerfectBtnClick(sender: AnyObject) {
         self.backView.removeFromSuperview()
+        login()
+       self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
         
+    }
+ 
+    //完善个人信息
+    @IBAction func perfectBtnClick(sender: AnyObject) {
+        self.backView.removeFromSuperview()
+        login()
+        navigationController?.pushViewController(DrivingLicenceViewController(), animated: true)
+    }
+    private func login() {
         let parameters : NSMutableDictionary = NSMutableDictionary()
         parameters.setValue("001002", forKey: "requestcode")
         parameters.setValue(self.photoTextField.text, forKey: "mobile")
@@ -122,16 +133,7 @@ class Kpt_RegisterViewController: UIViewController {
             let userDefault:NSUserDefaults = NSUserDefaults.standardUserDefaults()
             userDefault.setObject(data, forKey: "userInfoLoginData")
             userDefault.synchronize()
-            
-           self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
         }
-        
-    }
- 
-    //完善个人信息
-    @IBAction func perfectBtnClick(sender: AnyObject) {
-        self.backView.removeFromSuperview()
-        navigationController?.pushViewController(UserInfoViewController(), animated: true)
     }
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         FoldUpTheKeyboard()

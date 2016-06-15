@@ -50,6 +50,12 @@
 		256C0B3E1D0E56F900E880DA /* MyCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256C0B3D1D0E56F900E880DA /* MyCarViewController.swift */; };
 		256C0B411D0E5A5500E880DA /* MyCarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256C0B3F1D0E5A5500E880DA /* MyCarTableViewCell.swift */; };
 		256C0B421D0E5A5500E880DA /* MyCarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 256C0B401D0E5A5500E880DA /* MyCarTableViewCell.xib */; };
+		256C0B441D0E86D700E880DA /* MyCarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256C0B431D0E86D700E880DA /* MyCarModel.swift */; };
+		256C0B4A1D0FFAEB00E880DA /* VehicleManagementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256C0B491D0FFAEB00E880DA /* VehicleManagementController.swift */; };
+		256C0B4D1D11014F00E880DA /* PhotoEvidenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256C0B4B1D11014F00E880DA /* PhotoEvidenceViewController.swift */; };
+		256C0B4E1D11014F00E880DA /* PhotoEvidenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 256C0B4C1D11014F00E880DA /* PhotoEvidenceViewController.xib */; };
+		256C0B511D11312500E880DA /* PhotoEvidenceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256C0B4F1D11312500E880DA /* PhotoEvidenceCell.swift */; };
+		256C0B521D11312500E880DA /* PhotoEvidenceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 256C0B501D11312500E880DA /* PhotoEvidenceCell.xib */; };
 		259FFB3C1D011AE100848C1F /* PersonalCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259FFB3B1D011AE100848C1F /* PersonalCenterViewController.swift */; };
 		259FFB3F1D012B4700848C1F /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259FFB3D1D012B4700848C1F /* PersonTableViewCell.swift */; };
 		259FFB401D012B4700848C1F /* PersonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 259FFB3E1D012B4700848C1F /* PersonTableViewCell.xib */; };
@@ -141,6 +147,12 @@
 		256C0B3D1D0E56F900E880DA /* MyCarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCarViewController.swift; sourceTree = "<group>"; };
 		256C0B3F1D0E5A5500E880DA /* MyCarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCarTableViewCell.swift; sourceTree = "<group>"; };
 		256C0B401D0E5A5500E880DA /* MyCarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCarTableViewCell.xib; sourceTree = "<group>"; };
+		256C0B431D0E86D700E880DA /* MyCarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCarModel.swift; sourceTree = "<group>"; };
+		256C0B491D0FFAEB00E880DA /* VehicleManagementController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleManagementController.swift; sourceTree = "<group>"; };
+		256C0B4B1D11014F00E880DA /* PhotoEvidenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoEvidenceViewController.swift; sourceTree = "<group>"; };
+		256C0B4C1D11014F00E880DA /* PhotoEvidenceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoEvidenceViewController.xib; sourceTree = "<group>"; };
+		256C0B4F1D11312500E880DA /* PhotoEvidenceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoEvidenceCell.swift; sourceTree = "<group>"; };
+		256C0B501D11312500E880DA /* PhotoEvidenceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoEvidenceCell.xib; sourceTree = "<group>"; };
 		259FFB3B1D011AE100848C1F /* PersonalCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalCenterViewController.swift; sourceTree = "<group>"; };
 		259FFB3D1D012B4700848C1F /* PersonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersonTableViewCell.swift; path = KPT_iOS_Swift/KptHomePage/Controller/PersonTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		259FFB3E1D012B4700848C1F /* PersonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PersonTableViewCell.xib; path = KPT_iOS_Swift/KptHomePage/Controller/PersonTableViewCell.xib; sourceTree = SOURCE_ROOT; };
@@ -334,6 +346,7 @@
 				2509226D1CED5D7A00353F17 /* KPTHomePageViewController.swift */,
 				250922721CEDB8EF00353F17 /* KPTHomePageViewController.xib */,
 				259FFB3B1D011AE100848C1F /* PersonalCenterViewController.swift */,
+				256C0B451D0FFAB700E880DA /* Personal */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -376,6 +389,8 @@
 				251A58281D0D7E7500F1E48F /* AccidentTableViewCell.xib */,
 				256C0B3F1D0E5A5500E880DA /* MyCarTableViewCell.swift */,
 				256C0B401D0E5A5500E880DA /* MyCarTableViewCell.xib */,
+				256C0B4F1D11312500E880DA /* PhotoEvidenceCell.swift */,
+				256C0B501D11312500E880DA /* PhotoEvidenceCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -389,9 +404,42 @@
 			path = CarTypeSelection;
 			sourceTree = "<group>";
 		};
+		256C0B451D0FFAB700E880DA /* Personal */ = {
+			isa = PBXGroup;
+			children = (
+				256C0B461D0FFAB700E880DA /* Controller */,
+				256C0B471D0FFAB700E880DA /* Model */,
+				256C0B481D0FFAB700E880DA /* View */,
+			);
+			path = Personal;
+			sourceTree = "<group>";
+		};
+		256C0B461D0FFAB700E880DA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				256C0B491D0FFAEB00E880DA /* VehicleManagementController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		256C0B471D0FFAB700E880DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		256C0B481D0FFAB700E880DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		259FFB411D016F6800848C1F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				256C0B431D0E86D700E880DA /* MyCarModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -465,6 +513,8 @@
 				2507AF2E1D0814B3008F8E1D /* AccidentViewController.swift */,
 				2507AF2F1D0814B3008F8E1D /* AccidentViewController.xib */,
 				256C0B3D1D0E56F900E880DA /* MyCarViewController.swift */,
+				256C0B4B1D11014F00E880DA /* PhotoEvidenceViewController.swift */,
+				256C0B4C1D11014F00E880DA /* PhotoEvidenceViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -637,8 +687,10 @@
 				25E8DECB1CFE9150005DA035 /* CarBrandTableViewCell.xib in Resources */,
 				251459031CF2FCC400B5CB34 /* AMap.bundle in Resources */,
 				256C0B421D0E5A5500E880DA /* MyCarTableViewCell.xib in Resources */,
+				256C0B521D11312500E880DA /* PhotoEvidenceCell.xib in Resources */,
 				25FE41471CF54D44006A1CF9 /* Kpt_RegisterViewController.xib in Resources */,
 				250413B21CF44FCF00611E62 /* Kpt_LoginViewController.xib in Resources */,
+				256C0B4E1D11014F00E880DA /* PhotoEvidenceViewController.xib in Resources */,
 				25B8792F1CEC05DD00F9865B /* LaunchScreen.storyboard in Resources */,
 				2507AF311D0814B3008F8E1D /* AccidentViewController.xib in Resources */,
 				25DE9BBF1D05618000058FDF /* Kpt_ForgetPasswordViewController.xib in Resources */,
@@ -769,10 +821,12 @@
 				2507AF2D1D07C061008F8E1D /* UIAlert+Category.swift in Sources */,
 				259FFB431D016FA100848C1F /* UserInfoData.swift in Sources */,
 				25246FC31CFBEFAB0007695E /* CarInfoViewController.swift in Sources */,
+				256C0B4A1D0FFAEB00E880DA /* VehicleManagementController.swift in Sources */,
 				25B879221CEC05DD00F9865B /* AppDelegate.swift in Sources */,
 				25F6700C1CF6A0440001B112 /* UserInfoViewController.swift in Sources */,
 				251A58261D0D3E4800F1E48F /* AccidentView.swift in Sources */,
 				2507AF301D0814B3008F8E1D /* AccidentViewController.swift in Sources */,
+				256C0B4D1D11014F00E880DA /* PhotoEvidenceViewController.swift in Sources */,
 				251A58291D0D7E7500F1E48F /* AccidentTableViewCell.swift in Sources */,
 				25E8DECF1CFEBCCE005DA035 /* CarSeriesTableViewController.swift in Sources */,
 				251F857A1CEC6AC300C6051F /* GlobalConstant.swift in Sources */,
@@ -785,6 +839,7 @@
 				25A07F541CEEE74600BA4A71 /* KptRequestClient.swift in Sources */,
 				259FFB3C1D011AE100848C1F /* PersonalCenterViewController.swift in Sources */,
 				250922701CED5D7A00353F17 /* KPTHistoryViewController.swift in Sources */,
+				256C0B511D11312500E880DA /* PhotoEvidenceCell.swift in Sources */,
 				2516BA491CF6ECB100E2932E /* Kpt_PickerView.swift in Sources */,
 				2509226F1CED5D7A00353F17 /* KPTDiscoverViewController.swift in Sources */,
 				2532EA451CFD9858007B9B64 /* CarBrandModel.swift in Sources */,
@@ -796,6 +851,7 @@
 				25A7B1731CF83C8A00177C3F /* Kpt_NextBtnView.swift in Sources */,
 				25FE41461CF54D44006A1CF9 /* Kpt_RegisterViewController.swift in Sources */,
 				259FFB451D0185DB00848C1F /* ChangeInfoController.swift in Sources */,
+				256C0B441D0E86D700E880DA /* MyCarModel.swift in Sources */,
 				256C0B411D0E5A5500E880DA /* MyCarTableViewCell.swift in Sources */,
 				250413B11CF44FCF00611E62 /* Kpt_LoginViewController.swift in Sources */,
 				25681DA61CEC63AD004E78B2 /* UIColor+Category.swift in Sources */,

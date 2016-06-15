@@ -9,6 +9,8 @@
 import UIKit
 import AFNetworking
 import XMLDictionary
+import GTMBase64
+
 
 class KptRequestClient: AFHTTPSessionManager{
     
@@ -44,13 +46,27 @@ class KptRequestClient: AFHTTPSessionManager{
                 viewController.presentViewController(alertV, animated: true, completion: nil)
         }
     }
-        
-    ///七牛token获取
-    func makeQiNiuToken(accessKey accessKey:String,secretKey:String) {
-        let secretKeyStr = (secretKey as NSString).UTF8String
-        let policy = NSObject.marshal()
-        
-        let policyData = policy.dataUsingEncoding(NSUTF8StringEncoding)
-        
+    
+    ///请求接口再封装，把请求失败的操作封装起来
+    func Kpt_Get(urlStr:String,paramet:AnyObject?,viewController:UIViewController,success: ( AnyObject? -> Void)? , failure: (AnyObject? -> Void)?) {
+        KptRequestClient.sharedInstance.GET(urlStr, parameters: paramet,  success: { (task:NSURLSessionDataTask!, JSON) -> Void in
+            
+            print("请求到的数据\(JSON)")
+            let responsecode = JSON.objectForKey("responsecode") as? String
+            if (responsecode! == "1") {
+                success!(JSON.objectForKey("data"))
+            }else {
+                let alertV = UIAlertController.creatAlertWithTitle(title: "温馨提醒", message:  JSON.objectForKey("errormessage") as? String, cancelActionTitle: "确定")
+                viewController.presentViewController(alertV, animated: true, completion: nil)
+                failure!("")
+            }
+            }) { (_, error) -> Void in
+                print(error)
+                let alertV = UIAlertController.creatAlertWithTitle(title: "温馨提醒", message:"链接不到服务器，请退出重试", cancelActionTitle: "确定")
+                viewController.presentViewController(alertV, animated: true, completion: nil)
+                failure!("")
+        }
     }
+    
+    
 }

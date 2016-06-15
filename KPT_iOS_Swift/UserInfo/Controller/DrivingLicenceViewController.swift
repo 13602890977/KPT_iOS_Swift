@@ -115,9 +115,8 @@ extension DrivingLicenceViewController : UITableViewDelegate,UITableViewDataSour
         }
         return view
     }
-    func returnOCRDataAndImage(data: AnyObject) {
-        print(data)
-        self.ocrImage = self.imageView?.touchImageView.image
+    func returnOCRDataAndImage(image: UIImage?, QNImageUrl: String, data: AnyObject) {
+        
     }
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if section == 0 {

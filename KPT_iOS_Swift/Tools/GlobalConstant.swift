@@ -89,10 +89,10 @@ extension NSObject {
     //代码创建model类
     class func createModelWithDictionary(dict:NSDictionary ,modelName:String)
     {
-        print("\nclass \(modelName as NSString).UTF8String :NSObject{\n");
+        print("\nclass \(modelName as NSString) : NSObject{\n");
         for key in dict.allKeys {
         let type = dict.objectForKey(key as! String)!.isKindOfClass(NSNumber) ? "NSNumber" : "String"
-            print("var\(key): \(type)!;\n");
+            print("var \(key): \(type)!\n");
     }
         print("}\n");
     

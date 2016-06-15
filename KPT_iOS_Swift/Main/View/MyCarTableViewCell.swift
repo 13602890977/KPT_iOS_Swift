@@ -10,6 +10,14 @@ import UIKit
 
 class MyCarTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var roundImage: UIImageView!
+    @IBOutlet weak var myCarName: UILabel!
+    var carModel : MyCarModel! {
+        didSet {
+            myCarName.text = carModel.carno
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -53,7 +53,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         
         window = UIWindow(frame:UIScreen.mainScreen().bounds)
         window?.rootViewController = MainAppViewController()
-         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
+        
         window?.makeKeyAndVisible()
         
         

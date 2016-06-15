@@ -22,9 +22,11 @@ class AccidentView: UIView,UIScrollViewDelegate,UITextViewDelegate {
         
         
         view.addSubview(view.scrollView)
-        view.scrollView.hidden = true
-        UIView.animateWithDuration(1.0) { () -> Void in
-            view.scrollView.hidden = false
+        view.scrollView.frame = CGRect(x: 25, y: 30 + 64 - SCRW, width: SCRW - 50, height: SCRH - 124)
+        
+        UIView.animateWithDuration(0.5) { () -> Void in
+            
+            view.scrollView.frame = CGRect(x: 25, y: 30 + 64, width: SCRW - 50, height: SCRH - 124)
         }
         view.addSubview(view.pageControl)
         view.addSubview(view.closeBtn)

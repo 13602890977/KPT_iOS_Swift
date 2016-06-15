@@ -8,6 +8,9 @@
 
 #import "NSObject+OCTool.h"
 #import "JSONKit.h"
+#import "GTMBase64.h"
+#include <CommonCrypto/CommonCrypto.h>
+#import "QiniuSDK.h"
 
 @implementation NSObject (OCTool)
 - (NSMutableArray *)creatTwenty_sixArr {
@@ -43,6 +46,27 @@
 //    
 //    return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
 }
-
++ (NSString *)makeToken:(NSString *)accessKey secretKey:(NSString *)secretKey {
+    const char *secretKeyStr = [secretKey UTF8String];
+    
+    NSString *policy = [self marshal];
+    
+    NSData *policyData = [policy dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSString *encodedPolicy = [GTMBase64 stringByWebSafeEncodingData:policyData padded:TRUE];
+    const char *encodedPolicyStr = [encodedPolicy cStringUsingEncoding:NSUTF8StringEncoding];
+    
+    
+    char digestStr[CC_SHA1_DIGEST_LENGTH];
+    bzero(digestStr, 0);
+    
+    CCHmac(kCCHmacAlgSHA1, secretKeyStr, strlen(secretKeyStr), encodedPolicyStr, strlen(encodedPolicyStr), digestStr);
+    
+    NSString *encodedDigest = [GTMBase64 stringByWebSafeEncodingBytes:digestStr length:CC_SHA1_DIGEST_LENGTH padded:TRUE];
+    
+    NSString *token = [NSString stringWithFormat:@"%@:%@:%@",  accessKey, encodedDigest, encodedPolicy];
+    NSLog(@" acc == %@   encodedDigest == %@  encodedPolicy== %@",accessKey,encodedDigest,encodedPolicy);
+    return token;//得到了token
+}
 
 @end

@@ -14,6 +14,13 @@ class AccidentViewController: UIViewController {
     private var backView : AccidentView!
     ///保存我的车辆和对方车辆(双车事故才需要)
     var carTypeArr:[String]!
+    ///保存返回的我的车牌号码，
+    private var myCarNumber: String?
+    ///保存返回的对方车辆的车牌号码
+    private var otherCarNumber : String?
+    
+    ///记录选择的是事故类型(单车还是双车)默认是双侧事故
+    private var typeAccident = "twoCar"
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -24,7 +31,9 @@ class AccidentViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //注册通知，用于获取车牌号码
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "optionalReturnCarNo:", name: "ReturnCarNo", object: nil)
+        
         self.title = "事故类型"
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName:UIFont.systemFontOfSize(19.0),NSForegroundColorAttributeName:MainColor]
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "nav_back"), style: UIBarButtonItemStyle.Plain, target: self, action: "popView")
@@ -38,6 +47,20 @@ class AccidentViewController: UIViewController {
         backView = AccidentView.creatAccidentBackgroundViewWith(frame: UIScreen.mainScreen().bounds, controller: self)
         self.view.addSubview(backView)
     }
+    
+   
+    ///添加车辆的驾驶证页面的代理方法
+    func optionalReturnCarNo(info: NSNotification?) {
+        print(info?.userInfo)
+        let carDict:NSDictionary = (info?.userInfo)!
+        if carDict.objectForKey("myCar") != nil {
+           myCarNumber = carDict.objectForKey("myCar") as? String
+        }else if carDict.objectForKey("otherCar") != nil {
+            otherCarNumber = carDict.objectForKey("otherCar") as? String
+        }
+        self.tableView.reloadSections(NSIndexSet(index: 1), withRowAnimation: UITableViewRowAnimation.None)
+    }
+    
     func removeFromAccidentView(view:AccidentView) {
         self.backView.removeFromSuperview()
     }
@@ -123,6 +146,10 @@ extension AccidentViewController:UITableViewDelegate,UITableViewDataSource {
     
     func forensicsButtonClick() {
         print("跳转到拍照页面")
+        let photoVC = PhotoEvidenceViewController(nibName: "PhotoEvidenceViewController", bundle: nil)
+        photoVC.accidentType = typeAccident
+        self.navigationController?.pushViewController(photoVC, animated: true)
+        
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -131,13 +158,16 @@ extension AccidentViewController:UITableViewDelegate,UITableViewDataSource {
             weak var wSelf = self
             cell.returnSelectedResult({ (bl) -> Void in
                 if bl {//单车事故
+                    self.typeAccident = "oneCar"
                     wSelf!.carTypeArr.removeLast()
                 }else {
+                    self.typeAccident = "twoCar"
                     wSelf!.carTypeArr.append("对方车辆")
                 }
                 wSelf!.tableView.reloadSections(NSIndexSet(index: 1), withRowAnimation: UITableViewRowAnimation.None)
             })
-           cell.selectionStyle = UITableViewCellSelectionStyle.None
+            
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
             return cell
         }
         let accidentCellId = "accidentCellId"
@@ -145,18 +175,27 @@ extension AccidentViewController:UITableViewDelegate,UITableViewDataSource {
         var cell = tableView.dequeueReusableCellWithIdentifier(accidentCellId)
         if cell == nil {
             
-            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: accidentCellId)
+            cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: accidentCellId)
         }
          cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         cell?.textLabel?.text = carTypeArr[indexPath.row]
+        if myCarNumber != nil && indexPath.row == 0 {
+            cell!.detailTextLabel?.text = myCarNumber!
+        }else if indexPath.row == 1 && otherCarNumber != nil {
+            cell!.detailTextLabel?.text = otherCarNumber!
+        }
         return cell!
     }
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
-        if cell?.textLabel?.text == "我的车辆" {
-            
+        if (cell?.textLabel?.text) == "我的车辆" {
+            print(cell?.textLabel?.text)
+            self.navigationController?.pushViewController(MyCarViewController(), animated: true)
+            return
         }else if cell?.textLabel?.text == "对方车辆" {
-            
+            self.navigationController?.pushViewController(UserInfoViewController(), animated: true)
+            return
         }
+
     }
 }

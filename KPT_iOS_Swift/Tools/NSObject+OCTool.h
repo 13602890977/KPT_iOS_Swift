@@ -13,4 +13,7 @@
 - (NSMutableArray *)creatTwenty_sixArr;
 
 +(NSString *)marshal;
+
+///七牛token获取
++(NSString *)makeToken:(NSString *)accessKey secretKey:(NSString *)secretKey;
 @end

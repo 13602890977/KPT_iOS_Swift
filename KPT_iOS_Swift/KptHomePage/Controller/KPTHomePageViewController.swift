@@ -227,9 +227,9 @@ extension KPTHomePageViewController : AMapSearchDelegate,MAMapViewDelegate{
             mapSearch!.AMapReGoecodeSearch(rego)
         }
     }
-    func mapView(mapView: MAMapView!, didLongPressedAtCoordinate coordinate: CLLocationCoordinate2D) {
-        searchReGeocodeWithCoordinate(coordinate)
-    }
+//    func mapView(mapView: MAMapView!, didLongPressedAtCoordinate coordinate: CLLocationCoordinate2D) {
+////        searchReGeocodeWithCoordinate(coordinate)
+//    }
     func mapView(mapView: MAMapView!, viewForAnnotation annotation: MAAnnotation!) -> MAAnnotationView! {
         if annotation.isKindOfClass(MAPointAnnotation) {
             let annotationIdentifier = "invertGeoIdentifier"
@@ -246,29 +246,29 @@ extension KPTHomePageViewController : AMapSearchDelegate,MAMapViewDelegate{
         return nil
     }
     
-    func AMapSearchRequest(request: AnyObject!, didFailWithError error: NSError!) {
-        print("request :\(request), error: \(error)")
-    }
+//    func AMapSearchRequest(request: AnyObject!, didFailWithError error: NSError!) {
+//        print("request :\(request), error: \(error)")
+//    }
+//    
+//    func searchReGeocodeWithCoordinate(coordinate: CLLocationCoordinate2D!) {
+//        let regeo: AMapReGeocodeSearchRequest = AMapReGeocodeSearchRequest()
+//        regeo.location = AMapGeoPoint.locationWithLatitude(CGFloat(coordinate.latitude), longitude: CGFloat(coordinate.longitude))
+//        print("regeo :\(regeo)")
+//        self.mapSearch!.AMapReGoecodeSearch(regeo)
+//    }
     
-    func searchReGeocodeWithCoordinate(coordinate: CLLocationCoordinate2D!) {
-        let regeo: AMapReGeocodeSearchRequest = AMapReGeocodeSearchRequest()
-        regeo.location = AMapGeoPoint.locationWithLatitude(CGFloat(coordinate.latitude), longitude: CGFloat(coordinate.longitude))
-        print("regeo :\(regeo)")
-        self.mapSearch!.AMapReGoecodeSearch(regeo)
-    }
-    
-    func onGeocodeSearchDone(request: AMapGeocodeSearchRequest!, response: AMapGeocodeSearchResponse!) {
-        if response.geocodes.count == 0 {
-            return
-        }
-        let strCount:String = "\(response.count)"
-        var strGeocodes = ""
-        for tip in response.geocodes  {
-            strGeocodes = "\(strGeocodes)\ngeocode:\(tip.description)"
-        }
-        let result = "\(strCount) \n \(strGeocodes)"
-        print(result)
-    }
+//    func onGeocodeSearchDone(request: AMapGeocodeSearchRequest!, response: AMapGeocodeSearchResponse!) {
+//        if response.geocodes.count == 0 {
+//            return
+//        }
+//        let strCount:String = "\(response.count)"
+//        var strGeocodes = ""
+//        for tip in response.geocodes  {
+//            strGeocodes = "\(strGeocodes)\ngeocode:\(tip.description)"
+//        }
+//        let result = "\(strCount) \n \(strGeocodes)"
+//        print(result)
+//    }
     //逆地址编码回调
     func onReGeocodeSearchDone(request: AMapReGeocodeSearchRequest!, response: AMapReGeocodeSearchResponse!) {
         print("代理")
@@ -299,7 +299,7 @@ extension KPTHomePageViewController : AMapSearchDelegate,MAMapViewDelegate{
             if range.length > 0 {
                str = str.substringFromIndex(range.location + 1)
             }
-            cityLabel.text = response.regeocode.addressComponent.city
+            cityLabel.text = response.regeocode.addressComponent.city != nil ? response.regeocode.addressComponent.city : response.regeocode.addressComponent.province
             addressLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
             addressLabel.numberOfLines = 0
             addressLabel.text = str as String
