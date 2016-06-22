@@ -12,6 +12,7 @@ pod 'XMLDictionary'
 pod 'Qiniu'
 pod 'GTMBase64'
 pod 'JSONKit'
+pod 'MJRefresh'
 end
 
 target "KPT_iOS_SwiftTests" do

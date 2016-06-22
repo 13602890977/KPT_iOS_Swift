@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '00AA9CB949436ED34DB288A556ADEE74'
+               BlueprintIdentifier = 'B397C1EFE3E1CBE5A34ED119B6F5CB16'
                BlueprintName = 'XMLDictionary'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'XMLDictionary.framework'>

@@ -156,5 +156,44 @@ extension NSObject {
         }
         
     }
-
+    
+    ///判断保险公司列表存在,如果不存在，就从服务器请求下来并存储
+    func storageAndReadingListOfInsuranceCompanies() {
+        let insuranceArr = NSArray(contentsOfFile: NSHomeDirectory() + "/Documents/insurance.plist")
+        if insuranceArr == nil {
+            let userDefault = NSUserDefaults.standardUserDefaults()
+            let personalData = userDefault.objectForKey("userInfoLoginData") as! NSDictionary
+            let userInfoData = UserInfoData.mj_objectWithKeyValues(personalData)
+            
+            let paramet = ["requestcode":"003005","accessid":userInfoData.accessid,"accesskey":userInfoData.accesskey,"userid":userInfoData.userid,"type":"insurance"]
+            
+            KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/getDict", paramet: paramet, viewController: nil, success: { (data) -> Void in
+                let filePath:String = NSHomeDirectory() + "/Documents/insurance.plist"
+                (data as! NSArray).writeToFile(filePath, atomically: true)
+                }, failure: { (_) -> Void in
+                    
+            })
+        }
+    }
+    
+    ///判断驾驶证是否存在，如果不存在，就从服务器请求下来并存储
+    func storageUserdefaultDriving() {
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        let personalData = userDefault.objectForKey("userInfoLoginData") as! NSDictionary
+        let userInfoData = UserInfoData.mj_objectWithKeyValues(personalData)
+        
+        //获取驾驶证
+        let getDrivingParamet = ["requestcode":"001010","accessid":userInfoData.accessid,"accesskey":userInfoData.accesskey,"userid":userInfoData.userid]
+        
+        KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/user/getDrivingLicenseInfo", paramet: getDrivingParamet, viewController: nil, success: { (data) -> Void in
+            if let dict = data as? NSDictionary {
+                let model = DrivingLicenseModel.mj_objectWithKeyValues(dict)
+                NSUserDefaults.standardUserDefaults().setValue(model.drivinglicenseno, forKey: "Kpt_Licenseno")
+                NSUserDefaults.standardUserDefaults().synchronize()
+                
+            }
+            }, failure: { (_) -> Void in
+                
+        })
+    }
 }

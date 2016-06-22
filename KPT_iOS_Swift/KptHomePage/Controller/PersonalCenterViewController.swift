@@ -39,12 +39,16 @@ class PersonalCenterViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     private func reloadUserData() {
-        let loginDataName:NSDictionary = NSUserDefaults.standardUserDefaults().objectForKey("userInfoLoginData") as! NSDictionary
-        loginData = UserInfoData.mj_objectWithKeyValues(loginDataName)
+        let loginDataName = NSUserDefaults.standardUserDefaults().objectForKey("userInfoLoginData")
+        if loginDataName != nil {
+            loginData = UserInfoData.mj_objectWithKeyValues(loginDataName as! NSDictionary)
+        }
         
         let paramet = ["requestcode":"001007","accessid":loginData.accessid,"accesskey":loginData.accesskey,"userid":loginData.userid]
-        KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/user/getUserInfo", paramet: paramet, viewController: self) { (data) -> Void in
+        KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/user/getUserInfo", paramet: paramet, viewController: self, success: { (data) -> Void in
             print(data)
+            }) { (_) -> Void in
+                
         }
     }
     private lazy var tableView :UITableView = {

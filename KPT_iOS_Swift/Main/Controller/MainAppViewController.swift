@@ -24,7 +24,7 @@ class MainAppViewController: UIViewController {
     ///历史VC
     var KptHistory  :KPTHistoryViewController?
     ///发现VC
-    var KptDiscover :KPTDiscoverViewController?
+    var KptDiscover :KPTDiscoverVController?
     
     let arrT = ["首页","发现","历史"]
     
@@ -63,7 +63,8 @@ class MainAppViewController: UIViewController {
         KptHome?.view.frame = CGRect(x: _scrollV.frame.size.width * 0, y: 0, width: _scrollV.frame.size.width, height: _scrollV.frame.height)
         _scrollV.addSubview(KptHome!.view)
         
-        KptDiscover = KPTDiscoverViewController()
+        KptDiscover = KPTDiscoverVController(nibName: "KPTDiscoverVController", bundle: nil)
+        
         KptDiscover?.view.frame = CGRect(x: _scrollV.frame.width, y: 0, width: _scrollV.frame.width, height: _scrollV.frame.height)
         _scrollV.addSubview(KptDiscover!.view)
         

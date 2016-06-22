@@ -8,6 +8,7 @@
 
 import UIKit
 import MBProgressHUD
+import MJRefresh
 
 class VehicleManagementController: UIViewController {
     private var loginData: UserInfoData!
@@ -19,7 +20,9 @@ class VehicleManagementController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "添加", style: UIBarButtonItemStyle.Plain, target: self, action: "addMyCar")
         self.view.addSubview(tableView)
         tableView.tableFooterView = UIView()
-        reloadMyCarData()
+        tableView.mj_header = header
+        
+        VehicleRefresh()
 
     }
     func addMyCar() {
@@ -28,6 +31,12 @@ class VehicleManagementController: UIViewController {
         userDe.synchronize()
         
         self.navigationController?.pushViewController(CarInfoViewController(), animated: true)
+    }
+    
+    ///下拉刷新方法
+    func VehicleRefresh() {
+        reloadMyCarData()
+        
     }
     func reloadMyCarData() {
         self.hud.labelText = "请求数据中"
@@ -45,10 +54,16 @@ class VehicleManagementController: UIViewController {
             }else if data as? NSArray != nil {
                 self.modelArr = MyCarModel.mj_objectArrayWithKeyValuesArray(data)
             }
-            self.tableView.reloadData()
+            //结束刷新
+            self.tableView.mj_header.endRefreshing()
             self.hud.hide(true)
+            self.tableView.reloadData()
+            
+            
             }) { (_) -> Void in
                 self.hud.hide(true)
+                //结束刷新
+                self.tableView.mj_header.endRefreshing()
         }    }
     
     private lazy var tableView : UITableView = {
@@ -62,7 +77,11 @@ class VehicleManagementController: UIViewController {
     
     private lazy var hud : MBProgressHUD = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
     
-
+    private lazy var header : MJRefreshNormalHeader = {
+       let head = MJRefreshNormalHeader()
+        head.setRefreshingTarget(self, refreshingAction: "VehicleRefresh")
+        return head
+    }()
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

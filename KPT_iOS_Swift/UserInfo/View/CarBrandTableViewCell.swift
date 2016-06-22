@@ -17,7 +17,7 @@ class CarBrandTableViewCell: UITableViewCell {
     ///接收数据
     var model:CarBrandModel! {
         didSet {
-            self.logoImage.sd_setImageWithURL(NSURL(string: "http://59.41.39.55:9090\(model.brandlogo)"), placeholderImage: UIImage(named: ""))
+            self.logoImage.sd_setImageWithURL(NSURL(string: "http://59.41.39.55:9090\(model.brandlogo)"))
             self.carTextLabel.text = model.brandname
         }
     }

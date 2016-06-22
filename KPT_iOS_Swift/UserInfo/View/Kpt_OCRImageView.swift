@@ -151,7 +151,7 @@ extension Kpt_OCRImageView :UINavigationControllerDelegate,UIImagePickerControll
         
         //TODO:选择照片或者照相完成以后的处理
         print(info)
-        let image:UIImage = info [UIImagePickerControllerEditedImage] as! UIImage
+        let image:UIImage = info[UIImagePickerControllerEditedImage] as! UIImage
         
         self.displayImageView.contentMode = UIViewContentMode.ScaleAspectFit
         self.displayImageView.image = image

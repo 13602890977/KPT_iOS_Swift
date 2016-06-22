@@ -15,6 +15,13 @@ class MyCarTableViewCell: UITableViewCell {
     var carModel : MyCarModel! {
         didSet {
             myCarName.text = carModel.carno
+            if carModel.isSelected {
+                roundImage.image = UIImage(named: "round_y")
+                carModel.isSelected = false
+            }else {
+                roundImage.image = UIImage(named: "round_w")
+                
+            }
         }
     }
     

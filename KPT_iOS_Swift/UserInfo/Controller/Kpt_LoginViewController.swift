@@ -46,14 +46,17 @@ class Kpt_LoginViewController: UIViewController {
         parameters.setValue("001002", forKey: "requestcode")
         parameters.setValue(self.loginTextField.text, forKey: "mobile")
         parameters.setValue(self.passwordTextField.text, forKey: "password")
-        KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/login", paramet: parameters, viewController: self) { (data) -> Void in
+        KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/login", paramet: parameters, viewController: self, success: { (data) -> Void in
             print(data)
             let userDefault:NSUserDefaults = NSUserDefaults.standardUserDefaults()
             userDefault.setObject(data, forKey: "userInfoLoginData")
             userDefault.synchronize()
             
             self.cancelBtnClick(nil)
+            }) { (_) -> Void in
+                
         }
+        
     }
     
     @IBAction func forgetPasswordBtnClick(sender: AnyObject) {

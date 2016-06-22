@@ -106,7 +106,7 @@ extension CarSeriesTableViewController: UITableViewDelegate,UITableViewDataSourc
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if carListType == carType.CarModel {
-            let model = self.seriesList[indexPath.row] as! CarModelModel
+            let model = self.seriesList[indexPath.row] as! CarModelModel//如果网速慢，没加载出来，可能会导致崩溃
             if (self.delegate != nil) {
                 self.delegate?.popFromVCtoCarModelName(model)
             }

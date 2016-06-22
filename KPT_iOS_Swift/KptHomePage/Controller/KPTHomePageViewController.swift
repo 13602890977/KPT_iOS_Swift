@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import MBProgressHUD
 
 class KPTHomePageViewController: UIViewController {
     ///地图View
@@ -34,6 +34,10 @@ class KPTHomePageViewController: UIViewController {
         self.contentView.addSubview(self.buttomView)
         view.addSubview(self.acctionBtn)
 //        acctionBtn.frame.origin.y = SCRH - 100
+        
+        self.hud.labelText = "定位中..."
+        self.hud.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
+        self.hud.show(true)
         //设置地图显示和定位
         MapDisplayAndLocation()
     }
@@ -198,8 +202,11 @@ class KPTHomePageViewController: UIViewController {
     
         let content = UIView(frame:CGRect(x:buttomViewX,y:buttomViewY,width:  buttomViewW,height:  buttomViewH));
         return content;
+        
     }()
 
+    private lazy var hud : MBProgressHUD = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -219,6 +226,21 @@ extension KPTHomePageViewController : AMapSearchDelegate,MAMapViewDelegate{
         if updatingLocation  {
             //取出当前位置
             print("latitude == \(userLocation.coordinate.latitude) longitude == \(userLocation.coordinate.longitude)")
+            
+            var latitudeStr = "\(userLocation.coordinate.latitude)" as NSString
+            //将定位保存起来，方便取用
+            let latitudeRange = latitudeStr.rangeOfString(".")
+            if latitudeRange.length > 0 {
+                latitudeStr = latitudeStr.substringToIndex(latitudeRange.location)
+            }
+            
+            var longitudeStr = "\(userLocation.coordinate.longitude)" as NSString
+            //将定位保存起来，方便取用
+            let longitudeRange = longitudeStr.rangeOfString(".")
+            if longitudeRange.length > 0 {
+                longitudeStr = longitudeStr.substringToIndex(latitudeRange.location)
+            }
+            NSUserDefaults.standardUserDefaults().setValue("\(latitudeStr):\(longitudeStr)", forKey: "kpt_latlng")
             
             rego!.location = AMapGeoPoint.locationWithLatitude(CGFloat(userLocation.coordinate.latitude), longitude: CGFloat(userLocation.coordinate.longitude))
             rego!.radius = 1000
@@ -275,6 +297,19 @@ extension KPTHomePageViewController : AMapSearchDelegate,MAMapViewDelegate{
         print("request :\(request)")
         print("response :\(response)")
         
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+            ///将地址保存起来，方便取用
+            var strP = response.regeocode.formattedAddress as NSString
+            let rangeP = strP.rangeOfString("省")
+            if rangeP.length > 0 && rangeP.location <= 3{
+                strP = strP.substringFromIndex(rangeP.location + 1)
+            }
+            NSUserDefaults.standardUserDefaults().setValue(strP, forKey: "Kpt_address")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            
+            print("\(NSThread.currentThread()) -- 地址\(strP)")
+        }
+        
         if (response.regeocode != nil) {
             let coordinate = CLLocationCoordinate2DMake(Double(request.location.latitude), Double(request.location.longitude))
             if addressLabel.text == response.regeocode.formattedAddress {
@@ -285,8 +320,7 @@ extension KPTHomePageViewController : AMapSearchDelegate,MAMapViewDelegate{
                 annotation = MAPointAnnotation()
                 
                 annotation.coordinate = coordinate
-//                annotation.title = response.regeocode.addressComponent.province + response.regeocode.addressComponent.city
-                annotation.subtitle = response.regeocode.formattedAddress
+                annotation.title = response.regeocode.formattedAddress
                 mapView!.addAnnotation(annotation)
             }
             
@@ -294,15 +328,17 @@ extension KPTHomePageViewController : AMapSearchDelegate,MAMapViewDelegate{
             let overlay = MACircle(centerCoordinate: coordinate, radius: 100.0)
             mapView!.addOverlay(overlay)
             
-            var str = annotation.subtitle as NSString
+            var str = annotation.title as NSString
             let range = str.rangeOfString("市")
             if range.length > 0 {
                str = str.substringFromIndex(range.location + 1)
             }
+            
             cityLabel.text = response.regeocode.addressComponent.city != nil ? response.regeocode.addressComponent.city : response.regeocode.addressComponent.province
             addressLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
             addressLabel.numberOfLines = 0
             addressLabel.text = str as String
+            self.hud.hide(true)
         }
     }
 }

@@ -93,8 +93,7 @@ class Kpt_RegisterViewController: UIViewController {
         weak var wSelf = self
         let paramet: [String:AnyObject] = ["requestcode":"001001","mobile":self.photoTextField.text!,"vcode":self.reCaptchaTextField.text!,"password":self.passwordText.text!]
         
-            KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/register", paramet: paramet, viewController: self) { (data) -> Void in
-                print(data)
+            KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/register", paramet: paramet, viewController: self, success: { (data) -> Void in
                 //弹出提示框，是否完善个人信息
                 wSelf!.backView = UIView(frame: UIScreen.mainScreen().bounds)
                 wSelf!.backView.backgroundColor = UIColor(red: 218/255.0, green: 218/255.0, blue: 218/255.0, alpha: 0.8)
@@ -106,8 +105,9 @@ class Kpt_RegisterViewController: UIViewController {
                     wSelf!.perfectView.center = CGPoint(x: SCRW * 0.5, y: SCRH * 0.5)
                     //perfectView上的按钮跳转到指定界面
                 })
-        }
 
+                }) { (_) -> Void in
+            }
     }
     
     @IBAction func falsePerfectBtnClick(sender: AnyObject) {
@@ -128,11 +128,13 @@ class Kpt_RegisterViewController: UIViewController {
         parameters.setValue("001002", forKey: "requestcode")
         parameters.setValue(self.photoTextField.text, forKey: "mobile")
         parameters.setValue(self.passwordText.text, forKey: "password")
-        KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/login", paramet: parameters, viewController: self) { (data) -> Void in
+        KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/login", paramet: parameters, viewController: self, success: { (data) -> Void in
             print(data)
             let userDefault:NSUserDefaults = NSUserDefaults.standardUserDefaults()
             userDefault.setObject(data, forKey: "userInfoLoginData")
             userDefault.synchronize()
+            }) { (_) -> Void in
+                
         }
     }
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

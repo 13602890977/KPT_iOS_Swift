@@ -45,19 +45,43 @@ class AccidentViewController: UIViewController {
         self.tableView.scrollEnabled = false
         
         backView = AccidentView.creatAccidentBackgroundViewWith(frame: UIScreen.mainScreen().bounds, controller: self)
-        self.view.addSubview(backView)
+        UIApplication.sharedApplication().keyWindow!.addSubview(backView)
     }
     
    
     ///添加车辆的驾驶证页面的代理方法
     func optionalReturnCarNo(info: NSNotification?) {
         print(info?.userInfo)
+        print(info?.object)
         let carDict:NSDictionary = (info?.userInfo)!
         if carDict.objectForKey("myCar") != nil {
            myCarNumber = carDict.objectForKey("myCar") as? String
+            if self.partiesdata.count > 0 {
+                for dicr in self.partiesdata {
+                    if let dict = dicr as? NSDictionary {
+                        if dict.objectForKey("partiesmark") as! String == "0" {
+                            self.partiesdata.removeObject(dicr)
+                        }
+                    }
+                }
+            }
+            self.partiesdata.addObject((info?.object)!)
+            
         }else if carDict.objectForKey("otherCar") != nil {
             otherCarNumber = carDict.objectForKey("otherCar") as? String
+            if self.partiesdata.count > 0 {
+                for dicr in self.partiesdata {
+                    if let dict = dicr as? NSDictionary {
+                        if dict.objectForKey("partiesmark") as! String == "1" {
+                            self.partiesdata.removeObject(dicr)
+                        }
+                    }
+                }
+            }
+            self.partiesdata.addObject((info?.object)!)
         }
+        print(self.partiesdata)
+        
         self.tableView.reloadSections(NSIndexSet(index: 1), withRowAnimation: UITableViewRowAnimation.None)
     }
     
@@ -74,6 +98,8 @@ class AccidentViewController: UIViewController {
         
         return view
     }()
+    private lazy var partiesdata : NSMutableArray = NSMutableArray()
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -146,8 +172,35 @@ extension AccidentViewController:UITableViewDelegate,UITableViewDataSource {
     
     func forensicsButtonClick() {
         print("跳转到拍照页面")
+        if self.carTypeArr.count == 1{
+            if myCarNumber == nil {
+                let alertC = UIAlertController.creatAlertWithTitle(title: nil, message: "请选择事故车辆", cancelActionTitle: "确定")
+                self.presentViewController(alertC, animated: true, completion: nil)
+                return
+            }
+        }else if self.carTypeArr.count == 2 {
+            
+            if myCarNumber == nil || otherCarNumber == nil {
+                let alertC = UIAlertController.creatAlertWithTitle(title: nil, message: "请选择我方/对方事故车辆", cancelActionTitle: "确定")
+                self.presentViewController(alertC, animated: true, completion: nil)
+                
+                return
+            }
+        }
         let photoVC = PhotoEvidenceViewController(nibName: "PhotoEvidenceViewController", bundle: nil)
         photoVC.accidentType = typeAccident
+        if typeAccident == "oneCar" {
+            if self.partiesdata.count > 0 {
+                for dicr in self.partiesdata {
+                    if let dict = dicr as? NSDictionary {
+                        if dict.objectForKey("partiesmark") as! String == "1" {
+                            self.partiesdata.removeObject(dicr)
+                        }
+                    }
+                }
+            }
+        }
+        photoVC.partiesdataArr = partiesdata
         self.navigationController?.pushViewController(photoVC, animated: true)
         
     }
@@ -172,7 +225,9 @@ extension AccidentViewController:UITableViewDelegate,UITableViewDataSource {
         }
         let accidentCellId = "accidentCellId"
         
-        var cell = tableView.dequeueReusableCellWithIdentifier(accidentCellId)
+//        var cell = tableView.dequeueReusableCellWithIdentifier(accidentCellId)
+        var cell = tableView.cellForRowAtIndexPath(indexPath)
+        
         if cell == nil {
             
             cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: accidentCellId)
@@ -190,7 +245,9 @@ extension AccidentViewController:UITableViewDelegate,UITableViewDataSource {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         if (cell?.textLabel?.text) == "我的车辆" {
             print(cell?.textLabel?.text)
-            self.navigationController?.pushViewController(MyCarViewController(), animated: true)
+            let myCarVC = MyCarViewController()
+            myCarVC.isWhatControllerPushIn = "accidentVC"
+            self.navigationController?.pushViewController(myCarVC, animated: true)
             return
         }else if cell?.textLabel?.text == "对方车辆" {
             self.navigationController?.pushViewController(UserInfoViewController(), animated: true)

@@ -25,6 +25,7 @@ PODS:
   - JSONKit (1.4)
   - MBProgressHUD (0.9.2)
   - MJExtension (3.0.10)
+  - MJRefresh (3.1.6)
   - MLTransition (2.1.0)
   - Qiniu (7.0.20):
     - AFNetworking (~> 2.0)
@@ -41,6 +42,7 @@ DEPENDENCIES:
   - JSONKit
   - MBProgressHUD
   - MJExtension
+  - MJRefresh
   - MLTransition
   - Qiniu
   - ReachabilitySwift
@@ -54,12 +56,13 @@ SPEC CHECKSUMS:
   JSONKit: 5b69e804ea54d99293eed0fd2ce596c5703fefb0
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
+  MJRefresh: 5c69f11e8bde0664e15326d2e61f61e103c6545f
   MLTransition: 48ce7b91ef0c6acfcb9d03b22d2fa75d5826018f
   Qiniu: 8958e70c02fb563c8c04d555bb5041441c5f4216
   ReachabilitySwift: e0f6b6f280effb47731acfaaa2d5ffe223703793
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   XMLDictionary: f9f51601ba76678b594ab485f2b00ec1fed23724
 
-PODFILE CHECKSUM: d4c83e4d04897c4878b517cf388179b96a4631a2
+PODFILE CHECKSUM: 7c6047ed08cfa333c4c7d6c7eccf19f5a9ab3fab
 
 COCOAPODS: 1.0.0

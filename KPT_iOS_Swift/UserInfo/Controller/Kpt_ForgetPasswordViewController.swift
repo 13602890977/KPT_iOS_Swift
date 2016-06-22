@@ -97,23 +97,26 @@ class Kpt_ForgetPasswordViewController: UIViewController {
         //判断所填写的信息无误
         let paramet: [String:AnyObject] = ["requestcode":"001005","mobile":self.photoTextField.text!,"vcode":self.reCaptchaTextField.text!,"password":self.passwordTextField.text!]
         
-        KptRequestClient.sharedInstance.Kpt_post("port/plugins/changhui/port/retrievePassword", paramet: paramet, viewController: self) { (data) -> Void in
+        KptRequestClient.sharedInstance.Kpt_post("/port/plugins/changhui/port/retrievePassword", paramet: paramet, viewController: self, success: { (data) -> Void in
             print(data)
             //perfectView上的按钮跳转到指定界面
-            
             let parameters : NSMutableDictionary = NSMutableDictionary()
             parameters.setValue("001002", forKey: "requestcode")
             parameters.setValue(self.photoTextField.text, forKey: "mobile")
             parameters.setValue(self.passwordTextField.text, forKey: "password")
-            KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/login", paramet: parameters, viewController: self) { (data) -> Void in
+            
+            KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/login", paramet: parameters, viewController: self, success: { (data) -> Void in
                 print(data)
                 let userDefault:NSUserDefaults = NSUserDefaults.standardUserDefaults()
                 userDefault.setObject(data, forKey: "userInfoLoginData")
                 userDefault.synchronize()
                 
                 self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
-            }
-
+                }, failure: { (_) -> Void in
+                    
+            })
+            }) { (_) -> Void in
+                
         }
     }
     override func didReceiveMemoryWarning() {

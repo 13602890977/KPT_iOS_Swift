@@ -44,9 +44,11 @@ class Kpt_NextBtnView: UIView {
         let button = UIButton(type: UIButtonType.Custom)
         
         button.frame = CGRect(x: 50 , y: (self.frame.size.height - cellMainHeight)/2 , width: SCRW - 100, height: cellMainHeight)
-        button.backgroundColor = MainColor
-        button.setTitleColor(UIColor.RGBA(146, g: 108, b: 52), forState: UIControlState.Normal)
-        button.layer.cornerRadius = cellMainHeight * 0.5
+//        button.backgroundColor = MainColor
+        button.setBackgroundImage(UIImage(named: "完善"), forState: UIControlState.Normal)
+        
+        button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+//        button.layer.cornerRadius = cellMainHeight * 0.5
         
         button.setTitle(btnText, forState: UIControlState.Normal)
         button.titleLabel?.font = UIFont.systemFontOfSize(22)

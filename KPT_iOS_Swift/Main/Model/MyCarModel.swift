@@ -9,6 +9,8 @@
 import UIKit
 
 class MyCarModel: NSObject {
+    ///标记是否被选中了(默认为false)
+    var isSelected : Bool = false
     ///初登日期
     var initialdate: String!
     ///图片url

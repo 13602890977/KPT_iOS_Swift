@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class UserInfoViewController: UIViewController,Kpt_NextBtnViewDelegate,Kpt_OCRImageViewDelegate {
     
@@ -20,8 +21,10 @@ class UserInfoViewController: UIViewController,Kpt_NextBtnViewDelegate,Kpt_OCRIm
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.whiteColor()
         view.addSubview(tableView)
-        // Do any additional setup after loading the view.
+       
+        reloadInsurance()
     }
+    
     func nextBtnClick(nextBtn: Kpt_NextBtnView) {
         //判断必填的信息是否已填
         for var i = 0; i < cellArr.count - 1;i++ {
@@ -32,12 +35,43 @@ class UserInfoViewController: UIViewController,Kpt_NextBtnViewDelegate,Kpt_OCRIm
             }
             
         }
-        NSNotificationCenter.defaultCenter().postNotificationName("ReturnCarNo", object: nil, userInfo: ["otherCar":self.changeDict.objectForKey("车牌号码")!])
+        let insuranceArr = NSArray(contentsOfFile: NSHomeDirectory() + "/Documents/insurance.plist")
+        self.partiesdataDict.setValue("", forKey: "insurancecode")
+        if let baoxian = self.changeDict.objectForKey("保险公司") as? String {
+            for dict in insuranceArr! {
+                
+                if (dict as! NSDictionary).objectForKey("label") as! String == baoxian {
+                    self.partiesdataDict.setValue((dict as! NSDictionary).objectForKey("value") as! String, forKey: "insurancecode")
+                }
+                
+            }
+             self.partiesdataDict.setValue(baoxian, forKey: "insurancename")
+        }else {
+             self.partiesdataDict.setValue("", forKey: "insurancename")
+        }
+        
+        self.partiesdataDict.setValue(self.changeDict.objectForKey("驾驶证号") as! String, forKey: "licenseno")
+        
+       
+        self.partiesdataDict.setValue(self.changeDict.objectForKey("电话号码") as! String, forKey: "mobile")//电话
+        self.partiesdataDict.setValue(self.changeDict.objectForKey("车牌号码") as! String, forKey: "partiescarno")//车牌
+        self.partiesdataDict.setValue("1", forKey: "partiesmark")//用户还是对方的标记(0代表自己)
+        self.partiesdataDict.setValue(self.changeDict.objectForKey("当事人") as! String, forKey: "partiesname")
+        self.partiesdataDict.setValue(self.changeDict.objectForKey("vehiclemodelsid") as! String, forKey: "vehicleid")
+        self.partiesdataDict.setValue(self.changeDict.objectForKey("车型") as! String, forKey: "vehiclename")
+        
+        print("选择对方车辆之后的数据 -- \(self.partiesdataDict)")
+        NSNotificationCenter.defaultCenter().postNotificationName("ReturnCarNo", object: self.partiesdataDict, userInfo: ["otherCar":self.changeDict.objectForKey("车牌号码")!])
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     func returnOCRDataAndImage(image: UIImage?, QNImageUrl: String, data: AnyObject) {
         
+    }
+    private func reloadInsurance() {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+            self.storageAndReadingListOfInsuranceCompanies()
+        }
     }
     private lazy var tableView:UITableView = UITableView(frame: self.view.bounds, style: UITableViewStyle.Grouped)
     
@@ -52,8 +86,12 @@ class UserInfoViewController: UIViewController,Kpt_NextBtnViewDelegate,Kpt_OCRIm
         dict.setValue(nil, forKey:"registration")
         return dict
     }()
+    ///用于保存对方的车辆的信息
+    private lazy var partiesdataDict:NSMutableDictionary = NSMutableDictionary()
+    
     private lazy var carBrandVC: CarBrandListTableViewController = CarBrandListTableViewController()
     
+    private lazy var hud : MBProgressHUD = MBProgressHUD.showHUDAddedTo(self.view.superview, animated: true)
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -95,8 +133,18 @@ extension UserInfoViewController : UITableViewDelegate,UITableViewDataSource,UIA
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         
         if cell?.textLabel?.text == "保险公司" {
-            let carTypeArr = ["中国人保深圳分公司","中国平安深圳分公司","中国人保广州分公司","中国人保佛山分公司"]
-            creatPicker(pickerType.OtherType,arr: carTypeArr,myCell: cell,cellIndexPath: indexPath)
+            
+            let insuranceArr = NSArray(contentsOfFile:NSHomeDirectory() + "/Documents/insurance.plist")
+            if insuranceArr != nil {
+                var carTypeArr:[String]? = [String]()
+                if let arr = insuranceArr{
+                    for dict in arr {
+                        let label = (dict as! NSDictionary).objectForKey("label")
+                        carTypeArr?.append(label as! String)
+                    }
+                     self.creatPicker(pickerType.OtherType, arr: carTypeArr, myCell: cell, cellIndexPath: indexPath)
+                }
+            }
             return
         }else if cell?.textLabel?.text == "车型" {
             carBrandVC.returnMoldeNameText({ (model) -> Void in
@@ -118,6 +166,7 @@ extension UserInfoViewController : UITableViewDelegate,UITableViewDataSource,UIA
         let alertV = UIAlertView(title: detailStr, message:"", delegate: self, cancelButtonTitle: "取消", otherButtonTitles: "确定")
         alertV.alertViewStyle = UIAlertViewStyle.PlainTextInput
         let textField = alertV.textFieldAtIndex(0)
+        textField?.clearButtonMode = UITextFieldViewMode.WhileEditing
         if str! == detailStr {
             textField?.placeholder = str!
         }else {

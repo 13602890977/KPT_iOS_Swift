@@ -30,20 +30,30 @@ class KptRequestClient: AFHTTPSessionManager{
         //返回本类的一个实例
         return Static.instance!
     }
-    ///请求接口再封装，把请求失败的操作封装起来
-    func Kpt_post(urlStr:String,paramet:AnyObject?,viewController:UIViewController,success: ( AnyObject? -> Void)?) {
+    ///请求接口再封装，把请求失败的操作封装起来,Viewcontroller是为了弹框提示，为nil时表示不提醒
+    func Kpt_post(urlStr:String,paramet:AnyObject?,viewController:UIViewController?,success: ( AnyObject? -> Void)? ,failure :(AnyObject? -> Void)?) {
         KptRequestClient.sharedInstance.POST(urlStr, parameters: paramet,  success: { (task:NSURLSessionDataTask!, JSON) -> Void in
             let responsecode = JSON.objectForKey("responsecode") as? String
             if (responsecode! == "1") {
                 success!(JSON.objectForKey("data"))
             }else {
-                let alertV = UIAlertController.creatAlertWithTitle(title: "温馨提醒", message:  JSON.objectForKey("errormessage") as? String, cancelActionTitle: "确定")
-                viewController.presentViewController(alertV, animated: true, completion: nil)
+                if viewController == nil {
+                    
+                }else {
+                    let alertV = UIAlertController.creatAlertWithTitle(title: "温馨提醒", message:  JSON.objectForKey("errormessage") as? String, cancelActionTitle: "确定")
+                    viewController!.presentViewController(alertV, animated: true, completion: nil)
+                   
+                }
+                 failure!(nil)
+                
             }
             }) { (_, error) -> Void in
                 print(error)
-                let alertV = UIAlertController.creatAlertWithTitle(title: "温馨提醒", message:"链接不到服务器，请退出重试", cancelActionTitle: "确定")
-                viewController.presentViewController(alertV, animated: true, completion: nil)
+                if let VC = viewController {
+                    let alertV = UIAlertController.creatAlertWithTitle(title: "温馨提醒", message:"链接不到服务器，请退出重试", cancelActionTitle: "确定")
+                    VC.presentViewController(alertV, animated: true, completion: nil)
+                }
+                failure!(nil)
         }
     }
     

@@ -18,7 +18,7 @@ class AccidentView: UIView,UIScrollViewDelegate,UITextViewDelegate {
     class func creatAccidentBackgroundViewWith(frame frame:CGRect,controller:UIViewController) -> AccidentView {
         let view = AccidentView(frame: frame)
         view.userInteractionEnabled = true
-        view.backgroundColor = UIColor(red: 218/255.0, green: 218/255.0, blue: 218/255.0, alpha: 0.9)
+        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6)
         
         
         view.addSubview(view.scrollView)

@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import MBProgressHUD
 
 protocol CarInfoViewControllerDelegate:AnyObject {
     
@@ -29,7 +30,9 @@ class CarInfoViewController: UIViewController,Kpt_NextBtnViewDelegate,UIAlertVie
         self.view = tableView
         tableView.delegate = self
         tableView.dataSource = self
-        // Do any additional setup after loading the view.
+        
+        //提前准备好保险公司列表(异步)
+        reloadInsurance()
     }
     func nextBtnClick(nextBtn: Kpt_NextBtnView) {
         print("完成信息录入，返回首页，并自动登陆")
@@ -44,7 +47,6 @@ class CarInfoViewController: UIViewController,Kpt_NextBtnViewDelegate,UIAlertVie
             
         }
         let userDefault = NSUserDefaults.standardUserDefaults()
-        //全部填写完成之后上传车辆信息
         let personalData = userDefault.objectForKey("userInfoLoginData") as! NSDictionary
         let userInfoData = UserInfoData.mj_objectWithKeyValues(personalData)
         
@@ -54,8 +56,10 @@ class CarInfoViewController: UIViewController,Kpt_NextBtnViewDelegate,UIAlertVie
         let paramets:NSMutableDictionary = ["requestcode":"002003","accessid":userInfoData.accessid,"accesskey":userInfoData.accesskey,"userid":userInfoData.userid]
         paramets.setValue(data, forKey: "data")
         
-        KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/car/addCarInfo", paramet: paramets, viewController: self) { (JSON) -> Void in
-            print(JSON)
+        KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/car/addCarInfo", paramet: paramets, viewController: self, success: { (data) -> Void in
+            print(data)
+            }) { (_) -> Void in
+                
         }
         //上传之后跳转并将车牌号码传递给事故类型界面上的我的车辆
         
@@ -87,6 +91,12 @@ class CarInfoViewController: UIViewController,Kpt_NextBtnViewDelegate,UIAlertVie
         dict.setValue(nil, forKey:"registration")
         return dict
     }()
+    private func reloadInsurance() {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+            self.storageAndReadingListOfInsuranceCompanies()
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -161,14 +171,25 @@ class CarInfoViewController: UIViewController,Kpt_NextBtnViewDelegate,UIAlertVie
             return
         }else if cell?.textLabel?.text == "投保公司" {
             let cellHeight:CGFloat = IS_IPHONE_6P() ? 60 : IS_IPHONE_6() ? 50 : 44
-            let carTypeArr = ["中国人保深圳分公司","中国平安深圳分公司","中国人保广州分公司","中国人保佛山分公司"]
-            creatPicker(pickerType.OtherType,arr: carTypeArr)
-            //将tableview移动到指定位置
-            self.tableView.scrollRectToVisible(CGRect(x: 0, y: (cellHeight + 15) * CGFloat(indexPath.row + indexPath.section), width: SCRW, height: SCRH), animated: true)
-            pickerView?.ensureButtonReturnDate({ (str) -> Void in
-                cell?.detailTextLabel?.text = str
-                self.changeDict.setValue(str, forKey: (cell?.textLabel?.text)!)
-            })
+            
+            let insuranceArr = NSArray(contentsOfFile:NSHomeDirectory() + "/Documents/insurance.plist")
+            if insuranceArr != nil {
+                var carTypeArr:[String]? = [String]()
+                if let arr = insuranceArr{
+                    for dict in arr {
+                        let label = (dict as! NSDictionary).objectForKey("label")
+                        carTypeArr?.append(label as! String)
+                    }
+                    self.creatPicker(pickerType.OtherType, arr: carTypeArr)
+                    
+                    //将tableview移动到指定位置
+                    self.tableView.scrollRectToVisible(CGRect(x: 0, y: (cellHeight + 15) * CGFloat(indexPath.row + indexPath.section), width: SCRW, height: SCRH), animated: true)
+                    self.pickerView?.ensureButtonReturnDate({ (str) -> Void in
+                        cell?.detailTextLabel?.text = str
+                        self.changeDict.setValue(str, forKey: (cell?.textLabel?.text)!)
+                    })
+                }
+            }
             return
         }
         showInputField(cell?.textLabel?.text,detailStr:cell?.detailTextLabel?.text)
@@ -178,7 +199,7 @@ class CarInfoViewController: UIViewController,Kpt_NextBtnViewDelegate,UIAlertVie
         let alertV = UIAlertView(title: "请输入\(str!)", message:"", delegate: self, cancelButtonTitle: "取消", otherButtonTitles: "确定")
         alertV.alertViewStyle = UIAlertViewStyle.PlainTextInput
         let textField = alertV.textFieldAtIndex(0)
-        
+        textField?.clearButtonMode = UITextFieldViewMode.WhileEditing
         if "请输入\(str!)" == detailStr {
             textField?.placeholder = detailStr!
         }else {
@@ -209,9 +230,12 @@ class CarInfoViewController: UIViewController,Kpt_NextBtnViewDelegate,UIAlertVie
         pickerView?.pickArr = arr
         let window = UIApplication.sharedApplication().keyWindow
         window?.addSubview(self.pickerView!)
+        
     }
     
     private lazy var carBrandVC: CarBrandListTableViewController = CarBrandListTableViewController()
+    
+    private lazy var hud : MBProgressHUD = MBProgressHUD.showHUDAddedTo(self.view.superview, animated: true)
     
     //这个太恶心，不想看到
     private func taiEXinLe() ->NSDictionary {
