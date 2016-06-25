@@ -135,7 +135,7 @@ class HistoryDetailsViewController: UIViewController {
     ///数据数组
     private lazy var modelArr:NSMutableArray = ["false","false","false","false"]
     private lazy var modelDict:NSMutableDictionary = NSMutableDictionary()
-     private lazy var hud : MBProgressHUD = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+    private lazy var hud : MBProgressHUD = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

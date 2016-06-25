@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="P7C-vv-9QZ" customClass="CarPartsView" customModule="KPT_iOS_Swift" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="左前.png" id="5GX-eg-daU">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="左前车门.png" id="Fsi-rN-gz0">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="左前叶子板.png" id="XmN-m8-ZO2">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="左倒后镜.png" id="7tP-Wq-e9U">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="左前车灯.png" id="vPa-R7-IbJ">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="左前保险杠.png" id="xej-o2-scs">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="H9L-6S-8sD">
+                    <rect key="frame" x="232" y="35" width="38" height="46"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-16" minY="-30" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="13" minY="30" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="车门" image="round_w">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="CarParstsButtonClick:" destination="P7C-vv-9QZ" eventType="touchUpInside" id="Nbz-c2-63j"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="M7E-xC-U8g">
+                    <rect key="frame" x="147" y="28" width="63" height="46"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-16" minY="-30" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="13" minY="30" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="前翼子板" image="round_w">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="CarParstsButtonClick:" destination="P7C-vv-9QZ" eventType="touchUpInside" id="dKw-pn-LpD"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="H3i-Dk-us9">
+                    <rect key="frame" x="193" y="65" width="45" height="46"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-16" minY="-30" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="13" minY="30" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="倒后镜" image="round_w">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="CarParstsButtonClick:" destination="P7C-vv-9QZ" eventType="touchUpInside" id="C2K-Dy-74O"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="XDJ-uS-Xck">
+                    <rect key="frame" x="92" y="28" width="47" height="46"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-16" minY="-30" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="13" minY="30" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="前车灯" image="round_w">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="CarParstsButtonClick:" destination="P7C-vv-9QZ" eventType="touchUpInside" id="tiC-0S-suh"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7Yd-kn-JFw">
+                    <rect key="frame" x="31" y="125" width="59" height="46"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-16" minY="-30" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="13" minY="30" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="前保险杠" image="round_w">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="CarParstsButtonClick:" destination="P7C-vv-9QZ" eventType="touchUpInside" id="5hs-RK-mce"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <connections>
+                <outletCollection property="image" destination="vPa-R7-IbJ" collectionClass="NSMutableArray" id="fzl-zU-8eK"/>
+                <outletCollection property="image" destination="7tP-Wq-e9U" collectionClass="NSMutableArray" id="ufE-0s-yrN"/>
+                <outletCollection property="image" destination="xej-o2-scs" collectionClass="NSMutableArray" id="p7H-u6-hJf"/>
+                <outletCollection property="image" destination="XmN-m8-ZO2" collectionClass="NSMutableArray" id="4GM-bE-j2T"/>
+                <outletCollection property="image" destination="Fsi-rN-gz0" collectionClass="NSMutableArray" id="S2X-bs-tVE"/>
+            </connections>
+            <point key="canvasLocation" x="306" y="261"/>
+        </view>
+        <view contentMode="scaleToFill" id="6Ky-qu-Dm8" customClass="CarPartsView" customModule="KPT_iOS_Swift" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="左后.png" id="R89-UQ-4lo">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" tag="6" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="左门槛.png" id="GU0-Or-6Va">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" tag="7" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="左后叶子板.png" id="JHP-XF-vx9">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" tag="8" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="左后车门.png" id="ZUG-tq-FOG">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" tag="9" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="后保险杠.png" id="9Rj-8d-aL7">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3r6-we-ev3">
+                    <rect key="frame" x="46" y="108" width="45" height="46"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-16" minY="-30" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="13" minY="30" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="门槛" image="round_w">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="CarParstsButtonClick:" destination="6Ky-qu-Dm8" eventType="touchUpInside" id="GEp-Jf-yIc"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7Zo-SZ-OYJ">
+                    <rect key="frame" x="141" y="31" width="61" height="47"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-16" minY="-30" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="13" minY="30" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="后翼子板" image="round_w">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="CarParstsButtonClick:" destination="6Ky-qu-Dm8" eventType="touchUpInside" id="cNn-af-cQe"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zqp-Vy-D6I">
+                    <rect key="frame" x="91" y="41" width="47" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-16" minY="-30" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="11" minY="30" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="后车门" image="round_w">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="CarParstsButtonClick:" destination="6Ky-qu-Dm8" eventType="touchUpInside" id="7hZ-Uc-zfS"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rIa-gg-i0S">
+                    <rect key="frame" x="220" y="63" width="60" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-16" minY="-30" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="13" minY="30" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="后保险杠" image="round_w">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="CarParstsButtonClick:" destination="6Ky-qu-Dm8" eventType="touchUpInside" id="JNH-lo-3oN"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <connections>
+                <outletCollection property="image" destination="GU0-Or-6Va" collectionClass="NSMutableArray" id="BGV-2H-ulD"/>
+                <outletCollection property="image" destination="JHP-XF-vx9" collectionClass="NSMutableArray" id="caM-v3-0xd"/>
+                <outletCollection property="image" destination="ZUG-tq-FOG" collectionClass="NSMutableArray" id="uXE-1W-kcw"/>
+                <outletCollection property="image" destination="9Rj-8d-aL7" collectionClass="NSMutableArray" id="4lH-1b-gjS"/>
+            </connections>
+            <point key="canvasLocation" x="873" y="261"/>
+        </view>
+        <view contentMode="scaleToFill" id="UaK-kg-1RE" customClass="CarPartsView" customModule="KPT_iOS_Swift" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="左侧.png" id="3xr-l6-hV0">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" tag="10" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="左前钢圈" id="wFV-qj-M30">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" tag="11" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="左门柱1" id="A7z-uQ-ek4">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" tag="12" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="左门柱2" id="rgN-58-gPi">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" tag="13" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="左后钢圈" id="iOS-Wo-SQG">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dpN-pK-aOH">
+                    <rect key="frame" x="56" y="143" width="47" height="46"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-16" minY="-30" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="13" minY="30" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="前钢圈" image="round_w">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="CarParstsButtonClick:" destination="UaK-kg-1RE" eventType="touchUpInside" id="7vQ-Pi-zfF"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="WAa-IA-GDh">
+                    <rect key="frame" x="100" y="82" width="52" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-16" minY="-30" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="11" minY="30" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="门柱1" image="round_w">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="CarParstsButtonClick:" destination="UaK-kg-1RE" eventType="touchUpInside" id="0h9-Pf-gCl"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yPz-RW-ypt">
+                    <rect key="frame" x="155" y="34" width="52" height="47"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-16" minY="-30" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="13" minY="30" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="门柱2" image="round_w">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="CarParstsButtonClick:" destination="UaK-kg-1RE" eventType="touchUpInside" id="c4z-3O-p9O"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GjA-o7-LJP">
+                    <rect key="frame" x="197" y="133" width="64" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-16" minY="-30" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="13" minY="30" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="后钢圈" image="round_w">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="CarParstsButtonClick:" destination="UaK-kg-1RE" eventType="touchUpInside" id="Dq0-sT-1Df"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <connections>
+                <outletCollection property="image" destination="wFV-qj-M30" collectionClass="NSMutableArray" id="0YP-pq-OPW"/>
+                <outletCollection property="image" destination="A7z-uQ-ek4" collectionClass="NSMutableArray" id="VxF-Gv-XbJ"/>
+                <outletCollection property="image" destination="rgN-58-gPi" collectionClass="NSMutableArray" id="3eF-RO-SuR"/>
+                <outletCollection property="image" destination="iOS-Wo-SQG" collectionClass="NSMutableArray" id="kUc-Pi-5nf"/>
+            </connections>
+            <point key="canvasLocation" x="1329" y="261"/>
+        </view>
+        <view contentMode="scaleToFill" id="WmI-xO-cb1" customClass="CarPartsView" customModule="KPT_iOS_Swift" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="右后.png" id="MLW-id-aOr">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" tag="14" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="右后车门" id="exx-nV-MhU">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" tag="15" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="右后叶子板" id="3uv-Pt-qG9">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" tag="16" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="右门槛.png" id="O1g-FE-0bM">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" tag="17" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="行李箱盖" id="r1j-eU-SbY">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SGh-6t-a2X">
+                    <rect key="frame" x="179" y="8" width="54" height="47"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-16" minY="-30" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="13" minY="30" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="后车门" image="round_w">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="CarParstsButtonClick:" destination="WmI-xO-cb1" eventType="touchUpInside" id="St2-P3-dOX"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DBX-cd-hsE">
+                    <rect key="frame" x="131" y="51" width="63" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-16" minY="-30" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="11" minY="30" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="后翼子板" image="round_w">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="CarParstsButtonClick:" destination="WmI-xO-cb1" eventType="touchUpInside" id="GFb-3u-fgu"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="P3y-yw-aQU">
+                    <rect key="frame" x="219" y="90" width="40" height="46"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-16" minY="-30" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="13" minY="30" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="门槛" image="round_w">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="CarParstsButtonClick:" destination="WmI-xO-cb1" eventType="touchUpInside" id="Ob0-Sw-ExN"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8By-Mk-28q">
+                    <rect key="frame" x="62" y="14" width="61" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-16" minY="-30" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="13" minY="30" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="行李箱盖" image="round_w">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="CarParstsButtonClick:" destination="WmI-xO-cb1" eventType="touchUpInside" id="gQv-DH-2ka"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <connections>
+                <outletCollection property="image" destination="exx-nV-MhU" collectionClass="NSMutableArray" id="9pQ-YA-mQI"/>
+                <outletCollection property="image" destination="3uv-Pt-qG9" collectionClass="NSMutableArray" id="F9f-uS-u0f"/>
+                <outletCollection property="image" destination="O1g-FE-0bM" collectionClass="NSMutableArray" id="KAC-G4-aEk"/>
+                <outletCollection property="image" destination="r1j-eU-SbY" collectionClass="NSMutableArray" id="1qR-0x-SAh"/>
+            </connections>
+            <point key="canvasLocation" x="1837" y="261"/>
+        </view>
+        <view contentMode="scaleToFill" id="0vL-CT-hh0" customClass="CarPartsView" customModule="KPT_iOS_Swift" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="右侧.png" id="t5B-rg-q7U">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" tag="18" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="车顶" id="C0V-QI-fs0">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" tag="19" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="右后钢圈.png" id="EjK-OY-xKp">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" tag="20" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="右门柱2.png" id="0kp-UO-sB0">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" tag="21" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="右门柱1" id="YDl-Dr-aID">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" tag="22" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="右前钢圈.png" id="fis-uK-Pli">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <button opaque="NO" tag="17" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Nz8-yD-Lzb">
+                    <rect key="frame" x="85" y="40" width="36" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-16" minY="-30" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="11" minY="30" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="车顶" image="round_w">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="CarParstsButtonClick:" destination="0vL-CT-hh0" eventType="touchUpInside" id="3TV-M3-aPW"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="18" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5JI-Sr-dJ7">
+                    <rect key="frame" x="48" y="174" width="45" height="46"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-16" minY="-30" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="13" minY="30" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="后钢圈" image="round_w">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="CarParstsButtonClick:" destination="0vL-CT-hh0" eventType="touchUpInside" id="IJi-Ue-lpT"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="19" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="y6R-k1-0Rh">
+                    <rect key="frame" x="118" y="114" width="41" height="47"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-16" minY="-30" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="13" minY="30" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="门柱2" image="round_w">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="CarParstsButtonClick:" destination="0vL-CT-hh0" eventType="touchUpInside" id="WPR-cK-GMn"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RIb-wz-gyV">
+                    <rect key="frame" x="167" y="76" width="41" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-16" minY="-30" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="13" minY="30" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="门柱1" image="round_w">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="CarParstsButtonClick:" destination="0vL-CT-hh0" eventType="touchUpInside" id="jt4-OC-uxI"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="21" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gbE-cW-N4Y">
+                    <rect key="frame" x="207" y="142" width="46" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-16" minY="-30" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="13" minY="30" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="前钢圈" image="round_w">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="CarParstsButtonClick:" destination="0vL-CT-hh0" eventType="touchUpInside" id="10K-78-QeS"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <connections>
+                <outletCollection property="image" destination="C0V-QI-fs0" collectionClass="NSMutableArray" id="ajo-gu-zDC"/>
+                <outletCollection property="image" destination="EjK-OY-xKp" collectionClass="NSMutableArray" id="8jN-d9-gsp"/>
+                <outletCollection property="image" destination="0kp-UO-sB0" collectionClass="NSMutableArray" id="A89-Ej-G9s"/>
+                <outletCollection property="image" destination="YDl-Dr-aID" collectionClass="NSMutableArray" id="yBt-Qy-C9I"/>
+                <outletCollection property="image" destination="fis-uK-Pli" collectionClass="NSMutableArray" id="hHF-G6-bge"/>
+            </connections>
+            <point key="canvasLocation" x="2298" y="261"/>
+        </view>
+        <view contentMode="scaleToFill" id="KDc-xf-QmY" customClass="CarPartsView" customModule="KPT_iOS_Swift" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="右前.png" id="l5w-Rl-aT7">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" tag="23" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="右前车门.png" id="j5r-wE-Rtc">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" tag="24" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="右倒后镜.png" id="tRI-u7-s2t">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" tag="25" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="右前叶子板.png" id="twP-Vv-MDv">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" tag="26" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="发动机盖.png" id="hoU-xa-xLX">
+                    <rect key="frame" x="20" y="0.0" width="280" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                </imageView>
+                <button opaque="NO" tag="22" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="l8g-hN-gzZ">
+                    <rect key="frame" x="44" y="94" width="36" height="46"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-16" minY="-30" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="13" minY="30" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="车门" image="round_w">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="CarParstsButtonClick:" destination="KDc-xf-QmY" eventType="touchUpInside" id="DEL-3e-cop"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="23" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="m9C-Ds-6Cw">
+                    <rect key="frame" x="78" y="46" width="45" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-16" minY="-30" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="11" minY="30" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="倒后镜" image="round_w">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="CarParstsButtonClick:" destination="KDc-xf-QmY" eventType="touchUpInside" id="077-bt-SME"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="25" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4jy-Xf-XlU">
+                    <rect key="frame" x="182" y="84" width="59" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-16" minY="-30" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="13" minY="30" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="发动机盖" image="round_w">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="CarParstsButtonClick:" destination="KDc-xf-QmY" eventType="touchUpInside" id="pgJ-Hy-2GK"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="24" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Abu-iw-UZy">
+                    <rect key="frame" x="131" y="21" width="59" height="47"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-16" minY="-30" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="13" minY="30" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="前翼子板" image="round_w">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="CarParstsButtonClick:" destination="KDc-xf-QmY" eventType="touchUpInside" id="odu-gM-Zhc"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <connections>
+                <outletCollection property="image" destination="j5r-wE-Rtc" collectionClass="NSMutableArray" id="kvw-R8-6Nr"/>
+                <outletCollection property="image" destination="tRI-u7-s2t" collectionClass="NSMutableArray" id="ea9-Ma-rG4"/>
+                <outletCollection property="image" destination="twP-Vv-MDv" collectionClass="NSMutableArray" id="dBh-jT-hNJ"/>
+                <outletCollection property="image" destination="hoU-xa-xLX" collectionClass="NSMutableArray" id="bX4-H5-iFt"/>
+            </connections>
+            <point key="canvasLocation" x="2798" y="261"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="round_w" width="15" height="15"/>
+        <image name="发动机盖.png" width="622" height="447"/>
+        <image name="右侧.png" width="622" height="447"/>
+        <image name="右倒后镜.png" width="622" height="447"/>
+        <image name="右前.png" width="622" height="447"/>
+        <image name="右前叶子板.png" width="622" height="447"/>
+        <image name="右前车门.png" width="622" height="447"/>
+        <image name="右前钢圈.png" width="622" height="447"/>
+        <image name="右后.png" width="622" height="447"/>
+        <image name="右后叶子板" width="622" height="447"/>
+        <image name="右后车门" width="622" height="447"/>
+        <image name="右后钢圈.png" width="622" height="447"/>
+        <image name="右门柱1" width="622" height="447"/>
+        <image name="右门柱2.png" width="622" height="447"/>
+        <image name="右门槛.png" width="622" height="447"/>
+        <image name="后保险杠.png" width="622" height="447"/>
+        <image name="左侧.png" width="622" height="447"/>
+        <image name="左倒后镜.png" width="622" height="447"/>
+        <image name="左前.png" width="622" height="447"/>
+        <image name="左前保险杠.png" width="622" height="447"/>
+        <image name="左前叶子板.png" width="622" height="447"/>
+        <image name="左前车灯.png" width="622" height="447"/>
+        <image name="左前车门.png" width="622" height="447"/>
+        <image name="左前钢圈" width="622" height="447"/>
+        <image name="左后.png" width="622" height="447"/>
+        <image name="左后叶子板.png" width="622" height="447"/>
+        <image name="左后车门.png" width="622" height="447"/>
+        <image name="左后钢圈" width="622" height="447"/>
+        <image name="左门柱1" width="622" height="447"/>
+        <image name="左门柱2" width="622" height="447"/>
+        <image name="左门槛.png" width="622" height="447"/>
+        <image name="行李箱盖" width="622" height="447"/>
+        <image name="车顶" width="622" height="447"/>
+    </resources>
+</document>

@@ -107,6 +107,7 @@ class MyCarViewController: UIViewController,Kpt_NextBtnViewDelegate {
     func nextBtnClick(nextBtn: Kpt_NextBtnView) {
         let onlineVC = OnlineInsuranceViewController(nibName:"OnlineInsuranceViewController",bundle: nil)
         onlineVC.carnoStr = selectedModel.carno
+        onlineVC.carmodelId = selectedModel.carid
         onlineVC.carmodelStr = selectedModel.vehiclemodels
         self.navigationController?.pushViewController(onlineVC, animated: true)
     }

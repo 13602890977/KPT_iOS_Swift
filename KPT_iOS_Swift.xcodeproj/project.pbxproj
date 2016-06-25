@@ -94,6 +94,46 @@
 		25E8DEC91CFE90EE005DA035 /* CarBrandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E8DEC81CFE90EE005DA035 /* CarBrandTableViewCell.swift */; };
 		25E8DECB1CFE9150005DA035 /* CarBrandTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E8DECA1CFE9150005DA035 /* CarBrandTableViewCell.xib */; };
 		25E8DECF1CFEBCCE005DA035 /* CarSeriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E8DECE1CFEBCCE005DA035 /* CarSeriesTableViewController.swift */; };
+		25EDA7591D1D0EE1005F06F0 /* CarPartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EDA7571D1D0EE1005F06F0 /* CarPartsView.swift */; };
+		25EDA75A1D1D0EE2005F06F0 /* CarPartsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA7581D1D0EE1005F06F0 /* CarPartsView.xib */; };
+		25EDA78A1D1D0F01005F06F0 /* 右前钢圈.png in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA75B1D1D0F01005F06F0 /* 右前钢圈.png */; };
+		25EDA78B1D1D0F01005F06F0 /* 右侧.png in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA75C1D1D0F01005F06F0 /* 右侧.png */; };
+		25EDA78C1D1D0F01005F06F0 /* 右侧.psd in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA75D1D1D0F01005F06F0 /* 右侧.psd */; };
+		25EDA78D1D1D0F01005F06F0 /* 右后钢圈.png in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA75E1D1D0F01005F06F0 /* 右后钢圈.png */; };
+		25EDA78E1D1D0F01005F06F0 /* 车顶 in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA75F1D1D0F01005F06F0 /* 车顶 */; };
+		25EDA78F1D1D0F01005F06F0 /* 右门柱1 in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA7601D1D0F01005F06F0 /* 右门柱1 */; };
+		25EDA7901D1D0F01005F06F0 /* 右门柱2.png in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA7611D1D0F01005F06F0 /* 右门柱2.png */; };
+		25EDA7911D1D0F01005F06F0 /* 右倒后镜.png in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA7631D1D0F01005F06F0 /* 右倒后镜.png */; };
+		25EDA7921D1D0F01005F06F0 /* 右前叶子板.png in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA7641D1D0F01005F06F0 /* 右前叶子板.png */; };
+		25EDA7931D1D0F01005F06F0 /* 右前车门.png in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA7651D1D0F01005F06F0 /* 右前车门.png */; };
+		25EDA7941D1D0F01005F06F0 /* 发动机盖.png in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA7661D1D0F01005F06F0 /* 发动机盖.png */; };
+		25EDA7951D1D0F01005F06F0 /* 右前.png in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA7671D1D0F01005F06F0 /* 右前.png */; };
+		25EDA7961D1D0F01005F06F0 /* 右前.psd in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA7681D1D0F01005F06F0 /* 右前.psd */; };
+		25EDA7971D1D0F01005F06F0 /* 右后.png in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA76A1D1D0F01005F06F0 /* 右后.png */; };
+		25EDA7981D1D0F01005F06F0 /* 右后.psd in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA76B1D1D0F01005F06F0 /* 右后.psd */; };
+		25EDA7991D1D0F01005F06F0 /* 右后叶子板 in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA76C1D1D0F01005F06F0 /* 右后叶子板 */; };
+		25EDA79A1D1D0F01005F06F0 /* 右后车门 in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA76D1D1D0F01005F06F0 /* 右后车门 */; };
+		25EDA79B1D1D0F01005F06F0 /* 行李箱盖 in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA76E1D1D0F01005F06F0 /* 行李箱盖 */; };
+		25EDA79C1D1D0F01005F06F0 /* 右门槛.png in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA76F1D1D0F01005F06F0 /* 右门槛.png */; };
+		25EDA79D1D1D0F01005F06F0 /* 左前钢圈 in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA7721D1D0F01005F06F0 /* 左前钢圈 */; };
+		25EDA79E1D1D0F01005F06F0 /* 左后钢圈 in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA7731D1D0F01005F06F0 /* 左后钢圈 */; };
+		25EDA79F1D1D0F01005F06F0 /* 左侧.png in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA7741D1D0F01005F06F0 /* 左侧.png */; };
+		25EDA7A01D1D0F01005F06F0 /* 左侧.psd in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA7751D1D0F01005F06F0 /* 左侧.psd */; };
+		25EDA7A11D1D0F01005F06F0 /* 左门柱1 in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA7761D1D0F01005F06F0 /* 左门柱1 */; };
+		25EDA7A21D1D0F01005F06F0 /* 左门柱2 in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA7771D1D0F01005F06F0 /* 左门柱2 */; };
+		25EDA7A31D1D0F01005F06F0 /* 左倒后镜.png in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA7791D1D0F01005F06F0 /* 左倒后镜.png */; };
+		25EDA7A41D1D0F01005F06F0 /* 左前保险杠.png in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA77A1D1D0F01005F06F0 /* 左前保险杠.png */; };
+		25EDA7A51D1D0F01005F06F0 /* 左前叶子板.png in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA77B1D1D0F01005F06F0 /* 左前叶子板.png */; };
+		25EDA7A61D1D0F01005F06F0 /* 左前车灯.png in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA77C1D1D0F01005F06F0 /* 左前车灯.png */; };
+		25EDA7A71D1D0F01005F06F0 /* 左前.png in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA77D1D1D0F01005F06F0 /* 左前.png */; };
+		25EDA7A81D1D0F01005F06F0 /* 左前.psd in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA77E1D1D0F01005F06F0 /* 左前.psd */; };
+		25EDA7A91D1D0F01005F06F0 /* 左前车门.png in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA77F1D1D0F01005F06F0 /* 左前车门.png */; };
+		25EDA7AA1D1D0F01005F06F0 /* 后保险杠.png in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA7811D1D0F01005F06F0 /* 后保险杠.png */; };
+		25EDA7AB1D1D0F01005F06F0 /* 左后叶子板.png in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA7821D1D0F01005F06F0 /* 左后叶子板.png */; };
+		25EDA7AC1D1D0F01005F06F0 /* 左后车门.png in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA7831D1D0F01005F06F0 /* 左后车门.png */; };
+		25EDA7AD1D1D0F01005F06F0 /* 左后.png in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA7841D1D0F01005F06F0 /* 左后.png */; };
+		25EDA7AE1D1D0F01005F06F0 /* 左后.psd in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA7851D1D0F01005F06F0 /* 左后.psd */; };
+		25EDA7AF1D1D0F01005F06F0 /* 左门槛.png in Resources */ = {isa = PBXBuildFile; fileRef = 25EDA7861D1D0F01005F06F0 /* 左门槛.png */; };
 		25F6700C1CF6A0440001B112 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F6700A1CF6A0440001B112 /* UserInfoViewController.swift */; };
 		25FE41461CF54D44006A1CF9 /* Kpt_RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FE41441CF54D44006A1CF9 /* Kpt_RegisterViewController.swift */; };
 		25FE41471CF54D44006A1CF9 /* Kpt_RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25FE41451CF54D44006A1CF9 /* Kpt_RegisterViewController.xib */; };
@@ -215,6 +255,46 @@
 		25E8DEC81CFE90EE005DA035 /* CarBrandTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarBrandTableViewCell.swift; sourceTree = "<group>"; };
 		25E8DECA1CFE9150005DA035 /* CarBrandTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarBrandTableViewCell.xib; sourceTree = "<group>"; };
 		25E8DECE1CFEBCCE005DA035 /* CarSeriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarSeriesTableViewController.swift; sourceTree = "<group>"; };
+		25EDA7571D1D0EE1005F06F0 /* CarPartsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarPartsView.swift; sourceTree = "<group>"; };
+		25EDA7581D1D0EE1005F06F0 /* CarPartsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarPartsView.xib; sourceTree = "<group>"; };
+		25EDA75B1D1D0F01005F06F0 /* 右前钢圈.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "右前钢圈.png"; sourceTree = "<group>"; };
+		25EDA75C1D1D0F01005F06F0 /* 右侧.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "右侧.png"; sourceTree = "<group>"; };
+		25EDA75D1D1D0F01005F06F0 /* 右侧.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "右侧.psd"; sourceTree = "<group>"; };
+		25EDA75E1D1D0F01005F06F0 /* 右后钢圈.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "右后钢圈.png"; sourceTree = "<group>"; };
+		25EDA75F1D1D0F01005F06F0 /* 车顶 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "车顶"; sourceTree = "<group>"; };
+		25EDA7601D1D0F01005F06F0 /* 右门柱1 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "右门柱1"; sourceTree = "<group>"; };
+		25EDA7611D1D0F01005F06F0 /* 右门柱2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "右门柱2.png"; sourceTree = "<group>"; };
+		25EDA7631D1D0F01005F06F0 /* 右倒后镜.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "右倒后镜.png"; sourceTree = "<group>"; };
+		25EDA7641D1D0F01005F06F0 /* 右前叶子板.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "右前叶子板.png"; sourceTree = "<group>"; };
+		25EDA7651D1D0F01005F06F0 /* 右前车门.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "右前车门.png"; sourceTree = "<group>"; };
+		25EDA7661D1D0F01005F06F0 /* 发动机盖.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "发动机盖.png"; sourceTree = "<group>"; };
+		25EDA7671D1D0F01005F06F0 /* 右前.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "右前.png"; sourceTree = "<group>"; };
+		25EDA7681D1D0F01005F06F0 /* 右前.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "右前.psd"; sourceTree = "<group>"; };
+		25EDA76A1D1D0F01005F06F0 /* 右后.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "右后.png"; sourceTree = "<group>"; };
+		25EDA76B1D1D0F01005F06F0 /* 右后.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "右后.psd"; sourceTree = "<group>"; };
+		25EDA76C1D1D0F01005F06F0 /* 右后叶子板 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "右后叶子板"; sourceTree = "<group>"; };
+		25EDA76D1D1D0F01005F06F0 /* 右后车门 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "右后车门"; sourceTree = "<group>"; };
+		25EDA76E1D1D0F01005F06F0 /* 行李箱盖 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "行李箱盖"; sourceTree = "<group>"; };
+		25EDA76F1D1D0F01005F06F0 /* 右门槛.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "右门槛.png"; sourceTree = "<group>"; };
+		25EDA7721D1D0F01005F06F0 /* 左前钢圈 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "左前钢圈"; sourceTree = "<group>"; };
+		25EDA7731D1D0F01005F06F0 /* 左后钢圈 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "左后钢圈"; sourceTree = "<group>"; };
+		25EDA7741D1D0F01005F06F0 /* 左侧.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左侧.png"; sourceTree = "<group>"; };
+		25EDA7751D1D0F01005F06F0 /* 左侧.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "左侧.psd"; sourceTree = "<group>"; };
+		25EDA7761D1D0F01005F06F0 /* 左门柱1 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "左门柱1"; sourceTree = "<group>"; };
+		25EDA7771D1D0F01005F06F0 /* 左门柱2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "左门柱2"; sourceTree = "<group>"; };
+		25EDA7791D1D0F01005F06F0 /* 左倒后镜.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左倒后镜.png"; sourceTree = "<group>"; };
+		25EDA77A1D1D0F01005F06F0 /* 左前保险杠.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左前保险杠.png"; sourceTree = "<group>"; };
+		25EDA77B1D1D0F01005F06F0 /* 左前叶子板.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左前叶子板.png"; sourceTree = "<group>"; };
+		25EDA77C1D1D0F01005F06F0 /* 左前车灯.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左前车灯.png"; sourceTree = "<group>"; };
+		25EDA77D1D1D0F01005F06F0 /* 左前.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左前.png"; sourceTree = "<group>"; };
+		25EDA77E1D1D0F01005F06F0 /* 左前.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "左前.psd"; sourceTree = "<group>"; };
+		25EDA77F1D1D0F01005F06F0 /* 左前车门.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左前车门.png"; sourceTree = "<group>"; };
+		25EDA7811D1D0F01005F06F0 /* 后保险杠.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "后保险杠.png"; sourceTree = "<group>"; };
+		25EDA7821D1D0F01005F06F0 /* 左后叶子板.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左后叶子板.png"; sourceTree = "<group>"; };
+		25EDA7831D1D0F01005F06F0 /* 左后车门.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左后车门.png"; sourceTree = "<group>"; };
+		25EDA7841D1D0F01005F06F0 /* 左后.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左后.png"; sourceTree = "<group>"; };
+		25EDA7851D1D0F01005F06F0 /* 左后.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "左后.psd"; sourceTree = "<group>"; };
+		25EDA7861D1D0F01005F06F0 /* 左门槛.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左门槛.png"; sourceTree = "<group>"; };
 		25F6700A1CF6A0440001B112 /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		25FE41441CF54D44006A1CF9 /* Kpt_RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kpt_RegisterViewController.swift; sourceTree = "<group>"; };
 		25FE41451CF54D44006A1CF9 /* Kpt_RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Kpt_RegisterViewController.xib; sourceTree = "<group>"; };
@@ -336,6 +416,8 @@
 				256C0B971D128DE200E880DA /* KPTDiscoverVController.xib */,
 				25409B771D1A7941007FCE8B /* OnlineInsuranceViewController.swift */,
 				25409B781D1A7941007FCE8B /* OnlineInsuranceViewController.xib */,
+				25EDA7571D1D0EE1005F06F0 /* CarPartsView.swift */,
+				25EDA7581D1D0EE1005F06F0 /* CarPartsView.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -536,6 +618,7 @@
 				250413AB1CF44F7400611E62 /* UserInfo */,
 				25B8794B1CEC122D00F9865B /* Tools */,
 				25B879251CEC05DD00F9865B /* Main.storyboard */,
+				25EDA7891D1D0F01005F06F0 /* 英菲尼迪 */,
 				25B8792B1CEC05DD00F9865B /* Assets.xcassets */,
 				25B8792D1CEC05DD00F9865B /* LaunchScreen.storyboard */,
 				25B879301CEC05DD00F9865B /* Info.plist */,
@@ -592,6 +675,116 @@
 				25E8DEC61CFE8D4A005DA035 /* NSObject+OCTool.m */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		25EDA7621D1D0F01005F06F0 /* 右侧 */ = {
+			isa = PBXGroup;
+			children = (
+				25EDA75B1D1D0F01005F06F0 /* 右前钢圈.png */,
+				25EDA75C1D1D0F01005F06F0 /* 右侧.png */,
+				25EDA75D1D1D0F01005F06F0 /* 右侧.psd */,
+				25EDA75E1D1D0F01005F06F0 /* 右后钢圈.png */,
+				25EDA75F1D1D0F01005F06F0 /* 车顶 */,
+				25EDA7601D1D0F01005F06F0 /* 右门柱1 */,
+				25EDA7611D1D0F01005F06F0 /* 右门柱2.png */,
+			);
+			path = "右侧";
+			sourceTree = "<group>";
+		};
+		25EDA7691D1D0F01005F06F0 /* 右前 */ = {
+			isa = PBXGroup;
+			children = (
+				25EDA7631D1D0F01005F06F0 /* 右倒后镜.png */,
+				25EDA7641D1D0F01005F06F0 /* 右前叶子板.png */,
+				25EDA7651D1D0F01005F06F0 /* 右前车门.png */,
+				25EDA7661D1D0F01005F06F0 /* 发动机盖.png */,
+				25EDA7671D1D0F01005F06F0 /* 右前.png */,
+				25EDA7681D1D0F01005F06F0 /* 右前.psd */,
+			);
+			path = "右前";
+			sourceTree = "<group>";
+		};
+		25EDA7701D1D0F01005F06F0 /* 右后 */ = {
+			isa = PBXGroup;
+			children = (
+				25EDA76A1D1D0F01005F06F0 /* 右后.png */,
+				25EDA76B1D1D0F01005F06F0 /* 右后.psd */,
+				25EDA76C1D1D0F01005F06F0 /* 右后叶子板 */,
+				25EDA76D1D1D0F01005F06F0 /* 右后车门 */,
+				25EDA76E1D1D0F01005F06F0 /* 行李箱盖 */,
+				25EDA76F1D1D0F01005F06F0 /* 右门槛.png */,
+			);
+			path = "右后";
+			sourceTree = "<group>";
+		};
+		25EDA7711D1D0F01005F06F0 /* 右 */ = {
+			isa = PBXGroup;
+			children = (
+				25EDA7621D1D0F01005F06F0 /* 右侧 */,
+				25EDA7691D1D0F01005F06F0 /* 右前 */,
+				25EDA7701D1D0F01005F06F0 /* 右后 */,
+			);
+			path = "右";
+			sourceTree = "<group>";
+		};
+		25EDA7781D1D0F01005F06F0 /* 左侧 */ = {
+			isa = PBXGroup;
+			children = (
+				25EDA7721D1D0F01005F06F0 /* 左前钢圈 */,
+				25EDA7731D1D0F01005F06F0 /* 左后钢圈 */,
+				25EDA7741D1D0F01005F06F0 /* 左侧.png */,
+				25EDA7751D1D0F01005F06F0 /* 左侧.psd */,
+				25EDA7761D1D0F01005F06F0 /* 左门柱1 */,
+				25EDA7771D1D0F01005F06F0 /* 左门柱2 */,
+			);
+			path = "左侧";
+			sourceTree = "<group>";
+		};
+		25EDA7801D1D0F01005F06F0 /* 左前 */ = {
+			isa = PBXGroup;
+			children = (
+				25EDA7791D1D0F01005F06F0 /* 左倒后镜.png */,
+				25EDA77A1D1D0F01005F06F0 /* 左前保险杠.png */,
+				25EDA77B1D1D0F01005F06F0 /* 左前叶子板.png */,
+				25EDA77C1D1D0F01005F06F0 /* 左前车灯.png */,
+				25EDA77D1D1D0F01005F06F0 /* 左前.png */,
+				25EDA77E1D1D0F01005F06F0 /* 左前.psd */,
+				25EDA77F1D1D0F01005F06F0 /* 左前车门.png */,
+			);
+			path = "左前";
+			sourceTree = "<group>";
+		};
+		25EDA7871D1D0F01005F06F0 /* 左后 */ = {
+			isa = PBXGroup;
+			children = (
+				25EDA7811D1D0F01005F06F0 /* 后保险杠.png */,
+				25EDA7821D1D0F01005F06F0 /* 左后叶子板.png */,
+				25EDA7831D1D0F01005F06F0 /* 左后车门.png */,
+				25EDA7841D1D0F01005F06F0 /* 左后.png */,
+				25EDA7851D1D0F01005F06F0 /* 左后.psd */,
+				25EDA7861D1D0F01005F06F0 /* 左门槛.png */,
+			);
+			path = "左后";
+			sourceTree = "<group>";
+		};
+		25EDA7881D1D0F01005F06F0 /* 左 */ = {
+			isa = PBXGroup;
+			children = (
+				25EDA7781D1D0F01005F06F0 /* 左侧 */,
+				25EDA7801D1D0F01005F06F0 /* 左前 */,
+				25EDA7871D1D0F01005F06F0 /* 左后 */,
+			);
+			path = "左";
+			sourceTree = "<group>";
+		};
+		25EDA7891D1D0F01005F06F0 /* 英菲尼迪 */ = {
+			isa = PBXGroup;
+			children = (
+				25EDA7711D1D0F01005F06F0 /* 右 */,
+				25EDA7881D1D0F01005F06F0 /* 左 */,
+			);
+			name = "英菲尼迪";
+			path = "../../ScrollerDemo/ScrollerDemo/英菲尼迪";
 			sourceTree = "<group>";
 		};
 		4C088B993719B6BDDBFA9BA7 /* Pods */ = {
@@ -746,30 +939,69 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25EDA7A31D1D0F01005F06F0 /* 左倒后镜.png in Resources */,
+				25EDA78E1D1D0F01005F06F0 /* 车顶 in Resources */,
 				25009C0B1D1A3C8F00E98E44 /* MoveCarViewController.xib in Resources */,
 				25E8DECB1CFE9150005DA035 /* CarBrandTableViewCell.xib in Resources */,
 				251459031CF2FCC400B5CB34 /* AMap.bundle in Resources */,
+				25EDA79C1D1D0F01005F06F0 /* 右门槛.png in Resources */,
 				251FE64F1D13E59B0092D5CE /* HistoryDetailsViewController.xib in Resources */,
 				251FE6531D13E5BA0092D5CE /* HistoryDetailsCell.xib in Resources */,
+				25EDA7A21D1D0F01005F06F0 /* 左门柱2 in Resources */,
+				25EDA7AF1D1D0F01005F06F0 /* 左门槛.png in Resources */,
+				25EDA79B1D1D0F01005F06F0 /* 行李箱盖 in Resources */,
 				256C0B421D0E5A5500E880DA /* MyCarTableViewCell.xib in Resources */,
 				251FE65D1D15492B0092D5CE /* MyPhotoEvidenceView.xib in Resources */,
+				25EDA7A11D1D0F01005F06F0 /* 左门柱1 in Resources */,
+				25EDA7941D1D0F01005F06F0 /* 发动机盖.png in Resources */,
 				256C0B521D11312500E880DA /* PhotoEvidenceCell.xib in Resources */,
 				25FE41471CF54D44006A1CF9 /* Kpt_RegisterViewController.xib in Resources */,
 				250413B21CF44FCF00611E62 /* Kpt_LoginViewController.xib in Resources */,
+				25EDA78F1D1D0F01005F06F0 /* 右门柱1 in Resources */,
+				25EDA79D1D1D0F01005F06F0 /* 左前钢圈 in Resources */,
+				25EDA7971D1D0F01005F06F0 /* 右后.png in Resources */,
 				256C0B4E1D11014F00E880DA /* PhotoEvidenceViewController.xib in Resources */,
 				25B8792F1CEC05DD00F9865B /* LaunchScreen.storyboard in Resources */,
+				25EDA7A81D1D0F01005F06F0 /* 左前.psd in Resources */,
+				25EDA7911D1D0F01005F06F0 /* 右倒后镜.png in Resources */,
+				25EDA78B1D1D0F01005F06F0 /* 右侧.png in Resources */,
+				25EDA7AB1D1D0F01005F06F0 /* 左后叶子板.png in Resources */,
+				25EDA78C1D1D0F01005F06F0 /* 右侧.psd in Resources */,
 				2507AF311D0814B3008F8E1D /* AccidentViewController.xib in Resources */,
+				25EDA7981D1D0F01005F06F0 /* 右后.psd in Resources */,
+				25EDA7A61D1D0F01005F06F0 /* 左前车灯.png in Resources */,
 				25DE9BBF1D05618000058FDF /* Kpt_ForgetPasswordViewController.xib in Resources */,
+				25EDA7AE1D1D0F01005F06F0 /* 左后.psd in Resources */,
 				251FE5FD1D1399C30092D5CE /* HistoryCell.xib in Resources */,
+				25EDA7AA1D1D0F01005F06F0 /* 后保险杠.png in Resources */,
+				25EDA79A1D1D0F01005F06F0 /* 右后车门 in Resources */,
 				251A582A1D0D7E7500F1E48F /* AccidentTableViewCell.xib in Resources */,
+				25EDA7951D1D0F01005F06F0 /* 右前.png in Resources */,
 				25B8792C1CEC05DD00F9865B /* Assets.xcassets in Resources */,
+				25EDA7A51D1D0F01005F06F0 /* 左前叶子板.png in Resources */,
+				25EDA7A71D1D0F01005F06F0 /* 左前.png in Resources */,
 				25009C131D1A700E00E98E44 /* ReportSuccessViewController.xib in Resources */,
 				25409B7A1D1A7941007FCE8B /* OnlineInsuranceViewController.xib in Resources */,
+				25EDA75A1D1D0EE2005F06F0 /* CarPartsView.xib in Resources */,
 				250922731CEDB8EF00353F17 /* KPTHomePageViewController.xib in Resources */,
+				25EDA7991D1D0F01005F06F0 /* 右后叶子板 in Resources */,
+				25EDA7901D1D0F01005F06F0 /* 右门柱2.png in Resources */,
+				25EDA7921D1D0F01005F06F0 /* 右前叶子板.png in Resources */,
+				25EDA7931D1D0F01005F06F0 /* 右前车门.png in Resources */,
+				25EDA7AD1D1D0F01005F06F0 /* 左后.png in Resources */,
 				251459041CF2FCC400B5CB34 /* AMapNavi.bundle in Resources */,
 				259FFB401D012B4700848C1F /* PersonTableViewCell.xib in Resources */,
+				25EDA7A01D1D0F01005F06F0 /* 左侧.psd in Resources */,
+				25EDA7A91D1D0F01005F06F0 /* 左前车门.png in Resources */,
+				25EDA78A1D1D0F01005F06F0 /* 右前钢圈.png in Resources */,
+				25EDA7A41D1D0F01005F06F0 /* 左前保险杠.png in Resources */,
+				25EDA79F1D1D0F01005F06F0 /* 左侧.png in Resources */,
+				25EDA78D1D1D0F01005F06F0 /* 右后钢圈.png in Resources */,
 				256C0B991D128DE200E880DA /* KPTDiscoverVController.xib in Resources */,
 				25B879271CEC05DD00F9865B /* Main.storyboard in Resources */,
+				25EDA7AC1D1D0F01005F06F0 /* 左后车门.png in Resources */,
+				25EDA79E1D1D0F01005F06F0 /* 左后钢圈 in Resources */,
+				25EDA7961D1D0F01005F06F0 /* 右前.psd in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -928,6 +1160,7 @@
 				25E8DEC71CFE8D4A005DA035 /* NSObject+OCTool.m in Sources */,
 				25A7B1731CF83C8A00177C3F /* Kpt_NextBtnView.swift in Sources */,
 				25FE41461CF54D44006A1CF9 /* Kpt_RegisterViewController.swift in Sources */,
+				25EDA7591D1D0EE1005F06F0 /* CarPartsView.swift in Sources */,
 				259FFB451D0185DB00848C1F /* ChangeInfoController.swift in Sources */,
 				251FE6551D13F2210092D5CE /* HistoryDetailModel.swift in Sources */,
 				256C0B441D0E86D700E880DA /* MyCarModel.swift in Sources */,
