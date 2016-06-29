@@ -73,10 +73,10 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="侧后方全景" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fpl-Jj-5iB">
-                    <rect key="frame" x="224" y="272" width="141" height="25"/>
+                    <rect key="frame" x="177" y="272" width="205" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="FhM-2U-d6q"/>
-                        <constraint firstAttribute="width" constant="141" id="IwD-xT-On3"/>
+                        <constraint firstAttribute="width" constant="205" id="IwD-xT-On3"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -88,10 +88,10 @@
                 <constraint firstItem="Fpl-Jj-5iB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="52s-DJ-Jo3"/>
                 <constraint firstAttribute="bottom" secondItem="Zuf-UH-jNq" secondAttribute="bottom" id="5NI-pi-CfT"/>
                 <constraint firstAttribute="trailing" secondItem="Zuf-UH-jNq" secondAttribute="trailing" id="8P5-dS-oDo"/>
-                <constraint firstItem="Ikf-bZ-EVO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Jck-jS-82k"/>
                 <constraint firstItem="Zuf-UH-jNq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="YDk-do-ofB"/>
+                <constraint firstItem="Ikf-bZ-EVO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="euF-8Z-UY6"/>
                 <constraint firstItem="Ikf-bZ-EVO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="-37" id="pee-8E-CvE"/>
-                <constraint firstAttribute="trailing" secondItem="Fpl-Jj-5iB" secondAttribute="trailing" constant="-45" id="vxo-D5-X6G"/>
+                <constraint firstAttribute="trailing" secondItem="Fpl-Jj-5iB" secondAttribute="trailing" constant="-62" id="vxo-D5-X6G"/>
             </constraints>
             <connections>
                 <outlet property="backBtn" destination="n41-NC-OOv" id="6ax-jL-LOp"/>

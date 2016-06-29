@@ -15,10 +15,6 @@ let MIN_MENU_FONT:CGFloat = 16.0
 let MAX_MENU_FONT:CGFloat = 20.0
 
 class MainAppViewController: UIViewController {
-    ///地图定位管理者
-    var locManager  :CLLocationManager?
-    ///地理编码器
-    var currentCityGeocoder :CLGeocoder?
     ///首页VC
     var KptHome     :KPTHomePageViewController?
     ///历史VC

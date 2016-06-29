@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SceneViewController" customModule="KPT_iOS_Swift" customModuleProvider="target">
+            <connections>
+                <outlet property="mainCollection" destination="Mho-9U-aqd" id="kaJ-bH-Spu"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Mho-9U-aqd">
+                    <rect key="frame" x="0.0" y="99" width="320" height="469"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oqw-4x-xGJ">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="CM6-MU-3VO"/>
+                        <outlet property="delegate" destination="-1" id="lIv-SA-tZq"/>
+                    </connections>
+                </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  请选择符合的事故场景" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pH6-zW-I1p">
+                    <rect key="frame" x="0.0" y="64" width="320" height="35"/>
+                    <color key="backgroundColor" red="0.8816287879050505" green="0.8816287879050505" blue="0.8816287879050505" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="oPj-PU-a8Y"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="oPj-PU-a8Y"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="oPj-PU-a8Y"/>
+                        </mask>
+                    </variation>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Mho-9U-aqd" secondAttribute="trailing" constant="5" id="6sG-aO-yBv"/>
+                <constraint firstItem="pH6-zW-I1p" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TCb-05-0fi"/>
+                <constraint firstItem="Mho-9U-aqd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="5" id="YNy-OA-Ebc"/>
+                <constraint firstAttribute="trailing" secondItem="pH6-zW-I1p" secondAttribute="trailing" id="Zgd-qB-rHo"/>
+                <constraint firstItem="Mho-9U-aqd" firstAttribute="top" secondItem="pH6-zW-I1p" secondAttribute="bottom" constant="20" id="e5V-5p-Ri5"/>
+                <constraint firstAttribute="bottom" secondItem="Mho-9U-aqd" secondAttribute="bottom" id="rbg-oN-ojT"/>
+                <constraint firstItem="pH6-zW-I1p" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="wUe-AJ-7mT"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="Mho-9U-aqd"/>
+                    <exclude reference="pH6-zW-I1p"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="TCb-05-0fi"/>
+                    <exclude reference="Zgd-qB-rHo"/>
+                    <exclude reference="wUe-AJ-7mT"/>
+                    <exclude reference="6sG-aO-yBv"/>
+                    <exclude reference="YNy-OA-Ebc"/>
+                    <exclude reference="e5V-5p-Ri5"/>
+                    <exclude reference="rbg-oN-ojT"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="Mho-9U-aqd"/>
+                    <include reference="pH6-zW-I1p"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="TCb-05-0fi"/>
+                    <include reference="Zgd-qB-rHo"/>
+                    <include reference="wUe-AJ-7mT"/>
+                    <include reference="6sG-aO-yBv"/>
+                    <include reference="YNy-OA-Ebc"/>
+                    <include reference="e5V-5p-Ri5"/>
+                    <include reference="rbg-oN-ojT"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

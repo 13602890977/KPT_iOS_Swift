@@ -27,6 +27,7 @@ class AccidentViewController: UIViewController {
         let navigationBar = self.navigationController!.navigationBar
         navigationBar.barTintColor = UIColor.blackColor()
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+        self.navigationController?.navigationBar.tintColor = MainColor
     }
 
     override func viewDidLoad() {
@@ -38,7 +39,7 @@ class AccidentViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName:UIFont.systemFontOfSize(19.0),NSForegroundColorAttributeName:MainColor]
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "nav_back"), style: UIBarButtonItemStyle.Plain, target: self, action: "popView")
         
-        UINavigationBar.appearance().tintColor = MainColor
+        self.navigationItem.leftBarButtonItem?.tintColor = MainColor
         self.carTypeArr = ["我的车辆","对方车辆"]
         
         self.view.addSubview(self.tableView)

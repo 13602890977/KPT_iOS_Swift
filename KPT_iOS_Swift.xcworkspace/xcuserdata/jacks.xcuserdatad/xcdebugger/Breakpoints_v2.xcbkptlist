@@ -27,13 +27,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KPT_iOS_Swift/Main/Controller/PhotoEvidenceViewController.swift"
-            timestampString = "488269975.791233"
+            filePath = "KPT_iOS_Swift/KptDiscover/Controller/RepairTableViewController.swift"
+            timestampString = "488702551.813846"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "photoGraph()"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "reloadRepairData()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -43,13 +43,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KPT_iOS_Swift/Main/Controller/PhotoEvidenceViewController.swift"
-            timestampString = "488269951.938325"
+            filePath = "KPT_iOS_Swift/KptHistory/Controller/ResponsibleViewController.swift"
+            timestampString = "488712411.07364"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "photoGraph()"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -59,13 +59,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KPT_iOS_Swift/Main/Controller/PhotoEvidenceViewController.swift"
-            timestampString = "488272581.985729"
+            filePath = "KPT_iOS_Swift/KptHistory/Controller/ResponsibleViewController.swift"
+            timestampString = "488713070.349749"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "photoGraph()"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "collectionView(_:cellForItemAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -75,13 +75,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KPT_iOS_Swift/KptDiscover/Controller/CarPartsView.swift"
-            timestampString = "488514619.814616"
+            filePath = "KPT_iOS_Swift/KptHistory/Controller/ResponsibleViewController.swift"
+            timestampString = "488713070.349749"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
-            landmarkName = "getCurrentVC()"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "collectionView(_:numberOfItemsInSection:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -91,13 +91,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KPT_iOS_Swift/KptDiscover/Controller/OnlineInsuranceViewController.swift"
-            timestampString = "488514012.911329"
+            filePath = "KPT_iOS_Swift/KptHistory/Controller/ResponsibleResultsViewController.swift"
+            timestampString = "488863698.188629"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "nextBtnClick(_:)"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "uploadDutyRatio()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

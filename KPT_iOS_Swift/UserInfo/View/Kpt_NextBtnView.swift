@@ -19,7 +19,7 @@ class Kpt_NextBtnView: UIView {
             creatNexBtn()
         }
     }
-    
+    var nextButton : UIButton!
     class func creatNextBtnView(frame:CGRect) ->Kpt_NextBtnView {
         let view = Kpt_NextBtnView(frame: frame)
         view.userInteractionEnabled = true
@@ -44,8 +44,12 @@ class Kpt_NextBtnView: UIView {
         let button = UIButton(type: UIButtonType.Custom)
         
         button.frame = CGRect(x: 50 , y: (self.frame.size.height - cellMainHeight)/2 , width: SCRW - 100, height: cellMainHeight)
-//        button.backgroundColor = MainColor
-        button.setBackgroundImage(UIImage(named: "完善"), forState: UIControlState.Normal)
+
+        if btnText == "自行维修" {
+            button.setImage(UIImage(named: "不完善"), forState: UIControlState.Selected)
+        }else {
+            button.setBackgroundImage(UIImage(named: "完善"), forState: UIControlState.Normal)
+        }
         
         button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
 //        button.layer.cornerRadius = cellMainHeight * 0.5
@@ -55,7 +59,7 @@ class Kpt_NextBtnView: UIView {
             
         button.addTarget(self, action: "btnClick", forControlEvents: UIControlEvents.TouchUpInside)
         self.addSubview(button)
-        
+        nextButton = button
     }
 
 }

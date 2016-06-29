@@ -211,14 +211,6 @@ class KPTHomePageViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-//        mapView.showsUserLocation = true
-    }
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-//        mapView.showsUserLocation = false
-    }
 }
 
 extension KPTHomePageViewController : AMapSearchDelegate,MAMapViewDelegate{
@@ -241,6 +233,8 @@ extension KPTHomePageViewController : AMapSearchDelegate,MAMapViewDelegate{
                 longitudeStr = longitudeStr.substringToIndex(latitudeRange.location)
             }
             NSUserDefaults.standardUserDefaults().setValue("\(latitudeStr):\(longitudeStr)", forKey: "kpt_latlng")
+            NSUserDefaults.standardUserDefaults().setValue(userLocation.coordinate.latitude, forKey: "Kpt_latitude")
+            NSUserDefaults.standardUserDefaults().setValue(userLocation.coordinate.longitude, forKey: "Kpt_longitude")
             
             rego!.location = AMapGeoPoint.locationWithLatitude(CGFloat(userLocation.coordinate.latitude), longitude: CGFloat(userLocation.coordinate.longitude))
             rego!.radius = 1000

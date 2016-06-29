@@ -89,12 +89,24 @@ extension NSObject {
     //代码创建model类
     class func createModelWithDictionary(dict:NSDictionary ,modelName:String)
     {
-        print("\nclass \(modelName as NSString) : NSObject{\n");
+        print("\nclass \(modelName as NSString) : NSObject{\n")
         for key in dict.allKeys {
-        let type = dict.objectForKey(key as! String)!.isKindOfClass(NSNumber) ? "NSNumber" : "String"
-            print("var \(key): \(type)!\n");
+            var type = dict.objectForKey(key as! String)!.isKindOfClass(NSNumber.classForCoder()) ? "NSNumber" : "String"
+            
+            if dict.objectForKey(key as! String)!.isKindOfClass(NSNumber.classForCoder()) {
+                type = "NSNumber"
+            }else if dict.objectForKey(key as! String)!.isKindOfClass(NSArray.classForCoder()) {
+                type = "NSArray"
+            }else if dict.objectForKey(key as! String)!.isKindOfClass(NSDictionary.classForCoder()) {
+                type = "NSDictionary"
+            }else {
+                type = "String"
+            }
+            
+            print("var \(key): \(type)!\n")
+            
     }
-        print("}\n");
+        print("}\n")
     
     }
     ///获取手机设备型号

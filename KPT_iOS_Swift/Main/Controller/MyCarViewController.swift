@@ -21,7 +21,7 @@ class MyCarViewController: UIViewController,Kpt_NextBtnViewDelegate {
         let navigationBar = self.navigationController!.navigationBar
         navigationBar.barTintColor = UIColor.blackColor()
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
-        
+        self.navigationController?.navigationBar.tintColor = MainColor
     }
     override func viewDidLoad() {
         super.viewDidLoad()

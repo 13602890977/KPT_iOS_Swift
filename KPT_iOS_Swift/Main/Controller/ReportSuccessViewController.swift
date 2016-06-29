@@ -10,6 +10,10 @@ import UIKit
 
 class ReportSuccessViewController: UIViewController {
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.tintColor = MainColor
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,7 +35,7 @@ class ReportSuccessViewController: UIViewController {
         let cancelAction = UIAlertAction(title: "继续", style: UIAlertActionStyle.Default) { (action) -> Void in
             alertC.dismissViewControllerAnimated(true, completion: nil)
         }
-        cancelAction .setValue(MainColor, forKey: "titleTextColor")
+        cancelAction.setValue(MainColor, forKey: "titleTextColor")
         alertC.addAction(cancelAction)
         
         let action = UIAlertAction(title: "退出", style: UIAlertActionStyle.Cancel) { (action) -> Void in

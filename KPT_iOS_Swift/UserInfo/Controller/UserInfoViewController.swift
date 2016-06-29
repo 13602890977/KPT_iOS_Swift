@@ -36,7 +36,7 @@ class UserInfoViewController: UIViewController,Kpt_NextBtnViewDelegate,Kpt_OCRIm
             
         }
         let insuranceArr = NSArray(contentsOfFile: NSHomeDirectory() + "/Documents/insurance.plist")
-        self.partiesdataDict.setValue("", forKey: "insurancecode")
+        self.partiesdataDict.setValue(nil, forKey: "insurancecode")
         if let baoxian = self.changeDict.objectForKey("保险公司") as? String {
             for dict in insuranceArr! {
                 
@@ -47,7 +47,7 @@ class UserInfoViewController: UIViewController,Kpt_NextBtnViewDelegate,Kpt_OCRIm
             }
              self.partiesdataDict.setValue(baoxian, forKey: "insurancename")
         }else {
-             self.partiesdataDict.setValue("", forKey: "insurancename")
+             self.partiesdataDict.setValue(nil, forKey: "insurancename")
         }
         
         self.partiesdataDict.setValue(self.changeDict.objectForKey("驾驶证号") as! String, forKey: "licenseno")

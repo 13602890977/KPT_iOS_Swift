@@ -273,12 +273,11 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0U-8t-Qq3">
                             <rect key="frame" x="21" y="8" width="43" height="43"/>
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="43" id="Eis-Yy-xme"/>
                                 <constraint firstAttribute="width" secondItem="L0U-8t-Qq3" secondAttribute="height" multiplier="1:1" id="zoe-Ba-GkV"/>
                             </constraints>
-                            <state key="normal" title="Button"/>
+                            <state key="normal" backgroundImage="定损"/>
                             <connections>
                                 <action selector="insuranceBtnClick:" destination="-1" eventType="touchUpInside" id="7PE-MO-Sky"/>
                             </connections>
@@ -294,8 +293,7 @@
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvZ-Sd-xrg">
                             <rect key="frame" x="101" y="8" width="43" height="43"/>
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            <state key="normal" title="Button"/>
+                            <state key="normal" backgroundImage="违章处理"/>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" text="违章处理" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7B-gU-YHM">
                             <rect key="frame" x="84" y="59" width="76" height="21"/>
@@ -318,13 +316,11 @@
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXb-do-h4l">
                             <rect key="frame" x="261" y="8" width="43" height="43"/>
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            <state key="normal" title="Button"/>
+                            <state key="normal" backgroundImage="车辆检测"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NKO-R7-FS8">
                             <rect key="frame" x="181" y="8" width="43" height="43"/>
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            <state key="normal" title="Button"/>
+                            <state key="normal" backgroundImage="保险计算"/>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="保险计算" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lB2-pv-DDX">
                             <rect key="frame" x="168" y="59" width="68" height="21"/>
@@ -397,12 +393,16 @@
         </view>
     </objects>
     <resources>
+        <image name="保险计算" width="58" height="58"/>
         <image name="加油" width="38" height="38"/>
         <image name="天气" width="26" height="20"/>
+        <image name="定损" width="58" height="58"/>
         <image name="广州天气" width="70" height="23"/>
         <image name="救援" width="38" height="38"/>
         <image name="洗车" width="38" height="38"/>
         <image name="维修" width="38" height="38"/>
+        <image name="车辆检测" width="57" height="57"/>
+        <image name="违章处理" width="58" height="59"/>
         <image name="配件" width="53" height="53"/>
     </resources>
 </document>

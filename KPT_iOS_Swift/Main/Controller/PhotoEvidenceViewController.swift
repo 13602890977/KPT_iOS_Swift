@@ -26,7 +26,10 @@ class PhotoEvidenceViewController: UIViewController {
     private var flashBtnBool = false
     //用于记录点击的cell
     private var cellIndexRow : Int!
-    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.tintColor = MainColor
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "拍照取证"
@@ -35,6 +38,7 @@ class PhotoEvidenceViewController: UIViewController {
         mainCollection.registerNib(UINib(nibName: "PhotoEvidenceCell", bundle: nil), forCellWithReuseIdentifier: "cell")
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "完成", style: UIBarButtonItemStyle.Plain, target: self, action: "completeBtnClick")
+        self.navigationItem.rightBarButtonItem?.tintColor = MainColor
         print(self.lockBtn)
     }
     //提交拍照
@@ -76,8 +80,12 @@ class PhotoEvidenceViewController: UIViewController {
             print(data)
             if let dict = data as? NSDictionary {
                 let moveCarVC = MoveCarViewController(nibName:"MoveCarViewController",bundle: nil)
+                moveCarVC.carType = self.accidentType
                 moveCarVC.remindStr = dict.objectForKey("remark") as? String
+                moveCarVC.partiesdataArr = self.partiesdataArr
                 moveCarVC.taskId = dict.objectForKey("taskid") as? String
+                moveCarVC.responsibilitydata = dict
+                
                 self.navigationController?.pushViewController(moveCarVC, animated: true)
             }
             self.hud.hide(true)
@@ -141,7 +149,7 @@ class PhotoEvidenceViewController: UIViewController {
         if self.accidentType == "twoCar" {
             arr = ["前45","后45","特写","A全景","B全景","矢量智能对象"]
         }else {
-            arr = ["前45","后45","特写","矢量智能对象"]
+            arr = ["侧后","侧前","单车特写","矢量智能对象"]
         }
         return arr
     }()
@@ -184,14 +192,7 @@ extension PhotoEvidenceViewController :UICollectionViewDataSource,UICollectionVi
         let collectionIdentifier = "cell"
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(collectionIdentifier, forIndexPath: indexPath) as! PhotoEvidenceCell
         
-        
-        if (CarPhotoArr[indexPath.row] as! String).hasPrefix("http") {
-            cell.photoImage.sd_setImageWithURL(NSURL(string: CarPhotoArr[indexPath.row] as! String))
-            cell.photoImage.contentMode = UIViewContentMode.ScaleToFill
-        }else {
-            cell.photoImage.image = UIImage(named: CarPhotoArr[indexPath.row] as! String)
-            cell.photoImage.contentMode = UIViewContentMode.Center
-        }
+        cell.photoName = CarPhotoArr[indexPath.row] as! String
         
         if indexPath.row < CarPhotoStrArr.count {
             cell.photoLabel.text = CarPhotoStrArr[indexPath.row]
