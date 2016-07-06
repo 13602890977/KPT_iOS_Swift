@@ -244,14 +244,17 @@ NSString * const k__MLTransition_GestureRecognizer = @"__MLTransition_GestureRec
         ///不允许右滑，只能退出任务
         Class moveC = NSClassFromString(@"KPT_iOS_Swift.MoveCarViewController");
         if ([vc isKindOfClass:moveC]) {
+            
             return NO;
         }
         Class ResponsibleC = NSClassFromString(@"KPT_iOS_Swift.ResponsibleResultsViewController");
         if ([vc isKindOfClass:ResponsibleC]) {
+            
             return NO;
         }
         Class AutographVC = NSClassFromString(@"KPT_iOS_Swift.AutographViewController");
         if ([vc isKindOfClass:AutographVC]) {
+            
             return NO;
         }
         //AutographViewController
@@ -277,6 +280,7 @@ NSString * const k__MLTransition_GestureRecognizer = @"__MLTransition_GestureRec
     
     return YES;
 }
+
 @end
 
 @implementation UINavigationController(DisableMLTransition)

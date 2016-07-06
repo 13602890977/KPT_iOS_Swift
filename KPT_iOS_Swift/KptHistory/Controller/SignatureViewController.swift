@@ -8,33 +8,62 @@
 
 import UIKit
 
+
+typealias returnSignImage = (image :UIImage) -> Void
+
 class SignatureViewController: UIViewController {
 
-    @IBOutlet weak var backView: UIView!
+    
+    private var signImage : returnSignImage!
+    var mySignImage : Kpt_SignView!
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.tintColor = MainColor
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
+        self.title = "签名"
+        self.view.backgroundColor = UIColor.lightGrayColor()
+        
+        mySignImage = Kpt_SignView(frame:CGRect(x:8, y: 74, width: SCRW - 16, height: SCRH - 174))
+        
+        mySignImage.backgroundColor = UIColor.whiteColor()
+        self.view.addSubview(mySignImage)
+        
         // Do any additional setup after loading the view.
     }
 
     @IBAction func revivedBtnClick(sender: AnyObject) {
+        mySignImage.clear()
+        
     }
     @IBAction func finishBtnClick(sender: AnyObject) {
+        let view = mySignImage
+//        UIGraphicsBeginImageContext(view.bounds.size)
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, true, 1.0)
+        view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        
+        print("截屏\(image)")
+        if self.signImage != nil {
+            self.signImage(image:image)
+        }
+        self.navigationController?.popViewControllerAnimated(true)
     }
+    
+    func returnSignResult(image:returnSignImage) {
+        self.signImage = image
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

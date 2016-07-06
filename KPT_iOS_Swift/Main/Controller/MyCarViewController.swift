@@ -106,8 +106,9 @@ class MyCarViewController: UIViewController,Kpt_NextBtnViewDelegate {
     ///点击下一步
     func nextBtnClick(nextBtn: Kpt_NextBtnView) {
         let onlineVC = OnlineInsuranceViewController(nibName:"OnlineInsuranceViewController",bundle: nil)
+        onlineVC.carType = "oneCar"
         onlineVC.carnoStr = selectedModel.carno
-        onlineVC.carmodelId = selectedModel.carid
+        onlineVC.isWhatControllerPushIn = isWhatControllerPushIn
         onlineVC.carmodelStr = selectedModel.vehiclemodels
         self.navigationController?.pushViewController(onlineVC, animated: true)
     }

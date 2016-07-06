@@ -258,31 +258,25 @@ extension PhotoEvidenceViewController : MyPhotoEvidenceViewDelegate,UIImagePicke
         }
         let changeImage = addImage(viewImage, backImage: sizeImage, rect: CGRect(x: 0, y: sizeImage.size.height - 160 , width: SCRW, height: 160))
         
-        let imageData = UIImageJPEGRepresentation(changeImage, 1.0)
-        
         weak var weakSelf = self
         //七牛图片上传
-        let token = NSObject.makeToken(ACCESS_KEY, secretKey: SECRET_KEY)
-        let upManager = QNUploadManager()
         
-        upManager.putData(imageData, key: nil, token: token, complete: { (info, key, resp) -> Void in
-            let Appkey = resp["key"];
-            
-            let url = QinniuUrl.stringByAppendingString("\(Appkey!)")
-            
+        image.QiniuPhotoUpdateReturnImageUrlStr(changeImage) { (appkey) -> Void in
+            let url = QinniuUrl.stringByAppendingString("\(appkey)")
             weakSelf!.CarPhotoArr[weakSelf!.cellIndexRow] = url
             ///将需要上传到服务器的图片保存起来
             let dict = NSMutableDictionary()
-            dict.setValue("\(Appkey!)", forKey: "photosrc")
+            dict.setValue("\(appkey)", forKey: "photosrc")
             if weakSelf?.cellIndexRow < weakSelf?.CarPhotoStrArr.count {
                 dict.setValue(weakSelf?.CarPhotoStrArr[(weakSelf?.cellIndexRow)!], forKey: "photoname")
             }else {
                 dict.setValue("其他", forKey: "photoname")
             }
+
             weakSelf?.evidencedata.addObject(dict)
             
             weakSelf?.mainCollection.reloadData()
-            }, option: nil)
+        }
         
         self.imagePicker.dismissViewControllerAnimated(true, completion: nil)
     }

@@ -46,7 +46,7 @@ class Kpt_NextBtnView: UIView {
         button.frame = CGRect(x: 50 , y: (self.frame.size.height - cellMainHeight)/2 , width: SCRW - 100, height: cellMainHeight)
 
         if btnText == "自行维修" {
-            button.setImage(UIImage(named: "不完善"), forState: UIControlState.Selected)
+            button.setBackgroundImage(UIImage(named: "不完善"), forState: UIControlState.Selected)
         }else {
             button.setBackgroundImage(UIImage(named: "完善"), forState: UIControlState.Normal)
         }

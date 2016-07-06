@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Qiniu
 
 ///屏幕宽
 let SCRW = UIScreen.mainScreen().bounds.size.width
@@ -31,6 +31,7 @@ let BUCKET = "kuaipeitong";
 let TAG = "QiniuUtils";
 let QinniuUrl = "http://7xttl7.com2.z0.glb.qiniucdn.com/";
 
+let QiniuToken = NSObject.makeToken(ACCESS_KEY, secretKey: SECRET_KEY)
 extension String {
     
     var md5: String! {
@@ -208,4 +209,42 @@ extension NSObject {
                 
         })
     }
+    
+    /**七牛图片上传
+     *  image:需要上传到七牛的照片(传入之后会被压缩0.1，可设置)
+     *  success:返回七牛返回的照片urlStr(不包含请求头，需要自己添加七牛的路径)
+     */
+    func QiniuPhotoUpdateReturnImageUrlStr(image:UIImage,success:(String ->Void)?) {
+        let imageData = UIImageJPEGRepresentation(image, 0.1)
+        
+        
+        let upManager = QNUploadManager()
+        upManager.putData(imageData, key: nil, token: QiniuToken, complete: { (info, key, resp) -> Void in
+            let Appkey = resp["key"];
+            let str = "\(Appkey!)"
+                success!(str)
+            }, option: nil)
+    }
+    
 }
+
+extension UIImage {
+    func sizeThatFits(size:CGSize) ->CGSize {
+        var imageSize = CGSizeMake(self.size.width / self.scale, self.size.height / self.scale)
+        let widthRatio = imageSize.width / size.width
+        let heightRatio = imageSize.height / size.height
+        if widthRatio > heightRatio {
+            imageSize = CGSizeMake(imageSize.width / widthRatio, imageSize.height / heightRatio)
+        }else {
+            imageSize = CGSizeMake(imageSize.width / heightRatio, imageSize.height / heightRatio)
+        }
+        return imageSize
+    }
+}
+extension UIImageView {
+    func contentSize() ->CGSize {
+        return (self.image?.sizeThatFits(self.bounds.size))!
+    }
+}
+
+

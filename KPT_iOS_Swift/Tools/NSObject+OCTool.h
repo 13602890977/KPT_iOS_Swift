@@ -16,4 +16,9 @@
 
 ///七牛token获取
 +(NSString *)makeToken:(NSString *)accessKey secretKey:(NSString *)secretKey;
+
+///将签名的底色改成透明
++ (UIImage*)imageToTransparent:(UIImage*)image;
+
+
 @end

@@ -15,6 +15,11 @@ class SceneViewController: UIViewController {
     var partiesdataArr : NSMutableArray!
     ///当事人信息(主要包含任务id和当事人id)
     var responsibilitydata:NSDictionary!
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.tintColor = MainColor
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

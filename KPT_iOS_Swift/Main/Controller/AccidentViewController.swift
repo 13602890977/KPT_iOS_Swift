@@ -37,7 +37,7 @@ class AccidentViewController: UIViewController {
         
         self.title = "事故类型"
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName:UIFont.systemFontOfSize(19.0),NSForegroundColorAttributeName:MainColor]
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "nav_back"), style: UIBarButtonItemStyle.Plain, target: self, action: "popView")
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "展开"), style: UIBarButtonItemStyle.Plain, target: self, action: "popView")
         
         self.navigationItem.leftBarButtonItem?.tintColor = MainColor
         self.carTypeArr = ["我的车辆","对方车辆"]
@@ -172,6 +172,12 @@ extension AccidentViewController:UITableViewDelegate,UITableViewDataSource {
     }
     
     func forensicsButtonClick() {
+//        let agreeVC = AgreementViewController(nibName:"AgreementViewController",bundle:nil)
+//        agreeVC.protocolsrc = "http://59.41.39.55:9090/plugins/changhui/web/protocolservlet?taskid=i3qIJs9W2WCP5C3w"
+//        
+//        self.navigationController?.pushViewController(agreeVC, animated: true)
+//        return
+//            
         print("跳转到拍照页面")
         if self.carTypeArr.count == 1{
             if myCarNumber == nil {

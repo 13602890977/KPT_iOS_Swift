@@ -27,13 +27,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KPT_iOS_Swift/KptDiscover/Controller/RepairTableViewController.swift"
-            timestampString = "488702551.813846"
+            filePath = "KPT_iOS_Swift/KptDiscover/Controller/OnlineInsuranceViewController.swift"
+            timestampString = "489305743.413352"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "reloadRepairData()"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "setMainView()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -43,12 +43,140 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KPT_iOS_Swift/KptHistory/Controller/ResponsibleViewController.swift"
-            timestampString = "488712411.07364"
+            filePath = "KPT_iOS_Swift/KptDiscover/Controller/OnlineInsuranceViewController.swift"
+            timestampString = "489382694.40853"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
+            landmarkName = "nextBtnClick(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KPT_iOS_Swift/KptDiscover/Controller/OnlineInsuranceViewController.swift"
+            timestampString = "489305743.413352"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "setMainView()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KPT_iOS_Swift/KptDiscover/Controller/OnlineInsuranceViewController.swift"
+            timestampString = "489488223.391178"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+            landmarkName = "nextBtnClick(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KPT_iOS_Swift/KptDiscover/Controller/OnlineInsuranceViewController.swift"
+            timestampString = "489382694.40853"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
+            landmarkName = "nextBtnClick(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KPT_iOS_Swift.OnlineInsuranceViewController.nextBtnClick (KPT_iOS_Swift.OnlineInsuranceViewController)(Swift.AnyObject) -&gt; ()"
+                  moduleName = "KPT_iOS_Swift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jacks/Desktop/KPT_iOS_Swift/KPT_iOS_Swift/KptDiscover/Controller/OnlineInsuranceViewController.swift"
+                  timestampString = "489489612.633223"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "201"
+                  endingLineNumber = "201"
+                  offsetFromSymbolStart = "15748">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KPT_iOS_Swift.OnlineInsuranceViewController.(nextBtnClick (KPT_iOS_Swift.OnlineInsuranceViewController) -&gt; (Swift.AnyObject) -&gt; ()).(closure #3)"
+                  moduleName = "KPT_iOS_Swift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jacks/Desktop/KPT_iOS_Swift/KPT_iOS_Swift/KptDiscover/Controller/OnlineInsuranceViewController.swift"
+                  timestampString = "489489612.633411"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "202"
+                  endingLineNumber = "202"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KPT_iOS_Swift/KptDiscover/Controller/OnlineInsuranceViewController.swift"
+            timestampString = "489488223.391178"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
+            landmarkName = "nextBtnClick(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KPT_iOS_Swift/KptDiscover/Controller/DamageResultsViewController.swift"
+            timestampString = "489380431.907956"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
+            landmarkName = "tableView(_:viewForFooterInSection:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KPT_iOS_Swift/KptDiscover/Controller/DamageResultsViewController.swift"
+            timestampString = "489380431.907956"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -59,13 +187,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KPT_iOS_Swift/KptHistory/Controller/ResponsibleViewController.swift"
-            timestampString = "488713070.349749"
+            filePath = "KPT_iOS_Swift/KptDiscover/Controller/DamageResultsViewController.swift"
+            timestampString = "489380431.907956"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "collectionView(_:cellForItemAtIndexPath:)"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -75,13 +203,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KPT_iOS_Swift/KptHistory/Controller/ResponsibleViewController.swift"
-            timestampString = "488713070.349749"
+            filePath = "KPT_iOS_Swift/KptHistory/Controller/HistoryDetailsViewController.swift"
+            timestampString = "489489612.404061"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "collectionView(_:numberOfItemsInSection:)"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
+            landmarkName = "reloadHistoryDetailData()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -91,13 +219,221 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KPT_iOS_Swift/KptHistory/Controller/ResponsibleResultsViewController.swift"
-            timestampString = "488863698.188629"
+            filePath = "KPT_iOS_Swift/KptHistory/Controller/HistoryDetailsViewController.swift"
+            timestampString = "489489612.404061"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
-            landmarkName = "uploadDutyRatio()"
+            startingLineNumber = "461"
+            endingLineNumber = "461"
+            landmarkName = "tableView(_:heightForRowAtIndexPath:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KPT_iOS_Swift/KptHistory/Controller/HistoryDetailsViewController.swift"
+            timestampString = "489489612.404061"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
+            landmarkName = "reloadHistoryDetailData()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KPT_iOS_Swift/KptHistory/View/HistoryDetailsCell.swift"
+            timestampString = "489462282.103609"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "HistoryDetailsCell"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KPT_iOS_Swift/KptHistory/View/HistoryDetailsCell.swift"
+            timestampString = "489469751.673807"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "HistoryDetailsCell"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KPT_iOS_Swift/KptHistory/Controller/HistoryDetailsViewController.swift"
+            timestampString = "489489612.404061"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "historyDetailsCellClick(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KPT_iOS_Swift/KptHistory/Controller/HistoryDetailsViewController.swift"
+            timestampString = "489489612.404061"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "historyDetailsCellClick(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KPT_iOS_Swift/KptHistory/Controller/HistoryDetailsViewController.swift"
+            timestampString = "489489612.404061"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
+            landmarkName = "historyDetailsCellClick(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KPT_iOS_Swift/KptHistory/Controller/HistoryDetailsViewController.swift"
+            timestampString = "489489612.404061"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
+            landmarkName = "bicycleAccidentData(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KPT_iOS_Swift/KptHistory/Controller/HistoryDetailsViewController.swift"
+            timestampString = "489489612.404061"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "463"
+            endingLineNumber = "463"
+            landmarkName = "tableView(_:heightForRowAtIndexPath:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KPT_iOS_Swift/KptHistory/Controller/HistoryDetailsViewController.swift"
+            timestampString = "489489381.411525"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "historyDetailsCellClick(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KPT_iOS_Swift/KptHistory/Controller/HistoryDetailsViewController.swift"
+            timestampString = "489489404.954854"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "historyDetailsCellClick(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KPT_iOS_Swift.HistoryDetailsViewController.historyDetailsCellClick (KPT_iOS_Swift.HistoryDetailsViewController)(__ObjC.NSNotification) -&gt; ()"
+                  moduleName = "KPT_iOS_Swift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jacks/Desktop/KPT_iOS_Swift/KPT_iOS_Swift/KptHistory/Controller/HistoryDetailsViewController.swift"
+                  timestampString = "489489612.643714"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "10392">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KPT_iOS_Swift.HistoryDetailsViewController.(historyDetailsCellClick (KPT_iOS_Swift.HistoryDetailsViewController) -&gt; (__ObjC.NSNotification) -&gt; ()).(closure #3)"
+                  moduleName = "KPT_iOS_Swift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jacks/Desktop/KPT_iOS_Swift/KPT_iOS_Swift/KptHistory/Controller/HistoryDetailsViewController.swift"
+                  timestampString = "489489612.643894"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "123"
+                  endingLineNumber = "123"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KPT_iOS_Swift/KptHistory/Controller/HistoryDetailsViewController.swift"
+            timestampString = "489489408.689843"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "historyDetailsCellClick(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -28,7 +28,7 @@ class Kpt_ForgetPasswordViewController: UIViewController {
         super.viewDidLoad()
         self.title = "忘记密码"
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName:UIFont.systemFontOfSize(19.0),NSForegroundColorAttributeName:MainColor]
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "nav_back"), style: UIBarButtonItemStyle.Plain, target: self, action: "popView")
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "展开"), style: UIBarButtonItemStyle.Plain, target: self, action: "popView")
         
          UINavigationBar.appearance().tintColor = MainColor
         
@@ -89,7 +89,7 @@ class Kpt_ForgetPasswordViewController: UIViewController {
             timeout--
         }
         //6.启动计时器
-        dispatch_resume(timer);
+        dispatch_resume(timer)
         
     }
 

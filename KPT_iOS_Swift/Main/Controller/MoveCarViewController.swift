@@ -76,6 +76,21 @@ class MoveCarViewController: UIViewController {
             self.navigationController?.pushViewController(sceneVC, animated: true)
         }else {
             print("跳到定损界面")
+            let onlineVC = OnlineInsuranceViewController(nibName:"OnlineInsuranceViewController",bundle: nil)
+            onlineVC.carDataArr = self.partiesdataArr
+            for dict in partiesdataArr {
+                if ((dict as? NSDictionary) != nil)  {
+                    if dict.objectForKey("partiesmark")?.integerValue == 0 {
+                        onlineVC.carnoStr = dict.objectForKey("partiescarno") as? String
+                        onlineVC.carmodelStr = dict.objectForKey("vehiclename") as? String
+                        
+                    }
+                }
+            }
+            onlineVC.carType = "oneCar"
+            onlineVC.responsibilitydata = self.responsibilitydata
+            
+            self.navigationController?.pushViewController(onlineVC, animated: true)
         }
     }
     @IBAction func InsuranceReportBtnClick(sender: AnyObject) {

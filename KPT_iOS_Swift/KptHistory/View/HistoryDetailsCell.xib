@@ -78,9 +78,12 @@
                         <state key="normal" title="继续处理">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="continueButtonClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="K8J-hF-xQy"/>
+                        </connections>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RKv-Im-l56">
-                        <rect key="frame" x="31" y="115" width="289" height="1"/>
+                        <rect key="frame" x="31" y="113" width="289" height="1"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="JHQ-pB-e0d"/>
@@ -107,7 +110,6 @@
                 <constraints>
                     <constraint firstItem="HNy-RW-j7B" firstAttribute="top" secondItem="OJr-oe-0H3" secondAttribute="bottom" constant="8" id="1na-ep-ptS"/>
                     <constraint firstItem="Jfj-ma-ZKE" firstAttribute="leading" secondItem="OJr-oe-0H3" secondAttribute="trailing" constant="11" id="3kc-AJ-g9M"/>
-                    <constraint firstItem="7DK-LG-KL3" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="17.5" id="7B8-bj-q3P"/>
                     <constraint firstAttribute="bottom" secondItem="7DK-LG-KL3" secondAttribute="bottom" id="8qB-AI-C0M"/>
                     <constraint firstAttribute="trailing" secondItem="RKv-Im-l56" secondAttribute="trailing" id="BtA-1v-LIG"/>
                     <constraint firstItem="MeH-Xu-Uzf" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-8" id="DWe-bo-UgZ"/>
@@ -117,7 +119,7 @@
                     <constraint firstItem="hWH-dg-nRg" firstAttribute="centerY" secondItem="8aR-rF-orI" secondAttribute="centerY" id="Vne-n1-AUh"/>
                     <constraint firstItem="hWH-dg-nRg" firstAttribute="leading" secondItem="OJr-oe-0H3" secondAttribute="leading" id="WnG-nP-SOu"/>
                     <constraint firstItem="MeH-Xu-Uzf" firstAttribute="trailing" secondItem="sFw-FW-I8h" secondAttribute="trailing" id="X7y-pY-iK6"/>
-                    <constraint firstAttribute="bottom" secondItem="RKv-Im-l56" secondAttribute="bottom" constant="-2" id="YID-pI-xVT"/>
+                    <constraint firstAttribute="bottom" secondItem="RKv-Im-l56" secondAttribute="bottom" id="YID-pI-xVT"/>
                     <constraint firstItem="OJr-oe-0H3" firstAttribute="leading" secondItem="7DK-LG-KL3" secondAttribute="trailing" constant="15" id="Z9H-Bd-xAQ"/>
                     <constraint firstItem="sFw-FW-I8h" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="Zg5-d9-Un2"/>
                     <constraint firstItem="RKv-Im-l56" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="31" id="b4q-FX-3bI"/>
@@ -128,7 +130,6 @@
                     <constraint firstItem="OJr-oe-0H3" firstAttribute="top" secondItem="hWH-dg-nRg" secondAttribute="bottom" constant="8" id="v63-hl-Iph"/>
                     <constraint firstItem="hWH-dg-nRg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="wMX-Xd-3D7"/>
                     <constraint firstItem="JJf-SQ-wQU" firstAttribute="leading" secondItem="HNy-RW-j7B" secondAttribute="trailing" constant="8" id="wkr-nf-bWP"/>
-                    <constraint firstItem="sFw-FW-I8h" firstAttribute="centerY" secondItem="hWH-dg-nRg" secondAttribute="centerY" id="xT0-KB-N68"/>
                     <constraint firstItem="7DK-LG-KL3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="35" id="zb8-dd-7od"/>
                 </constraints>
             </tableViewCellContentView>

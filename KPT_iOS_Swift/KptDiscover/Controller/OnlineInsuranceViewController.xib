@@ -9,6 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OnlineInsuranceViewController" customModule="KPT_iOS_Swift" customModuleProvider="target">
             <connections>
                 <outlet property="MainScrolleView" destination="BLe-yf-uNx" id="W9m-gn-Ok6"/>
+                <outlet property="ascriptionLabel" destination="a9a-0O-3Nz" id="Su5-g8-X7R"/>
                 <outlet property="carModelLabel" destination="zXO-SI-Op2" id="UYj-GZ-73A"/>
                 <outlet property="carnoLabel" destination="r5H-bV-wdt" id="FPX-6S-ghW"/>
                 <outlet property="nextButton" destination="EYI-9c-n83" id="E87-ac-kZn"/>
@@ -137,7 +138,7 @@
                         <constraint firstAttribute="width" secondItem="EYI-9c-n83" secondAttribute="height" multiplier="29:5" id="y0t-CV-Rut"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <state key="normal" title="下一步" backgroundImage="完善">
+                    <state key="normal" backgroundImage="完善">
                         <color key="titleColor" red="0.2052359533" green="0.2052359533" blue="0.2052359533" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>

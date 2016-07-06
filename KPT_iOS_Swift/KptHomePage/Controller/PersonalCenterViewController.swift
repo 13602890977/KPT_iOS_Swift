@@ -26,7 +26,7 @@ class PersonalCenterViewController: UIViewController {
         reloadUserData()
         self.title = "个人中心"
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:MainColor,NSFontAttributeName:UIFont(name: "Heiti SC", size: 20.0)!]
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "nav_back"), style: UIBarButtonItemStyle.Plain, target: self, action: "cancelBtnClick:")
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "展开"), style: UIBarButtonItemStyle.Plain, target: self, action: "cancelBtnClick:")
         
         UINavigationBar.appearance().tintColor = MainColor
         self.tableView.delegate = self

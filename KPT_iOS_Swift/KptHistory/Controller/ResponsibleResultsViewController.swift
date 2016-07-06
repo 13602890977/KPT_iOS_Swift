@@ -35,6 +35,10 @@ class ResponsibleResultsViewController: UIViewController {
     ///事故场景
     var accidentType : String!
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.tintColor = MainColor
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -144,16 +148,17 @@ class ResponsibleResultsViewController: UIViewController {
         let userInfoData = UserInfoData.mj_objectWithKeyValues(personalData)
         
         let arr = self.responsibilitydata.objectForKey("responsibilitydata") as! NSMutableArray
-        let dataDict = NSMutableDictionary()
+        let oneDataDict = NSMutableDictionary()
+        let twoDataDict = NSMutableDictionary()
         let dataArr = NSMutableArray()
         for dict in arr {
             if let _ = dict as? NSMutableDictionary {
                 if dict.objectForKey("partiesmark")!.integerValue == 0 {
-                    dataDict.setValue(self.responsibilityStr, forKey: "dutyname")
-                    dataDict.setValue(dict.objectForKey("partiesid")!, forKey: "partiesid")
-                    dataDict.setValue(self.progressBackView.percent, forKey: "dutyratio")
-                    dataDict.setValue(dict.objectForKey("partiesmark")!, forKey: "partiesmark")
-                    
+                    oneDataDict.setValue(self.responsibilityStr, forKey: "dutyname")
+                    oneDataDict.setValue(dict.objectForKey("partiesid")!, forKey: "partiesid")
+                    oneDataDict.setValue(Int(self.progressBackView.percent * 100), forKey: "dutyratio")
+//                    oneDataDict.setValue(dict.objectForKey("partiesmark")!, forKey: "partiesmark")
+                     dataArr.addObject(oneDataDict)
                 }else {
                     var dutyname = ""
                     if self.responsibilityStr == "主责" {
@@ -167,16 +172,17 @@ class ResponsibleResultsViewController: UIViewController {
                     }else {
                         dutyname = "全责"
                     }
-                    dataDict.setValue(dutyname, forKey: "dutyname")
-                    dataDict.setValue(dict.objectForKey("partiesid")!, forKey: "partiesid")
-                    dataDict.setValue(self.otherProgressBackView.percent, forKey: "dutyratio")
-                    dataDict.setValue(dict.objectForKey("partiesmark")!, forKey: "partiesmark")
+                    twoDataDict.setValue(dutyname, forKey: "dutyname")
+                    twoDataDict.setValue(dict.objectForKey("partiesid")!, forKey: "partiesid")
+                    twoDataDict.setValue(Int(self.otherProgressBackView.percent * 100), forKey: "dutyratio")
+//                    twoDataDict.setValue(dict.objectForKey("partiesmark")!, forKey: "partiesmark")
+                    dataArr.addObject(twoDataDict)
                 }
-                dataArr.addObject(dataDict)
+                
             }
             
         }
-        print(dataArr)
+//        print(dataArr)
         
         let data : NSDictionary = ["taskid":self.responsibilitydata.objectForKey("taskid")!,"flowcode":"200102","flowname":"责任认定","accidentscene":self.accidentType,"fixduty":"1","isconfirm":"1","responsibilitydata":dataArr]
         let parame = ["requestcode":"003002","accessid":userInfoData.accessid,"accesskey":userInfoData.accesskey,"userid":userInfoData.userid,"data":data]

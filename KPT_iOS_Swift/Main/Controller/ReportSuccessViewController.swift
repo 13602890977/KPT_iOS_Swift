@@ -18,7 +18,7 @@ class ReportSuccessViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = "报案成功"
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "nav_back"), style: UIBarButtonItemStyle.Plain, target: self, action: "disSelfView")
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "展开"), style: UIBarButtonItemStyle.Plain, target: self, action: "disSelfView")
         self.navigationItem.leftBarButtonItem?.tintColor = MainColor
         // Do any additional setup after loading the view.
     }

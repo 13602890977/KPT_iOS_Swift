@@ -15,4 +15,8 @@ import UIKit
     var partiescarno: String!
     
     var repairsumprice: String!
+    
+    var partiesid : String!
+    
+    var advice : String?
 }

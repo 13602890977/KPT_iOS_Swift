@@ -12,11 +12,6 @@ import MBProgressHUD
 
 class KPTHistoryViewController: UIViewController {
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        //一进入就开始下拉刷新
-        self.tableView.mj_header.beginRefreshing()
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,6 +20,9 @@ class KPTHistoryViewController: UIViewController {
         //添加下拉刷新
         header.setRefreshingTarget(self, refreshingAction: "headerRefresh")
         self.tableView.mj_header = header
+        
+        //一进入就开始下拉刷新
+        self.tableView.mj_header.beginRefreshing()
         
         view.backgroundColor = UIColor.whiteColor()
         // Do any additional setup after loading the view.

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AgreementViewController" customModule="KPT_iOS_Swift" customModuleProvider="target">
+            <connections>
+                <outlet property="mainWebView" destination="PYW-b8-0lM" id="Nn7-tj-rzz"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Smr-MU-YQa">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="haH-tk-xKF"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="在线定损" backgroundImage="完善">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="haH-tk-xKF"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="haH-tk-xKF"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="insuranceBtnClick:" destination="-1" eventType="touchUpInside" id="wmc-tj-iLq"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mOo-pP-Rvw">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="保险报案" backgroundImage="完善">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="reportBtnClick:" destination="-1" eventType="touchUpInside" id="JQZ-hq-04A"/>
+                    </connections>
+                </button>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PYW-b8-0lM">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="ASg-1z-Z7C"/>
+                    </connections>
+                </webView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="mOo-pP-Rvw" firstAttribute="height" secondItem="Smr-MU-YQa" secondAttribute="height" id="1My-Zb-Yb1">
+                    <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                </constraint>
+                <constraint firstItem="mOo-pP-Rvw" firstAttribute="width" secondItem="Smr-MU-YQa" secondAttribute="width" id="84s-RS-WhV">
+                    <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                </constraint>
+                <constraint firstItem="PYW-b8-0lM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="CF4-Ad-Eph"/>
+                <constraint firstItem="mOo-pP-Rvw" firstAttribute="top" secondItem="PYW-b8-0lM" secondAttribute="bottom" constant="21" id="HoE-aB-JJf"/>
+                <constraint firstItem="mOo-pP-Rvw" firstAttribute="leading" secondItem="Smr-MU-YQa" secondAttribute="trailing" constant="120" id="JmG-6a-HPm">
+                    <variation key="heightClass=regular-widthClass=compact" constant="44"/>
+                </constraint>
+                <constraint firstAttribute="bottom" secondItem="mOo-pP-Rvw" secondAttribute="bottom" constant="8" id="KqV-Pv-OMl"/>
+                <constraint firstAttribute="trailing" secondItem="mOo-pP-Rvw" secondAttribute="trailing" constant="18" id="UlF-fp-rT5"/>
+                <constraint firstAttribute="trailing" secondItem="PYW-b8-0lM" secondAttribute="trailing" id="hd6-F5-Gi5"/>
+                <constraint firstItem="PYW-b8-0lM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mi1-S3-bgy"/>
+                <constraint firstItem="Smr-MU-YQa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="18" id="o2B-jh-cck"/>
+                <constraint firstAttribute="bottom" secondItem="Smr-MU-YQa" secondAttribute="bottom" constant="8" id="x9q-iY-GK4"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="Smr-MU-YQa"/>
+                    <exclude reference="mOo-pP-Rvw"/>
+                    <exclude reference="PYW-b8-0lM"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="CF4-Ad-Eph"/>
+                    <exclude reference="hd6-F5-Gi5"/>
+                    <exclude reference="mi1-S3-bgy"/>
+                    <exclude reference="o2B-jh-cck"/>
+                    <exclude reference="x9q-iY-GK4"/>
+                    <exclude reference="1My-Zb-Yb1"/>
+                    <exclude reference="84s-RS-WhV"/>
+                    <exclude reference="HoE-aB-JJf"/>
+                    <exclude reference="JmG-6a-HPm"/>
+                    <exclude reference="KqV-Pv-OMl"/>
+                    <exclude reference="UlF-fp-rT5"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="Smr-MU-YQa"/>
+                    <include reference="mOo-pP-Rvw"/>
+                    <include reference="PYW-b8-0lM"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="CF4-Ad-Eph"/>
+                    <include reference="hd6-F5-Gi5"/>
+                    <include reference="mi1-S3-bgy"/>
+                    <include reference="o2B-jh-cck"/>
+                    <include reference="x9q-iY-GK4"/>
+                    <include reference="1My-Zb-Yb1"/>
+                    <include reference="84s-RS-WhV"/>
+                    <include reference="HoE-aB-JJf"/>
+                    <include reference="JmG-6a-HPm"/>
+                    <include reference="KqV-Pv-OMl"/>
+                    <include reference="UlF-fp-rT5"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+    <resources>
+        <image name="完善" width="41" height="40"/>
+    </resources>
+</document>

@@ -37,6 +37,7 @@ class KptRequestClient: AFHTTPSessionManager{
             if (responsecode! == "1") {
                 success!(JSON.objectForKey("data"))
             }else {
+                print(JSON)
                 if viewController == nil {
                     
                 }else {

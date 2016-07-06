@@ -164,13 +164,10 @@ extension Kpt_OCRImageView :UINavigationControllerDelegate,UIImagePickerControll
         
         weak var weakSelf = self
         //七牛图片上传
-        let token = NSObject.makeToken(ACCESS_KEY, secretKey: SECRET_KEY)
-        let upManager = QNUploadManager()
-        upManager.putData(imageData, key: nil, token: token, complete: { (info, key, resp) -> Void in
-            let Appkey = resp["key"];
-            weakSelf!.potosUrl = QinniuUrl.stringByAppendingString("\(Appkey!)")
-            
-            }, option: nil)
+        image.QiniuPhotoUpdateReturnImageUrlStr(image) { (appkey) -> Void in
+            weakSelf!.potosUrl = QinniuUrl.stringByAppendingString("\(appkey)")
+        }
+        
         
         postPatternRecognitionWithType(imageData!,imageName:fileName,suc: { (ocrData) -> Void in
             //数据使用代理返回

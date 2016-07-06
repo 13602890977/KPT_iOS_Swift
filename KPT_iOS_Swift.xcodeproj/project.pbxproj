@@ -76,6 +76,9 @@
 		256C0B931D115E9E00E880DA /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256C0B921D115E9E00E880DA /* HistoryModel.swift */; };
 		256C0B981D128DE200E880DA /* KPTDiscoverVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256C0B961D128DE200E880DA /* KPTDiscoverVController.swift */; };
 		256C0B991D128DE200E880DA /* KPTDiscoverVController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 256C0B971D128DE200E880DA /* KPTDiscoverVController.xib */; };
+		258903D31D2B961300806F56 /* ZoomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258903D21D2B961300806F56 /* ZoomImageView.swift */; };
+		258903D61D2BAE4C00806F56 /* HistoryPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258903D41D2BAE4C00806F56 /* HistoryPhotoCell.swift */; };
+		258903D71D2BAE4C00806F56 /* HistoryPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 258903D51D2BAE4C00806F56 /* HistoryPhotoCell.xib */; };
 		259FFB3C1D011AE100848C1F /* PersonalCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259FFB3B1D011AE100848C1F /* PersonalCenterViewController.swift */; };
 		259FFB3F1D012B4700848C1F /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259FFB3D1D012B4700848C1F /* PersonTableViewCell.swift */; };
 		259FFB401D012B4700848C1F /* PersonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 259FFB3E1D012B4700848C1F /* PersonTableViewCell.xib */; };
@@ -100,10 +103,14 @@
 		25C274FA1D212CA300628C37 /* SceneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25C274F81D212CA300628C37 /* SceneViewController.xib */; };
 		25C274FD1D21395A00628C37 /* ResponsibleResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C274FB1D21395A00628C37 /* ResponsibleResultsViewController.swift */; };
 		25C274FE1D21395A00628C37 /* ResponsibleResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25C274FC1D21395A00628C37 /* ResponsibleResultsViewController.xib */; };
-		25CB2D221D23CDA00016934E /* SignatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D201D23CDA00016934E /* SignatureViewController.swift */; };
-		25CB2D231D23CDA00016934E /* SignatureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25CB2D211D23CDA00016934E /* SignatureViewController.xib */; };
+		25CB2D2F1D251B630016934E /* Kpt_SignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D2E1D251B630016934E /* Kpt_SignView.swift */; };
+		25CB2D371D2559E00016934E /* SignatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D361D2559E00016934E /* SignatureViewController.swift */; };
+		25CB2D3B1D2563D70016934E /* SignatureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25CB2D3A1D2563D70016934E /* SignatureViewController.xib */; };
+		25CC2BF71D265D6300F0A0AF /* AgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CC2BF51D265D6300F0A0AF /* AgreementViewController.swift */; };
+		25CC2BF81D265D6300F0A0AF /* AgreementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25CC2BF61D265D6300F0A0AF /* AgreementViewController.xib */; };
 		25DE9BBE1D05618000058FDF /* Kpt_ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DE9BBC1D05618000058FDF /* Kpt_ForgetPasswordViewController.swift */; };
 		25DE9BBF1D05618000058FDF /* Kpt_ForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25DE9BBD1D05618000058FDF /* Kpt_ForgetPasswordViewController.xib */; };
+		25E6F7E81D2CEBBD00293357 /* Kpt_WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E6F7E71D2CEBBD00293357 /* Kpt_WebViewController.swift */; };
 		25E8DEC71CFE8D4A005DA035 /* NSObject+OCTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E8DEC61CFE8D4A005DA035 /* NSObject+OCTool.m */; };
 		25E8DEC91CFE90EE005DA035 /* CarBrandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E8DEC81CFE90EE005DA035 /* CarBrandTableViewCell.swift */; };
 		25E8DECB1CFE9150005DA035 /* CarBrandTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E8DECA1CFE9150005DA035 /* CarBrandTableViewCell.xib */; };
@@ -249,6 +256,9 @@
 		256C0B921D115E9E00E880DA /* HistoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
 		256C0B961D128DE200E880DA /* KPTDiscoverVController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KPTDiscoverVController.swift; sourceTree = "<group>"; };
 		256C0B971D128DE200E880DA /* KPTDiscoverVController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KPTDiscoverVController.xib; sourceTree = "<group>"; };
+		258903D21D2B961300806F56 /* ZoomImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomImageView.swift; sourceTree = "<group>"; };
+		258903D41D2BAE4C00806F56 /* HistoryPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryPhotoCell.swift; sourceTree = "<group>"; };
+		258903D51D2BAE4C00806F56 /* HistoryPhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryPhotoCell.xib; sourceTree = "<group>"; };
 		259FFB3B1D011AE100848C1F /* PersonalCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalCenterViewController.swift; sourceTree = "<group>"; };
 		259FFB3D1D012B4700848C1F /* PersonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersonTableViewCell.swift; path = KPT_iOS_Swift/KptHomePage/Controller/PersonTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		259FFB3E1D012B4700848C1F /* PersonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PersonTableViewCell.xib; path = KPT_iOS_Swift/KptHomePage/Controller/PersonTableViewCell.xib; sourceTree = SOURCE_ROOT; };
@@ -278,10 +288,14 @@
 		25C274F81D212CA300628C37 /* SceneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SceneViewController.xib; sourceTree = "<group>"; };
 		25C274FB1D21395A00628C37 /* ResponsibleResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponsibleResultsViewController.swift; sourceTree = "<group>"; };
 		25C274FC1D21395A00628C37 /* ResponsibleResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResponsibleResultsViewController.xib; sourceTree = "<group>"; };
-		25CB2D201D23CDA00016934E /* SignatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignatureViewController.swift; sourceTree = "<group>"; };
-		25CB2D211D23CDA00016934E /* SignatureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignatureViewController.xib; sourceTree = "<group>"; };
+		25CB2D2E1D251B630016934E /* Kpt_SignView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kpt_SignView.swift; sourceTree = "<group>"; };
+		25CB2D361D2559E00016934E /* SignatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignatureViewController.swift; sourceTree = "<group>"; };
+		25CB2D3A1D2563D70016934E /* SignatureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignatureViewController.xib; sourceTree = "<group>"; };
+		25CC2BF51D265D6300F0A0AF /* AgreementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgreementViewController.swift; sourceTree = "<group>"; };
+		25CC2BF61D265D6300F0A0AF /* AgreementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AgreementViewController.xib; sourceTree = "<group>"; };
 		25DE9BBC1D05618000058FDF /* Kpt_ForgetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kpt_ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		25DE9BBD1D05618000058FDF /* Kpt_ForgetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Kpt_ForgetPasswordViewController.xib; sourceTree = "<group>"; };
+		25E6F7E71D2CEBBD00293357 /* Kpt_WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kpt_WebViewController.swift; sourceTree = "<group>"; };
 		25E8DEC51CFE8D4A005DA035 /* NSObject+OCTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+OCTool.h"; sourceTree = "<group>"; };
 		25E8DEC61CFE8D4A005DA035 /* NSObject+OCTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+OCTool.m"; sourceTree = "<group>"; };
 		25E8DEC81CFE90EE005DA035 /* CarBrandTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarBrandTableViewCell.swift; sourceTree = "<group>"; };
@@ -494,8 +508,11 @@
 				25C274FC1D21395A00628C37 /* ResponsibleResultsViewController.xib */,
 				25F234A81D237954002F0C28 /* AutographViewController.swift */,
 				25F234A91D237954002F0C28 /* AutographViewController.xib */,
-				25CB2D201D23CDA00016934E /* SignatureViewController.swift */,
-				25CB2D211D23CDA00016934E /* SignatureViewController.xib */,
+				25CC2BF51D265D6300F0A0AF /* AgreementViewController.swift */,
+				25CC2BF61D265D6300F0A0AF /* AgreementViewController.xib */,
+				25CB2D361D2559E00016934E /* SignatureViewController.swift */,
+				25CB2D3A1D2563D70016934E /* SignatureViewController.xib */,
+				25E6F7E71D2CEBBD00293357 /* Kpt_WebViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -508,6 +525,10 @@
 				251FE6501D13E5BA0092D5CE /* HistoryDetailsCell.swift */,
 				251FE6511D13E5BA0092D5CE /* HistoryDetailsCell.xib */,
 				25A3B02D1D2217E9004789F7 /* Kpt_ProgressView.swift */,
+				25CB2D2E1D251B630016934E /* Kpt_SignView.swift */,
+				258903D41D2BAE4C00806F56 /* HistoryPhotoCell.swift */,
+				258903D51D2BAE4C00806F56 /* HistoryPhotoCell.xib */,
+				258903D21D2B961300806F56 /* ZoomImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1020,11 +1041,13 @@
 				25EDA7A11D1D0F01005F06F0 /* 左门柱1 in Resources */,
 				25EDA7941D1D0F01005F06F0 /* 发动机盖.png in Resources */,
 				256C0B521D11312500E880DA /* PhotoEvidenceCell.xib in Resources */,
+				25CC2BF81D265D6300F0A0AF /* AgreementViewController.xib in Resources */,
 				25FE41471CF54D44006A1CF9 /* Kpt_RegisterViewController.xib in Resources */,
 				250413B21CF44FCF00611E62 /* Kpt_LoginViewController.xib in Resources */,
 				25EDA78F1D1D0F01005F06F0 /* 右门柱1 in Resources */,
 				25EDA79D1D1D0F01005F06F0 /* 左前钢圈 in Resources */,
-				25CB2D231D23CDA00016934E /* SignatureViewController.xib in Resources */,
+				258903D71D2BAE4C00806F56 /* HistoryPhotoCell.xib in Resources */,
+				25CB2D3B1D2563D70016934E /* SignatureViewController.xib in Resources */,
 				25EDA7971D1D0F01005F06F0 /* 右后.png in Resources */,
 				256C0B4E1D11014F00E880DA /* PhotoEvidenceViewController.xib in Resources */,
 				25B8792F1CEC05DD00F9865B /* LaunchScreen.storyboard in Resources */,
@@ -1209,8 +1232,8 @@
 				256C0B931D115E9E00E880DA /* HistoryModel.swift in Sources */,
 				253617DE1D1E7A1700F4B049 /* DamageModel.swift in Sources */,
 				25F234AA1D237954002F0C28 /* AutographViewController.swift in Sources */,
-				25CB2D221D23CDA00016934E /* SignatureViewController.swift in Sources */,
 				2532EA021CFD732D007B9B64 /* CarBrandListTableViewController.swift in Sources */,
+				25E6F7E81D2CEBBD00293357 /* Kpt_WebViewController.swift in Sources */,
 				25EDA7B11D1E25FD005F06F0 /* DamageResultsViewController.swift in Sources */,
 				259FFB3F1D012B4700848C1F /* PersonTableViewCell.swift in Sources */,
 				251FE6521D13E5BA0092D5CE /* HistoryDetailsCell.swift in Sources */,
@@ -1223,6 +1246,7 @@
 				256C0B981D128DE200E880DA /* KPTDiscoverVController.swift in Sources */,
 				25A07F541CEEE74600BA4A71 /* KptRequestClient.swift in Sources */,
 				259FFB3C1D011AE100848C1F /* PersonalCenterViewController.swift in Sources */,
+				258903D31D2B961300806F56 /* ZoomImageView.swift in Sources */,
 				250922701CED5D7A00353F17 /* KPTHistoryViewController.swift in Sources */,
 				256C0B511D11312500E880DA /* PhotoEvidenceCell.swift in Sources */,
 				2516BA491CF6ECB100E2932E /* Kpt_PickerView.swift in Sources */,
@@ -1233,6 +1257,8 @@
 				25F234AD1D23B05C002F0C28 /* PartiesDataModel.swift in Sources */,
 				25A3B02E1D2217E9004789F7 /* Kpt_ProgressView.swift in Sources */,
 				25B8792A1CEC05DD00F9865B /* KPT_iOS_Swift.xcdatamodeld in Sources */,
+				258903D61D2BAE4C00806F56 /* HistoryPhotoCell.swift in Sources */,
+				25CB2D371D2559E00016934E /* SignatureViewController.swift in Sources */,
 				25C274F91D212CA300628C37 /* SceneViewController.swift in Sources */,
 				250922711CED5D7A00353F17 /* KPTHomePageViewController.swift in Sources */,
 				2524F6851CF7EB9700101081 /* DrivingLicenceViewController.swift in Sources */,
@@ -1247,7 +1273,9 @@
 				25409B791D1A7941007FCE8B /* OnlineInsuranceViewController.swift in Sources */,
 				256C0B411D0E5A5500E880DA /* MyCarTableViewCell.swift in Sources */,
 				250413B11CF44FCF00611E62 /* Kpt_LoginViewController.swift in Sources */,
+				25CC2BF71D265D6300F0A0AF /* AgreementViewController.swift in Sources */,
 				25681DA61CEC63AD004E78B2 /* UIColor+Category.swift in Sources */,
+				25CB2D2F1D251B630016934E /* Kpt_SignView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

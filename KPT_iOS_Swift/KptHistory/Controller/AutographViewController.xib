@@ -8,6 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AutographViewController" customModule="KPT_iOS_Swift" customModuleProvider="target">
             <connections>
+                <outlet property="mainScrollerView" destination="Yv9-9C-1AL" id="boP-Xg-shm"/>
                 <outlet property="myAutoGraphBtn" destination="nou-aj-ime" id="6Fo-aL-cQo"/>
                 <outlet property="myCarnoLabel" destination="Cf0-nJ-1bU" id="KTL-xB-d2e"/>
                 <outlet property="myResponsibilityLabel" destination="WE2-ld-GZY" id="LW0-Hi-Wq5"/>
@@ -244,6 +245,9 @@
                                     <include reference="qlN-lx-NiR"/>
                                 </mask>
                             </variation>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="mhz-hI-4dv"/>
+                            </connections>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFS-fl-zfN">
                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -306,6 +310,9 @@
                                     <include reference="Qf4-DX-FOL"/>
                                 </mask>
                             </variation>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="zhT-7e-11Y"/>
+                            </connections>
                         </textField>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lkk-1d-puy">
                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -588,6 +595,9 @@
                             <include reference="us2-qX-Lh2"/>
                         </mask>
                     </variation>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="ab1-ht-ghV"/>
+                    </connections>
                 </scrollView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
