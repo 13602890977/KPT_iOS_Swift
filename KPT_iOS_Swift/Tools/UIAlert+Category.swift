@@ -8,6 +8,7 @@
 
 import Foundation
 
+@available(iOS 8.0, *)
 extension UIAlertController {
     
     /** 只带取消按钮的alert弹框提示

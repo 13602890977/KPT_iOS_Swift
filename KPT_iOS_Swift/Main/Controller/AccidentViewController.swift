@@ -33,7 +33,7 @@ class AccidentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //注册通知，用于获取车牌号码
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "optionalReturnCarNo:", name: "ReturnCarNo", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "optionalReturnCarNo:", name:"ReturnCarNo", object: nil)
         
         self.title = "事故类型"
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName:UIFont.systemFontOfSize(19.0),NSForegroundColorAttributeName:MainColor]
@@ -50,7 +50,7 @@ class AccidentViewController: UIViewController {
     }
     
    
-    ///添加车辆的驾驶证页面的代理方法
+    ///添加车辆的驾驶证页面的通知方法
     func optionalReturnCarNo(info: NSNotification?) {
         print(info?.userInfo)
         print(info?.object)
@@ -101,6 +101,9 @@ class AccidentViewController: UIViewController {
     }()
     private lazy var partiesdata : NSMutableArray = NSMutableArray()
     
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -157,7 +160,7 @@ extension AccidentViewController:UITableViewDelegate,UITableViewDataSource {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: SCRW, height: 400))
         let backView = UIView(frame: CGRect(x: 0, y: 15, width: SCRW, height: CGFloat(Int(SCRH) - 255 - cellHeight * carTypeArr.count - 64)))
         let forensicsButton = UIButton(type: UIButtonType.System)
-        forensicsButton.frame = CGRect(x: 60, y: (backView.frame.height - 40) * 0.5, width: SCRW - 120, height: 40)
+        forensicsButton.frame = CGRect(x: 60, y: (backView.frame.height - 40) * 0.5, width: SCRW - 120, height: CGFloat(cellHeight))
         forensicsButton.backgroundColor = MainColor
         forensicsButton.setTitle("拍照取证", forState: UIControlState.Normal)
         forensicsButton.titleLabel?.font = UIFont.systemFontOfSize(20)
@@ -181,16 +184,25 @@ extension AccidentViewController:UITableViewDelegate,UITableViewDataSource {
         print("跳转到拍照页面")
         if self.carTypeArr.count == 1{
             if myCarNumber == nil {
-                let alertC = UIAlertController.creatAlertWithTitle(title: nil, message: "请选择事故车辆", cancelActionTitle: "确定")
-                self.presentViewController(alertC, animated: true, completion: nil)
+//                if #available(iOS 8.0, *) {
+                    let alertC = UIAlertController.creatAlertWithTitle(title: nil, message: "请选择事故车辆", cancelActionTitle: "确定")
+                    self.presentViewController(alertC, animated: true, completion: nil)
+//                } else {
+//                    // Fallback on earlier versions
+//                }
+                
                 return
             }
         }else if self.carTypeArr.count == 2 {
             
             if myCarNumber == nil || otherCarNumber == nil {
-                let alertC = UIAlertController.creatAlertWithTitle(title: nil, message: "请选择我方/对方事故车辆", cancelActionTitle: "确定")
-                self.presentViewController(alertC, animated: true, completion: nil)
-                
+//                if #available(iOS 8.0, *) {
+                    let alertC = UIAlertController.creatAlertWithTitle(title: nil, message: "请选择我方/对方事故车辆", cancelActionTitle: "确定")
+                    self.presentViewController(alertC, animated: true, completion: nil)
+//                } else {
+//                    // Fallback on earlier versions
+//                }
+//                
                 return
             }
         }

@@ -49,16 +49,26 @@ class Kpt_ForgetPasswordViewController: UIViewController {
             if (responsecode! == "1") {
                 
             }else {
-                let alertV = UIAlertController(title: "温馨提醒", message: JSON.objectForKey("errorMessage") as? String, preferredStyle: UIAlertControllerStyle.Alert)
-                let action = UIAlertAction(title: "确定", style: UIAlertActionStyle.Cancel, handler: nil)
-                alertV.addAction(action)
-                self.presentViewController(alertV, animated: true, completion: nil)
+//                if #available(iOS 8.0, *) {
+                    let alertV = UIAlertController(title: "温馨提醒", message: JSON.objectForKey("errorMessage") as? String, preferredStyle: UIAlertControllerStyle.Alert)
+                    let action = UIAlertAction(title: "确定", style: UIAlertActionStyle.Cancel, handler: nil)
+                    alertV.addAction(action)
+                    self.presentViewController(alertV, animated: true, completion: nil)
+//                } else {
+//                    // Fallback on earlier versions
+//                }
+                
             }
             }) { (_, error) -> Void in
-                let alertV = UIAlertController(title: "温馨提醒", message: "链接不到服务器,请确定网络正常之后重试", preferredStyle: UIAlertControllerStyle.Alert)
-                let action = UIAlertAction(title: "确定", style: UIAlertActionStyle.Cancel, handler: nil)
-                alertV.addAction(action)
-                self.presentViewController(alertV, animated: true, completion: nil)
+//                if #available(iOS 8.0, *) {
+                    let alertV = UIAlertController(title: "温馨提醒", message: "链接不到服务器,请确定网络正常之后重试", preferredStyle: UIAlertControllerStyle.Alert)
+                    let action = UIAlertAction(title: "确定", style: UIAlertActionStyle.Cancel, handler: nil)
+                    alertV.addAction(action)
+                    self.presentViewController(alertV, animated: true, completion: nil)
+//                } else {
+//                    // Fallback on earlier versions
+//                }
+                
         }
         
         //开始倒计时
@@ -113,7 +123,7 @@ class Kpt_ForgetPasswordViewController: UIViewController {
                 
                 self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
                 }, failure: { (_) -> Void in
-                    
+                    NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "userInfoLoginData")//表明登录失败
             })
             }) { (_) -> Void in
                 

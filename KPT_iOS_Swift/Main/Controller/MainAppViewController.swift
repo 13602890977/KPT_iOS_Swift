@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-let MENU_HEIGHT:CGFloat = 50
+let MENU_HEIGHT:CGFloat = 44
 let MENU_BUTTON_WIDTH:CGFloat = 60
 let MIN_MENU_FONT:CGFloat = 16.0
 let MAX_MENU_FONT:CGFloat = 20.0
@@ -54,7 +54,7 @@ class MainAppViewController: UIViewController {
     //在主界面创建scrollView，创建三个VC的view，添加到主界面上
     private func addChildVCInScroller() {
         self.KptHome = NSBundle.mainBundle().loadNibNamed("KPTHomePageViewController", owner: nil, options: nil).first as? KPTHomePageViewController
-        
+        print(_scrollV)
 //        self.KptHome = KPTHomePageViewController()
         KptHome?.view.frame = CGRect(x: _scrollV.frame.size.width * 0, y: 0, width: _scrollV.frame.size.width, height: _scrollV.frame.height)
         _scrollV.addSubview(KptHome!.view)
@@ -94,28 +94,30 @@ class MainAppViewController: UIViewController {
         btnRight.addTarget(self, action: "personBtnClick:", forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(btnRight)
         
-        for var i = 0;i < arrT.count; i++ {
-            let btn = UIButton(type: UIButtonType.Custom)
-            btn.frame = CGRect(x: MENU_BUTTON_WIDTH * CGFloat(i), y: 0, width: MENU_BUTTON_WIDTH, height: MENU_HEIGHT)
-            btn.setTitle(arrT[i], forState: UIControlState.Normal)
-
-            btn.setTitleColor(UIColor.RGBA(242, g: 170, b: 3), forState: UIControlState.Normal)
-            btn.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: MIN_MENU_FONT)
-            btn.tag = i + 1
-            if i == 0 {
-               btn.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: MAX_MENU_FONT)
-            }else {
-                btn.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: MIN_MENU_FONT)
-            }
-            btn.addTarget(self, action:"actionbtn:", forControlEvents: UIControlEvents.TouchUpInside)
-            _navScroll.addSubview(btn)
-        }
+        
         //加上一个横线
         let shadowImageView = UIImageView(frame:CGRect(x: 0, y: 0, width: MENU_BUTTON_WIDTH, height: MENU_HEIGHT));
         shadowImageView.tag = 10000;
         shadowImageView.image = UIImage(named: "Kpt_line")
         
         _navScroll.addSubview(shadowImageView)
+        
+        for var i = 0;i < arrT.count; i++ {
+            let btn = UIButton(type: UIButtonType.Custom)
+            btn.frame = CGRect(x: MENU_BUTTON_WIDTH * CGFloat(i), y: 0, width: MENU_BUTTON_WIDTH, height: MENU_HEIGHT)
+            btn.setTitle(arrT[i], forState: UIControlState.Normal)
+            
+            btn.setTitleColor(UIColor.RGBA(242, g: 170, b: 3), forState: UIControlState.Normal)
+            btn.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: MIN_MENU_FONT)
+            btn.tag = i + 1
+            if i == 0 {
+                btn.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: MAX_MENU_FONT)
+            }else {
+                btn.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: MIN_MENU_FONT)
+            }
+            btn.addTarget(self, action:"actionbtn:", forControlEvents: UIControlEvents.TouchUpInside)
+            _navScroll.addSubview(btn)
+        }
         
         _navScroll.setContentOffset(CGPoint(x: MENU_BUTTON_WIDTH * CGFloat(arrT.count), y: MENU_HEIGHT), animated: true)
         _navScroll.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: MENU_HEIGHT)

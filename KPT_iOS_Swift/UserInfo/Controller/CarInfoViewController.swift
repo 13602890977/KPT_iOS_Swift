@@ -16,7 +16,10 @@ protocol CarInfoViewControllerDelegate:AnyObject {
 }
 
 class CarInfoViewController: UIViewController,Kpt_NextBtnViewDelegate,UIAlertViewDelegate,Kpt_OCRImageViewDelegate {
-    
+    ///用于接收从哪个控制器跳转过来的
+    var comeFormWhere : String?
+    ///用于接收车辆id（查询车辆信息会返回)
+    var carid : String?
     private var imageView:Kpt_OCRImageView?
     private var pickerView:Kpt_PickerView?
     
@@ -37,40 +40,117 @@ class CarInfoViewController: UIViewController,Kpt_NextBtnViewDelegate,UIAlertVie
     func nextBtnClick(nextBtn: Kpt_NextBtnView) {
         print("完成信息录入，返回首页，并自动登陆")
         //判断必填的信息是否已填
-        let arr = ["车牌号码","车辆类型","车主姓名","车型名称","投保公司"]
+        let arr = ["车牌号码","车辆类型","车主姓名","车型名称"]
         for key in arr {
             if self.changeDict.objectForKey(key) == nil {
-                let alertC = UIAlertController.creatAlertWithTitle(title: nil, message: "请输入\(key)", cancelActionTitle: "确定")
-                self.presentViewController(alertC, animated: true, completion: nil)
+//                if #available(iOS 8.0, *) {
+                    let alertC = UIAlertController.creatAlertWithTitle(title: nil, message: "请输入\(key)", cancelActionTitle: "确定")
+                    self.presentViewController(alertC, animated: true, completion: nil)
+//                } else {
+//                    // Fallback on earlier versions
+//                }
+//                
                 return
             }
             
         }
         let userDefault = NSUserDefaults.standardUserDefaults()
-        let personalData = userDefault.objectForKey("userInfoLoginData") as! NSDictionary
-        let userInfoData = UserInfoData.mj_objectWithKeyValues(personalData)
-        
         ///将恶心的数据格式转化放在一起
         let data = taiEXinLe()
         
-        let paramets:NSMutableDictionary = ["requestcode":"002003","accessid":userInfoData.accessid,"accesskey":userInfoData.accesskey,"userid":userInfoData.userid]
-        paramets.setValue(data, forKey: "data")
+        if comeFormWhere == "VehicleManagementController" {//从车辆管理进来
+            let isAddMyCarPush = userDefault.objectForKey("addMyCarPush")
+            if isAddMyCarPush != nil && (isAddMyCarPush as! String) == "true"{//代表添加车辆信息
+                addCar(data)
+            }else {//否则是更新车辆信息
+                updateCar(data)
+            }
+            self.navigationController?.popViewControllerAnimated(true)
+        }else if comeFormWhere == "discoverVC" {
+            addCar(data)
+            let onlineVC = OnlineInsuranceViewController(nibName:"OnlineInsuranceViewController",bundle: nil)
+            onlineVC.carType = "oneCar"
+            onlineVC.carnoStr = self.changeDict.objectForKey("车牌号码") as! String
+            onlineVC.isWhatControllerPushIn = comeFormWhere
+            onlineVC.carmodelStr = self.changeDict.objectForKey("车型名称") as! String
+            self.navigationController?.pushViewController(onlineVC, animated: true)
+        }else {//从车辆管理进来的
+            addCar(data)
+            //上传之后跳转并将车牌号码传递给事故类型界面上的我的车辆
+            let isAddMyCarPush = userDefault.objectForKey("addMyCarPush")
+            if isAddMyCarPush != nil && (isAddMyCarPush as! String) == "true"{
+                
+                creatPartiesDataMyCarDict(data)
+                NSNotificationCenter.defaultCenter().postNotificationName("ReturnCarNo", object: self.partiesdataDict, userInfo: ["myCar":self.changeDict.objectForKey("车牌号码")!])
+                self.navigationController?.popToRootViewControllerAnimated(true)
+            }else {
+                //这是注册之后的跳转
+                self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+            }
+        }
         
-        KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/car/addCarInfo", paramet: paramets, viewController: self, success: { (data) -> Void in
+    }
+    private func creatPartiesDataMyCarDict(data:NSDictionary) {
+        
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        let personalData = userDefault.objectForKey("userInfoLoginData") as! NSDictionary
+        let userInfoData = UserInfoData.mj_objectWithKeyValues(personalData)
+        
+        let insuranceArr = NSArray(contentsOfFile: NSHomeDirectory() + "/Documents/insurance.plist")
+        
+        for dict in insuranceArr! {//根据投保公司名称查找公司id，前提是公司有选择
+            if let insurecompany = self.changeDict.objectForKey("投保公司") as? String {
+                if (dict as! NSDictionary).objectForKey("label") as! String == insurecompany {
+                    self.partiesdataDict.setValue((dict as! NSDictionary).objectForKey("value") as! String, forKey: "insurancecode")
+                }
+                self.partiesdataDict.setValue(insurecompany, forKey: "insurancename")
+            }
+
+        }
+            
+        self.partiesdataDict.setValue(userInfoData.mobile, forKey: "mobile")//电话
+        self.partiesdataDict.setValue(self.changeDict.objectForKey("车牌号码"), forKey: "partiescarno")//车牌
+        self.partiesdataDict.setValue("0", forKey: "partiesmark")//用户还是对方的标记(0代表自己)
+        self.partiesdataDict.setValue(self.changeDict.objectForKey("车主姓名"), forKey: "partiesname")
+        self.partiesdataDict.setValue(self.changeDict.objectForKey("vehiclemodelsid"), forKey: "vehicleid")
+        self.partiesdataDict.setValue(self.changeDict.objectForKey("车型名称"), forKey: "vehiclename")
+    }
+    
+    private func updateCar(data:NSDictionary) {
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        let personalData = userDefault.objectForKey("userInfoLoginData") as! NSDictionary
+        let userInfoData = UserInfoData.mj_objectWithKeyValues(personalData)
+        
+        self.hud.labelText = "更新车辆信息中..."
+        self.hud.show(true)
+        let dataDict = data.mutableCopy() as! NSMutableDictionary
+        dataDict.setValue(carid!, forKey: "carid")
+        let vehicleParamets:NSMutableDictionary = ["requestcode":"002002","accessid":userInfoData.accessid,"accesskey":userInfoData.accesskey,"userid":userInfoData.userid]
+        vehicleParamets.setValue(dataDict, forKey: "data")
+        
+        KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/car/updateCarInfo", paramet: vehicleParamets, viewController: self, success: { (data) -> Void in
+            self.hud.labelText = "更新成功"
+            self.hud.hide(true, afterDelay: 1.0)
             print(data)
             }) { (_) -> Void in
-                
+                self.hud.hide(true)
         }
-        //上传之后跳转并将车牌号码传递给事故类型界面上的我的车辆
+    }
+    private func addCar(data:NSDictionary) {
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        let personalData = userDefault.objectForKey("userInfoLoginData") as! NSDictionary
+        let userInfoData = UserInfoData.mj_objectWithKeyValues(personalData)
         
-        let isAddMyCarPush = userDefault.objectForKey("addMyCarPush")
-        if isAddMyCarPush != nil && (isAddMyCarPush as! String) == "true"{
-            
-            NSNotificationCenter.defaultCenter().postNotificationName("ReturnCarNo", object: nil, userInfo: ["myCar":carno!])
-            self.navigationController?.popToRootViewControllerAnimated(true)
-        }else {
-            //这是注册之后的跳转
-            self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+        
+        self.hud.labelText = "添加车辆信息中..."
+        self.hud.show(true)
+        let paramets:NSMutableDictionary = ["requestcode":"002003","accessid":userInfoData.accessid,"accesskey":userInfoData.accesskey,"userid":userInfoData.userid]
+        paramets.setValue(data, forKey: "data")
+        KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/car/addCarInfo", paramet: paramets, viewController: self, success: { (data) -> Void in
+            print(data)
+            self.hud.hide(true)
+            }) { (_) -> Void in
+                self.hud.hide(true)
         }
     }
     private lazy var tableView:UITableView = UITableView(frame: self.view.bounds, style: UITableViewStyle.Grouped)
@@ -91,6 +171,8 @@ class CarInfoViewController: UIViewController,Kpt_NextBtnViewDelegate,UIAlertVie
         dict.setValue(nil, forKey:"registration")
         return dict
     }()
+    ///从事故类型添加车辆进入，用于保存车辆信息
+    private lazy var partiesdataDict: NSMutableDictionary = NSMutableDictionary()
     private func reloadInsurance() {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
             self.storageAndReadingListOfInsuranceCompanies()
@@ -111,6 +193,7 @@ class CarInfoViewController: UIViewController,Kpt_NextBtnViewDelegate,UIAlertVie
             print("请求车辆品牌数据")
             carBrandVC.returnMoldeNameText({ (model) -> Void in
                 cell?.detailTextLabel?.text = model.modelname
+                
                 cell?.detailTextLabel?.font = UIFont.systemFontOfSize(15)
                 cell?.detailTextLabel?.numberOfLines = 0
                 cell?.detailTextLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
@@ -391,9 +474,11 @@ extension CarInfoViewController : UITableViewDelegate,UITableViewDataSource {
             if self.changeDict.objectForKey("displayImageView") != nil {
                 imageView?.displayImageView.image = self.changeDict.objectForKey("displayImageView") as? UIImage
                 imageView?.displayImageView.contentMode = UIViewContentMode.ScaleAspectFit
+                imageView?.displayImageView.clipsToBounds = true
             }else if self.changeDict.objectForKey("registration") != nil && (self.changeDict.objectForKey("registration") as! String).characters.count > 0 {
-                
-                imageView?.displayImageView.sd_setImageWithURL(NSURL(string:(self.changeDict.objectForKey("registration") as! String)))
+                imageView?.displayImageView.contentMode = UIViewContentMode.ScaleAspectFill
+                imageView?.displayImageView.clipsToBounds = true
+                imageView?.displayImageView.sd_setImageWithURL(NSURL(string:QinniuUrl + (self.changeDict.objectForKey("registration") as! String)))
             }
             view.addSubview(imageView!)
             let label = UILabel(frame: CGRect(x: 15, y: view.frame.size.height - 30, width: 100, height: 20))

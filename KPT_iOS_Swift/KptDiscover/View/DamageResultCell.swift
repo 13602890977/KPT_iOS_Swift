@@ -13,8 +13,11 @@ class DamageResultCell: UITableViewCell {
     var positionDict : NSMutableDictionary! {
         didSet {
             positionLabel.text = positionDict.objectForKey("partname") as? String
+            positionLabel.textColor = UIColor.darkGrayColor()
             degreeLabel.text = positionDict.objectForKey("damagedlevel") as? String
+            degreeLabel.textColor = UIColor.darkGrayColor()
             costLabel.text = positionDict.objectForKey("fixprice") as? String
+            costLabel.textColor = UIColor.darkGrayColor()
         }
     }
     @IBOutlet weak var positionLabel: UILabel!

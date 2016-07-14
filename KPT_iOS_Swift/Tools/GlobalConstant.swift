@@ -194,7 +194,7 @@ extension NSObject {
         let userDefault = NSUserDefaults.standardUserDefaults()
         let personalData = userDefault.objectForKey("userInfoLoginData") as! NSDictionary
         let userInfoData = UserInfoData.mj_objectWithKeyValues(personalData)
-        
+        NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "Kpt_Licenseno")
         //获取驾驶证
         let getDrivingParamet = ["requestcode":"001010","accessid":userInfoData.accessid,"accesskey":userInfoData.accesskey,"userid":userInfoData.userid]
         
@@ -215,14 +215,15 @@ extension NSObject {
      *  success:返回七牛返回的照片urlStr(不包含请求头，需要自己添加七牛的路径)
      */
     func QiniuPhotoUpdateReturnImageUrlStr(image:UIImage,success:(String ->Void)?) {
-        let imageData = UIImageJPEGRepresentation(image, 0.1)
-        
+        let imageData = UIImageJPEGRepresentation(image, 0.5)
         
         let upManager = QNUploadManager()
+        let QiniuToken = NSObject.makeToken(ACCESS_KEY, secretKey: SECRET_KEY)
+        
         upManager.putData(imageData, key: nil, token: QiniuToken, complete: { (info, key, resp) -> Void in
-            let Appkey = resp["key"];
+            let Appkey = resp["key"]
             let str = "\(Appkey!)"
-                success!(str)
+            success!(str)
             }, option: nil)
     }
     

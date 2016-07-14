@@ -16,11 +16,10 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pxq-MX-QeD">
-                    <rect key="frame" x="40" y="70" width="240" height="160"/>
-                    <color key="backgroundColor" red="1" green="0.67194979710000002" blue="0.036180806400000001" alpha="1" colorSpace="calibratedRGB"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_report_success" translatesAutoresizingMaskIntoConstraints="NO" id="pxq-MX-QeD">
+                    <rect key="frame" x="8" y="72" width="304" height="157"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="pxq-MX-QeD" secondAttribute="height" multiplier="3:2" id="dhU-Nj-8rg"/>
+                        <constraint firstAttribute="width" secondItem="pxq-MX-QeD" secondAttribute="height" multiplier="343:203" constant="38.724137931034477" id="dhU-Nj-8rg"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gie-Ym-vAb">
@@ -47,7 +46,7 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x0o-bs-cqX">
-                    <rect key="frame" x="8" y="238" width="304" height="40"/>
+                    <rect key="frame" x="8" y="237" width="304" height="40"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="客户处理..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cw3-aU-ztB">
                             <rect key="frame" x="222" y="10" width="82" height="21"/>
@@ -85,15 +84,15 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="x0o-bs-cqX" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0UX-JD-bB4"/>
-                <constraint firstItem="pxq-MX-QeD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="1Ch-tm-zzQ"/>
+                <constraint firstItem="pxq-MX-QeD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="72" id="1Ch-tm-zzQ"/>
                 <constraint firstItem="x0o-bs-cqX" firstAttribute="top" secondItem="pxq-MX-QeD" secondAttribute="bottom" constant="8" id="48w-Ns-hA0"/>
                 <constraint firstAttribute="bottom" secondItem="AGi-v9-nyK" secondAttribute="bottom" constant="59" id="98z-XW-m5J"/>
-                <constraint firstAttribute="trailing" secondItem="pxq-MX-QeD" secondAttribute="trailing" constant="40" id="Piv-3b-MsL"/>
+                <constraint firstAttribute="trailing" secondItem="pxq-MX-QeD" secondAttribute="trailing" constant="8" id="Piv-3b-MsL"/>
                 <constraint firstAttribute="trailing" secondItem="AGi-v9-nyK" secondAttribute="trailing" constant="40" id="eDs-o9-LLj"/>
                 <constraint firstAttribute="bottom" secondItem="Gie-Ym-vAb" secondAttribute="bottom" constant="59" id="hct-Qj-5RU"/>
                 <constraint firstItem="Gie-Ym-vAb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="q0P-IN-ODz"/>
                 <constraint firstItem="Gie-Ym-vAb" firstAttribute="height" secondItem="AGi-v9-nyK" secondAttribute="height" id="uAU-RA-D9O"/>
-                <constraint firstItem="pxq-MX-QeD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="urG-gV-sCa"/>
+                <constraint firstItem="pxq-MX-QeD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="urG-gV-sCa"/>
                 <constraint firstItem="AGi-v9-nyK" firstAttribute="leading" secondItem="Gie-Ym-vAb" secondAttribute="trailing" constant="20" id="yLA-tO-3OP"/>
                 <constraint firstItem="Gie-Ym-vAb" firstAttribute="width" secondItem="AGi-v9-nyK" secondAttribute="width" id="yZh-Et-WGS"/>
             </constraints>
@@ -101,6 +100,7 @@
         </view>
     </objects>
     <resources>
+        <image name="icon_report_success" width="343" height="203"/>
         <image name="不完善" width="39" height="40"/>
         <image name="完善" width="41" height="40"/>
     </resources>

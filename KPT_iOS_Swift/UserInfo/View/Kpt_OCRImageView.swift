@@ -92,38 +92,43 @@ class Kpt_OCRImageView: UIView {
     func touchImageClick() {
         print("点击图片，弹出选择框")
         if true {
-            let alertV = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-            // 判断是否支持相机
-            weak var weakSelf = self
-            if(UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)){
-                
-                let cameraAlert = UIAlertAction(title: "拍照", style: UIAlertActionStyle.Default, handler: { (cameraAlert) -> Void in
+//            if #available(iOS 8.0, *) {
+                let alertV = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+                // 判断是否支持相机
+                weak var weakSelf = self
+                if(UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)){
+                    
+                    let cameraAlert = UIAlertAction(title: "拍照", style: UIAlertActionStyle.Default, handler: { (cameraAlert) -> Void in
+                        weakSelf!.imagePickerController = UIImagePickerController()
+                        weakSelf!.imagePickerController.allowsEditing = true
+                        weakSelf!.imagePickerController.sourceType = UIImagePickerControllerSourceType.Camera
+                        weakSelf!.superController.presentViewController(weakSelf!.imagePickerController, animated: true, completion: { () -> Void in
+                            weakSelf!.imagePickerController.delegate = weakSelf!
+                        })
+                    })
+                    alertV.addAction(cameraAlert)
+                }
+                let albumAlert = UIAlertAction(title: "从相片中选择", style: UIAlertActionStyle.Default, handler: { (albumAlert) -> Void in
                     weakSelf!.imagePickerController = UIImagePickerController()
                     weakSelf!.imagePickerController.allowsEditing = true
-                    weakSelf!.imagePickerController.sourceType = UIImagePickerControllerSourceType.Camera
+                    weakSelf!.imagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
                     weakSelf!.superController.presentViewController(weakSelf!.imagePickerController, animated: true, completion: { () -> Void in
                         weakSelf!.imagePickerController.delegate = weakSelf!
                     })
+                    
                 })
-                alertV.addAction(cameraAlert)
+                
+                let cancelAlert = UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel, handler:nil)
+                alertV.addAction(cancelAlert)
+                
+                alertV.addAction(albumAlert)
+                
+                superController.presentViewController(alertV, animated: true, completion: nil)
             }
-            let albumAlert = UIAlertAction(title: "从相片中选择", style: UIAlertActionStyle.Default, handler: { (albumAlert) -> Void in
-                weakSelf!.imagePickerController = UIImagePickerController()
-                weakSelf!.imagePickerController.allowsEditing = true
-                weakSelf!.imagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-                weakSelf!.superController.presentViewController(weakSelf!.imagePickerController, animated: true, completion: { () -> Void in
-                    weakSelf!.imagePickerController.delegate = weakSelf!
-                })
-
-            })
-
-            let cancelAlert = UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel, handler:nil)
-            alertV.addAction(cancelAlert)
-            
-            alertV.addAction(albumAlert)
-            
-            superController.presentViewController(alertV, animated: true, completion: nil)
-        }
+//        } else {
+//                // Fallback on earlier versions
+//        }
+//            
         
     }
     private lazy var label:UILabel = {
@@ -164,10 +169,9 @@ extension Kpt_OCRImageView :UINavigationControllerDelegate,UIImagePickerControll
         
         weak var weakSelf = self
         //七牛图片上传
-        image.QiniuPhotoUpdateReturnImageUrlStr(image) { (appkey) -> Void in
-            weakSelf!.potosUrl = QinniuUrl.stringByAppendingString("\(appkey)")
+        image.QiniuPhotoUpdateReturnImageUrlStr(image) { (urlStr) -> Void in
+            weakSelf!.potosUrl = "\(urlStr)"
         }
-        
         
         postPatternRecognitionWithType(imageData!,imageName:fileName,suc: { (ocrData) -> Void in
             //数据使用代理返回
@@ -199,16 +203,20 @@ extension Kpt_OCRImageView :UINavigationControllerDelegate,UIImagePickerControll
             
             }, success: { (_, JSON) -> Void in
                 print(JSON)
-
                 let dictMessage = (JSON as? NSDictionary)?.objectForKey("message")!
                 if dictMessage?.objectForKey("status") as! Int > 0 {
                     let dictCardsinfo = (JSON as? NSDictionary)?.objectForKey("cardsinfo")!
                     suc(ocrData: dictCardsinfo?.firstObject!?.objectForKey("items"))
                 }else {
-                    let alertV = UIAlertController(title: "温馨提醒", message: dictMessage!.objectForKey("value") as? String, preferredStyle: UIAlertControllerStyle.Alert)
-                    let action = UIAlertAction(title: "确定", style: UIAlertActionStyle.Cancel, handler: nil)
-                    alertV.addAction(action)
-                    self.superController.presentViewController(alertV, animated: true, completion: nil)
+//                    if #available(iOS 8.0, *) {
+                        let alertV = UIAlertController(title: "温馨提醒", message: dictMessage!.objectForKey("value") as? String, preferredStyle: UIAlertControllerStyle.Alert)
+                        let action = UIAlertAction(title: "确定", style: UIAlertActionStyle.Cancel, handler: nil)
+                        alertV.addAction(action)
+                        self.superController.presentViewController(alertV, animated: true, completion: nil)
+//                    } else {
+//                        // Fallback on earlier versions
+//                    }
+//                   
                 }
                 self.hud.labelText = "识别信息成功，请确认是否正确"
                  self.hud.hide(true, afterDelay: 0.5)

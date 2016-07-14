@@ -48,8 +48,13 @@ class PhotoEvidenceViewController: UIViewController {
             //调用拍照取证接口，上传数据
             photoGraph()
         }else {
-            let alertV = UIAlertController.creatAlertWithTitle(title: nil, message: "请补全事故现场照片，\(CarPhotoStrArr.count)张必拍", cancelActionTitle: "确定")
-            self.presentViewController(alertV, animated: true, completion: nil)
+//            if #available(iOS 8.0, *) {
+                let alertV = UIAlertController.creatAlertWithTitle(title: nil, message: "请补全事故现场照片，\(CarPhotoStrArr.count)张必拍", cancelActionTitle: "确定")
+                self.presentViewController(alertV, animated: true, completion: nil)
+//            } else {
+//                // Fallback on earlier versions
+//            }
+            
             return
         }
         
@@ -99,8 +104,12 @@ class PhotoEvidenceViewController: UIViewController {
         
         cellIndexRow = indexPath.row
         if evidencedata.count < CarPhotoStrArr.count  && indexPath.row == CarPhotoArr.count - 1{
-            let alertC = UIAlertController.creatAlertWithTitle(title: "温馨提醒", message: "请您先拍摄前面\(CarPhotoStrArr.count)张主要的事故照片", cancelActionTitle: "确定")
-            self.presentViewController(alertC, animated: true, completion: nil)
+//            if #available(iOS 8.0, *) {
+                let alertC = UIAlertController.creatAlertWithTitle(title: "温馨提醒", message: "请您先拍摄前面\(CarPhotoStrArr.count)张主要的事故照片", cancelActionTitle: "确定")
+                self.presentViewController(alertC, animated: true, completion: nil)
+//            } else {
+//                // Fallback on earlier versions
+//            }
             return
         }
         if indexPath.row == CarPhotoArr.count - 1 {
@@ -120,7 +129,10 @@ class PhotoEvidenceViewController: UIViewController {
             self.overlayView.delegate = self
             if indexPath.row < self.CarPhotoStrArr.count {
                 self.overlayView.nameLabel.text = self.CarPhotoStrArr[indexPath.row]
+                self.overlayView.shadowImage.image = UIImage(named: shadowImageName[indexPath.row])
+                
             }else {
+                self.overlayView.shadowImage.hidden = true
                 self.overlayView.nameLabel.text = "其它"
             }
             
@@ -131,8 +143,12 @@ class PhotoEvidenceViewController: UIViewController {
             
             self.presentViewController(self.imagePicker, animated: true, completion: nil)
         }else {
-            let alertV = UIAlertController.creatAlertWithTitle(title: nil, message: "该设备不支持相机或者未同意使用相机功能,请确认同意打开相机", cancelActionTitle: "确认")
-            self.presentViewController(alertV, animated: true, completion: nil)
+//            if #available(iOS 8.0, *) {
+                let alertV = UIAlertController.creatAlertWithTitle(title: nil, message: "该设备不支持相机或者未同意使用相机功能,请确认同意打开相机", cancelActionTitle: "确认")
+                self.presentViewController(alertV, animated: true, completion: nil)
+//            } else {
+//                // Fallback on earlier versions
+//            }
         }
         
     }
@@ -144,12 +160,21 @@ class PhotoEvidenceViewController: UIViewController {
         
         return view
     }()
+    private lazy var shadowImageName : [String] = {
+       var arr = [String]()
+        if self.accidentType == "twoCar" {
+            arr = ["shadowPositive45","shadowBehind45","collisionFeature","Apanorama","Bpanorama"]
+        }else {
+            arr = ["icon_single_front","icon_single_back1","icon_single_break"]
+        }
+        return arr
+    }()
     private lazy var CarPhotoArr : NSMutableArray = {
         var arr = NSMutableArray()
         if self.accidentType == "twoCar" {
             arr = ["前45","后45","特写","A全景","B全景","矢量智能对象"]
         }else {
-            arr = ["侧后","侧前","单车特写","矢量智能对象"]
+            arr = ["侧前","侧后","单车特写","矢量智能对象"]
         }
         return arr
     }()

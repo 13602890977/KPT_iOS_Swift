@@ -46,25 +46,30 @@ class MoveCarViewController: UIViewController {
     }
     
     func disSelfView() {
-        let alertC = UIAlertController(title: nil, message: "是否退出此任务？\n\n", preferredStyle: UIAlertControllerStyle.Alert)
+//        if #available(iOS 8.0, *) {
+            let alertC = UIAlertController(title: nil, message: "是否退出此任务？\n\n", preferredStyle: UIAlertControllerStyle.Alert)
+            let cancelAction = UIAlertAction(title: "继续", style: UIAlertActionStyle.Default) { (action) -> Void in
+                alertC.dismissViewControllerAnimated(true, completion: nil)
+            }
+            
+            cancelAction .setValue(MainColor, forKey: "titleTextColor")
+            
+            alertC.addAction(cancelAction)
+            
+            let action = UIAlertAction(title: "退出", style: UIAlertActionStyle.Cancel) { (action) -> Void in
+                self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+            }
+            action.setValue(UIColor.grayColor(), forKey: "titleTextColor")
+            
+            alertC.addAction(action)
+            
+            
+            self.presentViewController(alertC, animated: true, completion: nil)
+//        } else {
+//            // Fallback on earlier versions
+//        }
         
-        let cancelAction = UIAlertAction(title: "继续", style: UIAlertActionStyle.Default) { (action) -> Void in
-            alertC.dismissViewControllerAnimated(true, completion: nil)
-        }
         
-        cancelAction .setValue(MainColor, forKey: "titleTextColor")
-        
-        alertC.addAction(cancelAction)
-        
-        let action = UIAlertAction(title: "退出", style: UIAlertActionStyle.Cancel) { (action) -> Void in
-            self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
-        }
-        action.setValue(UIColor.grayColor(), forKey: "titleTextColor")
-        
-        alertC.addAction(action)
-        
-        
-        self.presentViewController(alertC, animated: true, completion: nil)
     }
     @IBAction func surveyOnlineBtnClick(sender: AnyObject) {
         if (sender as! UIButton).titleLabel?.text == "自助定责" {

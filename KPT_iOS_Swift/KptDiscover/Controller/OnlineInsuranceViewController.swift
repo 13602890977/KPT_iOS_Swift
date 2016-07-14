@@ -22,7 +22,7 @@ class OnlineInsuranceViewController: UIViewController {
     ///接收车型
     var carmodelStr : String!
     ///接收是定损界面传入的
-    var isWhatControllerPushIn : String!
+    var isWhatControllerPushIn : String?
     ///受损部位label
     @IBOutlet weak var partLabel: UILabel!
     ///显示车受损位置图片
@@ -101,8 +101,13 @@ class OnlineInsuranceViewController: UIViewController {
     ///定损按钮点击事件
     @IBAction func nextBtnClick(sender: AnyObject) {
         if self.partsArr.count == 0 {
-            let alertV = UIAlertController.creatAlertWithTitle(title: nil, message: "至少选择一个部位", cancelActionTitle: "确定")
-            self.presentViewController(alertV, animated: true, completion: nil)
+//            if #available(iOS 8.0, *) {
+                let alertV = UIAlertController.creatAlertWithTitle(title: nil, message: "至少选择一个部位", cancelActionTitle: "确定")
+                self.presentViewController(alertV, animated: true, completion: nil)
+//            } else {
+//                // Fallback on earlier versions
+//            }
+            
             return
         }
         if carType == "oneCar" {
@@ -117,8 +122,29 @@ class OnlineInsuranceViewController: UIViewController {
             let userDefault = NSUserDefaults.standardUserDefaults()
             let personalData = userDefault.objectForKey("userInfoLoginData") as! NSDictionary
             let userInfoData = UserInfoData.mj_objectWithKeyValues(personalData)
+            var partiesid = ""
+            var taskid = ""
+            if self.responsibilitydata == nil {
+                print("responsibilitydata不可能是nil")
+                taskid = String()
+            }
+            if isWhatControllerPushIn == "discoverVC" {
+                partiesid = String()
+            }else {
+                taskid = self.responsibilitydata.objectForKey("taskid") as! String
+                
+                if let partiesidDict = self.responsibilitydata.objectForKey("responsibilitydata") as? NSDictionary {
+                    partiesid = partiesidDict.objectForKey("partiesid") as! String
+                }else if let partiesidArr = self.responsibilitydata.objectForKey("responsibilitydata") as? NSArray {
+                    for dict in partiesidArr {
+                        if let partiesidDict = dict as? NSDictionary {
+                            partiesid = partiesidDict.objectForKey("partiesid") as! String
+                        }
+                    }
+                }
+            }
             
-            let data : NSMutableDictionary = ["flowcode":"200103","flowname":"在线定损","partiescarno":carnoStr,"partdata":[["parts":self.partsArr,"partiesid":NSNull()]]]
+            let data : NSMutableDictionary = ["taskid":taskid,"flowcode":"200103","flowname":"在线定损","partiescarno":carnoStr,"partdata":[["parts":self.partsArr,"partiesid":partiesid]]]
             
             let paramet = ["requestcode":"003005","accessid":userInfoData.accessid,"accesskey":userInfoData.accesskey,"userid":userInfoData.userid,"data":data]
             
@@ -132,8 +158,14 @@ class OnlineInsuranceViewController: UIViewController {
                 
                 let damageVC = DamageResultsViewController()
                 damageVC.damageDataArr = self.damageModelArr
-                let taskid = self.responsibilitydata.objectForKey("taskid") as! String
-                damageVC.taskId = taskid
+                damageVC.isWhatControllerPushIn = self.isWhatControllerPushIn
+                if self.isWhatControllerPushIn == "discoverVC" {
+                    
+                }else {
+                    let taskid = self.responsibilitydata.objectForKey("taskid") as? String
+                    damageVC.taskId = taskid
+                }
+                
                 
                 self.navigationController?.pushViewController(damageVC, animated: true)
                 self.hud.hide(true)
@@ -190,7 +222,7 @@ class OnlineInsuranceViewController: UIViewController {
                 }
                 self.partDataArr.addObject(dataDict)
                 
-                let data : NSMutableDictionary = ["flowcode":"200103","flowname":"在线定损","partiescarno":carnoStr,"partdata":self.partDataArr]
+                let data : NSMutableDictionary = ["taskid":self.responsibilitydata.objectForKey("taskid") as! String,"flowcode":"200103","flowname":"在线定损","partiescarno":carnoStr,"partdata":self.partDataArr]
                 
                 let paramet = ["requestcode":"003005","accessid":userInfoData.accessid,"accesskey":userInfoData.accesskey,"userid":userInfoData.userid,"data":data]
                 
@@ -203,7 +235,7 @@ class OnlineInsuranceViewController: UIViewController {
                     self.damageModelArr = DamageModel.mj_objectArrayWithKeyValuesArray(data)
                     
                     let damageVC = DamageResultsViewController()
-                    let taskid = self.responsibilitydata.objectForKey("taskid") as! String
+                    let taskid = self.responsibilitydata.objectForKey("taskid") as? String
                     damageVC.taskId = taskid
                     
                     damageVC.damageDataArr = self.damageModelArr

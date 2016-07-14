@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -82,14 +83,24 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Apanorama" translatesAutoresizingMaskIntoConstraints="NO" id="eJ4-QQ-AuZ">
+                    <rect key="frame" x="0.0" y="235" width="320" height="98"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="eJ4-QQ-AuZ" secondAttribute="height" multiplier="486:217" constant="100.51612903225808" id="q1Z-k9-G5w"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Fpl-Jj-5iB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="52s-DJ-Jo3"/>
                 <constraint firstAttribute="bottom" secondItem="Zuf-UH-jNq" secondAttribute="bottom" id="5NI-pi-CfT"/>
                 <constraint firstAttribute="trailing" secondItem="Zuf-UH-jNq" secondAttribute="trailing" id="8P5-dS-oDo"/>
+                <constraint firstItem="eJ4-QQ-AuZ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="C1H-kj-SHk"/>
                 <constraint firstItem="Zuf-UH-jNq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="YDk-do-ofB"/>
                 <constraint firstItem="Ikf-bZ-EVO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="euF-8Z-UY6"/>
+                <constraint firstItem="eJ4-QQ-AuZ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="fa0-XG-NLO"/>
+                <constraint firstItem="eJ4-QQ-AuZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="iYI-Pw-0B7"/>
+                <constraint firstAttribute="trailing" secondItem="eJ4-QQ-AuZ" secondAttribute="trailing" id="oZp-n4-K8t"/>
                 <constraint firstItem="Ikf-bZ-EVO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="-37" id="pee-8E-CvE"/>
                 <constraint firstAttribute="trailing" secondItem="Fpl-Jj-5iB" secondAttribute="trailing" constant="-62" id="vxo-D5-X6G"/>
             </constraints>
@@ -99,12 +110,14 @@
                 <outlet property="nameLabel" destination="Fpl-Jj-5iB" id="38w-vB-dJz"/>
                 <outlet property="photoBtn" destination="NL3-GC-95v" id="Lyb-xW-ZKR"/>
                 <outlet property="promptLabel" destination="Ikf-bZ-EVO" id="VFx-zj-4KR"/>
+                <outlet property="shadowImage" destination="eJ4-QQ-AuZ" id="pe6-uG-BT9"/>
                 <outlet property="toolView" destination="Zuf-UH-jNq" id="Knw-LO-Szc"/>
             </connections>
             <point key="canvasLocation" x="289" y="226"/>
         </view>
     </objects>
     <resources>
+        <image name="Apanorama" width="566" height="84"/>
         <image name="圆" width="91" height="91"/>
         <image name="底色" width="375" height="135"/>
     </resources>

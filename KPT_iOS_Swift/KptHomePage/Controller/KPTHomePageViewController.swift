@@ -30,14 +30,20 @@ class KPTHomePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.randomColor()
-        view.addSubview(self.contentView)
-        self.contentView.addSubview(self.buttomView)
-        view.addSubview(self.acctionBtn)
+        view.addSubview(self.buttomView)
+//        self.contentView.addSubview(self.buttomView)
+        buttomView.addSubview(self.acctionBtn)
 //        acctionBtn.frame.origin.y = SCRH - 100
         
         self.hud.labelText = "定位中..."
         self.hud.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
         self.hud.show(true)
+        ///初始化为nil
+        NSUserDefaults.standardUserDefaults().setValue("0", forKey: "kpt_latlng")
+        NSUserDefaults.standardUserDefaults().setValue("0", forKey: "Kpt_latitude")
+        NSUserDefaults.standardUserDefaults().setValue("0", forKey: "Kpt_longitude")
+        NSUserDefaults.standardUserDefaults().setValue("广州市天河区", forKey: "Kpt_address")
+        
         //设置地图显示和定位
         MapDisplayAndLocation()
     }
@@ -91,11 +97,17 @@ class KPTHomePageViewController: UIViewController {
         if !CLLocationManager.locationServicesEnabled() {
             print("定位服务未开启，请设置打开")
         }
-        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.NotDetermined {///如果没有开启定位服务，请求开启
+//        if #available(iOS 8.0, *) {
+            if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.NotDetermined {///如果没有开启定位服务，请求开启
+                
             locationManager?.requestWhenInUseAuthorization()
-        }else if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse {
-            
-        }
+                
+            }else if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse {
+                
+            }
+//        } else {
+//            // Fallback on earlier versions
+//        }
         
     }
     private func setRightViewThirdBtn() {
@@ -114,17 +126,6 @@ class KPTHomePageViewController: UIViewController {
         self.showView.layer.mask = maskLayer_show;
     }
     
-    private func setButtomLabel() {
-        let label = UILabel(frame: CGRect(x: 0, y: buttomView.frame.size.height - 35, width: 80, height: 30))
-        var point = label.center
-        point.x = self.view.frame.size.width * 0.5
-        label.center = point
-        label.textAlignment = NSTextAlignment.Center
-        label.text = "事故处理"
-        label.textColor = MainColor
-        label.font = UIFont(name: "Arial-BoldItalicMT", size: 20)
-        buttomView.addSubview(label)
-    }
     
     //责任认定按钮点击事件
     @IBAction func cognizanceBtnClick(sender: AnyObject) {
@@ -161,17 +162,6 @@ class KPTHomePageViewController: UIViewController {
         }
     }
    
-    //懒加载控件 （private私有)
-    private lazy var acctionBtn:UIButton = {
-       let btn = UIButton(type: UIButtonType.Custom)
-        btn.frame = CGRect(x: 0, y: self.view.frame.size.height - 200, width: 91, height: 91)
-        var btnCenter = btn.center
-        btnCenter.x = self.buttomView.bounds.size.width * 0.5
-        btn.center = btnCenter
-        btn.setImage(UIImage(named: "圆"), forState: UIControlState.Normal)
-        btn.addTarget(self, action: "actionBtnClick:", forControlEvents: UIControlEvents.TouchUpInside)
-        return btn
-    }()
     func actionBtnClick(btn:UIButton) {
         let nav:UINavigationController!
         if NSUserDefaults.standardUserDefaults().objectForKey("userInfoLoginData") == nil {
@@ -185,22 +175,54 @@ class KPTHomePageViewController: UIViewController {
         
         vc!.presentViewController(nav, animated: true, completion: nil)
     }
+    ///底部黑色图片View
     private lazy var buttomView:UIView = {
        let imageView = UIImageView()
-        imageView.userInteractionEnabled = false
-        let imageViewW = SCRW;
-        let imageViewH:CGFloat = 135;
-        imageView.frame = CGRect(x: 0, y: -(imageViewH * 0.5), width: imageViewW, height: imageViewH);
+        imageView.userInteractionEnabled = true
+        let imageViewW = SCRW
+        let imageViewH:CGFloat = SCRW / 375 * 135//根据图片比例计算view的高度,宽带不变(满屏)
+        imageView.frame = CGRect(x: 0, y: self.view.frame.size.height - imageViewH - CGFloat(64), width: imageViewW, height: imageViewH)
         imageView.image = UIImage(named: "image")
         return imageView
     }()
+    
+    //懒加载控件 （private私有)
+    ///底部圆button
+    private lazy var acctionBtn:UIButton = {
+        let btn = UIButton(type: UIButtonType.Custom)
+        
+        let roundWidth = SCRW / 375 * 91
+        btn.frame = CGRect(x: 0, y: 10, width: roundWidth, height: roundWidth)
+        var btnCenter = btn.center
+        btnCenter.x = SCRW * 0.5
+        btn.center = btnCenter
+        btn.setBackgroundImage(UIImage(named: "圆"), forState: UIControlState.Normal)
+        btn.addTarget(self, action: "actionBtnClick:", forControlEvents: UIControlEvents.TouchUpInside)
+        return btn
+    }()
+    ///底部事故处理label
+    private func setButtomLabel() {
+        print(acctionBtn.frame.size.height + acctionBtn.frame.origin.y + 5)
+        let label = UILabel(frame: CGRect(x: 0, y: acctionBtn.frame.size.height + acctionBtn.frame.origin.y , width: SCRW, height: buttomView.frame.height - acctionBtn.frame.height - 5))
+//        var point = label.center
+//        point.x = SCRW * 0.5
+//        label.center = point
+        label.textAlignment = NSTextAlignment.Center
+        label.text = "事故处理"
+        label.textColor = MainColor
+        label.font = UIFont(name: "Arial-BoldItalicMT", size: 18)
+        buttomView.addSubview(label)
+    }
+    
+    ///暂时没用
     private lazy var contentView:UIView = {
         let buttomViewW = SCRW;
         let buttomViewH:CGFloat = 80;
         let buttomViewX:CGFloat = 0;
         let buttomViewY = self.view.bounds.size.height - 135;
-    
+        
         let content = UIView(frame:CGRect(x:buttomViewX,y:buttomViewY,width:  buttomViewW,height:  buttomViewH));
+        content.backgroundColor = UIColor.redColor()
         return content;
         
     }()

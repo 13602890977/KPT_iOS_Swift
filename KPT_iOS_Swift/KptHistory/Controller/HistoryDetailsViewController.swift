@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MJRefresh
 import MBProgressHUD
 
 class HistoryDetailsViewController: UIViewController {
@@ -30,12 +31,16 @@ class HistoryDetailsViewController: UIViewController {
     private var flowidStr : String!
     ///保存在线定损流程id
     private var damageFlowid : String!
+    ///保存拍照取证流程id
+    private var photoFlowid : String!
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         let navigationBar = self.navigationController!.navigationBar
         navigationBar.barTintColor = UIColor.blackColor()
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+        //一进入就开始下拉刷新(不需要放在viewwillapp方法中，因为这个节目是present的)
+        self.tableView.mj_header.beginRefreshing()
         
     }
     override func viewDidLoad() {
@@ -44,15 +49,23 @@ class HistoryDetailsViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName:UIFont.systemFontOfSize(19.0),NSForegroundColorAttributeName:MainColor]
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "展开"), style: UIBarButtonItemStyle.Plain, target: self, action: "cancelBtnClick")
         self.navigationItem.leftBarButtonItem?.tintColor = MainColor
-        
+        //用于接收那个cell被点击，cell是属于那个流程
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "historyDetailsCellClick:", name: "KPT_HistoryDetailsCell", object: nil)
-        
+        //用于图片点击
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "detailsPhotoCellClick", name: "KPT_DetailsPhotoCell", object: nil)
         self.view = self.tableView
         ///不显示cell的分隔线
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
-        reloadHistoryDetailData()
+        //添加下拉刷新
+        header.setRefreshingTarget(self, refreshingAction: "headerRefresh")
+        self.tableView.mj_header = header
+        
+        
         // Do any additional setup after loading the view.
+    }
+    func headerRefresh() {
+        reloadHistoryDetailData()
     }
     func historyDetailsCellClick(noti : NSNotification) {
         print(noti.userInfo)
@@ -131,7 +144,7 @@ class HistoryDetailsViewController: UIViewController {
                     
                     let damageVC = DamageResultsViewController()
                     damageVC.damageDataArr = self.damageModelArr
-                    let taskid = self.responsibilitydataDict.objectForKey("taskid") as! String
+                    let taskid = self.responsibilitydataDict.objectForKey("taskid") as? String
                     damageVC.taskId = taskid
                     
                     self.navigationController?.pushViewController(damageVC, animated: true)
@@ -144,13 +157,28 @@ class HistoryDetailsViewController: UIViewController {
         }else if noti.userInfo?["在线定责"] != nil {
             if noti.userInfo?["在线定责"]?.integerValue == 0 {
                 if noti.userInfo?["在线定责"] as? String == "继续处理" {
-                    //在线定责的继续处理分两种
+                    //在线定责的继续处理分两种（交警定责还是双方协定,又分责任完成但未同意和未完成)
                     if self.dutydataType == "SceneView" {
                         let sceneVC = SceneViewController(nibName:"SceneViewController",bundle: nil)
                         sceneVC.partiesdataArr = self.partiesdataArr
                         sceneVC.responsibilitydata = self.responsibilitydataDict
                         
                         self.navigationController?.pushViewController(sceneVC, animated: true)
+                    }else if self.dutydataType == "PoliceResponsibleView" {
+                        let userDefault = NSUserDefaults.standardUserDefaults()
+                        let personalData = userDefault.objectForKey("userInfoLoginData") as! NSDictionary
+                        let userInfoData = UserInfoData.mj_objectWithKeyValues(personalData)
+                        
+                        
+                        let parame = ["requestcode":"003003","accessid":userInfoData.accessid,"accesskey":userInfoData.accesskey,"userid":userInfoData.userid,"taskid":taskId,"flowid":flowidStr]
+                        
+                        KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/task/trffPolicedutytask", paramet: parame, viewController: self, success: { (data) -> Void in
+                            print(data)
+                            self.navigationController?.pushViewController(PoliceResponsibleViewController(nibName:"PoliceResponsibleViewController",bundle: nil), animated: true)
+                            
+                            }, failure: { (_) -> Void in
+                                
+                        })
                     }else {
                         let flowid = responsibilitydataDict.objectForKey("flowid")
                         let responsibleVC = AutographViewController(nibName:"AutographViewController",bundle: nil)
@@ -184,6 +212,22 @@ class HistoryDetailsViewController: UIViewController {
         }
     }
     
+    func detailsPhotoCellClick() {
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        let personalData = userDefault.objectForKey("userInfoLoginData") as! NSDictionary
+        let userInfoData = UserInfoData.mj_objectWithKeyValues(personalData)
+        
+        KptRequestClient.sharedInstance.Kpt_Get("/plugins/changhui/port/history/photographDetail?requestcode=004003&accessid=\(userInfoData.accessid)&accesskey=\(userInfoData.accesskey)&userid=\(userInfoData.userid)&taskid=\(taskId)&flowid=\(photoFlowid)", paramet: nil, viewController: self, success: { (data) -> Void in
+            if data as? NSMutableArray != nil {
+                let detailsPhotoVC = DetailPhotoScrollViewController()
+                detailsPhotoVC.photoArr = data as! NSMutableArray
+                detailsPhotoVC.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+                self.presentViewController(detailsPhotoVC, animated: true, completion: nil)
+                }
+            }) { (_) -> Void in
+                
+        }
+    }
     private func reloadHistoryDetailData() {
         
         let userDefault = NSUserDefaults.standardUserDefaults()
@@ -204,10 +248,13 @@ class HistoryDetailsViewController: UIViewController {
                 self.detailsDataAndPhotos(datadict)
             }
             self.dataOrderSorting()
+            self.tableView.mj_header.endRefreshing()
             self.tableView.reloadData()//刷新界面
             self.hud.hide(true)
             }) { (_) -> Void in
+                self.tableView.mj_header.endRefreshing()
                 self.hud.hide(true)
+                
         }
     }
     //单车事故需要的数据提取
@@ -307,19 +354,52 @@ class HistoryDetailsViewController: UIViewController {
                         }
                     }
                 }else if data.fixduty == "2" {//交警定责
-                    self.modelDict.setValue("dutydata", forKey: "dutydata")
+                    if data.dutystatus == "0" {//有争议
+                        self.dutydataType = "PoliceResponsibleView"
+                        self.modelDict.setValue("dutydata", forKey: "dutydata")
+                        
+                    }else {//无争议
+                        //维修费用(在线定损)
+                        let lossdata = datadict.objectForKey("lossdata")
+                        if lossdata != nil {
+                            if let dict = lossdata as? NSDictionary {
+                                //在线定损流程id
+                                let flowid = dict.objectForKey("flowid")
+                                if flowid != nil {
+                                    if let flowidStr = flowid as? String {
+                                        self.damageFlowid = flowidStr
+                                    }
+                                }
+                                let data = lossdataModel.mj_objectWithKeyValues(dict)
+                                self.modelDict.setValue(data, forKey: "lossdata")
+                            }else {
+                                self.modelDict.setValue("lossdata", forKey: "lossdata")
+                            }
+                        }else {
+                            self.modelDict.setValue("lossdata", forKey: "lossdata")
+                        }
+                        
+                        //一键报案
+                        let reportdata = datadict.objectForKey("reportdata")
+                        if reportdata != nil {
+                            if let dict = reportdata as? NSDictionary {
+                                let data = reportdataModel.mj_objectWithKeyValues(dict)
+                                
+                                self.modelDict.setValue(data, forKey: "reportdata")
+                            }else {
+                                self.modelDict.setValue("reportdata", forKey: "reportdata")
+                            }
+                        }else {
+                            self.modelDict.setValue("reportdata", forKey: "reportdata")
+                        }
+                    }
+
                 }
             }else {
-                /*
-                dutydata =         {
-                createdate = "2016-07-06 15:49:00";
-                dutydetail = "<null>";
-                dutystatus = 0;
-                fixduty = 2;
-                flowid = hU8E6Bi3EKzB2uUM;
-                };
-                */
-                self.dutydataType = "SceneView"
+                if data.fixduty == "2" {
+                    self.dutydataType = "PoliceResponsibleView"
+                    
+                }
                 self.modelDict.setValue("dutydata", forKey: "dutydata")
             }
         }else {//则表示在线定责未完成
@@ -336,7 +416,6 @@ class HistoryDetailsViewController: UIViewController {
         if partiesdata != nil {
             if let arr = partiesdata as? NSArray {
                 self.partiesdataArr = arr.mutableCopy() as! NSMutableArray
-                //                    self.modelDict.setValue(dataArr, forKey: "partiesdata")
             }
         }else {
             print("数据请求失败，请退出重试")
@@ -354,40 +433,46 @@ class HistoryDetailsViewController: UIViewController {
                         self.taskId = taskidStr
                         self.responsibilitydataDict.setValue(taskidStr, forKey: "taskid")
                     }
-                }else {
-                    
+                }
+                //拍照取证流程id
+                let flowid = dict.objectForKey("flowid")
+                if flowid != nil {
+                    if let flowidStr = flowid as? String {
+                        self.photoFlowid = flowidStr
+                    }
                 }
                 let data = photodataModel.mj_objectWithKeyValues(dict)
                 self.modelDict.setValue(data, forKey: "photodata")
             }
-        }else {
-            
         }
 
     }
     //整理数据顺序，方便列表使用
     private func dataOrderSorting() {
         ///要按顺序添加进去
+        ///数据数组
+        let modelMiddleArr:NSMutableArray = ["false","false","false","false"]
         for key in self.modelDict.allKeys {
             if key as? String == "reportdata" {//一键报案
-                self.modelArr[0] = self.modelDict.objectForKey(key)!
+                modelMiddleArr[0] = self.modelDict.objectForKey(key)!
             }
             if key as? String == "lossdata" {//在线定损
-                self.modelArr[1] = self.modelDict.objectForKey(key)!
+                modelMiddleArr[1] = self.modelDict.objectForKey(key)!
             }
             if key as? String == "dutydata" {//在线定责
-                self.modelArr[2] = self.modelDict.objectForKey(key)!
+                modelMiddleArr[2] = self.modelDict.objectForKey(key)!
             }
             if key as? String == "photodata" {//拍照取证
-                self.modelArr[3] = self.modelDict.objectForKey(key)!
+                modelMiddleArr[3] = self.modelDict.objectForKey(key)!
             }
         }
-        for object in self.modelArr {//将没有的删除
+        for object in modelMiddleArr {//将没有的删除
             if object as? String == "false" {
-                self.modelArr.removeObject(object)
+                modelMiddleArr.removeObject(object)
                 break
             }
         }
+        self.modelArr = modelMiddleArr
         print(self.responsibilitydataDict)
         print(self.modelArr)
 
@@ -408,8 +493,11 @@ class HistoryDetailsViewController: UIViewController {
     //保存车辆受损情况
     private lazy var damageModelArr : NSMutableArray = NSMutableArray()
     ///数据数组
-    private lazy var modelArr:NSMutableArray = ["false","false","false","false"]
+    private lazy var modelArr:NSMutableArray = NSMutableArray()
     private lazy var modelDict:NSMutableDictionary = NSMutableDictionary()
+    
+    private lazy var header:MJRefreshNormalHeader = MJRefreshNormalHeader()
+    
     private lazy var hud : MBProgressHUD = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

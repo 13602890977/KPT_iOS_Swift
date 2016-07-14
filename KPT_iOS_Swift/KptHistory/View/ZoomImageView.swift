@@ -8,13 +8,13 @@
 
 protocol ZoomImageViewDelegate:AnyObject {
     func moving(isMoving:Bool)
+    func zoomImageDismiss()
 }
 
 import UIKit
 
 class ZoomImageView: UIScrollView,UIScrollViewDelegate {
     
-//    weak var delegate : ZoomImageViewDelegate!
     private var containerView : UIView!
     private var myImageView : UIImageView?
     private var rotating : Bool = false
@@ -28,7 +28,7 @@ class ZoomImageView: UIScrollView,UIScrollViewDelegate {
         self.bouncesZoom = true
         
         // Add container view
-        let view = UIView(frame: self.bounds)
+        let view = UIView(frame: frame)
         view.backgroundColor = UIColor.clearColor()
         self.addSubview(view)
         containerView = view
@@ -43,6 +43,7 @@ class ZoomImageView: UIScrollView,UIScrollViewDelegate {
         
         // Fit container view's size to image size
         let imageSize = imageView.contentSize
+
         self.containerView.frame = CGRect(x: 0, y: 0, width: imageSize().width, height: imageSize().height)
         
         imageView.bounds = CGRect(x: 0, y: 0, width: imageSize().width, height: imageSize().height)
@@ -108,6 +109,13 @@ class ZoomImageView: UIScrollView,UIScrollViewDelegate {
         tapGestureRecognizer.numberOfTapsRequired = 2;
         containerView.addGestureRecognizer(tapGestureRecognizer)
         
+        let tapG = UITapGestureRecognizer(target: self, action: "tapClickDismiss")
+        containerView.addGestureRecognizer(tapG)
+    }
+    func tapClickDismiss() {
+        if self.imageDelegate != nil {
+            self.imageDelegate.zoomImageDismiss()
+        }
     }
     func tapHandler(recognizer:UITapGestureRecognizer)
     {
@@ -133,7 +141,10 @@ class ZoomImageView: UIScrollView,UIScrollViewDelegate {
     }
 
     private func centerContent() {
-        self.imageDelegate.moving(true)
+        if self.imageDelegate != nil {
+            self.imageDelegate.moving(true)
+        }
+        
         
         let frame = self.containerView.frame
         

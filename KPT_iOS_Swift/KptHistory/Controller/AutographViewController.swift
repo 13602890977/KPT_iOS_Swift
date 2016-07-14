@@ -54,10 +54,10 @@ class AutographViewController: UIViewController {
         setTapWithScroll()
     }
     private func setTapWithScroll() {
-        let tap = UITapGestureRecognizer(target: self, action: "shouqi")
+        let tap = UITapGestureRecognizer(target: self, action: "resignFirst")
         self.mainScrollerView.addGestureRecognizer(tap)
     }
-    func shouqi() {
+    func resignFirst() {
         self.photoNumberField.resignFirstResponder()
         self.verificationTextField.resignFirstResponder()
     }
@@ -112,16 +112,27 @@ class AutographViewController: UIViewController {
             if (responsecode! == "1") {
                 
             }else {
-                let alertV = UIAlertController(title: "温馨提醒", message: JSON.objectForKey("errorMessage") as? String, preferredStyle: UIAlertControllerStyle.Alert)
-                let action = UIAlertAction(title: "确定", style: UIAlertActionStyle.Cancel, handler: nil)
-                alertV.addAction(action)
-                self.presentViewController(alertV, animated: true, completion: nil)
+//                if #available(iOS 8.0, *) {
+                    let alertV = UIAlertController(title: "温馨提醒", message: JSON.objectForKey("errorMessage") as? String, preferredStyle: UIAlertControllerStyle.Alert)
+                    let action = UIAlertAction(title: "确定", style: UIAlertActionStyle.Cancel, handler: nil)
+                    alertV.addAction(action)
+                    self.presentViewController(alertV, animated: true, completion: nil)
+//                } else {
+//                    // Fallback on earlier versions
+//                }
+                
             }
             }) { (_, error) -> Void in
-                let alertV = UIAlertController(title: "温馨提醒", message: "链接不到服务器,请确定网络正常之后重试", preferredStyle: UIAlertControllerStyle.Alert)
-                let action = UIAlertAction(title: "确定", style: UIAlertActionStyle.Cancel, handler: nil)
-                alertV.addAction(action)
-                self.presentViewController(alertV, animated: true, completion: nil)
+                
+//                if #available(iOS 8.0, *) {
+                    let alertV = UIAlertController(title: "温馨提醒", message: "链接不到服务器,请确定网络正常之后重试", preferredStyle: UIAlertControllerStyle.Alert)
+                    let action = UIAlertAction(title: "确定", style: UIAlertActionStyle.Cancel, handler: nil)
+                    alertV.addAction(action)
+                    self.presentViewController(alertV, animated: true, completion: nil)
+//                } else {
+//                    // Fallback on earlier versions
+//                }
+//                
         }
         
         //开始倒计时
@@ -217,22 +228,26 @@ class AutographViewController: UIViewController {
     }
     ///确定按钮点击事件
     @IBAction func determineButtonClick(sender: AnyObject) {
-        let alertC = UIAlertController.creatAlertWithTitle(title: nil, message: nil, cancelActionTitle: "确定")
-        if self.photoNumberField.text == nil {
-            alertC.message = "电话号码不正确，请确认后重试"
-            self.presentViewController(alertC, animated: true, completion: nil)
-            
-            return
-        }else if self.verificationTextField.text == nil{
-            alertC.message = "请输入验证码"
-            self.presentViewController(alertC, animated: true, completion: nil)
-            
-            return
-        }else if self.updateDataArr.count != 2 {
-            alertC.message = "请双方签名确认"
-            self.presentViewController(alertC, animated: true, completion: nil)
-            return
-        }
+//        if #available(iOS 8.0, *) {
+            let alertC = UIAlertController.creatAlertWithTitle(title: nil, message: nil, cancelActionTitle: "确定")
+            if self.photoNumberField.text == nil {
+                alertC.message = "电话号码不正确，请确认后重试"
+                self.presentViewController(alertC, animated: true, completion: nil)
+                
+                return
+            }else if self.verificationTextField.text == nil{
+                alertC.message = "请输入验证码"
+                self.presentViewController(alertC, animated: true, completion: nil)
+                
+                return
+            }else if self.updateDataArr.count != 2 {
+                alertC.message = "请双方签名确认"
+                self.presentViewController(alertC, animated: true, completion: nil)
+                return
+            }
+//        } else {
+//            // Fallback on earlier versions
+//        }
         
         let userDefault = NSUserDefaults.standardUserDefaults()
         let personalData = userDefault.objectForKey("userInfoLoginData") as! NSDictionary
@@ -261,21 +276,26 @@ class AutographViewController: UIViewController {
     
     ///点击左侧导航栏返回键
     func disSelfView() {
-        let alertC = UIAlertController(title: nil, message: "是否退出此任务？\n\n", preferredStyle: UIAlertControllerStyle.Alert)
+//        if #available(iOS 8.0, *) {
+            let alertC = UIAlertController(title: nil, message: "是否退出此任务？\n\n", preferredStyle: UIAlertControllerStyle.Alert)
+            let cancelAction = UIAlertAction(title: "继续", style: UIAlertActionStyle.Default) { (action) -> Void in
+                alertC.dismissViewControllerAnimated(true, completion: nil)
+            }
+            cancelAction.setValue(MainColor, forKey: "titleTextColor")
+            alertC.addAction(cancelAction)
+            
+            let action = UIAlertAction(title: "退出", style: UIAlertActionStyle.Cancel) { (action) -> Void in
+                self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+            }
+            action.setValue(UIColor.grayColor(), forKey: "titleTextColor")
+            alertC.addAction(action)
+            
+            self.presentViewController(alertC, animated: true, completion: nil)
+
         
-        let cancelAction = UIAlertAction(title: "继续", style: UIAlertActionStyle.Default) { (action) -> Void in
-            alertC.dismissViewControllerAnimated(true, completion: nil)
-        }
-        cancelAction .setValue(MainColor, forKey: "titleTextColor")
-        alertC.addAction(cancelAction)
-        
-        let action = UIAlertAction(title: "退出", style: UIAlertActionStyle.Cancel) { (action) -> Void in
-            self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
-        }
-        action.setValue(UIColor.grayColor(), forKey: "titleTextColor")
-        alertC.addAction(action)
-        
-        self.presentViewController(alertC, animated: true, completion: nil)
+//         }else {
+//            // Fallback on earlier versions
+//        }
     }
     
     private lazy var progressBackView : Kpt_ProgressView = {

@@ -12,17 +12,18 @@ import MBProgressHUD
 
 class KPTHistoryViewController: UIViewController {
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        self.tableView.mj_header.beginRefreshing()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.view = self.tableView
-        
+        tableView.tableFooterView = UIView()
         //添加下拉刷新
         header.setRefreshingTarget(self, refreshingAction: "headerRefresh")
         self.tableView.mj_header = header
-        
-        //一进入就开始下拉刷新
-        self.tableView.mj_header.beginRefreshing()
         
         view.backgroundColor = UIColor.whiteColor()
         // Do any additional setup after loading the view.
@@ -41,17 +42,33 @@ class KPTHistoryViewController: UIViewController {
             self.hud.show(true)
             KptRequestClient.sharedInstance.Kpt_Get("/plugins/changhui/port/history/getTaskList?requestcode=004001&accessid=\(userInfo!.accessid)&accesskey=\(userInfo!.accesskey)&userid=\(userInfo!.userid)", paramet: nil, viewController: self, success: { (JSON) -> Void in
                 print(JSON)
+                self.historyDataArr.removeAllObjects()
                 if JSON as? NSDictionary != nil {
                     let model = HistoryModel.mj_objectWithKeyValues(JSON)
                     self.historyDataArr.addObject(model)
                 }else if JSON as? NSArray != nil {
                     self.historyDataArr = HistoryModel.mj_objectArrayWithKeyValuesArray(JSON)
+                }else {
+                    let label = UILabel(frame: CGRect(x: 0, y: 100, width: SCRW, height: 30))
+                    label.text = "没有事故信息"
+                    label.textAlignment = NSTextAlignment.Center
+                    label.font = UIFont.systemFontOfSize(18)
+                    label.textColor = UIColor.lightGrayColor()
+                    self.tableView.tableFooterView!.addSubview(label)
                 }
                 self.tableView.reloadData()
                 
                 self.hud.hide(true)
                 self.tableView.mj_header.endRefreshing()
-                }) { (_) -> Void in
+                }) { (error) -> Void in
+                    if error as? String == "没有" {
+                        let label = UILabel(frame: CGRect(x: 0, y: 100, width: SCRW, height: 30))
+                        label.text = "没有事故信息"
+                        label.textAlignment = NSTextAlignment.Center
+                        label.font = UIFont.systemFontOfSize(18)
+                        label.textColor = UIColor.lightGrayColor()
+                        self.tableView.tableFooterView!.addSubview(label)
+                    }
                     self.hud.hide(true)
                     self.tableView.mj_header.endRefreshing()
             }

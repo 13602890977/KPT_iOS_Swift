@@ -37,17 +37,11 @@ class SignatureViewController: UIViewController {
     }
 
     @IBAction func revivedBtnClick(sender: AnyObject) {
-        mySignImage.clear()
+        mySignImage.clearSignature()
         
     }
     @IBAction func finishBtnClick(sender: AnyObject) {
-        let view = mySignImage
-//        UIGraphicsBeginImageContext(view.bounds.size)
-        UIGraphicsBeginImageContextWithOptions(view.bounds.size, true, 1.0)
-        view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
+        let image = mySignImage.getSignature()
         
         print("截屏\(image)")
         if self.signImage != nil {

@@ -54,7 +54,7 @@ class Kpt_LoginViewController: UIViewController {
             
             self.cancelBtnClick(nil)
             }) { (_) -> Void in
-                
+                NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "userInfoLoginData")
         }
         
     }

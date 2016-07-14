@@ -103,7 +103,7 @@ class AccidentView: UIView,UIScrollViewDelegate,UITextViewDelegate {
             NSFontAttributeName:UIFont.systemFontOfSize(15),
             NSParagraphStyleAttributeName:paragraphStyle
         ]
-        tipTextView.attributedText = NSAttributedString(string: "任何一方有一下情形之一的，驾驶人应立即报警，在现场等待交警处理，无以下情形的继续处理", attributes: attributes)
+        tipTextView.attributedText = NSAttributedString(string: "任何一方有以下情形之一的，驾驶人应立即报警，在现场等待交警处理，无以下情形的继续处理", attributes: attributes)
         
         scroll.addSubview(tipTextView)
         
@@ -131,6 +131,7 @@ class AccidentView: UIView,UIScrollViewDelegate,UITextViewDelegate {
     }()
     ///立即报警按钮点击事件
     func callPoliceBtnClick() {
+        UIApplication.sharedApplication().openURL(NSURL(string: "telprompt:122")!)
         print("立即报警")
     }
     ///温馨提醒的页数标记

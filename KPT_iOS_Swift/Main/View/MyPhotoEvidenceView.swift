@@ -14,8 +14,10 @@ protocol MyPhotoEvidenceViewDelegate : AnyObject  {
     func flashButtonClick()
 }
 class MyPhotoEvidenceView: UIView {
-
     weak var delegate : MyPhotoEvidenceViewDelegate?
+    
+    @IBOutlet weak var shadowImage: UIImageView!
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var promptLabel: UILabel!
     @IBOutlet weak var toolView: UIView!
@@ -29,6 +31,7 @@ class MyPhotoEvidenceView: UIView {
         super.awakeFromNib()
         self.nameLabel.transform = CGAffineTransformMakeRotation(CGFloat(M_PI * 0.5))
         self.promptLabel.transform = CGAffineTransformMakeRotation(CGFloat(M_PI * 0.5))
+        self.shadowImage.transform = CGAffineTransformMakeRotation(CGFloat(M_PI * 0.5))
     }
    
     @IBAction func flashbulbBtnTouch(sender: AnyObject) {

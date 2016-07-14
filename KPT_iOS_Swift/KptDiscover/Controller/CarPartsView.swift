@@ -33,43 +33,48 @@ class CarPartsView: UIView {
         
         if (sender as! UIButton).selected == true {
             
-            let alertS = UIAlertController(title: "选择受损程度", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-            let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel, handler: { (cancelAction) -> Void in
-                (sender as! UIButton).selected = !(sender as! UIButton).selected
-            })
-            alertS.addAction(cancelAction)
+//            if #available(iOS 8.0, *) {
+                let alertS = UIAlertController(title: "选择受损程度", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+                let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel, handler: { (cancelAction) -> Void in
+                    (sender as! UIButton).selected = !(sender as! UIButton).selected
+                })
+                alertS.addAction(cancelAction)
+                
+                let lightAction = UIAlertAction(title: "轻度受损(维修方式:喷漆)默认", style: UIAlertActionStyle.Default) { (lightAction) -> Void in
+                    self.count = 0
+                    let dict : NSMutableDictionary = ["partid":"\(sender.tag)","partname":((sender as! UIButton).titleLabel?.text)!,"damagedlevelcode":"1","damagedlevel":"轻度受损"]
+                    self.onlineVC.partsArr.addObject(dict)
+                    (sender as! UIButton).setTitleColor(MainColor, forState: UIControlState.Normal)
+                    (sender as! UIButton).setImage(UIImage(named: "round_y"), forState: UIControlState.Normal)
+                    self.animationAlphaA(sender.tag)
+                }
+                alertS.addAction(lightAction)
+                
+                let moderateAction = UIAlertAction(title: "中度受损(维修方式:钣金+喷漆)", style: UIAlertActionStyle.Default) { (moderateAction) -> Void in
+                    self.count = 0
+                    let dict : NSMutableDictionary = ["partid":"\(sender.tag)","partname":((sender as! UIButton).titleLabel?.text)!,"damagedlevelcode":"2","damagedlevel":"中度受损"]
+                    self.onlineVC.partsArr.addObject(dict)
+                    (sender as! UIButton).setTitleColor(MainColor, forState: UIControlState.Normal)
+                    (sender as! UIButton).setImage(UIImage(named: "round_y"), forState: UIControlState.Normal)
+                    self.animationAlphaA(sender.tag)
+                }
+                alertS.addAction(moderateAction)
+                
+                let severeAction = UIAlertAction(title: "重度受损(维修方式:更换配件)", style: UIAlertActionStyle.Default) { (severeAction) -> Void in
+                    self.count = 0
+                    let dict : NSMutableDictionary = ["partid":"\(sender.tag)","partname":((sender as! UIButton).titleLabel?.text)!,"damagedlevelcode":"3","damagedlevel":"重度受损"]
+                    self.onlineVC.partsArr.addObject(dict)
+                    (sender as! UIButton).setTitleColor(MainColor, forState: UIControlState.Normal)
+                    (sender as! UIButton).setImage(UIImage(named: "round_y"), forState: UIControlState.Normal)
+                    self.animationAlphaA(sender.tag)
+                }
+                alertS.addAction(severeAction)
+                
+                self.onlineVC.presentViewController(alertS, animated: true, completion: nil)
+//            } else {
+//                // Fallback on earlier versions
+//            }
             
-            let lightAction = UIAlertAction(title: "轻度受损(维修方式:喷漆)默认", style: UIAlertActionStyle.Default) { (lightAction) -> Void in
-                self.count = 0
-                let dict : NSMutableDictionary = ["partid":"\(sender.tag)","partname":((sender as! UIButton).titleLabel?.text)!,"damagedlevelcode":"1","damagedlevel":"轻度受损"]
-                self.onlineVC.partsArr.addObject(dict)
-                (sender as! UIButton).setTitleColor(MainColor, forState: UIControlState.Normal)
-                (sender as! UIButton).setImage(UIImage(named: "round_y"), forState: UIControlState.Normal)
-                self.animationAlphaA(sender.tag)
-            }
-            alertS.addAction(lightAction)
-            
-            let moderateAction = UIAlertAction(title: "中度受损(维修方式:钣金+喷漆)", style: UIAlertActionStyle.Default) { (moderateAction) -> Void in
-                self.count = 0
-                let dict : NSMutableDictionary = ["partid":"\(sender.tag)","partname":((sender as! UIButton).titleLabel?.text)!,"damagedlevelcode":"2","damagedlevel":"中度受损"]
-                self.onlineVC.partsArr.addObject(dict)
-                (sender as! UIButton).setTitleColor(MainColor, forState: UIControlState.Normal)
-                (sender as! UIButton).setImage(UIImage(named: "round_y"), forState: UIControlState.Normal)
-                self.animationAlphaA(sender.tag)
-            }
-            alertS.addAction(moderateAction)
-            
-            let severeAction = UIAlertAction(title: "重度受损(维修方式:更换配件)", style: UIAlertActionStyle.Default) { (severeAction) -> Void in
-                self.count = 0
-                let dict : NSMutableDictionary = ["partid":"\(sender.tag)","partname":((sender as! UIButton).titleLabel?.text)!,"damagedlevelcode":"3","damagedlevel":"重度受损"]
-                self.onlineVC.partsArr.addObject(dict)
-                (sender as! UIButton).setTitleColor(MainColor, forState: UIControlState.Normal)
-                (sender as! UIButton).setImage(UIImage(named: "round_y"), forState: UIControlState.Normal)
-                self.animationAlphaA(sender.tag)
-            }
-            alertS.addAction(severeAction)
-            
-            self.onlineVC.presentViewController(alertS, animated: true, completion: nil)
         }else {
             (sender as! UIButton).setTitleColor(UIColor(red: 170/255.0, green: 170/255.0, blue: 170/255.0, alpha: 1.0), forState: UIControlState.Normal)
             (sender as! UIButton).setImage(UIImage(named: "round_w"), forState: UIControlState.Normal)

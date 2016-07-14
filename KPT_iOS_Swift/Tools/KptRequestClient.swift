@@ -36,13 +36,19 @@ class KptRequestClient: AFHTTPSessionManager{
             let responsecode = JSON.objectForKey("responsecode") as? String
             if (responsecode! == "1") {
                 success!(JSON.objectForKey("data"))
+               
             }else {
                 print(JSON)
                 if viewController == nil {
                     
                 }else {
-                    let alertV = UIAlertController.creatAlertWithTitle(title: "温馨提醒", message:  JSON.objectForKey("errormessage") as? String, cancelActionTitle: "确定")
-                    viewController!.presentViewController(alertV, animated: true, completion: nil)
+//                    if #available(iOS 8.0, *) {
+                        let alertV = UIAlertController.creatAlertWithTitle(title: "温馨提醒", message:  JSON.objectForKey("errormessage") as? String, cancelActionTitle: "确定")
+                        viewController!.presentViewController(alertV, animated: true, completion: nil)
+//                    } else {
+//                        // Fallback on earlier versions
+//                    }
+                    
                    
                 }
                  failure!(nil)
@@ -51,8 +57,13 @@ class KptRequestClient: AFHTTPSessionManager{
             }) { (_, error) -> Void in
                 print(error)
                 if let VC = viewController {
-                    let alertV = UIAlertController.creatAlertWithTitle(title: "温馨提醒", message:"链接不到服务器，请退出重试", cancelActionTitle: "确定")
-                    VC.presentViewController(alertV, animated: true, completion: nil)
+//                    if #available(iOS 8.0, *) {
+                        let alertV = UIAlertController.creatAlertWithTitle(title: "温馨提醒", message:"链接不到服务器，请退出重试", cancelActionTitle: "确定")
+                        VC.presentViewController(alertV, animated: true, completion: nil)
+//                    } else {
+//                        // Fallback on earlier versions
+//                    }
+                    
                 }
                 failure!(nil)
         }
@@ -67,14 +78,28 @@ class KptRequestClient: AFHTTPSessionManager{
             if (responsecode! == "1") {
                 success!(JSON.objectForKey("data"))
             }else {
-                let alertV = UIAlertController.creatAlertWithTitle(title: "温馨提醒", message:  JSON.objectForKey("errormessage") as? String, cancelActionTitle: "确定")
-                viewController.presentViewController(alertV, animated: true, completion: nil)
-                failure!("")
+                if JSON.objectForKey("errormessage") as? String == "获取失败!!" {
+                    
+                }else {
+                    //                if #available(iOS 8.0, *) {
+                    let alertV = UIAlertController.creatAlertWithTitle(title: "温馨提醒", message:  JSON.objectForKey("errormessage") as? String, cancelActionTitle: "确定")
+                    viewController.presentViewController(alertV, animated: true, completion: nil)
+                    //                } else {
+                    //                    // Fallback on earlier versions
+                    //                }
+                    
+                }
+                failure!("没有")
             }
             }) { (_, error) -> Void in
                 print(error)
-                let alertV = UIAlertController.creatAlertWithTitle(title: "温馨提醒", message:"链接不到服务器，请退出重试", cancelActionTitle: "确定")
-                viewController.presentViewController(alertV, animated: true, completion: nil)
+//                if #available(iOS 8.0, *) {
+                    let alertV = UIAlertController.creatAlertWithTitle(title: "温馨提醒", message:"链接不到服务器，请退出重试", cancelActionTitle: "确定")
+                    viewController.presentViewController(alertV, animated: true, completion: nil)
+//                } else {
+//                    // Fallback on earlier versions
+//                }
+                
                 failure!("")
         }
     }

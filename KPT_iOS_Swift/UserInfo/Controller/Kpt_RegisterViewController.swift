@@ -23,6 +23,11 @@ class Kpt_RegisterViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        let navigationBar = self.navigationController!.navigationBar;
+        // white.png图片自己下载个纯白色的色块，或者自己ps做一个
+        navigationBar.setBackgroundImage(UIImage(named: "whiteNav"), forBarPosition: UIBarPosition.Any, barMetrics: UIBarMetrics.Default)
+        navigationBar.shadowImage = UIImage()
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +39,13 @@ class Kpt_RegisterViewController: UIViewController {
         //先判读电话号码无误
         let bl = photoTextField.text?.isPhotoNumber()
         if bl == false {
-            let alertV = UIAlertController.creatAlertWithTitle(title: nil, message: "请填写正确的手机号码", cancelActionTitle: "确定")
-            self.presentViewController(alertV, animated: true, completion: nil)
+//            if #available(iOS 8.0, *) {
+                let alertV = UIAlertController.creatAlertWithTitle(title: nil, message: "请填写正确的手机号码", cancelActionTitle: "确定")
+                self.presentViewController(alertV, animated: true, completion: nil)
+//            } else {
+//                // Fallback on earlier versions
+//            }
+            
             return
         }
         //调用后台验证码接口，获取验证码，比对用户输入的验证码
@@ -48,8 +58,13 @@ class Kpt_RegisterViewController: UIViewController {
             if (responsecode! == "1") {
                 
             }else {
-                let alertV = UIAlertController.creatAlertWithTitle(title: "温馨提醒", message: JSON.objectForKey("errorMessage") as? String, cancelActionTitle: "确定")
-                self.presentViewController(alertV, animated: true, completion: nil)
+//                if #available(iOS 8.0, *) {
+                    let alertV = UIAlertController.creatAlertWithTitle(title: "温馨提醒", message: JSON.objectForKey("errorMessage") as? String, cancelActionTitle: "确定")
+                    self.presentViewController(alertV, animated: true, completion: nil)
+//                } else {
+//                    // Fallback on earlier versions
+//                }
+                
             }
             }) { (_, error) -> Void in
                 print(error)
@@ -90,6 +105,22 @@ class Kpt_RegisterViewController: UIViewController {
     @IBAction func registerButtonClick(sender: AnyObject) {
         FoldUpTheKeyboard()
         //判断所填写的信息无误
+        if self.photoTextField.text?.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) == 0 {
+            let alertC = UIAlertController.creatAlertWithTitle(title: nil, message: "请输入手机号码", cancelActionTitle: "确定")
+            self.presentViewController(alertC, animated: true, completion: nil)
+            return
+        }
+        if self.reCaptchaTextField.text?.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) == 0 {
+            let alertC = UIAlertController.creatAlertWithTitle(title: nil, message: "请输入验证码", cancelActionTitle: "确定")
+            self.presentViewController(alertC, animated: true, completion: nil)
+            return
+        }
+        if self.passwordText.text?.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) == 0 {
+            let alertC = UIAlertController.creatAlertWithTitle(title: nil, message: "请输入密码", cancelActionTitle: "确定")
+            self.presentViewController(alertC, animated: true, completion: nil)
+            return
+            
+        }
         weak var wSelf = self
         let paramet: [String:AnyObject] = ["requestcode":"001001","mobile":self.photoTextField.text!,"vcode":self.reCaptchaTextField.text!,"password":self.passwordText.text!]
         
@@ -109,7 +140,10 @@ class Kpt_RegisterViewController: UIViewController {
                 }) { (_) -> Void in
             }
     }
-    
+    ///快赔通注册服务条款
+    @IBAction func clauseBtnClick(sender: AnyObject) {
+        
+    }
     @IBAction func falsePerfectBtnClick(sender: AnyObject) {
         self.backView.removeFromSuperview()
         login()
@@ -134,7 +168,7 @@ class Kpt_RegisterViewController: UIViewController {
             userDefault.setObject(data, forKey: "userInfoLoginData")
             userDefault.synchronize()
             }) { (_) -> Void in
-                
+                NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "userInfoLoginData")
         }
     }
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

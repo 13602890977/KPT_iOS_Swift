@@ -257,7 +257,17 @@ NSString * const k__MLTransition_GestureRecognizer = @"__MLTransition_GestureRec
             
             return NO;
         }
-        //AutographViewController
+        Class PoliceC = NSClassFromString(@"KPT_iOS_Swift.PoliceResponsibleViewController");
+        if ([vc isKindOfClass:PoliceC]) {
+            
+            return NO;
+        }
+        //DamageResultsViewController
+        Class DamageC = NSClassFromString(@"KPT_iOS_Swift.DamageResultsViewController");
+        if ([vc isKindOfClass:DamageC]) {
+            
+            return NO;
+        }
     }
 
     //普通拖曳模式，如果开始方向不对即不启用

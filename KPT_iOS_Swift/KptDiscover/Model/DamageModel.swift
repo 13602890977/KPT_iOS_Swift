@@ -10,7 +10,7 @@ import UIKit
 
 @objc class DamageModel: NSObject {
 
-    var parts: NSMutableArray!
+    var parts: AnyObject?
     
     var partiescarno: String!
     

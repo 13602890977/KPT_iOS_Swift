@@ -49,7 +49,10 @@ class CarSeriesTableViewController: UIViewController {
     }
 
     private func reloadCarData() {
+        self.hud.labelText = "获取中..."
+        self.hud.show(true)
         KptRequestClient.sharedInstance.GET("/plugins/changhui/port/getSeries?requestCode=001004&brandid=\(brandId)", parameters: nil, success: { (_, responseObject) -> Void in
+            self.hud.hide(true)
             if responseObject.objectForKey("responseCode")?.integerValue == 1 {
                 let dataArr = responseObject.objectForKey("responseData") as? NSArray
                 self.seriesList = CarSeriesModel.mj_objectArrayWithKeyValuesArray(dataArr)
@@ -61,9 +64,12 @@ class CarSeriesTableViewController: UIViewController {
             }
             }) { (_, error) -> Void in
                 print(error)
+                self.hud.hide(true)
         }
     }
     private lazy var seriesList:NSMutableArray = NSMutableArray()
+    private lazy var hud : MBProgressHUD = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -120,8 +126,10 @@ extension CarSeriesTableViewController: UITableViewDelegate,UITableViewDataSourc
     
     private func reloadCarModelDataWithSeriesid(seriesid:String) {
         carListType = carType.CarModel
-        
+        self.hud.labelText = "获取中..."
+        self.hud.show(true)
         KptRequestClient.sharedInstance.GET("/plugins/changhui/port/getModel?requestCode=001004&seriesid=\(seriesid)", parameters: nil, success: { (_, JSON) -> Void in
+            self.hud.hide(true)
             if JSON.objectForKey("responseCode")?.integerValue == 1 {
                 let dataArr = JSON.objectForKey("responseData") as? NSArray
                 self.seriesList = CarModelModel.mj_objectArrayWithKeyValuesArray(dataArr)
@@ -132,6 +140,7 @@ extension CarSeriesTableViewController: UITableViewDelegate,UITableViewDataSourc
                 print("请求不到数据")
             }
             }) { (_, error) -> Void in
+                self.hud.hide(true)
                 print("请求车系年限数据 -- \(error)")
         }
     }

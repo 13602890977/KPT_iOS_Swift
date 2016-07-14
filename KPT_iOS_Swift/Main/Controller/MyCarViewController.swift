@@ -22,6 +22,8 @@ class MyCarViewController: UIViewController,Kpt_NextBtnViewDelegate {
         navigationBar.barTintColor = UIColor.blackColor()
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         self.navigationController?.navigationBar.tintColor = MainColor
+        
+        reloadMyCarData()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +41,6 @@ class MyCarViewController: UIViewController,Kpt_NextBtnViewDelegate {
         
         self.view.addSubview(tableView)
         tableView.tableFooterView = UIView()
-        reloadMyCarData()
         
     }
     func cancelBtnClick() {
@@ -47,10 +48,11 @@ class MyCarViewController: UIViewController,Kpt_NextBtnViewDelegate {
     }
     func addMyCar() {
         let userDe = NSUserDefaults.standardUserDefaults()
-        userDe.setValue("true", forKey: "addMyCarPush")
+        userDe.setValue("true", forKey: "addMyCarPush")//表示是添加车辆，这是之前犯下的错误，等待修改
         userDe.synchronize()
-        
-        self.navigationController?.pushViewController(CarInfoViewController(), animated: true)
+        let carInfoVC = CarInfoViewController()
+        carInfoVC.comeFormWhere = self.isWhatControllerPushIn
+        self.navigationController?.pushViewController(carInfoVC, animated: true)
     }
     func reloadMyCarData() {
         
@@ -91,6 +93,7 @@ class MyCarViewController: UIViewController,Kpt_NextBtnViewDelegate {
         
         KptRequestClient.sharedInstance.Kpt_Get(urlStr, paramet: nil, viewController: self, success: { (data) -> Void in
                 if data as? NSDictionary != nil {
+                    self.modelArr.removeAllObjects()
                     let model = MyCarModel.mj_objectWithKeyValues(data)
                     self.modelArr.addObject(model)
                 }else if data as? NSArray != nil {
@@ -98,13 +101,26 @@ class MyCarViewController: UIViewController,Kpt_NextBtnViewDelegate {
                 }
                 self.tableView.reloadData()
                 self.hud.hide(true)
-            }) { (_) -> Void in
+            }) { (error) -> Void in
+                if error as? String == "没有" {
+                    let label = UILabel(frame: CGRect(x: 0, y: 100, width: SCRW, height: 30))
+                    label.text = "还没有一辆车,马上去添加！"
+                    label.textAlignment = NSTextAlignment.Center
+                    label.font = UIFont.systemFontOfSize(18)
+                    label.textColor = UIColor.lightGrayColor()
+                    self.tableView.tableFooterView!.addSubview(label)
+                }
                 self.hud.hide(true)
         }
         
     }
     ///点击下一步
     func nextBtnClick(nextBtn: Kpt_NextBtnView) {
+        if selectedModel == nil {
+            let alertC = UIAlertController.creatAlertWithTitle(title: nil, message: "请选择车辆信息或者添加车辆", cancelActionTitle: "确定")
+            self.presentViewController(alertC, animated: true, completion: nil)
+            return
+        }
         let onlineVC = OnlineInsuranceViewController(nibName:"OnlineInsuranceViewController",bundle: nil)
         onlineVC.carType = "oneCar"
         onlineVC.carnoStr = selectedModel.carno
@@ -152,7 +168,7 @@ extension MyCarViewController : UITableViewDataSource,UITableViewDelegate {
             let cellMainHeight:CGFloat = IS_IPHONE_6P() ? 60 : IS_IPHONE_6() ? 50 : 40
             let backView = UIView()
             backView.backgroundColor = UIColor.RGBA(218, g: 218, b: 218)
-            let view = Kpt_NextBtnView(frame: CGRect(x: 0, y: 10, width: SCRW, height: cellMainHeight + 40))
+            let view = Kpt_NextBtnView(frame: CGRect(x: 0, y: 10, width: SCRW, height: cellMainHeight + 60))
             view.delegate = self
             view.btnText = "下一步"
             view.backgroundColor = UIColor.whiteColor()

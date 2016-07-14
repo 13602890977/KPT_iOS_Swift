@@ -29,8 +29,13 @@ class UserInfoViewController: UIViewController,Kpt_NextBtnViewDelegate,Kpt_OCRIm
         //判断必填的信息是否已填
         for var i = 0; i < cellArr.count - 1;i++ {
             if self.changeDict.objectForKey(cellArr[i]) == nil {
-                let alertC = UIAlertController.creatAlertWithTitle(title: nil, message: cellDetailArr[i], cancelActionTitle: "确定")
-                self.presentViewController(alertC, animated: true, completion: nil)
+//                if #available(iOS 8.0, *) {
+                    let alertC = UIAlertController.creatAlertWithTitle(title: nil, message: cellDetailArr[i], cancelActionTitle: "确定")
+                    self.presentViewController(alertC, animated: true, completion: nil)
+//                } else {
+//                    // Fallback on earlier versions
+//                }
+                
                 return
             }
             
@@ -65,9 +70,25 @@ class UserInfoViewController: UIViewController,Kpt_NextBtnViewDelegate,Kpt_OCRIm
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
-    func returnOCRDataAndImage(image: UIImage?, QNImageUrl: String, data: AnyObject) {
-        
+    //ocr图像识别代理方法
+    func returnOCRDataAndImage(image:UIImage?,QNImageUrl:String,data: AnyObject) {
+        self.changeDict.setObject(image!, forKey: "displayImageView")
+        self.changeDict.setObject(QNImageUrl, forKey: "registration")
+        for object in (data as! NSArray) {
+            let value = object.objectForKey("content") as! String
+            let key = object.objectForKey("desc") as! String
+            if value.characters.count > 0 {
+                if key == "姓名" {
+                    self.changeDict.setObject(value, forKey: "当事人")
+                }
+                else if key == "证号" {
+                    self.changeDict.setObject(value, forKey: "驾驶证号")
+                }
+            }
+        }
+        self.tableView.reloadData()
     }
+
     private func reloadInsurance() {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
             self.storageAndReadingListOfInsuranceCompanies()
@@ -224,7 +245,7 @@ extension UserInfoViewController : UITableViewDelegate,UITableViewDataSource,UIA
                 imageView?.displayImageView.image = self.changeDict.objectForKey("displayImageView") as? UIImage
                 imageView?.displayImageView.contentMode = UIViewContentMode.ScaleAspectFit
             }else if self.changeDict.objectForKey("registration") != nil && (self.changeDict.objectForKey("registration") as! String).characters.count > 0 {
-                imageView?.displayImageView.sd_setImageWithURL(NSURL(string: (self.changeDict.objectForKey("registration") as! String)))
+                imageView?.displayImageView.sd_setImageWithURL(NSURL(string: QinniuUrl + (self.changeDict.objectForKey("registration") as! String)))
         }
         view.addSubview(imageView!)
         

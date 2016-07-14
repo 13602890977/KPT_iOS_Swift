@@ -31,13 +31,22 @@ class RepairTableViewController: UITableViewController {
                 
             }else {
                
-                let alertV = UIAlertController.creatAlertWithTitle(title: "温馨提醒", message:  JSON.objectForKey("message") as? String, cancelActionTitle: "确定")
-                self.presentViewController(alertV, animated: true, completion: nil)
+//                if #available(iOS 8.0, *) {
+                    let alertV = UIAlertController.creatAlertWithTitle(title: "温馨提醒", message:  JSON.objectForKey("message") as? String, cancelActionTitle: "确定")
+                    self.presentViewController(alertV, animated: true, completion: nil)
+//                } else {
+//                    // Fallback on earlier versions
+//                }
+//                
                 }
             }) { (_, error) -> Void in
                 print(error)
-                let alertV = UIAlertController.creatAlertWithTitle(title: "温馨提醒", message:"链接不到服务器，请退出重试", cancelActionTitle: "确定")
-                self.presentViewController(alertV, animated: true, completion: nil)
+//                if #available(iOS 8.0, *) {
+                    let alertV = UIAlertController.creatAlertWithTitle(title: "温馨提醒", message:"链接不到服务器，请退出重试", cancelActionTitle: "确定")
+                    self.presentViewController(alertV, animated: true, completion: nil)
+//                } else {
+//                    // Fallback on earlier versions
+//                }
         }
     }
     private lazy var dataArr : NSMutableArray = NSMutableArray()

@@ -369,7 +369,9 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kr5-Me-pFT">
                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="40" id="CC3-ug-IEQ"/>
+                                <constraint firstAttribute="height" constant="40" id="CC3-ug-IEQ">
+                                    <variation key="heightClass=regular-widthClass=compact" constant="45"/>
+                                </constraint>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <state key="normal" title="确定" backgroundImage="完善">
@@ -404,7 +406,9 @@
                         <constraint firstItem="QYC-b6-Ejo" firstAttribute="top" secondItem="ecS-NL-wmD" secondAttribute="bottom" constant="14" id="JDJ-d4-MBW"/>
                         <constraint firstAttribute="trailing" secondItem="BSd-zJ-IYg" secondAttribute="trailing" constant="8" id="L9B-YN-drh"/>
                         <constraint firstItem="zn7-nE-X3f" firstAttribute="leading" secondItem="Yv9-9C-1AL" secondAttribute="leading" constant="8" id="Lhe-Ri-xZw"/>
-                        <constraint firstItem="Kr5-Me-pFT" firstAttribute="top" secondItem="nou-aj-ime" secondAttribute="bottom" constant="37" id="Lt5-fK-fSw"/>
+                        <constraint firstItem="Kr5-Me-pFT" firstAttribute="top" secondItem="nou-aj-ime" secondAttribute="bottom" constant="37" id="Lt5-fK-fSw">
+                            <variation key="heightClass=regular-widthClass=compact" constant="32"/>
+                        </constraint>
                         <constraint firstAttribute="bottom" secondItem="Kr5-Me-pFT" secondAttribute="bottom" constant="46" id="MoY-Xh-3aA"/>
                         <constraint firstItem="Cf0-nJ-1bU" firstAttribute="centerY" secondItem="445-uK-Nvz" secondAttribute="centerY" id="OBC-az-DFU"/>
                         <constraint firstItem="WE2-ld-GZY" firstAttribute="top" secondItem="ulz-XE-NmM" secondAttribute="bottom" constant="15" id="OhH-mn-idQ"/>

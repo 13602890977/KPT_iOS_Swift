@@ -30,6 +30,7 @@ class HistoryDetailsCell: UITableViewCell {
     @IBOutlet weak var continueBtn: UIButton!
     ///cell下方的横线
     @IBOutlet weak var buttomLineImage: UIImageView!
+    
     ///接收传入的数据
     var data : AnyObject? {
         didSet {
@@ -173,7 +174,7 @@ class HistoryDetailsCell: UITableViewCell {
     private lazy var collectionView : UICollectionView = {
         var layout = UICollectionViewFlowLayout()
 
-        layout.sectionInset = UIEdgeInsetsMake(5,10,5,20)
+        layout.sectionInset = UIEdgeInsetsMake(5,5,5,5)
         
         var viewHeight = self.frame.height
         if let photo = self.data as? photodataModel {
@@ -241,7 +242,7 @@ extension HistoryDetailsCell : UICollectionViewDataSource,UICollectionViewDelega
         return cell
     }
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
+        NSNotificationCenter.defaultCenter().postNotificationName("KPT_DetailsPhotoCell", object: nil)
     }
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
         return 10

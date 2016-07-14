@@ -63,7 +63,6 @@ class ResponsibleResultsViewController: UIViewController {
     }
     func disSelfView() {
         let alertC = UIAlertController(title: nil, message: "是否退出此任务？\n\n", preferredStyle: UIAlertControllerStyle.Alert)
-        
         let cancelAction = UIAlertAction(title: "继续", style: UIAlertActionStyle.Default) { (action) -> Void in
             alertC.dismissViewControllerAnimated(true, completion: nil)
         }
@@ -77,6 +76,8 @@ class ResponsibleResultsViewController: UIViewController {
         alertC.addAction(action)
         
         self.presentViewController(alertC, animated: true, completion: nil)
+        
+        
     }
     
     private func setCarNo() {
@@ -93,54 +94,60 @@ class ResponsibleResultsViewController: UIViewController {
     
     //有争议按钮点击事件
     @IBAction func controversialBtnClick(sender: AnyObject) {
-        let alertC = UIAlertController(title: nil, message: "双方存在争议，是否提交由交警在线定责？", preferredStyle: UIAlertControllerStyle.Alert)
-        let cancelA =  UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel, handler: nil)
-        alertC.addAction(cancelA)
-        let alertA = UIAlertAction(title: "确定", style: UIAlertActionStyle.Default, handler: { (alertA) -> Void in
-            print("提交交警")
-            let userDefault = NSUserDefaults.standardUserDefaults()
-            let personalData = userDefault.objectForKey("userInfoLoginData") as! NSDictionary
-            let userInfoData = UserInfoData.mj_objectWithKeyValues(personalData)
-            
-            let arr = self.responsibilitydata.objectForKey("responsibilitydata") as! NSMutableArray
-            let dataDict = NSMutableDictionary()
-            let dataArr = NSMutableArray()
-            for dict in arr {
-                if let _ = dict as? NSMutableDictionary {
-                    dataDict.setValue("责任不明确", forKey: "dutyname")
-                    dataDict.setValue(dict.objectForKey("partiesid")!, forKey: "partiesid")
-                    dataDict.setValue(dict.objectForKey("partiesmark")!, forKey: "partiesmark")
-                    dataArr.addObject(dataDict)
-                }
+       
+            let alertC = UIAlertController(title: nil, message: "双方存在争议，是否提交由交警在线定责？", preferredStyle: UIAlertControllerStyle.Alert)
+            let cancelA =  UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel, handler: nil)
+            alertC.addAction(cancelA)
+            let alertA = UIAlertAction(title: "确定", style: UIAlertActionStyle.Default, handler: { (alertA) -> Void in
+                print("提交交警")
+                let userDefault = NSUserDefaults.standardUserDefaults()
+                let personalData = userDefault.objectForKey("userInfoLoginData") as! NSDictionary
+                let userInfoData = UserInfoData.mj_objectWithKeyValues(personalData)
                 
-            }
-            print(dataArr)
-            
-            let data : NSDictionary = ["taskid":self.responsibilitydata.objectForKey("taskid")!,"flowcode":"200102","flowname":"责任认定","accidentscene":self.accidentType,"fixduty":"2","isconfirm":"0","responsibilitydata":dataArr]
-            let parame = ["requestcode":"003002","accessid":userInfoData.accessid,"accesskey":userInfoData.accesskey,"userid":userInfoData.userid,"data":data]
-            
-            KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/task/dutytask", paramet: parame, viewController: self, success: { (data) -> Void in
-                print(data)
-                }, failure: { (_) -> Void in
+                let arr = self.responsibilitydata.objectForKey("responsibilitydata") as! NSMutableArray
+                let dataArr = NSMutableArray()
+                for dict in arr {
+                    let dataDict = NSMutableDictionary()
+                    if let _ = dict as? NSMutableDictionary {
+                        dataDict.setValue("责任不明确", forKey: "dutyname")
+                        dataDict.setValue(dict.objectForKey("partiesid")!, forKey: "partiesid")
+                        dataDict.setValue(dict.objectForKey("partiesmark")!, forKey: "partiesmark")
+                        dataArr.addObject(dataDict)
+                    }
                     
+                }
+                print(dataArr)
+                
+                let data : NSDictionary = ["taskid":self.responsibilitydata.objectForKey("taskid")!,"flowcode":"200102","flowname":"责任认定","accidentscene":self.accidentType,"fixduty":"2","isconfirm":"0","responsibilitydata":dataArr]
+                let parame = ["requestcode":"003002","accessid":userInfoData.accessid,"accesskey":userInfoData.accesskey,"userid":userInfoData.userid,"data":data]
+                
+                KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/task/dutytask", paramet: parame, viewController: self, success: { (data) -> Void in
+                    print(data)
+                    self.navigationController?.pushViewController(PoliceResponsibleViewController(nibName:"PoliceResponsibleViewController",bundle: nil), animated: true)
+                    }, failure: { (_) -> Void in
+                        
+                })
             })
-        })
-        alertA.setValue(MainColor, forKey: "titleTextColor")
-        alertC.addAction(alertA)
-        self.presentViewController(alertC, animated: true, completion: nil)
+            alertA.setValue(MainColor, forKey: "titleTextColor")
+            alertC.addAction(alertA)
+            self.presentViewController(alertC, animated: true, completion: nil)
+        
+        
     }
 
     //无争议按钮点击事件
     @IBAction func nodisputeBtnClick(sender: AnyObject) {
-        let alertC = UIAlertController(title: nil, message: "是否提交责任比例，提交后无法再次修改！", preferredStyle: UIAlertControllerStyle.Alert)
-        let cancelA =  UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel, handler: nil)
-        alertC.addAction(cancelA)
-        let alertA = UIAlertAction(title: "确定", style: UIAlertActionStyle.Default, handler: { (alertA) -> Void in
+       
+            let alertC = UIAlertController(title: nil, message: "是否提交责任比例，提交后无法再次修改！", preferredStyle: UIAlertControllerStyle.Alert)
+            let cancelA =  UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel, handler: nil)
+            alertC.addAction(cancelA)
+            let alertA = UIAlertAction(title: "确定", style: UIAlertActionStyle.Default, handler: { (alertA) -> Void in
                 self.uploadDutyRatio()
-        })
-        alertA.setValue(MainColor, forKey: "titleTextColor")
-        alertC.addAction(alertA)
-        self.presentViewController(alertC, animated: true, completion: nil)
+            })
+            alertA.setValue(MainColor, forKey: "titleTextColor")
+            alertC.addAction(alertA)
+            self.presentViewController(alertC, animated: true, completion: nil)
+       
     }
     func uploadDutyRatio() {
         let userDefault = NSUserDefaults.standardUserDefaults()
@@ -235,18 +242,23 @@ class ResponsibleResultsViewController: UIViewController {
         }
         if self.progressBackView.percent > 0.5 && self.progressBackView.percent < 1{
             self.ourResponsibilityLabel.text = "我方主责  我方承担\(self.progressBackView.percent*100)%责任"
+            responsibilityStr = "主责"
             self.otherResponsibilityLabel.text = "对方次责  对方承担\(100 - self.progressBackView.percent*100)%责任"
         }else if self.progressBackView.percent  == 1{
             self.ourResponsibilityLabel.text = "我方全责  我方承担100%责任"
+            responsibilityStr = "全责"
             self.otherResponsibilityLabel.text = "对方无责  对方承担0%责任"
         }else if self.progressBackView.percent  == 0.5{
             self.ourResponsibilityLabel.text = "我方共同责任  我方承担50%责任"
+            responsibilityStr = "共同责任"
             self.otherResponsibilityLabel.text = "对方共同责任  对方承担50%责任"
         }else if self.progressBackView.percent  < 0.5 && self.progressBackView.percent > 0{
             self.ourResponsibilityLabel.text = "我方次责  我方承担\(self.progressBackView.percent*100)%责任"
+            responsibilityStr = "次责"
             self.otherResponsibilityLabel.text = "对方主责  对方承担\(100 - self.progressBackView.percent*100)%责任"
         }else if self.progressBackView.percent  == 0{
             self.ourResponsibilityLabel.text = "我方无责  我方承担0%责任"
+            responsibilityStr = "无责"
             self.otherResponsibilityLabel.text = "对方全责  对方承担100%责任"
         }
     }
@@ -294,4 +306,7 @@ class ResponsibleResultsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
+extension ResponsibleResultsViewController : UIAlertViewDelegate {
+    
 }

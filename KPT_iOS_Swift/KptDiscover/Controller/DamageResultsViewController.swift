@@ -12,7 +12,7 @@ import MBProgressHUD
 class DamageResultsViewController: UIViewController,Kpt_NextBtnViewDelegate {
 
     ///接收任务id
-    var taskId : String!
+    var taskId : String?
     ///接收模型数据
     var damageDataArr : NSArray!
     ///区分单车双车事故外的定损界面进入的
@@ -33,9 +33,10 @@ class DamageResultsViewController: UIViewController,Kpt_NextBtnViewDelegate {
             //计算建议文字高度，如果有才显示，没有就不显示
             CalculateHeightOfText()
             
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "展开"), style: UIBarButtonItemStyle.Plain, target: self, action: "disSelfView")
-            self.navigationItem.leftBarButtonItem?.tintColor = MainColor
         }
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "展开"), style: UIBarButtonItemStyle.Plain, target: self, action: "disSelfView")
+        self.navigationItem.leftBarButtonItem?.tintColor = MainColor
+        
         // Do any additional setup after loading the view.
     }
     
@@ -55,21 +56,26 @@ class DamageResultsViewController: UIViewController,Kpt_NextBtnViewDelegate {
     }
     ///点击左侧导航栏返回键
     func disSelfView() {
-        let alertC = UIAlertController(title: nil, message: "是否退出此任务？\n\n", preferredStyle: UIAlertControllerStyle.Alert)
+//        if #available(iOS 8.0, *) {
+            let alertC = UIAlertController(title: nil, message: "是否退出此任务？\n\n", preferredStyle: UIAlertControllerStyle.Alert)
+            let cancelAction = UIAlertAction(title: "继续", style: UIAlertActionStyle.Default) { (action) -> Void in
+                alertC.dismissViewControllerAnimated(true, completion: nil)
+            }
+            cancelAction .setValue(MainColor, forKey: "titleTextColor")
+            alertC.addAction(cancelAction)
+            
+            let action = UIAlertAction(title: "退出", style: UIAlertActionStyle.Cancel) { (action) -> Void in
+                self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+            }
+            action.setValue(UIColor.grayColor(), forKey: "titleTextColor")
+            alertC.addAction(action)
+            
+            self.presentViewController(alertC, animated: true, completion: nil)
+//        } else {
+//            // Fallback on earlier versions
+//        }
         
-        let cancelAction = UIAlertAction(title: "继续", style: UIAlertActionStyle.Default) { (action) -> Void in
-            alertC.dismissViewControllerAnimated(true, completion: nil)
-        }
-        cancelAction .setValue(MainColor, forKey: "titleTextColor")
-        alertC.addAction(cancelAction)
-        
-        let action = UIAlertAction(title: "退出", style: UIAlertActionStyle.Cancel) { (action) -> Void in
-            self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
-        }
-        action.setValue(UIColor.grayColor(), forKey: "titleTextColor")
-        alertC.addAction(action)
-        
-        self.presentViewController(alertC, animated: true, completion: nil)
+       
     }
     
     func nextBtnClick(nextBtn: Kpt_NextBtnView) {
@@ -104,7 +110,12 @@ extension DamageResultsViewController : UITableViewDelegate,UITableViewDataSourc
         }else if seclectedSection && section == 1 {
             return 0
         }
-        return (self.damageDataArr[section] as! DamageModel).parts.count + 2
+        if (self.damageDataArr[section] as! DamageModel).parts as? NSArray != nil{
+            return (((self.damageDataArr[section] as! DamageModel).parts as? NSArray)?.count)! + 2
+        }else if (self.damageDataArr[section] as! DamageModel).parts as? NSDictionary != nil {
+            return 3
+        }
+        return 0
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let damageCellIdentifier = "damageCellIdentifier"
@@ -112,18 +123,34 @@ extension DamageResultsViewController : UITableViewDelegate,UITableViewDataSourc
         if cell == nil {
             cell = NSBundle.mainBundle().loadNibNamed("DamageResultCell", owner: nil, options: nil).last as? DamageResultCell
         }
-        if indexPath.row == 0 {
-            
-        }else if indexPath.row == (self.damageDataArr[indexPath.section] as! DamageModel).parts.count + 1 {
-            cell?.totalLabel.hidden = false
-            cell?.positionLabel.hidden = true
-            cell?.degreeLabel.hidden = true
-            cell?.costLabel.hidden = true
-            cell?.totalLabel?.text = "参考费用：\((self.damageDataArr[indexPath.section] as! DamageModel).repairsumprice)元"
-            
-        }else {
-            cell?.positionDict = (self.damageDataArr[indexPath.section] as! DamageModel).parts[indexPath.row - 1] as! NSMutableDictionary
+        if let arr = (self.damageDataArr[indexPath.section] as! DamageModel).parts as? NSArray{
+            if indexPath.row == 0 {
+                
+            }else if indexPath.row == arr.count + 1 {
+                cell?.totalLabel.hidden = false
+                cell?.positionLabel.hidden = true
+                cell?.degreeLabel.hidden = true
+                cell?.costLabel.hidden = true
+                cell?.totalLabel?.text = "参考费用：\((self.damageDataArr[indexPath.section] as! DamageModel).repairsumprice)元"
+                
+            }else {
+                cell?.positionDict = arr[indexPath.row - 1] as! NSMutableDictionary
+            }
+        }else if let dict = (self.damageDataArr[indexPath.section] as! DamageModel).parts as? NSDictionary {
+            if indexPath.row == 0 {
+                
+            }else if indexPath.row == 2 {
+                cell?.totalLabel.hidden = false
+                cell?.positionLabel.hidden = true
+                cell?.degreeLabel.hidden = true
+                cell?.costLabel.hidden = true
+                cell?.totalLabel?.text = "参考费用：\((self.damageDataArr[indexPath.section] as! DamageModel).repairsumprice)元"
+                
+            }else {
+                cell?.positionDict = dict as! NSMutableDictionary
+            }
         }
+        
         return cell!
     }
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -139,18 +166,21 @@ extension DamageResultsViewController : UITableViewDelegate,UITableViewDataSourc
         
         button.frame = CGRect(x: SCRW - 15 - 40, y: 0, width: 40, height: 40)
         button.contentMode = UIViewContentMode.ScaleAspectFit
-        
+        button.setImage(UIImage(named: "drop-down"), forState: UIControlState.Normal)
         if isExpand && section == 0{
-             button.setImage(UIImage(named: "round_y"), forState: UIControlState.Normal)
+            
         }else if seclectedSection && section == 1 {
-             button.setImage(UIImage(named: "round_y"), forState: UIControlState.Normal)
+            
         }else {
-            button.setImage(UIImage(named: "round_w"), forState: UIControlState.Normal)
+            UIView.animateWithDuration(2.0, animations: { () -> Void in
+                button.transform = CGAffineTransformMakeRotation(CGFloat(M_PI * 1.0))
+            })
+            
         }
         button.tag = 100 + section
         button.addTarget(self, action: "imageButtonClick:", forControlEvents: UIControlEvents.TouchUpInside)
         
-        let lineImage = UIImageView(frame: CGRect(x: 0, y: 40 - 1, width: SCRW, height: 1))
+        let lineImage = UIImageView(frame: CGRect(x: 0, y: 40 - 0.5, width: SCRW, height: 0.5))
         lineImage.backgroundColor = UIColor.lightGrayColor()
         view.addSubview(lineImage)
         
@@ -163,7 +193,7 @@ extension DamageResultsViewController : UITableViewDelegate,UITableViewDataSourc
         }else if sender.tag == 101{
             seclectedSection = !seclectedSection
         }
-        self.tableView.reloadSections(NSIndexSet(index: sender.tag - 100), withRowAnimation: UITableViewRowAnimation.Automatic)
+        self.tableView.reloadSections(NSIndexSet(index: sender.tag - 100), withRowAnimation: UITableViewRowAnimation.Fade)
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -193,13 +223,17 @@ extension DamageResultsViewController : UITableViewDelegate,UITableViewDataSourc
                     label.textColor = UIColor.blackColor()
                     backView.addSubview(label)
                     
-                    let proposalLabel = UILabel(frame: CGRect(x: 0, y: label.frame.origin.y + label.frame.height + 10, width: SCRW, height: (strSize?.height)!))
+                    let labelView = UIView(frame: CGRect(x: 0, y: label.frame.origin.y + label.frame.height + 10, width: SCRW, height: (strSize?.height)! + 10))
+                    labelView.backgroundColor = UIColor.whiteColor()
+                    backView.addSubview(labelView)
+                    
+                    let proposalLabel = UILabel(frame: CGRect(x: 10, y:5, width: SCRW - 20, height: (strSize?.height)!))
                     proposalLabel.font = UIFont.systemFontOfSize(16)
                     proposalLabel.numberOfLines = 0
                     proposalLabel.backgroundColor = UIColor.whiteColor()
                     proposalLabel.text = proposalStr
                     proposalLabel.textColor = UIColor.grayColor()
-                    backView.addSubview(proposalLabel)
+                    labelView.addSubview(proposalLabel)
                     
                     view.frame = CGRect(x: 0, y: 40 + (strSize?.height)! + 10, width: SCRW, height: cellMainHeight + 60)
                 }else {
@@ -254,7 +288,7 @@ extension DamageResultsViewController : UITableViewDelegate,UITableViewDataSourc
         let personalData = userDefault.objectForKey("userInfoLoginData") as! NSDictionary
         let userInfoData = UserInfoData.mj_objectWithKeyValues(personalData)
         
-        let paramet = ["requestcode":"003006","accessid":userInfoData.accessid,"accesskey":userInfoData.accesskey,"userid":userInfoData.userid,"taskid":taskId]
+        let paramet = ["requestcode":"003006","accessid":userInfoData.accessid,"accesskey":userInfoData.accesskey,"userid":userInfoData.userid,"taskid":taskId!]
         
         self.hud.labelText = "报案中..."
         self.hud.show(true)
