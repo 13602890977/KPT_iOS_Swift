@@ -22,14 +22,15 @@ let APIKEY = "b7882ff4e542e01d5e6f718caf6706f0"
 ///App主色调
 let MainColor = UIColor(red: 242/255.0, green: 170/255.0, blue: 3/255.0, alpha: 1)
 
-let OCR_URL = "http://netocr.com/api/recog.do";
-let OCR_KEY = "JFG8aJHHuHiCw2FuhGmfwr";
-let OCR_SECRET = "9674c14900c54b1e9ba2299c889865a8";
-let ACCESS_KEY = "hRqWEMoCtEhE_9YRSA5_iHNhV9JIf4QWFAboYIki";
-let SECRET_KEY = "xjsYd-lcKbqzX1LxOb_NBGtELN5HseTt-WWPDIQs";
-let BUCKET = "kuaipeitong";
-let TAG = "QiniuUtils";
-let QinniuUrl = "http://7xttl7.com2.z0.glb.qiniucdn.com/";
+let OCR_URL = "http://netocr.com/api/recog.do"
+let OCR_KEY = "Jwm1mLCPBxmYiz8Aw8iZ8Y"
+let OCR_SECRET = "1159b1c725f94b458f97352008d94add"
+
+let ACCESS_KEY = "hRqWEMoCtEhE_9YRSA5_iHNhV9JIf4QWFAboYIki"
+let SECRET_KEY = "xjsYd-lcKbqzX1LxOb_NBGtELN5HseTt-WWPDIQs"
+let BUCKET = "kuaipeitong"
+let TAG = "QiniuUtils"
+let QinniuUrl = "http://7xttl7.com2.z0.glb.qiniucdn.com/"
 
 let QiniuToken = NSObject.makeToken(ACCESS_KEY, secretKey: SECRET_KEY)
 extension String {

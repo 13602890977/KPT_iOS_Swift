@@ -27,13 +27,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KPT_iOS_Swift/KptHistory/Controller/HistoryDetailsViewController.swift"
-            timestampString = "490089470.612767"
+            filePath = "KPT_iOS_Swift/KptHistory/Controller/ResponsibleResultsViewController.swift"
+            timestampString = "490173329.667695"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
-            landmarkName = "historyDetailsCellClick(_:)"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
+            landmarkName = "uploadDutyRatio()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -43,14 +43,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KPT_iOS_Swift/KptHistory/Controller/HistoryDetailsViewController.swift"
-            timestampString = "490089652.703943"
+            filePath = "KPT_iOS_Swift/KptHistory/Controller/ResponsibleResultsViewController.swift"
+            timestampString = "490173333.39545"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "316"
-            endingLineNumber = "316"
-            landmarkName = "doubleCarAccidentData(_:)"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
+            landmarkName = "uploadDutyRatio()"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KPT_iOS_Swift.ResponsibleResultsViewController.uploadDutyRatio (KPT_iOS_Swift.ResponsibleResultsViewController)() -&gt; ()"
+                  moduleName = "KPT_iOS_Swift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jacks/Desktop/KPT_iOS_Swift/KPT_iOS_Swift/KptHistory/Controller/ResponsibleResultsViewController.swift"
+                  timestampString = "490173333.408339"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "234"
+                  endingLineNumber = "234"
+                  offsetFromSymbolStart = "8252">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KPT_iOS_Swift.ResponsibleResultsViewController.(uploadDutyRatio (KPT_iOS_Swift.ResponsibleResultsViewController) -&gt; () -&gt; ()).(closure #1)"
+                  moduleName = "KPT_iOS_Swift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jacks/Desktop/KPT_iOS_Swift/KPT_iOS_Swift/KptHistory/Controller/ResponsibleResultsViewController.swift"
+                  timestampString = "490173333.408617"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "235"
+                  endingLineNumber = "235"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

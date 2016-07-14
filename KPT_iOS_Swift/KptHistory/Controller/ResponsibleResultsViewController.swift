@@ -11,6 +11,16 @@ import UIKit
 
 class ResponsibleResultsViewController: UIViewController {
 
+    ///增加责任比例按钮
+    @IBOutlet weak var increaseBtn: UIButton!
+    ///减少责任比例按钮
+    @IBOutlet weak var reduceBtn: UIButton!
+    ///有争议按钮
+    @IBOutlet weak var controversialBtn: UIButton!
+    ///无争议按钮
+    @IBOutlet weak var nodisputeBtn: UIButton!
+    ///用于区分是不是交警定责的定责结果（true是,false是双方协定)
+    var policeTypeB : Bool = false
     ///我方车牌号码
     @IBOutlet weak var myCarLabel: UILabel!
     ///对方车牌号码
@@ -23,7 +33,7 @@ class ResponsibleResultsViewController: UIViewController {
     @IBOutlet weak var otherProgressView: UIView!
     ///对方承担责任说明Label
     @IBOutlet weak var otherResponsibilityLabel: UILabel!
-    
+    ///滑动比例按钮
     @IBOutlet weak var mainSlider: UISlider!
     ///用于接收车辆信息(选择责任分担之后)
     var partiesdataArr : NSMutableArray!
@@ -33,7 +43,7 @@ class ResponsibleResultsViewController: UIViewController {
     ///当事人信息(主要包含任务id和当事人id)
     var responsibilitydata:NSDictionary!
     ///事故场景
-    var accidentType : String!
+    var accidentType : String?
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -46,6 +56,13 @@ class ResponsibleResultsViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "展开"), style: UIBarButtonItemStyle.Plain, target: self, action: "disSelfView")
         self.navigationItem.leftBarButtonItem?.tintColor = MainColor
         
+        if policeTypeB {
+            self.controversialBtn.setTitle("不认可", forState: UIControlState.Normal)
+            self.nodisputeBtn.setTitle("认可", forState: UIControlState.Normal)
+            increaseBtn.hidden = true
+            reduceBtn.hidden = true
+            mainSlider.hidden = true
+        }
         
         self.progressView.addSubview(self.progressBackView)
         self.otherProgressView.addSubview(self.otherProgressBackView)
@@ -94,7 +111,17 @@ class ResponsibleResultsViewController: UIViewController {
     
     //有争议按钮点击事件
     @IBAction func controversialBtnClick(sender: AnyObject) {
-       
+        if policeTypeB {
+            let alertC = UIAlertController(title: nil, message: "当事人不认可交警在线定责结果，是否拨打122，由交警现场处理?\n", preferredStyle: UIAlertControllerStyle.Alert)
+            let cancelA = UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel, handler: nil)
+            alertC.addAction(cancelA)
+            let alertA = UIAlertAction(title: "确定", style: UIAlertActionStyle.Default, handler: { (alertA) -> Void in
+                UIApplication.sharedApplication().openURL(NSURL(string: "tel:122")!)
+            })
+            alertC.addAction(alertA)
+            self.presentViewController(alertC, animated: true, completion: nil)
+            return
+        }
             let alertC = UIAlertController(title: nil, message: "双方存在争议，是否提交由交警在线定责？", preferredStyle: UIAlertControllerStyle.Alert)
             let cancelA =  UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel, handler: nil)
             alertC.addAction(cancelA)
@@ -118,12 +145,21 @@ class ResponsibleResultsViewController: UIViewController {
                 }
                 print(dataArr)
                 
-                let data : NSDictionary = ["taskid":self.responsibilitydata.objectForKey("taskid")!,"flowcode":"200102","flowname":"责任认定","accidentscene":self.accidentType,"fixduty":"2","isconfirm":"0","responsibilitydata":dataArr]
+                let data : NSMutableDictionary = ["taskid":self.responsibilitydata.objectForKey("taskid")!,"flowcode":"200102","flowname":"责任认定","fixduty":"2","isconfirm":"0","responsibilitydata":dataArr]
+                data.setValue(self.accidentType, forKey: "accidentscene")
+                
                 let parame = ["requestcode":"003002","accessid":userInfoData.accessid,"accesskey":userInfoData.accesskey,"userid":userInfoData.userid,"data":data]
                 
                 KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/task/dutytask", paramet: parame, viewController: self, success: { (data) -> Void in
                     print(data)
-                    self.navigationController?.pushViewController(PoliceResponsibleViewController(nibName:"PoliceResponsibleViewController",bundle: nil), animated: true)
+                    if let dict = data as? NSDictionary {
+                        let policeVC = PoliceResponsibleViewController(nibName:"PoliceResponsibleViewController",bundle: nil)
+                        policeVC.taskId = self.responsibilitydata.objectForKey("taskid") as! String
+                        policeVC.flowid = dict.objectForKey("flowid") as! String
+                        policeVC.responsibilitydataDict = self.responsibilitydata as! NSMutableDictionary
+                        policeVC.partiesdataArr = self.partiesdataArr
+                        self.navigationController?.pushViewController(policeVC, animated: true)
+                    }
                     }, failure: { (_) -> Void in
                         
                 })
@@ -191,20 +227,21 @@ class ResponsibleResultsViewController: UIViewController {
         }
 //        print(dataArr)
         
-        let data : NSDictionary = ["taskid":self.responsibilitydata.objectForKey("taskid")!,"flowcode":"200102","flowname":"责任认定","accidentscene":self.accidentType,"fixduty":"1","isconfirm":"1","responsibilitydata":dataArr]
+        let data : NSMutableDictionary = ["taskid":self.responsibilitydata.objectForKey("taskid")!,"flowcode":"200102","flowname":"责任认定","fixduty":"1","isconfirm":"1","responsibilitydata":dataArr]
+        data.setValue(self.accidentType, forKey: "accidentscene")
         let parame = ["requestcode":"003002","accessid":userInfoData.accessid,"accesskey":userInfoData.accesskey,"userid":userInfoData.userid,"data":data]
         
         KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/task/dutytask", paramet: parame, viewController: self, success: { (data) -> Void in
             print(data)
             
             let flowid = (data as! NSDictionary).objectForKey("flowid")
-            let responsibleVC = AutographViewController(nibName:"AutographViewController",bundle: nil)
-            responsibleVC.responsibilitydata = self.responsibilitydata
-            responsibleVC.partiesdataArr = self.partiesdataArr
-            responsibleVC.flowid = flowid as! String
-            responsibleVC.myPercentage = self.progressBackView.percent
+            let autographVC = AutographViewController(nibName:"AutographViewController",bundle: nil)
+            autographVC.responsibilitydata = self.responsibilitydata
+            autographVC.partiesdataArr = self.partiesdataArr
+            autographVC.flowid = flowid as! String
+            autographVC.myPercentage = self.progressBackView.percent
             
-            self.navigationController?.pushViewController(responsibleVC, animated: true)
+            self.navigationController?.pushViewController(autographVC, animated: true)
             
             }, failure: { (_) -> Void in
                 

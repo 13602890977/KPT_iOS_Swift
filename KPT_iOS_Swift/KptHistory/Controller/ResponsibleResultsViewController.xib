@@ -7,13 +7,17 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ResponsibleResultsViewController" customModule="KPT_iOS_Swift" customModuleProvider="target">
             <connections>
-                <outlet property="mainSlider" destination="F17-Ci-YVW" id="TnD-zG-cPA"/>
+                <outlet property="controversialBtn" destination="CKz-44-plB" id="bdw-ku-MXz"/>
+                <outlet property="increaseBtn" destination="bfJ-Wq-8AT" id="hFr-VZ-2bl"/>
+                <outlet property="mainSlider" destination="F17-Ci-YVW" id="vkE-vB-QMO"/>
                 <outlet property="myCarLabel" destination="KfB-zg-wm4" id="ZAK-fq-U5C"/>
+                <outlet property="nodisputeBtn" destination="YAT-iy-fsH" id="qGg-QI-wLh"/>
                 <outlet property="otherCarnoLabel" destination="Kms-fI-Dwc" id="pkU-Sb-NE3"/>
                 <outlet property="otherProgressView" destination="MUn-D5-hSo" id="KhW-EE-H5d"/>
                 <outlet property="otherResponsibilityLabel" destination="RdL-UY-DjZ" id="YPJ-76-5UO"/>
                 <outlet property="ourResponsibilityLabel" destination="heW-8x-t0q" id="BnN-MK-Mbh"/>
                 <outlet property="progressView" destination="B8Z-ac-L5P" id="jxH-Lq-Po6"/>
+                <outlet property="reduceBtn" destination="pg6-1R-XIY" id="kYT-y1-Qud"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

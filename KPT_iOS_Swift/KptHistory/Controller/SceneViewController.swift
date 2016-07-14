@@ -77,8 +77,14 @@ class SceneViewController: UIViewController {
                             
                             KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/task/dutytask", paramet: parame, viewController: self, success: { (data) -> Void in
                                 print(data)
-                                self.navigationController?.pushViewController(PoliceResponsibleViewController(nibName:"PoliceResponsibleViewController",bundle: nil), animated: true)
-                                
+                                    if let dict = data as? NSDictionary {
+                                        let policeVC = PoliceResponsibleViewController(nibName:"PoliceResponsibleViewController",bundle: nil)
+                                        policeVC.taskId = self.responsibilitydata.objectForKey("taskid") as! String
+                                        policeVC.responsibilitydataDict = self.responsibilitydata as! NSMutableDictionary
+                                        policeVC.partiesdataArr = self.partiesdataArr
+                                        policeVC.flowid = dict.objectForKey("flowid") as! String
+                                        self.navigationController?.pushViewController(policeVC, animated: true)
+                                    }
                                 }, failure: { (_) -> Void in
                                     
                             })

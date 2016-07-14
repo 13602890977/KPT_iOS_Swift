@@ -10,6 +10,7 @@ import UIKit
 
 class KPTDiscoverVController: UIViewController {
 
+    @IBOutlet weak var mainScrollView: UIScrollView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.grayColor()
@@ -33,6 +34,8 @@ class KPTDiscoverVController: UIViewController {
             vc!.presentViewController(nav, animated: true, completion: nil)
         
         
+    }
+    @IBAction func IllegalDisposalBtnClick(sender: AnyObject) {
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KPTDiscoverVController" customModule="KPT_iOS_Swift" customModuleProvider="target">
             <connections>
+                <outlet property="mainScrollView" destination="azm-N9-fln" id="jzc-8r-Onf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -30,7 +31,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ad7-EQ-cvm">
                             <rect key="frame" x="0.0" y="140" width="320" height="52"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="天气" translatesAutoresizingMaskIntoConstraints="NO" id="wBk-cZ-ILe">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="天气" translatesAutoresizingMaskIntoConstraints="NO" id="wBk-cZ-ILe">
                                     <rect key="frame" x="86" y="20" width="26" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="wBk-cZ-ILe" secondAttribute="height" multiplier="26:20" id="Z0w-wr-ZHP"/>
@@ -51,7 +52,7 @@
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="29-32℃" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W33-yr-OmT">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="29-32℃" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W33-yr-OmT">
                                     <rect key="frame" x="120" y="20" width="68" height="21"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="W33-yr-OmT" secondAttribute="height" multiplier="68:21" id="O0Q-qA-3D7"/>
@@ -60,7 +61,7 @@
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="多云" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8z-Do-YYY">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="多云" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8z-Do-YYY">
                                     <rect key="frame" x="196" y="20" width="34" height="21"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="C8z-Do-YYY" secondAttribute="height" multiplier="34:21" id="Uuq-za-5ct"/>
@@ -107,6 +108,9 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvZ-Sd-xrg">
                                     <rect key="frame" x="90" y="5" width="60" height="61"/>
                                     <state key="normal" backgroundImage="违章处理"/>
+                                    <connections>
+                                        <action selector="IllegalDisposalBtnClick:" destination="-1" eventType="touchUpInside" id="svW-Cv-bVO"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" text="违章处理" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7B-gU-YHM">
                                     <rect key="frame" x="86" y="69" width="68" height="18"/>

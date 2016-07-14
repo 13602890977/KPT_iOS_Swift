@@ -38,10 +38,10 @@ class KPTHomePageViewController: UIViewController {
         self.hud.labelText = "定位中..."
         self.hud.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
         self.hud.show(true)
-        ///初始化为nil
-        NSUserDefaults.standardUserDefaults().setValue("0", forKey: "kpt_latlng")
-        NSUserDefaults.standardUserDefaults().setValue("0", forKey: "Kpt_latitude")
-        NSUserDefaults.standardUserDefaults().setValue("0", forKey: "Kpt_longitude")
+        ///默认位置为广州
+        NSUserDefaults.standardUserDefaults().setValue("23", forKey: "kpt_latlng")
+        NSUserDefaults.standardUserDefaults().setValue("23", forKey: "Kpt_latitude")
+        NSUserDefaults.standardUserDefaults().setValue("23:23", forKey: "Kpt_longitude")
         NSUserDefaults.standardUserDefaults().setValue("广州市天河区", forKey: "Kpt_address")
         
         //设置地图显示和定位
@@ -99,9 +99,7 @@ class KPTHomePageViewController: UIViewController {
         }
 //        if #available(iOS 8.0, *) {
             if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.NotDetermined {///如果没有开启定位服务，请求开启
-                
-            locationManager?.requestWhenInUseAuthorization()
-                
+                locationManager?.requestWhenInUseAuthorization()
             }else if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse {
                 
             }
@@ -213,19 +211,6 @@ class KPTHomePageViewController: UIViewController {
         label.font = UIFont(name: "Arial-BoldItalicMT", size: 18)
         buttomView.addSubview(label)
     }
-    
-    ///暂时没用
-    private lazy var contentView:UIView = {
-        let buttomViewW = SCRW;
-        let buttomViewH:CGFloat = 80;
-        let buttomViewX:CGFloat = 0;
-        let buttomViewY = self.view.bounds.size.height - 135;
-        
-        let content = UIView(frame:CGRect(x:buttomViewX,y:buttomViewY,width:  buttomViewW,height:  buttomViewH));
-        content.backgroundColor = UIColor.redColor()
-        return content;
-        
-    }()
 
     private lazy var hud : MBProgressHUD = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
     
@@ -278,12 +263,17 @@ extension KPTHomePageViewController : AMapSearchDelegate,MAMapViewDelegate{
             poiAnnotationView!.pinColor = MAPinAnnotationColor.Green
             poiAnnotationView?.animatesDrop = true
             poiAnnotationView?.canShowCallout = true
+//            poiAnnotationView?.centerOffset = CGPointMake(0, -18)
             
             return poiAnnotationView
         }
         return nil
     }
     
+    func mapView(mapView: MAMapView!, didFailToLocateUserWithError error: NSError!) {
+        self.hud.labelText = "定位失败"
+        self.hud.hide(true, afterDelay: 3.0)
+    }
 //    func AMapSearchRequest(request: AnyObject!, didFailWithError error: NSError!) {
 //        print("request :\(request), error: \(error)")
 //    }

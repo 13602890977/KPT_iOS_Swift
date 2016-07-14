@@ -169,22 +169,42 @@ class HistoryDetailsViewController: UIViewController {
                         let personalData = userDefault.objectForKey("userInfoLoginData") as! NSDictionary
                         let userInfoData = UserInfoData.mj_objectWithKeyValues(personalData)
                         
-                        
                         let parame = ["requestcode":"003003","accessid":userInfoData.accessid,"accesskey":userInfoData.accesskey,"userid":userInfoData.userid,"taskid":taskId,"flowid":flowidStr]
                         
                         KptRequestClient.sharedInstance.Kpt_post("/plugins/changhui/port/task/trffPolicedutytask", paramet: parame, viewController: self, success: { (data) -> Void in
                             print(data)
-                            self.navigationController?.pushViewController(PoliceResponsibleViewController(nibName:"PoliceResponsibleViewController",bundle: nil), animated: true)
-                            
+                            if let arr = data as? NSArray {
+                                let responsibleVC = ResponsibleResultsViewController(nibName:"ResponsibleResultsViewController",bundle: nil)
+                                var dutyNameStr = ""
+                                for dict in arr {
+                                    if dict.objectForKey("partiesmark")?.integerValue == 0 {
+                                        dutyNameStr = dict.objectForKey("dutyname") as! String
+                                    }
+                                }
+                                    responsibleVC.responsibilityStr = dutyNameStr
+                                    responsibleVC.partiesdataArr = self.partiesdataArr
+                                    responsibleVC.responsibilitydata = self.responsibilitydataDict
+                                    
+                                    responsibleVC.policeTypeB = true
+                                
+                                    self.navigationController?.pushViewController(responsibleVC, animated: true)
+                            }else {
+                                let policeVC = PoliceResponsibleViewController(nibName:"PoliceResponsibleViewController",bundle: nil)
+                                policeVC.taskId = self.taskId
+                                policeVC.flowid = self.flowidStr
+                                policeVC.responsibilitydataDict = self.responsibilitydataDict
+                                policeVC.partiesdataArr = self.partiesdataArr
+                                self.navigationController?.pushViewController(policeVC, animated: true)
+                            }
                             }, failure: { (_) -> Void in
                                 
                         })
                     }else {
-                        let flowid = responsibilitydataDict.objectForKey("flowid")
+                        
                         let responsibleVC = AutographViewController(nibName:"AutographViewController",bundle: nil)
                         responsibleVC.responsibilitydata = self.responsibilitydataDict
                         responsibleVC.partiesdataArr = self.partiesdataArr
-                        responsibleVC.flowid = flowid as! String
+                        responsibleVC.flowid = flowidStr
                         responsibleVC.myPercentage = self.progressBackViewPercent
                         
                         self.navigationController?.pushViewController(responsibleVC, animated: true)
