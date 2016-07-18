@@ -142,6 +142,10 @@ class Kpt_RegisterViewController: UIViewController {
     }
     ///快赔通注册服务条款
     @IBAction func clauseBtnClick(sender: AnyObject) {
+        let webView = Kpt_WebViewController()
+        webView.protocolTitle = "快赔通注册服务条款"
+        webView.protocolsrc = "http://59.41.39.55:9090/plugins/changhui/web/useragreementservlet"
+        self.navigationController?.pushViewController(webView, animated: true)
         
     }
     @IBAction func falsePerfectBtnClick(sender: AnyObject) {

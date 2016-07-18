@@ -50,9 +50,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        
         window = UIWindow(frame:UIScreen.mainScreen().bounds)
-        window?.rootViewController = MainAppViewController()
+        ///获取当前软件版本号
+        let infoDict = NSBundle.mainBundle().infoDictionary
+        let currentVersion = infoDict!["CFBundleVersion"]
+        
+        let doubleCurr = currentVersion?.doubleValue
+        
+//        if doubleCurr == 1.0 {
+//            window?.rootViewController = KptStartupViewController()
+//            
+//        }else {
+            window?.rootViewController = MainAppViewController()
+            
+//        }
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
         
         window?.makeKeyAndVisible()

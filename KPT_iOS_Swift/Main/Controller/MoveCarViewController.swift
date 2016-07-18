@@ -23,7 +23,7 @@ class MoveCarViewController: UIViewController {
     ///用于区分是单车拍照还是双车拍照
     var carType: String!
     ///用于接收车辆信息(拍照上传传入的)
-    var partiesdataArr:NSMutableArray!
+    var moveCarPartiesdataArr:NSMutableArray!
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -75,15 +75,15 @@ class MoveCarViewController: UIViewController {
         if (sender as! UIButton).titleLabel?.text == "自助定责" {
             print("跳到定责界面")
             let sceneVC = SceneViewController(nibName:"SceneViewController",bundle: nil)
-            sceneVC.partiesdataArr = self.partiesdataArr
+            sceneVC.scenePartiesdataArr = self.moveCarPartiesdataArr
             sceneVC.responsibilitydata = self.responsibilitydata
             
             self.navigationController?.pushViewController(sceneVC, animated: true)
         }else {
             print("跳到定损界面")
             let onlineVC = OnlineInsuranceViewController(nibName:"OnlineInsuranceViewController",bundle: nil)
-            onlineVC.carDataArr = self.partiesdataArr
-            for dict in partiesdataArr {
+            onlineVC.carDataArr = self.moveCarPartiesdataArr
+            for dict in moveCarPartiesdataArr {
                 if ((dict as? NSDictionary) != nil)  {
                     if dict.objectForKey("partiesmark")?.integerValue == 0 {
                         onlineVC.carnoStr = dict.objectForKey("partiescarno") as? String

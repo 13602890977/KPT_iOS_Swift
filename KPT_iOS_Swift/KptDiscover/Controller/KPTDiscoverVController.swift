@@ -13,7 +13,12 @@ class KPTDiscoverVController: UIViewController {
     @IBOutlet weak var mainScrollView: UIScrollView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.grayColor()
+        self.view.backgroundColor = UIColor(red: 218/255.0, green: 218/255.0, blue: 218/255.0, alpha: 1)
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: SCRW, height: SCRW / 375 * 160))
+        imageView.image = UIImage(named: "广告")
+        mainScrollView.addSubview(imageView)
+        
         // Do any additional setup after loading the view.
     }
 

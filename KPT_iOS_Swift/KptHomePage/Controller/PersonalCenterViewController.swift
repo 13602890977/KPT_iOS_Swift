@@ -154,7 +154,7 @@ extension PersonalCenterViewController :UITableViewDataSource,UITableViewDelegat
                 dataDic.setValue(personalData.drivinglicensename, forKey: "姓名")
                 dataDic.setValue(personalData.drivinglicenseno, forKey: "身份证号")
                 dataDic.setValue(personalData.drivinglicensesex, forKey: "性别")
-                dataDic.setValue(personalData.drivinglicensenationality, forKey: "国籍")
+                dataDic.setValue("中国", forKey: "国籍")
                 
                 dataDic.setValue(personalData.drivinglicenseaddress, forKey: "住址")
                 dataDic.setValue(personalData.drivinglicensebirthdate, forKey: "出生日期")

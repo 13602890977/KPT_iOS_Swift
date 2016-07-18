@@ -160,7 +160,7 @@ class HistoryDetailsViewController: UIViewController {
                     //在线定责的继续处理分两种（交警定责还是双方协定,又分责任完成但未同意和未完成)
                     if self.dutydataType == "SceneView" {
                         let sceneVC = SceneViewController(nibName:"SceneViewController",bundle: nil)
-                        sceneVC.partiesdataArr = self.partiesdataArr
+                        sceneVC.scenePartiesdataArr = self.partiesdataArr
                         sceneVC.responsibilitydata = self.responsibilitydataDict
                         
                         self.navigationController?.pushViewController(sceneVC, animated: true)
@@ -182,7 +182,7 @@ class HistoryDetailsViewController: UIViewController {
                                     }
                                 }
                                     responsibleVC.responsibilityStr = dutyNameStr
-                                    responsibleVC.partiesdataArr = self.partiesdataArr
+                                    responsibleVC.responsiblePartiesdataArr = self.partiesdataArr
                                     responsibleVC.responsibilitydata = self.responsibilitydataDict
                                     
                                     responsibleVC.policeTypeB = true
@@ -193,7 +193,7 @@ class HistoryDetailsViewController: UIViewController {
                                 policeVC.taskId = self.taskId
                                 policeVC.flowid = self.flowidStr
                                 policeVC.responsibilitydataDict = self.responsibilitydataDict
-                                policeVC.partiesdataArr = self.partiesdataArr
+                                policeVC.policePartiesdataArr = self.partiesdataArr
                                 self.navigationController?.pushViewController(policeVC, animated: true)
                             }
                             }, failure: { (_) -> Void in
@@ -223,6 +223,7 @@ class HistoryDetailsViewController: UIViewController {
                     self.hud.hide(true)
                         let webVC = Kpt_WebViewController()
                         webVC.protocolsrc = data as? String
+                    webVC.protocolTitle = "责任认定协议书"
                     self.navigationController?.pushViewController(webVC, animated: true)
                     
                     }, failure: { (_) -> Void in

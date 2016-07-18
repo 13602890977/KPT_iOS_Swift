@@ -9,7 +9,7 @@
 import UIKit
 import MBProgressHUD
 
-class KPTHomePageViewController: UIViewController {
+class KPTHomePageViewController: UIViewController,UIGestureRecognizerDelegate {
     ///地图View
     var mapView : MAMapView!
     ///地图搜索
@@ -71,7 +71,12 @@ class KPTHomePageViewController: UIViewController {
         mapView.setZoomLevel(16.1, animated: true)
         view.addSubview(mapView)
         view.sendSubviewToBack(mapView)
+        mapView.scrollEnabled = false
         
+        let panG = UIPanGestureRecognizer(target: self, action: "panGestureClick:")
+        panG.delegate = self
+        mapView.addGestureRecognizer(panG)
+       
         
         //搜索服务
         AMapSearchServices.sharedServices().apiKey = APIKEY
@@ -91,6 +96,18 @@ class KPTHomePageViewController: UIViewController {
         
         //创建右侧弹出视图
         setRightViewThirdBtn()
+    }
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    func panGestureClick(pan:UIPanGestureRecognizer) {
+        let point = pan.translationInView(mapView)
+        if point.x < 0 {
+            mapView.scrollEnabled = false
+        }else {
+            mapView.scrollEnabled = true
+        }
     }
     private func openLocationService() {
         locationManager = CLLocationManager()

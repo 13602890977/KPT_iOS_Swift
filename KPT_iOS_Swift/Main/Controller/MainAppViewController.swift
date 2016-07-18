@@ -27,6 +27,7 @@ class MainAppViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         
        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "mapLeftScrollView", name: "Kpt_mapLeftScrollView", object: nil)
        
     }
     override func viewDidLoad() {
@@ -79,8 +80,8 @@ class MainAppViewController: UIViewController {
         }else {
             nav = UINavigationController(rootViewController: PersonalCenterViewController())
         }
-        //信息界面出现的动画方式
-       nav.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
+//        //信息界面出现的动画方式
+//       nav.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
         
         self.presentViewController(nav, animated: true, completion: nil)
         
@@ -136,6 +137,14 @@ class MainAppViewController: UIViewController {
         let viewV = UIView(frame: CGRect(x: 0, y: -20, width: self.view.frame.size.width, height: 44))
         viewV.backgroundColor = UIColor.RGBA(49, g: 51, b: 67)
         view.addSubview(viewV)
+    }
+    func mapLeftScrollView() {
+        _scrollV.scrollRectToVisible(CGRect(x: _scrollV.frame.width * 1.0, y: _scrollV.frame.origin.y, width: _scrollV.frame.width, height: _scrollV.frame.height), animated: true)
+        
+        //计算导航条btn的宽度变化值
+        let btnX:CGFloat = _scrollV.frame.width * 1.0 * (MENU_BUTTON_WIDTH / view.frame.width) - MENU_BUTTON_WIDTH
+        
+        _navScroll.scrollRectToVisible(CGRect(x: btnX, y: 0, width: _navScroll.frame.width, height: _navScroll.frame.height), animated: true)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

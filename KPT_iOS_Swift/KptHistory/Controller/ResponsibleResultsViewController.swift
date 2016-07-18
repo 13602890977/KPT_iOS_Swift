@@ -36,7 +36,7 @@ class ResponsibleResultsViewController: UIViewController {
     ///滑动比例按钮
     @IBOutlet weak var mainSlider: UISlider!
     ///用于接收车辆信息(选择责任分担之后)
-    var partiesdataArr : NSMutableArray!
+    var responsiblePartiesdataArr : NSMutableArray!
     ///用于接收选择的责任类型(主责...)
     var responsibilityStr:String!
     
@@ -67,7 +67,7 @@ class ResponsibleResultsViewController: UIViewController {
         self.progressView.addSubview(self.progressBackView)
         self.otherProgressView.addSubview(self.otherProgressBackView)
         
-        print(self.partiesdataArr)
+        print(self.responsiblePartiesdataArr)
         //设置比例图和比例说明
         setLabelAndResponsibility()
         
@@ -98,7 +98,7 @@ class ResponsibleResultsViewController: UIViewController {
     }
     
     private func setCarNo() {
-        for dict in partiesdataArr {
+        for dict in responsiblePartiesdataArr {
             if ((dict as? NSDictionary) != nil)  {
                 if dict.objectForKey("partiesmark")?.integerValue == 0 {
                   self.myCarLabel.text = dict.objectForKey("partiescarno") as? String
@@ -157,7 +157,7 @@ class ResponsibleResultsViewController: UIViewController {
                         policeVC.taskId = self.responsibilitydata.objectForKey("taskid") as! String
                         policeVC.flowid = dict.objectForKey("flowid") as! String
                         policeVC.responsibilitydataDict = self.responsibilitydata as! NSMutableDictionary
-                        policeVC.partiesdataArr = self.partiesdataArr
+                        policeVC.policePartiesdataArr = self.responsiblePartiesdataArr
                         self.navigationController?.pushViewController(policeVC, animated: true)
                     }
                     }, failure: { (_) -> Void in
@@ -237,7 +237,7 @@ class ResponsibleResultsViewController: UIViewController {
             let flowid = (data as! NSDictionary).objectForKey("flowid")
             let autographVC = AutographViewController(nibName:"AutographViewController",bundle: nil)
             autographVC.responsibilitydata = self.responsibilitydata
-            autographVC.partiesdataArr = self.partiesdataArr
+            autographVC.partiesdataArr = self.responsiblePartiesdataArr
             autographVC.flowid = flowid as! String
             autographVC.myPercentage = self.progressBackView.percent
             

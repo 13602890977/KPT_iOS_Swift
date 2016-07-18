@@ -275,13 +275,41 @@ class CarInfoViewController: UIViewController,Kpt_NextBtnViewDelegate,UIAlertVie
             }
             return
         }
-        showInputField(cell?.textLabel?.text,detailStr:cell?.detailTextLabel?.text)
+        
+        
+        showInputText(cell?.textLabel?.text, detailStr: cell?.detailTextLabel?.text)
+        
+//        showInputField(cell?.textLabel?.text,detailStr:cell?.detailTextLabel?.text)
+    }
+    
+    private func showInputText(str:String?,detailStr:String?) {
+        
+        
+        let window = UIApplication.sharedApplication().keyWindow
+        
+        let textView = NSBundle.mainBundle().loadNibNamed("Kpt_textField", owner: nil, options: nil).last as! Kpt_textField
+        textView.placeholder = str
+        textView.detailsStr = detailStr
+        textView.frame = UIScreen.mainScreen().bounds
+        textView.returnSelectedResult { (text) -> Void in
+            if text != nil {
+                if str == "车牌号码" {
+                    self.carno = text
+                }
+                self.changeDict.setValue(text, forKey: str!)
+                self.tableView.reloadData()
+            }
+        }
+        window!.addSubview(textView)
     }
     //弹出输入框
     private func showInputField(str:String?,detailStr:String?) {
         let alertV = UIAlertView(title: "请输入\(str!)", message:"", delegate: self, cancelButtonTitle: "取消", otherButtonTitles: "确定")
         alertV.alertViewStyle = UIAlertViewStyle.PlainTextInput
+        print(alertV.frame)
+        
         let textField = alertV.textFieldAtIndex(0)
+        
         textField?.clearButtonMode = UITextFieldViewMode.WhileEditing
         if "请输入\(str!)" == detailStr {
             textField?.placeholder = detailStr!
@@ -429,11 +457,6 @@ extension CarInfoViewController : UITableViewDelegate,UITableViewDataSource {
             cell?.textLabel?.text = twoArr[indexPath.row]
             
         }
-        
-//        if ((self.changeDict.objectForKey((cell?.textLabel?.text)!)?.isKindOfClass(NSString)) != nil) {
-//            
-//        }
-//        
         if let str = self.changeDict.objectForKey((cell?.textLabel?.text)!) {
             if (str as? String)!.characters.count == 0 {
                 cell?.detailTextLabel?.text = "请输入\((cell?.textLabel?.text)!)"
@@ -443,7 +466,6 @@ extension CarInfoViewController : UITableViewDelegate,UITableViewDataSource {
         }else {
            cell?.detailTextLabel?.text = "请输入\((cell?.textLabel?.text)!)"
         }
-//        cell?.detailTextLabel?.text = self.changeDict.objectForKey((cell?.textLabel?.text)!) == nil ? "请输入\((cell?.textLabel?.text)!)" : self.changeDict.objectForKey((cell?.textLabel?.text)!) as! String
         
         return cell!
     }

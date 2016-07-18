@@ -12,7 +12,7 @@ class SceneViewController: UIViewController {
 
     @IBOutlet weak var mainCollection: UICollectionView!
     ///用于接收车辆信息(拍照取证上传成功后)
-    var partiesdataArr : NSMutableArray!
+    var scenePartiesdataArr : NSMutableArray!
     ///当事人信息(主要包含任务id和当事人id)
     var responsibilitydata:NSDictionary!
     
@@ -41,7 +41,7 @@ class SceneViewController: UIViewController {
                     switch (alertA.title)!  {
                     case "全责","主责","次责","共同责任","无责" :
                         responsibleVC.responsibilityStr = (alertA.title)!
-                        responsibleVC.partiesdataArr = self.partiesdataArr
+                        responsibleVC.responsiblePartiesdataArr = self.scenePartiesdataArr
                         responsibleVC.responsibilitydata = self.responsibilitydata
                         responsibleVC.accidentType = self.photoNameStr[indexPath.row]
                         
@@ -81,7 +81,7 @@ class SceneViewController: UIViewController {
                                         let policeVC = PoliceResponsibleViewController(nibName:"PoliceResponsibleViewController",bundle: nil)
                                         policeVC.taskId = self.responsibilitydata.objectForKey("taskid") as! String
                                         policeVC.responsibilitydataDict = self.responsibilitydata as! NSMutableDictionary
-                                        policeVC.partiesdataArr = self.partiesdataArr
+                                        policeVC.policePartiesdataArr = self.scenePartiesdataArr
                                         policeVC.flowid = dict.objectForKey("flowid") as! String
                                         self.navigationController?.pushViewController(policeVC, animated: true)
                                     }

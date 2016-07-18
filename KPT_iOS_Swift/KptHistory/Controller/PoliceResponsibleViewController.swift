@@ -14,7 +14,7 @@ class PoliceResponsibleViewController: UIViewController {
     @IBOutlet weak var refreshBtn: UIButton!
     
     ///事故信息详情
-    var partiesdataArr : NSMutableArray!
+    var policePartiesdataArr : NSMutableArray!
     ///当事人信息(主要包含任务id和当事人id)
     var responsibilitydataDict:NSMutableDictionary!
     
@@ -80,7 +80,7 @@ class PoliceResponsibleViewController: UIViewController {
                     }
                 }
                 responsibleVC.responsibilityStr = dutyNameStr
-                responsibleVC.partiesdataArr = self.partiesdataArr
+                responsibleVC.responsiblePartiesdataArr = self.policePartiesdataArr
                 responsibleVC.responsibilitydata = self.responsibilitydataDict
                 responsibleVC.policeTypeB = true
                 

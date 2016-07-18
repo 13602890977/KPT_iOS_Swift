@@ -25,8 +25,6 @@ class MyPhotoEvidenceView: UIView {
     @IBOutlet weak var photoBtn: UIButton!
     @IBOutlet weak var flashbulbBtn: UIButton!
     
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
     override func awakeFromNib() {
         super.awakeFromNib()
         self.nameLabel.transform = CGAffineTransformMakeRotation(CGFloat(M_PI * 0.5))

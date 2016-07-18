@@ -99,6 +99,7 @@ class AccidentViewController: UIViewController {
         
         return view
     }()
+    ///用于保存车辆信息
     private lazy var partiesdata : NSMutableArray = NSMutableArray()
     
     deinit {
@@ -219,7 +220,7 @@ extension AccidentViewController:UITableViewDelegate,UITableViewDataSource {
                 }
             }
         }
-        photoVC.partiesdataArr = partiesdata
+        photoVC.photoPartiesdataArr = partiesdata
         self.navigationController?.pushViewController(photoVC, animated: true)
         
     }

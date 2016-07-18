@@ -179,7 +179,28 @@ extension UserInfoViewController : UITableViewDelegate,UITableViewDataSource,UIA
             self.navigationController?.pushViewController(carBrandVC, animated: true)
             return
         }
-        showInputField(cell?.detailTextLabel?.text,detailStr: cellDetailArr[indexPath.row])
+        //自定义的，为了和安卓大哥一样
+        showInputText(cell?.textLabel?.text, detailStr: (cell?.detailTextLabel?.text)!)
+        ///这是系统自带
+//        showInputField(cell?.detailTextLabel?.text,detailStr: cellDetailArr[indexPath.row])
+    }
+    
+    private func showInputText(str:String?,detailStr:String?) {
+        
+        
+        let window = UIApplication.sharedApplication().keyWindow
+        
+        let textView = NSBundle.mainBundle().loadNibNamed("Kpt_textField", owner: nil, options: nil).last as! Kpt_textField
+        textView.placeholder = str
+        textView.detailsStr = detailStr
+        textView.frame = UIScreen.mainScreen().bounds
+        textView.returnSelectedResult { (text) -> Void in
+            if text != nil {
+                self.changeDict.setValue(text, forKey: str!)
+                self.tableView.reloadData()
+            }
+        }
+        window!.addSubview(textView)
     }
     
     //弹出输入框

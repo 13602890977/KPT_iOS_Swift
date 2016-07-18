@@ -13,6 +13,9 @@ class Kpt_WebViewController: UIViewController,UIWebViewDelegate {
     ///协议书接口str
     var protocolsrc : String!
     
+    ///接口title
+    var protocolTitle : String?
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -20,7 +23,7 @@ class Kpt_WebViewController: UIViewController,UIWebViewDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "责任认定协议书"
+        self.title = protocolTitle
         
         self.navigationItem.leftBarButtonItem?.tintColor = MainColor
         self.view = self.mainWebView

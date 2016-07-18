@@ -21,7 +21,7 @@ class PhotoEvidenceViewController: UIViewController {
     ///接收记录选择双车还是单车事故的
     var accidentType : String!
     ///用于接收事故车辆数据
-    var partiesdataArr : NSMutableArray!
+    var photoPartiesdataArr : NSMutableArray!
     //用于标记闪光灯是否打开
     private var flashBtnBool = false
     //用于记录点击的cell
@@ -76,7 +76,7 @@ class PhotoEvidenceViewController: UIViewController {
         data.setValue(self.evidencedata, forKey: "evidencedata")
         data.setValue("200101", forKey: "flowcode")
         data.setValue("拍照取证", forKey: "flowname")
-        data.setValue(self.partiesdataArr, forKey: "partiesdata")
+        data.setValue(self.photoPartiesdataArr, forKey: "partiesdata")
         self.hud.labelText = "上传数据中..."
         self.hud.show(true)
         let parmats = ["requestcode":"003001","accessid":userInfoData.accessid,"accesskey":userInfoData.accesskey,"userid":userInfoData.userid,"data":data]
@@ -87,7 +87,7 @@ class PhotoEvidenceViewController: UIViewController {
                 let moveCarVC = MoveCarViewController(nibName:"MoveCarViewController",bundle: nil)
                 moveCarVC.carType = self.accidentType
                 moveCarVC.remindStr = dict.objectForKey("remark") as? String
-                moveCarVC.partiesdataArr = self.partiesdataArr
+                moveCarVC.moveCarPartiesdataArr = self.photoPartiesdataArr
                 moveCarVC.taskId = dict.objectForKey("taskid") as? String
                 moveCarVC.responsibilitydata = dict
                 
@@ -200,6 +200,10 @@ class PhotoEvidenceViewController: UIViewController {
     
     //查看照片示例
     @IBAction func lockBtnClick(sender: AnyObject) {
+        let webView = Kpt_WebViewController()
+        webView.protocolsrc = "http://hb.qq.com/zt/2013/whjj2013/lipei1021.htm"
+        webView.protocolTitle = "照片示范"
+        self.navigationController?.pushViewController(webView, animated: true)
     }
     
 

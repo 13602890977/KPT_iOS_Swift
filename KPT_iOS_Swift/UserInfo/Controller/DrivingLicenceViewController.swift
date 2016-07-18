@@ -120,6 +120,8 @@ class DrivingLicenceViewController: UIViewController,Kpt_NextBtnViewDelegate,Kpt
         var drivinglicensenationality = String()
         if changeDict.objectForKey("国籍") != nil {
             drivinglicensenationality = changeDict.objectForKey("国籍") as! String
+        }else {
+            drivinglicensenationality = "中国"
         }
         var drivinglicenseaddress = String()
         if changeDict.objectForKey("住址") != nil {
@@ -347,17 +349,29 @@ extension DrivingLicenceViewController : UITableViewDelegate,UITableViewDataSour
             })
             return
         }
-        /*这是之前的弹出界面填写信息
-        let changeVC = ChangeInfoController()
-        changeVC.cell = cell
-        changeVC.returnChangeBeforeText { (text) -> Void in
-        cell?.detailTextLabel?.text = text
-        self.changeDict.setValue(text, forKey: (cell?.textLabel?.text)!)
-        }
-        self.navigationController?.pushViewController(changeVC, animated: true)
-        */
-        showInputField(cell?.textLabel?.text,detailStr:cell?.detailTextLabel?.text)
+        
+        showInputText(cell?.textLabel?.text, detailStr: cell?.detailTextLabel?.text)
+        ///这是系统自带的输入提醒框(安卓觉得输入框太小)
+        //showInputField(cell?.textLabel?.text,detailStr:cell?.detailTextLabel?.text)
     }
+    private func showInputText(str:String?,detailStr:String?) {
+        
+        
+        let window = UIApplication.sharedApplication().keyWindow
+        
+        let textView = NSBundle.mainBundle().loadNibNamed("Kpt_textField", owner: nil, options: nil).last as! Kpt_textField
+        textView.placeholder = str
+        textView.detailsStr = detailStr
+        textView.frame = UIScreen.mainScreen().bounds
+        textView.returnSelectedResult { (text) -> Void in
+            if text != nil {
+                self.changeDict.setValue(text, forKey: str!)
+                self.tableView.reloadData()
+            }
+        }
+        window!.addSubview(textView)
+    }
+    
     //弹出输入框
     private func showInputField(str:String?,detailStr:String?) {
         let alertV = UIAlertView(title: "请输入\(str!)", message:"", delegate: self, cancelButtonTitle: "取消", otherButtonTitles: "确定")
