@@ -41,8 +41,8 @@
                   symbolName = "KPT_iOS_Swift.ResponsibleResultsViewController.uploadDutyRatio (KPT_iOS_Swift.ResponsibleResultsViewController)() -&gt; ()"
                   moduleName = "KPT_iOS_Swift"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jacks/Desktop/KPT_iOS_Swift/KPT_iOS_Swift/KptHistory/Controller/ResponsibleResultsViewController.swift"
-                  timestampString = "490526085.981467"
+                  urlString = "file:///Users/jacks/Desktop/iOSApp%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE/%E5%BF%AB%E8%B5%94%E9%80%9A/KPT_iOS_Swift/KPT_iOS_Swift/KptHistory/Controller/ResponsibleResultsViewController.swift"
+                  timestampString = "493265813.151439"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "234"
@@ -56,8 +56,8 @@
                   symbolName = "KPT_iOS_Swift.ResponsibleResultsViewController.(uploadDutyRatio (KPT_iOS_Swift.ResponsibleResultsViewController) -&gt; () -&gt; ()).(closure #1)"
                   moduleName = "KPT_iOS_Swift"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jacks/Desktop/KPT_iOS_Swift/KPT_iOS_Swift/KptHistory/Controller/ResponsibleResultsViewController.swift"
-                  timestampString = "490526085.981684"
+                  urlString = "file:///Users/jacks/Desktop/iOSApp%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE/%E5%BF%AB%E8%B5%94%E9%80%9A/KPT_iOS_Swift/KPT_iOS_Swift/KptHistory/Controller/ResponsibleResultsViewController.swift"
+                  timestampString = "493265813.151709"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "235"
@@ -178,6 +178,70 @@
             startingLineNumber = "166"
             endingLineNumber = "166"
             landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KPT_iOS_Swift/Main/Controller/PhotoEvidenceViewController.swift"
+            timestampString = "490788444.265576"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
+            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KPT_iOS_Swift/UserInfo/Controller/CarInfoViewController.swift"
+            timestampString = "493264944.080323"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "288"
+            endingLineNumber = "288"
+            landmarkName = "showInputText(_:detailStr:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KPT_iOS_Swift/UserInfo/Controller/DrivingLicenceViewController.swift"
+            timestampString = "493264948.314669"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "360"
+            endingLineNumber = "360"
+            landmarkName = "showInputText(_:detailStr:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KPT_iOS_Swift/UserInfo/Controller/UserInfoViewController.swift"
+            timestampString = "493265001.062425"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
+            landmarkName = "showInputText(_:detailStr:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

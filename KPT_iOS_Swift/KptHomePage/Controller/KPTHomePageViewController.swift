@@ -58,13 +58,15 @@ class KPTHomePageViewController: UIViewController,UIGestureRecognizerDelegate {
         MAMapServices.sharedServices().apiKey = APIKEY
         AMapNaviServices.sharedServices().apiKey = APIKEY//代替下面的方法
 //        AMapSearchServices.sharedServices().apiKey = APIKey
-        
-        mapView = MAMapView(frame:self.view.bounds)
-        
-        mapView.delegate = self
-        mapView.showsUserLocation = true //开启定位
-        mapView.showsCompass = false //不显示罗盘
-        mapView.showsScale = false //关闭比例尺
+        if mapView == nil {
+            mapView = MAMapView(frame:self.view.bounds)
+            
+            mapView.delegate = self
+            mapView.showsUserLocation = true //开启定位
+            mapView.showsCompass = false //不显示罗盘
+            mapView.showsScale = false //关闭比例尺
+        }
+       
         //设置定位模式
         mapView.distanceFilter = 10.0
         mapView.userTrackingMode = MAUserTrackingModeFollow
